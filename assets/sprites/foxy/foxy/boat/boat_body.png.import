@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://xwsf48pje60i"
-path="res://.godot/imported/boat_body.png-ca0dbfb10d6745147ffbc8980d764f9c.ctex"
+path="res://.godot/imported/boat_body.png-657c8e00101dbcbe4674ad04bef6af38.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://contents/foxy/foxy/boat/boat_body.png"
-dest_files=["res://.godot/imported/boat_body.png-ca0dbfb10d6745147ffbc8980d764f9c.ctex"]
+source_file="res://assets/sprites/foxy/foxy/boat/boat_body.png"
+dest_files=["res://.godot/imported/boat_body.png-657c8e00101dbcbe4674ad04bef6af38.ctex"]
 
 [params]
 

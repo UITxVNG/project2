@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dwm2wacw065mq"
-path="res://.godot/imported/ship_helm_idle_01.png-ef779e1dd72e2a2e4da651d6ad8e73e4.ctex"
+path="res://.godot/imported/ship_helm_idle_01.png-eb2b4fe99eef8f12732f3760bc10987c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://contents/island/objects/ship_helm/ship_helm_idle_01.png"
-dest_files=["res://.godot/imported/ship_helm_idle_01.png-ef779e1dd72e2a2e4da651d6ad8e73e4.ctex"]
+source_file="res://assets/sprites/island/objects/ship_helm/ship_helm_idle_01.png"
+dest_files=["res://.godot/imported/ship_helm_idle_01.png-eb2b4fe99eef8f12732f3760bc10987c.ctex"]
 
 [params]
 

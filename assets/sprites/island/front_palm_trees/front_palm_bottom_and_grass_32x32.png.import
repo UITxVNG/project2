@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dr30e83oe7w2j"
-path="res://.godot/imported/front_palm_bottom_and_grass_32x32.png-c7f221357f8b4651e1856c4461ba2f07.ctex"
+path="res://.godot/imported/front_palm_bottom_and_grass_32x32.png-ad59d285021a47d38dd25c57f256ba74.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://contents/island/front_palm_trees/front_palm_bottom_and_grass_32x32.png"
-dest_files=["res://.godot/imported/front_palm_bottom_and_grass_32x32.png-c7f221357f8b4651e1856c4461ba2f07.ctex"]
+source_file="res://assets/sprites/island/front_palm_trees/front_palm_bottom_and_grass_32x32.png"
+dest_files=["res://.godot/imported/front_palm_bottom_and_grass_32x32.png-ad59d285021a47d38dd25c57f256ba74.ctex"]
 
 [params]
 

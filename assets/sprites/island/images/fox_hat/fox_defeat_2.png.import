@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dr8cnb5rk3udb"
-path="res://.godot/imported/fox_defeat_2.png-d2a023712290e8d8bc20cd60f8c74dbc.ctex"
+path="res://.godot/imported/fox_defeat_2.png-3ead189b451cc0980dcae58a3cdde7b9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://contents/island/images/fox_hat/fox_defeat_2.png"
-dest_files=["res://.godot/imported/fox_defeat_2.png-d2a023712290e8d8bc20cd60f8c74dbc.ctex"]
+source_file="res://assets/sprites/island/images/fox_hat/fox_defeat_2.png"
+dest_files=["res://.godot/imported/fox_defeat_2.png-3ead189b451cc0980dcae58a3cdde7b9.ctex"]
 
 [params]
 

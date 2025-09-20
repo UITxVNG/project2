@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://lx7c3exk2vl1"
-path="res://.godot/imported/smoke_walk_1.png-5b79eaa7aa72f536d1efde98516cc2fd.ctex"
+path="res://.godot/imported/smoke_walk_1.png-f1fe91510fd9f417d76797b645ca0cb3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://contents/foxy/foxy/smoke/smoke_walk_1.png"
-dest_files=["res://.godot/imported/smoke_walk_1.png-5b79eaa7aa72f536d1efde98516cc2fd.ctex"]
+source_file="res://assets/sprites/foxy/foxy/smoke/smoke_walk_1.png"
+dest_files=["res://.godot/imported/smoke_walk_1.png-f1fe91510fd9f417d76797b645ca0cb3.ctex"]
 
 [params]
 

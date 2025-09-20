@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://v2dtejovry7r"
-path="res://.godot/imported/terrain_32x32.png-10f51761e8e417b44b7379d3ff462682.ctex"
+path="res://.godot/imported/terrain_32x32.png-82a54cd6760baf075ac75160db60a078.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://contents/island/terrain/terrain_32x32.png"
-dest_files=["res://.godot/imported/terrain_32x32.png-10f51761e8e417b44b7379d3ff462682.ctex"]
+source_file="res://assets/sprites/island/terrain/terrain_32x32.png"
+dest_files=["res://.godot/imported/terrain_32x32.png-82a54cd6760baf075ac75160db60a078.ctex"]
 
 [params]
 

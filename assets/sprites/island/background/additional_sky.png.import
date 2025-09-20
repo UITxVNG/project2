@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dcrnqve71d36p"
-path="res://.godot/imported/additional_sky.png-bd0bff4a513f69f6fb4025a4a9e15faa.ctex"
+path="res://.godot/imported/additional_sky.png-4988844d065ada49fb9bbf9ece8439ee.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://contents/island/background/additional_sky.png"
-dest_files=["res://.godot/imported/additional_sky.png-bd0bff4a513f69f6fb4025a4a9e15faa.ctex"]
+source_file="res://assets/sprites/island/background/additional_sky.png"
+dest_files=["res://.godot/imported/additional_sky.png-4988844d065ada49fb9bbf9ece8439ee.ctex"]
 
 [params]
 

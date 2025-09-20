@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://7gky8kgre65u"
-path="res://.godot/imported/blade_anim_2.png-9ed67602afef62b6ecf025e76b7dc36e.ctex"
+path="res://.godot/imported/blade_anim_2.png-7c8912391c0368370ac560c4e57ac3ce.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://contents/island/images/blade/blade_anim_2.png"
-dest_files=["res://.godot/imported/blade_anim_2.png-9ed67602afef62b6ecf025e76b7dc36e.ctex"]
+source_file="res://assets/sprites/island/images/blade/blade_anim_2.png"
+dest_files=["res://.godot/imported/blade_anim_2.png-7c8912391c0368370ac560c4e57ac3ce.ctex"]
 
 [params]
 

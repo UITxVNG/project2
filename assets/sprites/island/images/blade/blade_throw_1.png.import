@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bg5dunexnubae"
-path="res://.godot/imported/blade_throw_1.png-990aa55c764e2632e92ad137722595f0.ctex"
+path="res://.godot/imported/blade_throw_1.png-51c2dcc7fe38b092393845332e5eadf8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://contents/island/images/blade/blade_throw_1.png"
-dest_files=["res://.godot/imported/blade_throw_1.png-990aa55c764e2632e92ad137722595f0.ctex"]
+source_file="res://assets/sprites/island/images/blade/blade_throw_1.png"
+dest_files=["res://.godot/imported/blade_throw_1.png-51c2dcc7fe38b092393845332e5eadf8.ctex"]
 
 [params]
 

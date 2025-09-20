@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cy84hetg5u1wp"
-path="res://.godot/imported/war_lord_turtle2.png-6508a94f292e3263731abf7cbe77c410.ctex"
+path="res://.godot/imported/war_lord_turtle2.png-5b715d695885cf34281d1a23fac2432e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://contents/war_lord/war_lord_turtle2.png"
-dest_files=["res://.godot/imported/war_lord_turtle2.png-6508a94f292e3263731abf7cbe77c410.ctex"]
+source_file="res://assets/sprites/war_lord/war_lord_turtle2.png"
+dest_files=["res://.godot/imported/war_lord_turtle2.png-5b715d695885cf34281d1a23fac2432e.ctex"]
 
 [params]
 

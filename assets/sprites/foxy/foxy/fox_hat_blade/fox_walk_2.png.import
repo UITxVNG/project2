@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cr8a68nw3dww1"
-path="res://.godot/imported/fox_walk_2.png-fa1e54f68f1c09ad38f5016919b9049f.ctex"
+path="res://.godot/imported/fox_walk_2.png-0b7ef289581052bf2733ea2e802bd059.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://contents/foxy/foxy/fox_hat_blade/fox_walk_2.png"
-dest_files=["res://.godot/imported/fox_walk_2.png-fa1e54f68f1c09ad38f5016919b9049f.ctex"]
+source_file="res://assets/sprites/foxy/foxy/fox_hat_blade/fox_walk_2.png"
+dest_files=["res://.godot/imported/fox_walk_2.png-0b7ef289581052bf2733ea2e802bd059.ctex"]
 
 [params]
 

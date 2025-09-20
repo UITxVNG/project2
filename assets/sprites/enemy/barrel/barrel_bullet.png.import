@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cccirlr8d1nfr"
-path="res://.godot/imported/barrel_bullet.png-c76ca2b2c33ed4d9264dec2fc0d85cb9.ctex"
+path="res://.godot/imported/barrel_bullet.png-707f0e153da73f1064518569a250c2b7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://contents/enemy/barrel/barrel_bullet.png"
-dest_files=["res://.godot/imported/barrel_bullet.png-c76ca2b2c33ed4d9264dec2fc0d85cb9.ctex"]
+source_file="res://assets/sprites/enemy/barrel/barrel_bullet.png"
+dest_files=["res://.godot/imported/barrel_bullet.png-707f0e153da73f1064518569a250c2b7.ctex"]
 
 [params]
 

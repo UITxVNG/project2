@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c3k7842sg3rwa"
-path="res://.godot/imported/fox_idle_1.png-ed5d0306f49185f81820d5ab971f5825.ctex"
+path="res://.godot/imported/fox_idle_1.png-9bd8a752454966caa85fb0612e57f81e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://contents/foxy/foxy/fox_blade/fox_idle_1.png"
-dest_files=["res://.godot/imported/fox_idle_1.png-ed5d0306f49185f81820d5ab971f5825.ctex"]
+source_file="res://assets/sprites/foxy/foxy/fox_blade/fox_idle_1.png"
+dest_files=["res://.godot/imported/fox_idle_1.png-9bd8a752454966caa85fb0612e57f81e.ctex"]
 
 [params]
 

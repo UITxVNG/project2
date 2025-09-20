@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ia0y42ncy4i2"
-path="res://.godot/imported/bullet_rocket_particle.png-67c85c1642a92e4ff6b12fb6a9756937.ctex"
+path="res://.godot/imported/bullet_rocket_particle.png-ab9daa76ec61a0b3e439df394cbc8e86.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://contents/war_lord_bullet/bullet_rocket_particle.png"
-dest_files=["res://.godot/imported/bullet_rocket_particle.png-67c85c1642a92e4ff6b12fb6a9756937.ctex"]
+source_file="res://assets/sprites/war_lord_bullet/bullet_rocket_particle.png"
+dest_files=["res://.godot/imported/bullet_rocket_particle.png-ab9daa76ec61a0b3e439df394cbc8e86.ctex"]
 
 [params]
 

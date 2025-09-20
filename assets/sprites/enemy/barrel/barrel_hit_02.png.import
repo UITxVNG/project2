@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://lfl1qsl8wmcy"
-path="res://.godot/imported/barrel_hit_02.png-a10fa3a2d830cc4a2b7dd50b53456a78.ctex"
+path="res://.godot/imported/barrel_hit_02.png-f62f3b5480d47f9c487a86b3ca94e303.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://contents/enemy/barrel/barrel_hit_02.png"
-dest_files=["res://.godot/imported/barrel_hit_02.png-a10fa3a2d830cc4a2b7dd50b53456a78.ctex"]
+source_file="res://assets/sprites/enemy/barrel/barrel_hit_02.png"
+dest_files=["res://.godot/imported/barrel_hit_02.png-f62f3b5480d47f9c487a86b3ca94e303.ctex"]
 
 [params]
 
