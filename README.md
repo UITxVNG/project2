@@ -18,7 +18,7 @@
 | 2   | 22521406 | Huỳnh Hữu Thịnh              |  |  |
 | 3   | 22521505 | Hà Bảo Trân                  |  |  |
 | 4   | 22521529 | Vũ Hoàng Trọng Trí           |  |  |
-
+| 5   | 22521248 | Đặng Thành Sơn               |  |  |
 ## ❔ **How to name a branch**
 
 - Start the branch name with a prefix `{type}/`
