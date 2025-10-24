@@ -1,0 +1,98 @@
+name: Build and Deploy Godot HTML5 to Itch.io
+
+on:
+  push:
+    branches:
+      - main
+      - ci/build&deploy
+    tags:
+      - 'v*'   
+
+  pull_request:
+    branches:
+      - main
+      - ci/build&deploy
+    tags:
+      - 'v*'   
+
+
+  workflow_dispatch:
+
+env:
+  GODOT_BIN: /home/runner/.local/share/godot/godot_executable/Godot_v4.4-stable_linux.x86_64
+
+
+jobs:
+  export:
+    name: Export and Deploy
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5.0.0
+        with:
+          fetch-depth: 0  # Fetch all history for diff and tag
+
+      # Determine version (from tag or fallback to run number)
+      - name: Set version
+        id: version
+        run: |
+          if [[ "${GITHUB_REF_TYPE}" == "tag" ]]; then
+            echo "version=${GITHUB_REF_NAME}" >> $GITHUB_OUTPUT
+          else
+            echo "version=build-${GITHUB_RUN_NUMBER}" >> $GITHUB_OUTPUT
+          fi
+          echo "Detected version: ${{ steps.version.outputs.version }}"
+
+      # Detect if files changed (to skip unnecessary rebuilds)
+      - name: Check for changes
+        id: changes
+        run: |
+          git fetch origin main
+          CHANGED=$(git diff --name-only origin/main...HEAD -- 'scenes/**' 'scripts/**' 'assets/**' 'project.godot' 'export_presets.cfg')
+          if [ -z "$CHANGED" ]; then
+            echo "No relevant changes detected. Skipping export."
+            echo "skip=true" >> $GITHUB_OUTPUT
+          else
+            echo "Changes detected in game files."
+            echo "skip=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Set up Godot
+        if: steps.changes.outputs.skip == 'false'
+        uses: firebelley/godot-export@v7.0.0
+        with:
+          godot_executable_download_url: "https://github.com/godotengine/godot-builds/releases/download/4.4-stable/Godot_v4.4-stable_linux.x86_64.zip"
+          godot_export_templates_download_url: "https://github.com/godotengine/godot-builds/releases/download/4.4-stable/Godot_v4.4-stable_export_templates.tpz"
+          relative_project_path: "."
+          export_debug: false
+          verbose: true
+          presets_to_export: "Web"
+
+      - name: Export project to HTML5
+        if: steps.changes.outputs.skip == 'false'
+        run: |
+          mkdir -p public
+          $GODOT_BIN --headless --export-release "Web" public/index.html
+
+      - name: Upload artifact (optional)
+        if: steps.changes.outputs.skip == 'false'
+        uses: actions/upload-artifact@v4
+        with:
+          name: html5-build-${{ steps.version.outputs.version }}
+          path: public
+
+      - name: Deploy to itch.io
+        if: steps.changes.outputs.skip == 'false'
+        uses: josephbmanley/butler-publish-itchio-action@v1.0.3
+        env:
+          BUTLER_CREDENTIALS: ${{ secrets.ITCHIO_API_KEY }}
+          ITCH_USER: dphngnam
+          ITCH_GAME: foxy-adventure
+          CHANNEL: html5
+          PACKAGE: public
+          VERSION: ${{ steps.version.outputs.version }}
+
+      - name: Skip notice
+        if: steps.changes.outputs.skip == 'true'
+        run: echo "✅ No changes in game files — skipping export & deploy."
