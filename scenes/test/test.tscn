@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://qjojp3xo7ie3"]
+
+[ext_resource type="Texture2D" uid="uid://ilolheqwlwk2" path="res://icon.svg" id="1_da6vm"]
+[ext_resource type="PackedScene" uid="uid://cr06n1w1va6i8" path="res://scenes/player/player.tscn" id="2_st4qh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_51e2l"]
+size = Vector2(120, 122)
+
+[node name="Stage" type="Node2D"]
+
+[node name="World" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="World"]
+position = Vector2(348, 212)
+scale = Vector2(5.22656, 0.601563)
+texture = ExtResource("1_da6vm")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="World/Sprite2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Sprite2D/StaticBody2D"]
+position = Vector2(-2, -1)
+shape = SubResource("RectangleShape2D_51e2l")
+
+[node name="Player" parent="World" instance=ExtResource("2_st4qh")]
+position = Vector2(179, 144)
+
+[node name="Bullets" type="Node2D" parent="."]
