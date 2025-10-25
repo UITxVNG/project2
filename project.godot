@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 GameManager="*res://scripts/autoload/game_manager.gd"
 SaveSystem="*res://scripts/autoload/save_system.gd"
+<<<<<<<HEADGameManager="*res://scripts/autoload/game_manager.gd"
 
 [display]
 
