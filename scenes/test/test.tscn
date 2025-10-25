@@ -8,6 +8,9 @@
 [ext_resource type="PackedScene" uid="uid://d2dcr3gj11aw1" path="res://scenes/enemies/pelicant/pelicant.tscn" id="7_2dgve"]
 [ext_resource type="PackedScene" uid="uid://dm2c4i1jf7orw" path="res://scenes/enemies/spike/spike.tscn" id="8_x4ubh"]
 [ext_resource type="PackedScene" uid="uid://cjgvg81b80ge4" path="res://scenes/enemies/starfish/starfish.tscn" id="9_xm0ii"]
+[ext_resource type="PackedScene" uid="uid://0ynutkwlhlce" path="res://scenes/objects/platforms/path2d_moving_platform.tscn" id="3_st4qh"]
+[ext_resource type="PackedScene" uid="uid://cw41ooeg3pxq1" path="res://scenes/objects/checkpoint/checkpoint.tscn" id="4_51e2l"]
+[ext_resource type="PackedScene" uid="uid://dubb5b1vjmsxd" path="res://scenes/objects/door/door.tscn" id="5_oj4i3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_51e2l"]
 size = Vector2(120, 122)
@@ -70,4 +73,19 @@ position = Vector2(1334, 424)
 [node name="Starfish" parent="World" instance=ExtResource("9_xm0ii")]
 position = Vector2(2176, 429)
 
+[node name="Door" parent="World" instance=ExtResource("5_oj4i3")]
+position = Vector2(93, 174)
+target_stage = "uid://qjojp3xo7ie3"
+target_door = "Door2"
+
+[node name="Door2" parent="World" groups=["doors"] instance=ExtResource("5_oj4i3")]
+position = Vector2(539, 170)
+target_stage = "uid://qjojp3xo7ie3"
+
 [node name="Bullets" type="Node2D" parent="."]
+
+[node name="Path2D" parent="." instance=ExtResource("3_st4qh")]
+position = Vector2(380, 112)
+
+[node name="Checkpoint" parent="." instance=ExtResource("4_51e2l")]
+position = Vector2(272, 156)
