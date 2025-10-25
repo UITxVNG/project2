@@ -1,0 +1,153 @@
+[gd_scene load_steps=18 format=4 uid="uid://276dirptn36f"]
+
+[ext_resource type="TileSet" uid="uid://cb15bvv1r2l8k" path="res://assets/tilesets/new_tile_set.tres" id="1_33rtp"]
+[ext_resource type="PackedScene" uid="uid://cr06n1w1va6i8" path="res://scenes/player/player.tscn" id="2_dwsf3"]
+[ext_resource type="Texture2D" uid="uid://dcrnqve71d36p" path="res://assets/sprites/island/background/additional_sky.png" id="3_5usqu"]
+[ext_resource type="Texture2D" uid="uid://bqde0l4at7gv8" path="res://assets/sprites/island/background/bg_image.png" id="4_bfafv"]
+[ext_resource type="Texture2D" uid="uid://ck8762h1hy2cf" path="res://assets/sprites/island/background/additional_water.png" id="5_rltkt"]
+[ext_resource type="Texture2D" uid="uid://m5yds3bm8pou" path="res://assets/sprites/island/background/big_clouds.png" id="6_bfafv"]
+[ext_resource type="Texture2D" uid="uid://cj4dndwsubrhg" path="res://assets/sprites/island/objects/spikes/spikes.png" id="7_f47qk"]
+[ext_resource type="Texture2D" uid="uid://dghceeceb7yew" path="res://assets/sprites/enemy/mushroom/mushroom_01.png" id="7_rltkt"]
+[ext_resource type="Texture2D" uid="uid://cbb66rfvuorgj" path="res://assets/sprites/enemy/crab/crab_01.png" id="8_mvtk4"]
+[ext_resource type="Texture2D" uid="uid://ca1dyh5b7r205" path="res://assets/sprites/enemy/starfish/starfish_01.png" id="9_t1ot5"]
+[ext_resource type="Texture2D" uid="uid://vvyg4vcnh0tj" path="res://assets/sprites/enemy/barrel/barrel_01.png" id="11_1vm6v"]
+[ext_resource type="Texture2D" uid="uid://cw7l2eq4em2o4" path="res://assets/sprites/enemy/pelican/pelican_01.png" id="12_1vm6v"]
+[ext_resource type="Texture2D" uid="uid://bidl5brkimhxo" path="res://assets/sprites/island/objects/chest/chest_close_01.png" id="13_wxig3"]
+[ext_resource type="Texture2D" uid="uid://dwm2wacw065mq" path="res://assets/sprites/island/objects/ship_helm/ship_helm_idle_01.png" id="14_586f6"]
+[ext_resource type="Texture2D" uid="uid://c6e4xfiregoyl" path="res://assets/sprites/island/objects/flag/flag_01.png" id="15_gi8ev"]
+
+[sub_resource type="GDScript" id="GDScript_bfafv"]
+script/source = "extends ParallaxLayer
+
+func _process(delta: float) -> void:
+	motion_offset.x -= delta*20
+"
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rltkt"]
+radius = 12.0
+height = 28.0
+
+[node name="Stage1" type="Node2D"]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("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")
+tile_set = ExtResource("1_33rtp")
+
+[node name="Player" parent="." instance=ExtResource("2_dwsf3")]
+position = Vector2(28, 220)
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.001, 0.8)
+motion_mirroring = Vector2(767, 0)
+
+[node name="SkySprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(417, -11)
+scale = Vector2(26.125, 22.531)
+texture = ExtResource("3_5usqu")
+
+[node name="SeaSkySprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(0, 57)
+scale = Vector2(2, 2)
+texture = ExtResource("4_bfafv")
+centered = false
+
+[node name="WaterSprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(384.5, 404.5)
+scale = Vector2(23.969, 5.969)
+texture = ExtResource("5_rltkt")
+
+[node name="ParallaxLayerCloud" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.001, 0.8)
+motion_mirroring = Vector2(510, 0)
+script = SubResource("GDScript_bfafv")
+
+[node name="BigClouds" type="Sprite2D" parent="ParallaxBackground/ParallaxLayerCloud"]
+position = Vector2(0, 111)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("6_bfafv")
+centered = false
+
+[node name="Spikes" type="Node" parent="."]
+
+[node name="Spikes" type="Sprite2D" parent="Spikes"]
+position = Vector2(526, 206)
+texture = ExtResource("7_f47qk")
+
+[node name="Spikes2" type="Sprite2D" parent="Spikes"]
+position = Vector2(147, 206)
+texture = ExtResource("7_f47qk")
+
+[node name="Spikes3" type="Sprite2D" parent="Spikes"]
+position = Vector2(219, 206)
+texture = ExtResource("7_f47qk")
+
+[node name="Spikes4" type="Sprite2D" parent="Spikes"]
+position = Vector2(295, 206)
+texture = ExtResource("7_f47qk")
+
+[node name="Spikes5" type="Sprite2D" parent="Spikes"]
+position = Vector2(371, 206)
+texture = ExtResource("7_f47qk")
+
+[node name="Spikes6" type="Sprite2D" parent="Spikes"]
+position = Vector2(446, 206)
+texture = ExtResource("7_f47qk")
+
+[node name="Enemies" type="Node" parent="."]
+
+[node name="Crab01" type="Sprite2D" parent="Enemies"]
+position = Vector2(1012, 202)
+texture = ExtResource("8_mvtk4")
+
+[node name="Mushroom01" type="StaticBody2D" parent="Enemies"]
+position = Vector2(67, 206)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemies/Mushroom01"]
+position = Vector2(0, 3)
+shape = SubResource("CapsuleShape2D_rltkt")
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemies/Mushroom01"]
+texture = ExtResource("7_rltkt")
+
+[node name="Starfish01" type="Sprite2D" parent="Enemies"]
+position = Vector2(254, 75)
+texture = ExtResource("9_t1ot5")
+
+[node name="Barrel01" type="Sprite2D" parent="Enemies"]
+position = Vector2(589, -83)
+texture = ExtResource("11_1vm6v")
+
+[node name="Barrel02" type="Sprite2D" parent="Enemies"]
+position = Vector2(531, -82)
+texture = ExtResource("11_1vm6v")
+flip_h = true
+
+[node name="Barrel03" type="Sprite2D" parent="Enemies"]
+position = Vector2(1134, 15)
+texture = ExtResource("11_1vm6v")
+
+[node name="Pelican01" type="Sprite2D" parent="Enemies"]
+position = Vector2(129, -326)
+texture = ExtResource("12_1vm6v")
+
+[node name="Pelican02" type="Sprite2D" parent="Enemies"]
+position = Vector2(513, -329)
+texture = ExtResource("12_1vm6v")
+
+[node name="Crab02" type="Sprite2D" parent="Enemies"]
+position = Vector2(162, -81)
+texture = ExtResource("8_mvtk4")
+
+[node name="ChestClose01" type="Sprite2D" parent="."]
+position = Vector2(1298, 10)
+texture = ExtResource("13_wxig3")
+
+[node name="ShipHelmIdle01" type="Sprite2D" parent="."]
+position = Vector2(560, -111)
+texture = ExtResource("14_586f6")
+
+[node name="Flag01" type="Sprite2D" parent="."]
+position = Vector2(1267, 179)
+texture = ExtResource("15_gi8ev")

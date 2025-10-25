@@ -1,0 +1,80 @@
+[gd_scene load_steps=7 format=3 uid="uid://d3fydof3vb2ac"]
+
+[ext_resource type="Texture2D" uid="uid://getm5kr68qwe" path="res://assets/sprites/island/front_palm_trees/front_palm_tree_top_01.png" id="1_4nl6s"]
+[ext_resource type="Texture2D" uid="uid://07ilhsckqwm6" path="res://assets/sprites/island/front_palm_trees/front_palm_tree_top_02.png" id="2_5pala"]
+[ext_resource type="Texture2D" uid="uid://dwpeqvei7c2tc" path="res://assets/sprites/island/front_palm_trees/front_palm_tree_top_03.png" id="3_sa2r4"]
+[ext_resource type="Texture2D" uid="uid://beay0xcyyoar6" path="res://assets/sprites/island/front_palm_trees/front_palm_tree_top_04.png" id="4_lo53e"]
+
+[sub_resource type="GDScript" id="GDScript_4nl6s"]
+script/source = "extends StaticBody2D
+
+@onready var sprite = $AnimatedSprite2D
+@onready var collider = $CollisionPolygon2D
+@onready var timer = $Timer
+
+@export var visible_duration: float = 2.0
+@export var invisible_duration: float = 3.0
+
+var is_visible: bool = true
+
+func _ready() -> void:
+	sprite.modulate.a = 1.0
+	collider.disabled = false
+	
+	timer.wait_time = visible_duration
+	timer.timeout.connect(_on_timer_timeout)
+	timer.start()
+	
+func _on_timer_timeout() -> void:
+	if is_visible:
+		var warn_tween := get_tree().create_tween()
+		warn_tween.tween_property(sprite, \"modulate:a\", 0.5, 0.2)
+		warn_tween.tween_property(sprite, \"modulate:a\", 1.0, 0.2)
+		warn_tween.set_loops(2) # nhấp nháy 2 lần
+		await get_tree().create_timer(0.8).timeout
+	
+		var tween := get_tree().create_tween()
+		tween.tween_property(sprite, \"modulate:a\", 0.2, 0.5)
+		collider.disabled = true
+		is_visible = false
+		timer.wait_time = invisible_duration
+	else:
+		var tween := get_tree().create_tween()
+		tween.tween_property(sprite, \"modulate:a\", 1.0, 0.5)
+		collider.disabled = false
+		is_visible = true
+		timer.wait_time = visible_duration
+	
+	timer.start()
+"
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gaqi0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_4nl6s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_5pala")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_sa2r4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_lo53e")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="TopPalmTreeHide" type="StaticBody2D"]
+script = SubResource("GDScript_4nl6s")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_gaqi0")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-24, -10, -16, -18, 16, -18, 23, -10)
+
+[node name="Timer" type="Timer" parent="."]
