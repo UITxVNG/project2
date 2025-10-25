@@ -1,11 +1,11 @@
 [gd_scene load_steps=11 format=3 uid="uid://y3b3kg7aa6lr"]
 
-[ext_resource type="Texture2D" uid="uid://bng34woae2g8q" path="res://assets/foxy/blade/blade_throw_1.png" id="1_8k1qs"]
+[ext_resource type="Texture2D" uid="uid://bng34woae2g8q" path="res://assets/sprites/foxy/foxy/blade/blade_throw_1.png" id="1_8k1qs"]
 [ext_resource type="Script" uid="uid://bogsco5cjuqfq" path="res://scenes/player/blade.gd" id="1_k3y4f"]
-[ext_resource type="Texture2D" uid="uid://b0vj30ng1nbql" path="res://assets/foxy/blade/blade_target_1.png" id="2_ap7bo"]
-[ext_resource type="Texture2D" uid="uid://bkip8smslh06" path="res://assets/foxy/blade/blade_target_2.png" id="3_k3y4f"]
-[ext_resource type="Texture2D" uid="uid://d2rh0qqgmaqir" path="res://assets/foxy/blade/blade_target_3.png" id="4_amkl8"]
-[ext_resource type="Texture2D" uid="uid://baucskhqdceas" path="res://assets/foxy/blade/blade_target_4.png" id="5_svnyd"]
+[ext_resource type="Texture2D" uid="uid://b0vj30ng1nbql" path="res://assets/sprites/foxy/foxy/blade/blade_target_1.png" id="2_ap7bo"]
+[ext_resource type="Texture2D" uid="uid://bkip8smslh06" path="res://assets/sprites/foxy/foxy/blade/blade_target_2.png" id="3_k3y4f"]
+[ext_resource type="Texture2D" uid="uid://d2rh0qqgmaqir" path="res://assets/sprites/foxy/foxy/blade/blade_target_3.png" id="4_amkl8"]
+[ext_resource type="Texture2D" uid="uid://baucskhqdceas" path="res://assets/sprites/foxy/foxy/blade/blade_target_4.png" id="5_svnyd"]
 [ext_resource type="Script" uid="uid://dbbfdchjn8157" path="res://scripts/hit_area_2d.gd" id="6_ap7bo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2fhmw"]
