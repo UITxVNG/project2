@@ -1,10 +1,21 @@
-[gd_resource type="TileSet" load_steps=8 format=3 uid="uid://cb15bvv1r2l8k"]
+[gd_resource type="TileSet" load_steps=21 format=3 uid="uid://cb15bvv1r2l8k"]
 
 [ext_resource type="Texture2D" uid="uid://v2dtejovry7r" path="res://assets/sprites/island/terrain/terrain_32x32.png" id="1_1i68p"]
 [ext_resource type="PackedScene" uid="uid://db4svvvhax8kp" path="res://scenes/island/objects/palm_tree_1.tscn" id="2_hbhjq"]
 [ext_resource type="PackedScene" uid="uid://ccev32bh4dh7s" path="res://scenes/island/objects/palm_tree_2.tscn" id="3_fv4da"]
 [ext_resource type="PackedScene" uid="uid://bjhr36ynsaphu" path="res://scenes/island/objects/palm_tree_3.tscn" id="4_yy07o"]
 [ext_resource type="PackedScene" uid="uid://d3fydof3vb2ac" path="res://scenes/island/objects/top_palm_tree_hide.tscn" id="5_8n3m2"]
+[ext_resource type="PackedScene" uid="uid://cioy73jn1bmv" path="res://scenes/enemies/barrel/barrel.tscn" id="6_xmd2m"]
+[ext_resource type="PackedScene" uid="uid://bock2o462txmp" path="res://scenes/enemies/barrel3s/barrel3s.tscn" id="7_777mh"]
+[ext_resource type="PackedScene" uid="uid://cbsa8w2lp8433" path="res://scenes/enemies/crab/carb.tscn" id="8_i233u"]
+[ext_resource type="PackedScene" uid="uid://dnj077mr8k0u3" path="res://scenes/enemies/mushroom/mushroom.tscn" id="9_yfbvw"]
+[ext_resource type="PackedScene" uid="uid://d2dcr3gj11aw1" path="res://scenes/enemies/pelicant/pelicant.tscn" id="10_rex1v"]
+[ext_resource type="PackedScene" uid="uid://dm2c4i1jf7orw" path="res://scenes/enemies/spike/spike.tscn" id="11_5sc6k"]
+[ext_resource type="PackedScene" uid="uid://cjgvg81b80ge4" path="res://scenes/enemies/starfish/starfish.tscn" id="12_y3k0m"]
+[ext_resource type="PackedScene" uid="uid://cw41ooeg3pxq1" path="res://scenes/objects/checkpoint/checkpoint.tscn" id="13_rex1v"]
+[ext_resource type="PackedScene" uid="uid://dubb5b1vjmsxd" path="res://scenes/objects/door/door.tscn" id="14_5sc6k"]
+[ext_resource type="PackedScene" uid="uid://bmf0ebquqnpf8" path="res://scenes/objects/platforms/manual_moving_platform.tscn" id="15_y3k0m"]
+[ext_resource type="PackedScene" uid="uid://0ynutkwlhlce" path="res://scenes/objects/platforms/path2d_moving_platform.tscn" id="16_gbqw0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hbhjq"]
 texture = ExtResource("1_1i68p")
@@ -387,10 +398,28 @@ texture_region_size = Vector2i(32, 32)
 16:4/0/terrains_peering_bit/top_side = 0
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_fv4da"]
+resource_name = "Trees"
 scenes/1/scene = ExtResource("2_hbhjq")
 scenes/2/scene = ExtResource("3_fv4da")
 scenes/3/scene = ExtResource("4_yy07o")
 scenes/4/scene = ExtResource("5_8n3m2")
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_gbqw0"]
+resource_name = "Monters"
+scenes/1/scene = ExtResource("6_xmd2m")
+scenes/2/scene = ExtResource("7_777mh")
+scenes/3/scene = ExtResource("8_i233u")
+scenes/4/scene = ExtResource("9_yfbvw")
+scenes/5/scene = ExtResource("10_rex1v")
+scenes/6/scene = ExtResource("11_5sc6k")
+scenes/7/scene = ExtResource("12_y3k0m")
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_n8ds3"]
+resource_name = "Objects"
+scenes/1/scene = ExtResource("13_rex1v")
+scenes/2/scene = ExtResource("14_5sc6k")
+scenes/3/scene = ExtResource("15_y3k0m")
+scenes/4/scene = ExtResource("16_gbqw0")
 
 [resource]
 tile_size = Vector2i(32, 32)
@@ -400,3 +429,5 @@ terrain_set_0/terrain_0/name = "Land"
 terrain_set_0/terrain_0/color = Color(0.501961, 0.894118, 0.25098, 1)
 sources/0 = SubResource("TileSetAtlasSource_hbhjq")
 sources/1 = SubResource("TileSetScenesCollectionSource_fv4da")
+sources/2 = SubResource("TileSetScenesCollectionSource_gbqw0")
+sources/3 = SubResource("TileSetScenesCollectionSource_n8ds3")
