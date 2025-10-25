@@ -234,7 +234,8 @@ height = 46.0
 radius = 9.0
 height = 38.0
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
+z_index = 1
 collision_layer = 2
 collision_mask = 9
 script = ExtResource("1_wodsf")

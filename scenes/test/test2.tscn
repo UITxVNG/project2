@@ -1,0 +1,40 @@
+[gd_scene load_steps=7 format=3 uid="uid://c0p1rw3em4axh"]
+
+[ext_resource type="Texture2D" uid="uid://ilolheqwlwk2" path="res://icon.svg" id="1_0bxed"]
+[ext_resource type="PackedScene" uid="uid://cr06n1w1va6i8" path="res://scenes/player/player.tscn" id="2_xbngi"]
+[ext_resource type="PackedScene" uid="uid://0ynutkwlhlce" path="res://scenes/objects/platforms/path2d_moving_platform.tscn" id="3_n1u7t"]
+[ext_resource type="PackedScene" uid="uid://cw41ooeg3pxq1" path="res://scenes/objects/checkpoint/checkpoint.tscn" id="4_65f7k"]
+[ext_resource type="PackedScene" uid="uid://dubb5b1vjmsxd" path="res://scenes/objects/door/door.tscn" id="5_xbngi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_51e2l"]
+size = Vector2(120, 122)
+
+[node name="Stage" type="Node2D"]
+
+[node name="World" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="World"]
+position = Vector2(348, 212)
+scale = Vector2(5.22656, 0.601563)
+texture = ExtResource("1_0bxed")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="World/Sprite2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Sprite2D/StaticBody2D"]
+position = Vector2(-2, -1)
+shape = SubResource("RectangleShape2D_51e2l")
+
+[node name="Player" parent="World" instance=ExtResource("2_xbngi")]
+position = Vector2(179, 144)
+
+[node name="Bullets" type="Node2D" parent="."]
+
+[node name="Path2D" parent="." instance=ExtResource("3_n1u7t")]
+position = Vector2(380, 112)
+
+[node name="Checkpoint" parent="." instance=ExtResource("4_65f7k")]
+position = Vector2(272, 156)
+
+[node name="Door" parent="." groups=["doors"] instance=ExtResource("5_xbngi")]
+position = Vector2(83, 172)
+target_stage = "uid://qjojp3xo7ie3"
