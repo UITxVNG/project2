@@ -1,0 +1,118 @@
+[gd_scene load_steps=16 format=3 uid="uid://cbsa8w2lp8433"]
+
+[ext_resource type="Script" uid="uid://5aif2c4knnxp" path="res://scenes/enemies/crab/carb.gd" id="1_7gbll"]
+[ext_resource type="Texture2D" uid="uid://d0njckh17q4oi" path="res://assets/sprites/enemy/crab/crab_hit_01.png" id="2_yfbxp"]
+[ext_resource type="Texture2D" uid="uid://y44x61x6bxmy" path="res://assets/sprites/enemy/crab/crab_hit_02.png" id="3_0g23w"]
+[ext_resource type="Texture2D" uid="uid://cbb66rfvuorgj" path="res://assets/sprites/enemy/crab/crab_01.png" id="4_wrprr"]
+[ext_resource type="Script" uid="uid://bojxilxfo7byr" path="res://scenes/enemies/crab/run.gd" id="5_7gbll"]
+[ext_resource type="Texture2D" uid="uid://dmrvkxdykrbhy" path="res://assets/sprites/enemy/crab/crab_02.png" id="5_vrp73"]
+[ext_resource type="Script" path="res://scripts/hit_area_2d.gd" id="6_d2rnu"]
+[ext_resource type="Texture2D" uid="uid://cy2ogxeqcdbnj" path="res://assets/sprites/enemy/crab/crab_03.png" id="6_tg6md"]
+[ext_resource type="Script" uid="uid://csu2b21cwchqw" path="res://scripts/hurt_area_2d.gd" id="7_fxk31"]
+[ext_resource type="Script" uid="uid://d344fp7pskpua" path="res://scenes/enemies/crab/hurt.gd" id="8_0g23w"]
+[ext_resource type="Script" uid="uid://co8a08ha2mc64" path="res://scenes/enemies/crab/dead.gd" id="9_yfbxp"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_65eia"]
+radius = 17.0
+height = 34.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_iqkpf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_yfbxp")
+}],
+"loop": true,
+"name": &"dead",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_yfbxp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_0g23w")
+}],
+"loop": true,
+"name": &"hurt",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_wrprr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_vrp73")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_tg6md")
+}],
+"loop": true,
+"name": &"run",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_65eia"]
+size = Vector2(60.125, 34.5)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fxk31"]
+radius = 19.0
+height = 38.0
+
+[node name="Carb" type="CharacterBody2D"]
+script = ExtResource("1_7gbll")
+metadata/_custom_type_script = "uid://s4xx82espxdt"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2, -3)
+shape = SubResource("CapsuleShape2D_65eia")
+
+[node name="Direction" type="Node2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Direction"]
+sprite_frames = SubResource("SpriteFrames_iqkpf")
+animation = &"run"
+
+[node name="DownRayCast2D" type="RayCast2D" parent="Direction"]
+position = Vector2(25, 0)
+target_position = Vector2(0, 33)
+
+[node name="FrontRayCast2D" type="RayCast2D" parent="Direction"]
+position = Vector2(10, -3)
+target_position = Vector2(12, 0)
+
+[node name="HurtArea2D" type="Area2D" parent="Direction"]
+position = Vector2(1, 0)
+collision_layer = 16
+collision_mask = 0
+script = ExtResource("7_fxk31")
+metadata/_custom_type_script = "uid://csu2b21cwchqw"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Direction/HurtArea2D"]
+position = Vector2(-1, -2)
+shape = SubResource("RectangleShape2D_65eia")
+
+[node name="States" type="Node" parent="."]
+
+[node name="Run" type="Node" parent="States"]
+script = ExtResource("5_7gbll")
+
+[node name="Hurt" type="Node" parent="States"]
+script = ExtResource("8_0g23w")
+
+[node name="Dead" type="Node" parent="States"]
+script = ExtResource("9_yfbxp")
+
+[node name="HitArea2D" type="Area2D" parent="."]
+position = Vector2(1, 0)
+collision_layer = 0
+collision_mask = 4
+script = ExtResource("6_d2rnu")
+damage = null
+metadata/_custom_type_script = "uid://boqnecm16fluw"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitArea2D"]
+position = Vector2(-2, -3)
+shape = SubResource("CapsuleShape2D_fxk31")
+
+[connection signal="hurt" from="Direction/HurtArea2D" to="." method="_on_hurt_area_2d_hurt"]

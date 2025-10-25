@@ -1,7 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://qjojp3xo7ie3"]
+[gd_scene load_steps=10 format=3 uid="uid://qjojp3xo7ie3"]
 
 [ext_resource type="Texture2D" uid="uid://ilolheqwlwk2" path="res://icon.svg" id="1_da6vm"]
 [ext_resource type="PackedScene" uid="uid://cr06n1w1va6i8" path="res://scenes/player/player.tscn" id="2_st4qh"]
+[ext_resource type="PackedScene" uid="uid://cioy73jn1bmv" path="res://scenes/enemies/barrel/barrel.tscn" id="3_5unt0"]
+[ext_resource type="PackedScene" uid="uid://bock2o462txmp" path="res://scenes/enemies/barrel3s/barrel3s.tscn" id="4_saoeg"]
+[ext_resource type="PackedScene" uid="uid://cbsa8w2lp8433" path="res://scenes/enemies/crab/carb.tscn" id="5_we7ej"]
+[ext_resource type="PackedScene" uid="uid://d2dcr3gj11aw1" path="res://scenes/enemies/pelicant/pelicant.tscn" id="7_2dgve"]
+[ext_resource type="PackedScene" uid="uid://dm2c4i1jf7orw" path="res://scenes/enemies/spike/spike.tscn" id="8_x4ubh"]
+[ext_resource type="PackedScene" uid="uid://cjgvg81b80ge4" path="res://scenes/enemies/starfish/starfish.tscn" id="9_xm0ii"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_51e2l"]
 size = Vector2(120, 122)
@@ -18,10 +24,50 @@ texture = ExtResource("1_da6vm")
 [node name="StaticBody2D" type="StaticBody2D" parent="World/Sprite2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/Sprite2D/StaticBody2D"]
-position = Vector2(-2, -1)
+position = Vector2(0.382662, -11.6364)
 shape = SubResource("RectangleShape2D_51e2l")
 
 [node name="Player" parent="World" instance=ExtResource("2_st4qh")]
-position = Vector2(179, 144)
+position = Vector2(-501, 360)
+
+[node name="Sprite2D2" type="Sprite2D" parent="World"]
+position = Vector2(973, 463)
+scale = Vector2(27.3169, 0.361878)
+texture = ExtResource("1_da6vm")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="World/Sprite2D2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Sprite2D2/StaticBody2D"]
+position = Vector2(-3.91123, -6.99502)
+shape = SubResource("RectangleShape2D_51e2l")
+
+[node name="Sprite2D3" type="Sprite2D" parent="World"]
+position = Vector2(1416, 174)
+scale = Vector2(5.44272, -0.558964)
+texture = ExtResource("1_da6vm")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="World/Sprite2D3"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Sprite2D3/StaticBody2D"]
+position = Vector2(0.382662, -11.6364)
+shape = SubResource("RectangleShape2D_51e2l")
+
+[node name="Barrel" parent="World" instance=ExtResource("3_5unt0")]
+position = Vector2(-40, 435)
+
+[node name="Barrel3s" parent="World" instance=ExtResource("4_saoeg")]
+position = Vector2(852, 423)
+
+[node name="Carb" parent="World" instance=ExtResource("5_we7ej")]
+position = Vector2(1766, 425)
+
+[node name="Pelicant" parent="World" instance=ExtResource("7_2dgve")]
+position = Vector2(-601, 176)
+
+[node name="Spike" parent="World" instance=ExtResource("8_x4ubh")]
+position = Vector2(1334, 424)
+
+[node name="Starfish" parent="World" instance=ExtResource("9_xm0ii")]
+position = Vector2(2176, 429)
 
 [node name="Bullets" type="Node2D" parent="."]

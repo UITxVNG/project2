@@ -1,0 +1,85 @@
+[gd_scene load_steps=15 format=3 uid="uid://d2dcr3gj11aw1"]
+
+[ext_resource type="Script" uid="uid://cpdwpvese7vsl" path="res://scenes/enemies/pelicant/pelicant.gd" id="1_5tuwc"]
+[ext_resource type="Texture2D" uid="uid://cw7l2eq4em2o4" path="res://assets/sprites/enemy/pelican/pelican_01.png" id="2_5tuwc"]
+[ext_resource type="Texture2D" uid="uid://cvebyevh4wrdc" path="res://assets/sprites/enemy/pelican/pelican_02.png" id="3_0bbve"]
+[ext_resource type="Texture2D" uid="uid://dtqhg2v66ahra" path="res://assets/sprites/enemy/pelican/pelican_03.png" id="4_1tlf8"]
+[ext_resource type="Texture2D" uid="uid://c3wctt2go426x" path="res://assets/sprites/enemy/pelican/pelican_04.png" id="5_hdcfd"]
+[ext_resource type="Texture2D" uid="uid://wuy1uuiar5ks" path="res://assets/sprites/enemy/pelican/pelican_atk_01.png" id="6_5i1qw"]
+[ext_resource type="Texture2D" uid="uid://mm1wjsljkgdi" path="res://assets/sprites/enemy/pelican/pelican_atk_02.png" id="7_klicm"]
+[ext_resource type="Texture2D" uid="uid://fkjxlfeiwlc7" path="res://assets/sprites/enemy/pelican/pelican_atk_03.png" id="8_jt330"]
+[ext_resource type="Script" uid="uid://dva73oliuh5wk" path="res://scripts/node2d_factory.gd" id="9_1jev2"]
+[ext_resource type="PackedScene" uid="uid://dsce4j04uulo7" path="res://scenes/enemies/pelicant/pelicanbullet.tscn" id="10_5tuwc"]
+[ext_resource type="Script" uid="uid://cscdlf2ka50l5" path="res://scenes/enemies/pelicant/idle.gd" id="11_5tuwc"]
+[ext_resource type="Script" uid="uid://cg0od6l3ox5eg" path="res://scenes/enemies/barrel/shoot.gd" id="12_25q3l"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_htxbm"]
+radius = 17.0
+height = 34.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_geqcu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_5tuwc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_0bbve")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_1tlf8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_hdcfd")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_5i1qw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_klicm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_jt330")
+}],
+"loop": true,
+"name": &"Shoot",
+"speed": 5.0
+}]
+
+[node name="Pelicant" type="CharacterBody2D"]
+script = ExtResource("1_5tuwc")
+metadata/_custom_type_script = "uid://s4xx82espxdt"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 4)
+shape = SubResource("CapsuleShape2D_htxbm")
+
+[node name="Direction" type="Node2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Direction"]
+position = Vector2(5, 8)
+sprite_frames = SubResource("SpriteFrames_geqcu")
+animation = &"Shoot"
+
+[node name="BulletFactory" type="Marker2D" parent="Direction"]
+position = Vector2(16, 17)
+script = ExtResource("9_1jev2")
+product_packed_scene = ExtResource("10_5tuwc")
+target_container_name = &"Bullets"
+
+[node name="FrontRayCast2D" type="RayCast2D" parent="Direction"]
+position = Vector2(10, -3)
+target_position = Vector2(27, 1)
+
+[node name="States" type="Node" parent="."]
+
+[node name="Idle" type="Node" parent="States"]
+script = ExtResource("11_5tuwc")
+
+[node name="Shoot" type="Node" parent="States"]
+script = ExtResource("12_25q3l")
