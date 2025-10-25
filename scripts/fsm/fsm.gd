@@ -23,7 +23,7 @@ func _init(target_obj: Node, states_parent_node: Node, initial_state: FSMState, 
 
 func _set_states_parent_node(parent_node: Node) -> void:
 	if debug:
-		print("Found ", parent_node.get_child_count(), " states")
+		print("Found ", parent_node.get_child_count(), "states")
 	if parent_node.get_child_count() == 0:
 		return
 	var state_nodes: Array = parent_node.get_children()

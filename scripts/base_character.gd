@@ -6,13 +6,13 @@ extends CharacterBody2D
 @export var movement_speed: float = 200.0
 @export var gravity: float = 700.0
 @export var direction: int = 1
-
+@export var ignore_gravity: bool = false
 @export var attack_damage: int = 1
 @export var max_health: int = 3
 var health: int = max_health
-var is_invincible = false
 
-var jump_speed: float = 320.0
+
+var jump_speed: float = 420.0
 var fsm: FSM = null
 var current_animation = null
 var animated_sprite: AnimatedSprite2D = null
@@ -37,7 +37,7 @@ func _physics_process(delta: float) -> void:
 
 
 func _update_movement(delta: float) -> void:
-	if gravity > 0:
+	if not ignore_gravity:
 		velocity.y += gravity * delta
 	move_and_slide()
 	pass
@@ -61,19 +61,14 @@ func turn_right() -> void:
 
 func jump() -> void:
 	velocity.y = -jump_speed
-
+func attack() -> void:
+	pass
 func stop_move() -> void:
 	velocity.x = 0
 	velocity.y = 0
 
 func take_damage(damage: int) -> void:
-	if is_invincible:
-		return
-	
 	health -= damage
-	is_invincible = true
-	await get_tree().create_timer(2.0).timeout
-	is_invincible = false
 
 # Change the animation of the character on the next frame
 func change_animation(new_animation: String) -> void:
