@@ -11,7 +11,19 @@ func _ready() -> void:
 	$HurtArea2D.hurt.connect(_on_hurt_area_2d_hurt)
 	if has_blade:
 		collected_blade()
+	GameManager.player = self
+		
+func save_state() -> Dictionary:
+	return {
+		"position": [global_position.x, global_position.y]
+	}
 
+func load_state(data: Dictionary) -> void:
+	"""Load player state from checkpoint data"""
+	if data.has("position"):
+		var pos_array = data["position"]
+		global_position = Vector2(pos_array[0], pos_array[1])
+			
 func can_attack() -> bool:
 	return has_blade
 

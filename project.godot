@@ -17,6 +17,8 @@ config/icon="res://icon.svg"
 
 [autoload]
 
+GameManager="*res://scripts/autoload/game_manager.gd"
+SaveSystem="*res://scripts/autoload/save_system.gd"
 Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 
 [dialogic]
@@ -34,9 +36,10 @@ window/stretch/aspect="expand"
 
 project/assembly_name="Project2"
 
-[editor_plugins]
+[global_group]
 
-enabled=PackedStringArray("res://addons/dialogic/plugin.cfg")
+Player=""
+doors=""
 
 [input]
 
