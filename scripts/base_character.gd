@@ -12,7 +12,7 @@ extends CharacterBody2D
 var health: int = max_health
 
 
-var jump_speed: float = 420.0
+var jump_speed: float = 320.0
 var fsm: FSM = null
 var current_animation = null
 var animated_sprite: AnimatedSprite2D = null

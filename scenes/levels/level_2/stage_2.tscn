@@ -59,6 +59,3 @@ centered = false
 
 [node name="Door" parent="." instance=ExtResource("7_wdfub")]
 position = Vector2(2960, 37)
-
-[connection signal="body_entered" from="TileMapLayer/Checkpoint" to="TileMapLayer/Checkpoint" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMapLayer/@Area2D@39085" to="TileMapLayer/@Area2D@39085" method="_on_body_entered"]

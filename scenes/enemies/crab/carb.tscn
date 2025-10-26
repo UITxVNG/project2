@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cbb66rfvuorgj" path="res://assets/sprites/enemy/crab/crab_01.png" id="4_wrprr"]
 [ext_resource type="Script" uid="uid://bojxilxfo7byr" path="res://scenes/enemies/crab/run.gd" id="5_7gbll"]
 [ext_resource type="Texture2D" uid="uid://dmrvkxdykrbhy" path="res://assets/sprites/enemy/crab/crab_02.png" id="5_vrp73"]
-[ext_resource type="Script" path="res://scripts/hit_area_2d.gd" id="6_d2rnu"]
+[ext_resource type="Script" uid="uid://dbbfdchjn8157" path="res://scripts/hit_area_2d.gd" id="6_d2rnu"]
 [ext_resource type="Texture2D" uid="uid://cy2ogxeqcdbnj" path="res://assets/sprites/enemy/crab/crab_03.png" id="6_tg6md"]
 [ext_resource type="Script" uid="uid://csu2b21cwchqw" path="res://scripts/hurt_area_2d.gd" id="7_fxk31"]
 [ext_resource type="Script" uid="uid://d344fp7pskpua" path="res://scenes/enemies/crab/hurt.gd" id="8_0g23w"]
@@ -53,7 +53,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_65eia"]
-size = Vector2(60.125, 34.5)
+size = Vector2(42, 34.5)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fxk31"]
 radius = 19.0
@@ -89,7 +89,7 @@ script = ExtResource("7_fxk31")
 metadata/_custom_type_script = "uid://csu2b21cwchqw"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Direction/HurtArea2D"]
-position = Vector2(-1, -2)
+position = Vector2(-2, -2)
 shape = SubResource("RectangleShape2D_65eia")
 
 [node name="States" type="Node" parent="."]
@@ -109,7 +109,6 @@ collision_layer = 0
 collision_mask = 4
 script = ExtResource("6_d2rnu")
 damage = null
-metadata/_custom_type_script = "uid://boqnecm16fluw"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitArea2D"]
 position = Vector2(-2, -3)

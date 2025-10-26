@@ -17,7 +17,7 @@
 [ext_resource type="Script" uid="uid://d344fp7pskpua" path="res://scenes/enemies/crab/hurt.gd" id="15_pn2ss"]
 [ext_resource type="Script" uid="uid://co8a08ha2mc64" path="res://scenes/enemies/crab/dead.gd" id="16_xgyjk"]
 [ext_resource type="Script" uid="uid://bave75xht2dow" path="res://scenes/enemies/starfish/attack.gd" id="17_wmhok"]
-[ext_resource type="Script" path="res://scripts/hit_area_2d.gd" id="18_8x4sv"]
+[ext_resource type="Script" uid="uid://dbbfdchjn8157" path="res://scripts/hit_area_2d.gd" id="18_8x4sv"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_65eia"]
 radius = 17.0
@@ -81,7 +81,7 @@ size = Vector2(42, 33)
 size = Vector2(42, 33)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wmhok"]
-size = Vector2(138, 31)
+size = Vector2(231, 31)
 
 [node name="Starfish" type="CharacterBody2D"]
 script = ExtResource("1_wmhok")
@@ -120,7 +120,6 @@ collision_layer = 0
 collision_mask = 4
 script = ExtResource("18_8x4sv")
 damage = null
-metadata/_custom_type_script = "uid://boqnecm16fluw"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Direction/HitArea2D"]
 position = Vector2(-1, -1.5)
@@ -129,7 +128,7 @@ shape = SubResource("RectangleShape2D_r5ogx")
 [node name="DetectPlayerArea2D" type="Area2D" parent="Direction"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Direction/DetectPlayerArea2D"]
-position = Vector2(47, -1.5)
+position = Vector2(0.5, -1.5)
 shape = SubResource("RectangleShape2D_wmhok")
 
 [node name="RayCast2D" type="RayCast2D" parent="Direction"]
