@@ -22,12 +22,12 @@ func _ready():
 	icon.texture = hint_icon
 
 func _on_body_entered(body):
-	print(body.name)
+
 	if body.name == \"Player\":
 		show_hint()
 
 func _on_body_exited(body):
-	print(body.name)
+
 	if body.name == \"Player\":
 		hide_hint()
 

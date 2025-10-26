@@ -28,7 +28,7 @@
 [ext_resource type="Texture2D" uid="uid://gg8v11cck4hu" path="res://assets/sprites/foxy/foxy/fox_hat_blade/fox_hit_2.png" id="21_wva7c"]
 [ext_resource type="Script" uid="uid://cfuuoqiksrnl5" path="res://scenes/player/dead.gd" id="21_yj68g"]
 [ext_resource type="Texture2D" uid="uid://cbfcke2rlqmtw" path="res://assets/sprites/foxy/foxy/fox_hat_blade/fox_hit_3.png" id="22_7obkq"]
-[ext_resource type="Script" path="res://scripts/hit_area_2d.gd" id="23_ioxgp"]
+[ext_resource type="Script" uid="uid://dbbfdchjn8157" path="res://scripts/hit_area_2d.gd" id="23_ioxgp"]
 [ext_resource type="Texture2D" uid="uid://cv1omqfyyi3aj" path="res://assets/sprites/foxy/foxy/fox_hat_blade/fox_idle_1.png" id="23_vo27k"]
 [ext_resource type="Texture2D" uid="uid://d1wqqv8lwu0w0" path="res://assets/sprites/foxy/foxy/fox_hat_blade/fox_idle_2.png" id="24_genst"]
 [ext_resource type="Script" uid="uid://boukw15bjteft" path="res://scenes/player/attack.gd" id="25_6cv16"]
