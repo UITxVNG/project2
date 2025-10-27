@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=4 uid="uid://boxp0pgyq4pfu"]
 
-[ext_resource type="TileSet" uid="uid://cb15bvv1r2l8k" path="res://assets/tilesets/tile_set.tres" id="1_33rtp"]
+[ext_resource type="TileSet" uid="uid://c8m8q0fe452q3" path="res://assets/tilesets/tile_set.tres" id="1_33rtp"]
 [ext_resource type="PackedScene" uid="uid://cr06n1w1va6i8" path="res://scenes/player/player.tscn" id="2_dwsf3"]
 [ext_resource type="Texture2D" uid="uid://dcrnqve71d36p" path="res://assets/sprites/island/background/additional_sky.png" id="3_5usqu"]
 [ext_resource type="Texture2D" uid="uid://bqde0l4at7gv8" path="res://assets/sprites/island/background/bg_image.png" id="4_bfafv"]
@@ -59,6 +59,3 @@ centered = false
 
 [node name="Door" parent="." instance=ExtResource("7_wdfub")]
 position = Vector2(2960, 37)
-
-[connection signal="body_entered" from="TileMapLayer/Checkpoint" to="TileMapLayer/Checkpoint" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMapLayer/@Area2D@39085" to="TileMapLayer/@Area2D@39085" method="_on_body_entered"]
