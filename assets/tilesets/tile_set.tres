@@ -4,7 +4,6 @@
 [ext_resource type="PackedScene" uid="uid://db4svvvhax8kp" path="res://scenes/island/objects/palm_tree_1.tscn" id="2_hbhjq"]
 [ext_resource type="PackedScene" uid="uid://ccev32bh4dh7s" path="res://scenes/island/objects/palm_tree_2.tscn" id="3_fv4da"]
 [ext_resource type="PackedScene" uid="uid://bjhr36ynsaphu" path="res://scenes/island/objects/palm_tree_3.tscn" id="4_yy07o"]
-[ext_resource type="PackedScene" uid="uid://d3fydof3vb2ac" path="res://scenes/island/objects/top_palm_tree_hide.tscn" id="5_8n3m2"]
 [ext_resource type="PackedScene" uid="uid://cioy73jn1bmv" path="res://scenes/enemies/barrel/barrel.tscn" id="6_xmd2m"]
 [ext_resource type="PackedScene" uid="uid://bock2o462txmp" path="res://scenes/enemies/barrel3s/barrel3s.tscn" id="7_777mh"]
 [ext_resource type="PackedScene" uid="uid://cbsa8w2lp8433" path="res://scenes/enemies/crab/carb.tscn" id="8_i233u"]
@@ -16,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://dubb5b1vjmsxd" path="res://scenes/objects/door/door.tscn" id="14_5sc6k"]
 [ext_resource type="PackedScene" uid="uid://bmf0ebquqnpf8" path="res://scenes/objects/platforms/manual_moving_platform.tscn" id="15_y3k0m"]
 [ext_resource type="PackedScene" uid="uid://0ynutkwlhlce" path="res://scenes/objects/platforms/path2d_moving_platform.tscn" id="16_gbqw0"]
+[ext_resource type="PackedScene" uid="uid://bqo1b46hrr23f" path="res://scenes/objects/platforms/change_state_platform.tscn" id="16_rex1v"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hbhjq"]
 texture = ExtResource("1_1i68p")
@@ -402,7 +402,6 @@ resource_name = "Trees"
 scenes/1/scene = ExtResource("2_hbhjq")
 scenes/2/scene = ExtResource("3_fv4da")
 scenes/3/scene = ExtResource("4_yy07o")
-scenes/4/scene = ExtResource("5_8n3m2")
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_gbqw0"]
 resource_name = "Monters"
@@ -420,6 +419,7 @@ scenes/1/scene = ExtResource("13_rex1v")
 scenes/2/scene = ExtResource("14_5sc6k")
 scenes/3/scene = ExtResource("15_y3k0m")
 scenes/4/scene = ExtResource("16_gbqw0")
+scenes/5/scene = ExtResource("16_rex1v")
 
 [resource]
 tile_size = Vector2i(32, 32)
