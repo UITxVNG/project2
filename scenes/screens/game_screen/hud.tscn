@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://dytm3c86oshmd"]
+
+[ext_resource type="Script" uid="uid://btc4dbbpgyo8t" path="res://scenes/screens/game_screen/hud.gd" id="1_4v5o6"]
+[ext_resource type="Texture2D" uid="uid://barqn6uy1h6bs" path="res://assets/ui/settings_button.png" id="2_4v5o6"]
+
+[node name="HUD" type="MarginContainer"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 52.0
+grow_horizontal = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+script = ExtResource("1_4v5o6")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="BoxContainer" type="BoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="SettingsTextureButton" type="TextureButton" parent="HBoxContainer"]
+custom_minimum_size = Vector2(60, 64)
+layout_mode = 2
+texture_normal = ExtResource("2_4v5o6")
+stretch_mode = 0
