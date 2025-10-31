@@ -77,11 +77,11 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_65eia"]
 size = Vector2(42, 33)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_wmhok"]
-size = Vector2(231, 31)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r5ogx"]
 size = Vector2(42, 33)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wmhok"]
+size = Vector2(231, 31)
 
 [node name="Starfish" type="CharacterBody2D"]
 collision_layer = 8
@@ -108,12 +108,22 @@ target_position = Vector2(17, 1)
 
 [node name="HurtArea2D" type="Area2D" parent="Direction"]
 collision_layer = 16
-collision_mask = 8
+collision_mask = 0
 script = ExtResource("13_gg7bh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Direction/HurtArea2D"]
 position = Vector2(-1, -1)
 shape = SubResource("RectangleShape2D_65eia")
+
+[node name="HitArea2D" type="Area2D" parent="Direction"]
+collision_layer = 0
+collision_mask = 4
+script = ExtResource("18_8x4sv")
+damage = null
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Direction/HitArea2D"]
+position = Vector2(-1, -1.5)
+shape = SubResource("RectangleShape2D_r5ogx")
 
 [node name="DetectPlayerArea2D" type="Area2D" parent="Direction"]
 collision_mask = 2
@@ -125,15 +135,6 @@ shape = SubResource("RectangleShape2D_wmhok")
 [node name="RayCast2D" type="RayCast2D" parent="Direction"]
 position = Vector2(37, -2)
 target_position = Vector2(79, 0)
-
-[node name="HitArea2D" type="Area2D" parent="Direction"]
-collision_layer = 2
-collision_mask = 4
-script = ExtResource("18_8x4sv")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Direction/HitArea2D"]
-position = Vector2(-1, -1.5)
-shape = SubResource("RectangleShape2D_r5ogx")
 
 [node name="States" type="Node" parent="."]
 

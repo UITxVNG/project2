@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bjhr36ynsaphu" path="res://scenes/island/objects/palm_tree_3.tscn" id="4_yy07o"]
 [ext_resource type="PackedScene" uid="uid://cioy73jn1bmv" path="res://scenes/enemies/barrel/barrel.tscn" id="6_xmd2m"]
 [ext_resource type="PackedScene" uid="uid://bock2o462txmp" path="res://scenes/enemies/barrel3s/barrel3s.tscn" id="7_777mh"]
-[ext_resource type="PackedScene" uid="uid://cbsa8w2lp8433" path="res://scenes/enemies/crab/carb.tscn" id="8_i233u"]
+[ext_resource type="PackedScene" uid="uid://cbsa8w2lp8433" path="res://scenes/enemies/crab/crab.tscn" id="8_i233u"]
 [ext_resource type="PackedScene" uid="uid://dnj077mr8k0u3" path="res://scenes/enemies/mushroom/mushroom.tscn" id="9_yfbvw"]
 [ext_resource type="PackedScene" uid="uid://d2dcr3gj11aw1" path="res://scenes/enemies/pelicant/pelicant.tscn" id="10_rex1v"]
 [ext_resource type="PackedScene" uid="uid://dm2c4i1jf7orw" path="res://scenes/enemies/spike/spike.tscn" id="11_5sc6k"]

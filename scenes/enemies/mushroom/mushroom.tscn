@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://uywa3v0anlju" path="res://assets/sprites/enemy/mushroom/mushroom_hit_02.png" id="3_k0mc2"]
 [ext_resource type="Texture2D" uid="uid://ykg0i3rnkcid" path="res://assets/sprites/enemy/mushroom/mushroom_hit_03.png" id="4_hdtqn"]
 [ext_resource type="Texture2D" uid="uid://dghceeceb7yew" path="res://assets/sprites/enemy/mushroom/mushroom_01.png" id="5_5qgwy"]
-[ext_resource type="Script" uid="uid://dlqjhldug8nie" path="res://scripts/run.gd" id="5_n2fa0"]
+[ext_resource type="Script" uid="uid://dlqjhldug8nie" path="res://scenes/enemies/states/run.gd" id="5_n2fa0"]
 [ext_resource type="Texture2D" uid="uid://bgokwnch80xfi" path="res://assets/sprites/enemy/mushroom/mushroom_02.png" id="6_3dip8"]
 [ext_resource type="Texture2D" uid="uid://d0lo1x14rp7ia" path="res://assets/sprites/enemy/mushroom/mushroom_03.png" id="7_io5uk"]
 
@@ -45,6 +45,8 @@ animations = [{
 
 [node name="Mushroom" type="CharacterBody2D"]
 position = Vector2(2, -7)
+collision_layer = 8
+collision_mask = 3
 script = ExtResource("1_wvybr")
 metadata/_edit_vertical_guides_ = [-65.0]
 

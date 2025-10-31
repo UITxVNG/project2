@@ -64,6 +64,8 @@ animations = [{
 }]
 
 [node name="Barrel" type="CharacterBody2D"]
+collision_layer = 8
+collision_mask = 7
 script = ExtResource("1_scbq0")
 metadata/_custom_type_script = "uid://s4xx82espxdt"
 
@@ -81,7 +83,6 @@ animation = &"Shoot"
 script = ExtResource("11_hrhgi")
 product_packed_scene = ExtResource("12_igiyw")
 target_container_name = &"Bullets"
-metadata/_custom_type_script = "uid://x72tk7l7woeq"
 
 [node name="States" type="Node" parent="."]
 

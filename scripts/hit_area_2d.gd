@@ -1,7 +1,7 @@
 extends Area2D
 class_name HitArea2D
 
-@export var damage = 1
+@export var damage = 1.0
 signal hitted(area)
 
 func _ready():
@@ -16,5 +16,5 @@ func _on_area_entered(area: Area2D) -> void:
 func _on_body_entered(body: Node) -> void:
 	if body.has_method("take_damage"):
 		var hit_dir: Vector2 = body.global_position - global_position
-		body.take_damage(damage)  # Call take_damage on the body
+		body.take_damage(hit_dir.normalized(), damage)  # Call take_damage on the body
 	emit_signal("hitted", body)

@@ -14,10 +14,9 @@ texture = ExtResource("1_fpo1o")
 
 [node name="HitArea2D" type="Area2D" parent="."]
 position = Vector2(0, 1)
-collision_layer = 0
+collision_layer = 2
 collision_mask = 4
 script = ExtResource("1_sm0o0")
-damage = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitArea2D"]
 position = Vector2(-1.75, 9.25)
