@@ -81,7 +81,6 @@ animation = &"Hurt"
 script = ExtResource("11_fei17")
 product_packed_scene = ExtResource("12_nifko")
 target_container_name = &"Bullets"
-metadata/_custom_type_script = "uid://x72tk7l7woeq"
 
 [node name="States" type="Node" parent="."]
 

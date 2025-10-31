@@ -40,7 +40,7 @@ func control_attack() -> bool:
 	return false
 func take_damage(damage: int = 1) -> void:
 	# Không nhận sát thương nếu đang invincible
-	if obj.is_invincible:
+	if obj.is_invulnerable:
 		return
 	
 	# Player take damage

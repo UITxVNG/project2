@@ -30,28 +30,6 @@ texture = ExtResource("1_da6vm")
 position = Vector2(0.382662, -11.6364)
 shape = SubResource("RectangleShape2D_51e2l")
 
-[node name="Sprite2D4" type="Sprite2D" parent="World"]
-position = Vector2(-760.75, 273.25)
-scale = Vector2(0.355468, 2.63672)
-texture = ExtResource("1_da6vm")
-
-[node name="StaticBody2D" type="StaticBody2D" parent="World/Sprite2D4"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Sprite2D4/StaticBody2D"]
-position = Vector2(0.382662, -11.6364)
-shape = SubResource("RectangleShape2D_51e2l")
-
-[node name="Sprite2D5" type="Sprite2D" parent="World"]
-position = Vector2(-62, 183)
-scale = Vector2(0.355468, 2.63672)
-texture = ExtResource("1_da6vm")
-
-[node name="StaticBody2D" type="StaticBody2D" parent="World/Sprite2D5"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Sprite2D5/StaticBody2D"]
-position = Vector2(0.382662, -11.6364)
-shape = SubResource("RectangleShape2D_51e2l")
-
 [node name="Player" parent="World" instance=ExtResource("2_st4qh")]
 position = Vector2(-501, 360)
 
@@ -80,6 +58,9 @@ shape = SubResource("RectangleShape2D_51e2l")
 [node name="Barrel3s" parent="World" instance=ExtResource("4_saoeg")]
 position = Vector2(852, 423)
 
+[node name="Pelicant" parent="World" instance=ExtResource("7_2dgve")]
+position = Vector2(-601, 176)
+
 [node name="Spike" parent="World" instance=ExtResource("8_x4ubh")]
 position = Vector2(1334, 424)
 
@@ -96,7 +77,7 @@ position = Vector2(539, 170)
 target_stage = "uid://qjojp3xo7ie3"
 
 [node name="Barrel" parent="World" instance=ExtResource("3_5unt0")]
-position = Vector2(142, 149)
+position = Vector2(-352, 412)
 
 [node name="Bullets" type="Node2D" parent="."]
 
@@ -107,13 +88,4 @@ position = Vector2(380, 112)
 position = Vector2(272, 156)
 
 [node name="Crab" parent="." instance=ExtResource("5_we7ej")]
-position = Vector2(202, 134)
-
-[node name="Pelicant" parent="." instance=ExtResource("7_2dgve")]
-position = Vector2(-629, 268)
-
-[node name="Spike" parent="." instance=ExtResource("8_x4ubh")]
-position = Vector2(-10, 422)
-
-[node name="Starfish" parent="." instance=ExtResource("9_xm0ii")]
-position = Vector2(-272, 418)
+position = Vector2(-441, 413)

@@ -38,7 +38,6 @@ func _init_detect_player_area():
 func _init_hurt_area():
 	if has_node("Direction/HurtArea2D"):
 		var hurt_area = $Direction/HurtArea2D
-		hurt_area.hurt.connect(_on_hurt_area_2d_hurt)
 
 # check touch wall
 func is_touch_wall() -> bool:
@@ -83,5 +82,5 @@ func _on_player_in_sight(_player_pos: Vector2):
 func _on_player_not_in_sight():
 	pass
 
-func _take_damage_from_dir( _damage: float):
+func _take_damage_from_dir( _damage: int):
 	fsm.current_state.take_damage(_damage)

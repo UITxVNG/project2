@@ -11,8 +11,3 @@ func _enter():
 func _update(delta: float):
 	if update_timer(delta):
 		obj.get_tree().reload_current_scene()
-
-
-# Ignore take damage
-func take_damage(_damage: int = 1) -> void:
-	pass

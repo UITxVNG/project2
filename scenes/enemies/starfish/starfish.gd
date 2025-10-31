@@ -1,1 +1,1 @@
-extends "res://scenes/enemies/crab/carb.gd"
+extends "res://scenes/enemies/crab/crab.gd"
