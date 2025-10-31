@@ -4,14 +4,7 @@ on:
   push:
     branches:
       - main
-      - ci/deploy
-    tags:
-      - 'v*'   
-
-  pull_request:
-    branches:
-      - main
-      - ci/deploy
+      
     tags:
       - 'v*'   
 
