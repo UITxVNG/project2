@@ -1,7 +1,7 @@
 extends Area2D
 class_name HitArea2D
 
-@export var damage = 1
+@export var damage = 1.0
 signal hitted(area)
 
 func _ready():
