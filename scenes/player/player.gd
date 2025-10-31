@@ -39,3 +39,6 @@ func throw_blade(speed: float) -> void:
 	blade.global_position = $Direction/FirePoint.global_position
 	var impulse = Vector2(direction * speed, 0)
 	blade.apply_impulse(impulse)
+
+func play_jump_sound() -> void:
+	$Jump.play()

@@ -24,6 +24,7 @@ func control_jump() -> bool:
 	if Input.is_action_just_pressed("jump"):
 		obj.jump()
 		change_state(fsm.states.jump)
+		obj.play_jump_sound()
 		return true
 	return false
 

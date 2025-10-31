@@ -1,0 +1,73 @@
+[gd_scene load_steps=10 format=3 uid="uid://bok3o4ruf7n8x"]
+
+[ext_resource type="Texture2D" uid="uid://dcrnqve71d36p" path="res://assets/sprites/island/background/additional_sky.png" id="1_u1nab"]
+[ext_resource type="Texture2D" uid="uid://bqde0l4at7gv8" path="res://assets/sprites/island/background/bg_image.png" id="2_hjp6f"]
+[ext_resource type="Texture2D" uid="uid://ck8762h1hy2cf" path="res://assets/sprites/island/background/additional_water.png" id="3_57vsm"]
+[ext_resource type="Texture2D" uid="uid://m5yds3bm8pou" path="res://assets/sprites/island/background/big_clouds.png" id="4_tghvb"]
+[ext_resource type="Texture2D" uid="uid://ci5tpl05cnmra" path="res://assets/sprites/island/background/small_cloud_1.png" id="5_qbbqb"]
+[ext_resource type="Texture2D" uid="uid://1t3pkyls8wyt" path="res://assets/sprites/island/background/small_cloud_2.png" id="6_a85xr"]
+[ext_resource type="Texture2D" uid="uid://dcvs45slp2tv3" path="res://assets/sprites/island/background/small_cloud_3.png" id="7_r5sso"]
+
+[sub_resource type="GDScript" id="GDScript_bfafv"]
+script/source = "extends ParallaxLayer
+
+func _process(delta: float) -> void:
+	motion_offset.x -= delta*20
+"
+
+[sub_resource type="GDScript" id="GDScript_au2d3"]
+script/source = "extends ParallaxLayer
+
+func _process(delta: float) -> void:
+	motion_offset.x -= delta*40
+"
+
+[node name="ParallaxBackground" type="ParallaxBackground"]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.001, 0.8)
+motion_mirroring = Vector2(767, 0)
+
+[node name="SkySprite2D" type="Sprite2D" parent="ParallaxLayer"]
+position = Vector2(417, -11)
+scale = Vector2(26.125, 22.531)
+texture = ExtResource("1_u1nab")
+
+[node name="SeaSkySprite2D" type="Sprite2D" parent="ParallaxLayer"]
+position = Vector2(0, 57)
+scale = Vector2(2, 2)
+texture = ExtResource("2_hjp6f")
+centered = false
+
+[node name="WaterSprite2D" type="Sprite2D" parent="ParallaxLayer"]
+position = Vector2(384.5, 404.5)
+scale = Vector2(23.969, 5.969)
+texture = ExtResource("3_57vsm")
+
+[node name="ParallaxLayerCloud" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.001, 0.8)
+motion_mirroring = Vector2(510, 0)
+script = SubResource("GDScript_bfafv")
+
+[node name="BigClouds" type="Sprite2D" parent="ParallaxLayerCloud"]
+position = Vector2(0, 111)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("4_tghvb")
+centered = false
+
+[node name="ParallaxLayerSmallCloud" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.001, 1)
+motion_mirroring = Vector2(510, 0)
+script = SubResource("GDScript_au2d3")
+
+[node name="SmallCloud1" type="Sprite2D" parent="ParallaxLayerSmallCloud"]
+position = Vector2(277, -238)
+texture = ExtResource("5_qbbqb")
+
+[node name="SmallCloud2" type="Sprite2D" parent="ParallaxLayerSmallCloud"]
+position = Vector2(437, -111)
+texture = ExtResource("6_a85xr")
+
+[node name="SmallCloud3" type="Sprite2D" parent="ParallaxLayerSmallCloud"]
+position = Vector2(136, -37)
+texture = ExtResource("7_r5sso")
