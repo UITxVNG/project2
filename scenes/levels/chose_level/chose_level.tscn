@@ -1,0 +1,54 @@
+[gd_scene load_steps=2 format=3 uid="uid://cgecvij6t4q38"]
+
+[ext_resource type="Script" uid="uid://cqjc141t8dk2j" path="res://scenes/levels/chose_level/chose_level.gd" id="1_8r37s"]
+
+[node name="ChoseLevel" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_8r37s")
+
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 0
+offset_right = 335.0
+offset_bottom = 66.0
+columns = 5
+
+[node name="Level1" type="Button" parent="GridContainer"]
+layout_mode = 2
+text = "Level 1"
+
+[node name="Level2" type="Button" parent="GridContainer"]
+layout_mode = 2
+text = "Level 2"
+
+[node name="Level3" type="Button" parent="GridContainer"]
+layout_mode = 2
+text = "Level 3"
+
+[node name="Level4" type="Button" parent="GridContainer"]
+layout_mode = 2
+text = "Level 4"
+
+[node name="Level5" type="Button" parent="GridContainer"]
+layout_mode = 2
+text = "Level 5"
+
+[node name="Level6" type="Button" parent="GridContainer"]
+layout_mode = 2
+text = "Level 6"
+
+[node name="Level7" type="Button" parent="GridContainer"]
+layout_mode = 2
+text = "Level 7"
+
+[node name="Level8" type="Button" parent="GridContainer"]
+layout_mode = 2
+text = "Level 8"
+
+[node name="Level9" type="Button" parent="GridContainer"]
+layout_mode = 2
+text = "Level 9"
+
+[node name="Level10" type="Button" parent="GridContainer"]
+layout_mode = 2
+text = "Level 10"
