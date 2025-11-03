@@ -17,32 +17,33 @@ func save_checkpoint_data(data: Dictionary) -> void:
 
 # Load checkpoint data from file
 func load_checkpoint_data() -> Dictionary:
-	if not has_save_file():
-		print("No save file found")
-		return {}
+	return {}
+	# if not has_save_file():
+	# 	print("No save file found")
+	# 	return {}
 	
-	var file = FileAccess.open(SAVE_FILE, FileAccess.READ)
-	if file:
-		var json_string = file.get_as_text()
-		file.close()
+	# var file = FileAccess.open(SAVE_FILE, FileAccess.READ)
+	# if file:
+	# 	var json_string = file.get_as_text()
+	# 	file.close()
 		
-		var json = JSON.new()
-		var parse_result = json.parse(json_string)
+	# 	var json = JSON.new()
+	# 	var parse_result = json.parse(json_string)
 		
-		if parse_result == OK:
-			var data = json.data
-			if data is Dictionary:
-				print("Checkpoint data loaded successfully")
-				return data
-			else:
-				print("Error: Loaded data is not a Dictionary")
-				return {}
-		else:
-			print("Error parsing JSON: ", json.get_error_message())
-			return {}
-	else:
-		print("Error: Could not open save file for reading")
-		return {}
+	# 	if parse_result == OK:
+	# 		var data = json.data
+	# 		if data is Dictionary:
+	# 			print("Checkpoint data loaded successfully")
+	# 			return data
+	# 		else:
+	# 			print("Error: Loaded data is not a Dictionary")
+	# 			return {}
+	# 	else:
+	# 		print("Error parsing JSON: ", json.get_error_message())
+	# 		return {}
+	# else:
+	# 	print("Error: Could not open save file for reading")
+	# 	return {}
 
 # Check if save file exists
 func has_save_file() -> bool:
