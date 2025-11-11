@@ -6,6 +6,12 @@ on:
       - main
     tags:
       - 'v*'
+
+  pull_request:
+    branches:
+      - main
+    types:
+      - closed
   workflow_dispatch:
 
 env:
