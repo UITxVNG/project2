@@ -1,3 +1,5 @@
+# Class
+# Summary: TODO — add brief description.
 extends DialogicSubsystem
 
 ## Subsystem that handles glossaries.
@@ -87,6 +89,9 @@ func parse_glossary(text: String) -> String:
 	return text
 
 
+# Summary: TODO — describe add_glossary.
+
+
 func add_glossary(path:String) -> void:
 	if ResourceLoader.exists(path):
 		var resource: DialogicGlossary = load(path)
@@ -164,6 +169,7 @@ func get_entry(entry_key: String) -> Dictionary:
 
 
 ## Tries to translate the property with the given
+# Summary: TODO — describe translate.
 func translate(tr_base: String, property: StringName, fallback_entry: Dictionary) -> String:
 	var tr_key := tr_base.path_join(property)
 	var tr_value := tr(tr_key)

@@ -1,3 +1,5 @@
+# DialogicNode_ButtonSound
+# Summary: TODO — add brief description.
 class_name DialogicNode_ButtonSound
 extends AudioStreamPlayer
 
@@ -16,6 +18,7 @@ func _ready() -> void:
 	_connect_all_buttons()
 
 #basic play sound
+# Summary: TODO — describe play_sound.
 func play_sound(sound) -> void:
 	if sound != null:
 		stream = sound

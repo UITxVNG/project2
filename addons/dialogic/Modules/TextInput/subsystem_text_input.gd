@@ -1,3 +1,5 @@
+# Class
+# Summary: TODO — add brief description.
 extends DialogicSubsystem
 
 ## Subsystem that handles showing of input promts.
@@ -29,6 +31,9 @@ func show_text_input(text:= "", default:= "", placeholder:= "", allow_empty:= fa
 		if node.has_method('set_default'): node.set_default(default)
 		if node.has_method('set_placeholder'): node.set_placeholder(placeholder)
 	input_shown.emit({'text':text, 'default':default, 'placeholder':placeholder, 'allow_empty':allow_empty})
+
+
+# Summary: TODO — describe hide_text_input.
 
 
 func hide_text_input() -> void:

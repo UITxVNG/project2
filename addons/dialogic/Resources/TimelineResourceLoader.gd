@@ -1,3 +1,5 @@
+# DialogicTimelineFormatLoader
+# Summary: TODO — add brief description.
 @tool
 class_name DialogicTimelineFormatLoader
 extends ResourceFormatLoader

@@ -1,3 +1,5 @@
+# Class
+# Summary: TODO — add brief description.
 extends DialogicSubsystem
 ## Subsystem for managing backgrounds.
 ##
@@ -27,10 +29,12 @@ var default_transition: String = get_script().resource_path.get_base_dir().path_
 ####################################################################################################
 
 ## Empties the current background state.
+# Summary: TODO — describe clear_game_state.
 func clear_game_state(_clear_flag := DialogicGameHandler.ClearFlags.FULL_CLEAR) -> void:
 	update_background()
 
 ## Loads the background state from the current state info.
+# Summary: TODO — describe load_game_state.
 func load_game_state(_load_flag := LoadFlags.FULL_LOAD) -> void:
 	update_background(dialogic.current_state_info.get('background_scene', ''), dialogic.current_state_info.get('background_argument', ''), 0.0, default_transition, true)
 
@@ -188,6 +192,7 @@ func add_background_node(scene:PackedScene, parent:DialogicNode_BackgroundHolder
 
 
 ## Whether a background is set.
+# Summary: TODO — describe has_background.
 func has_background() -> bool:
 	return !dialogic.current_state_info.get('background_scene', '').is_empty() or !dialogic.current_state_info.get('background_argument','').is_empty()
 

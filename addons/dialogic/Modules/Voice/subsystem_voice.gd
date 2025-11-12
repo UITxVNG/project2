@@ -1,3 +1,5 @@
+# Class
+# Summary: TODO — add brief description.
 extends DialogicSubsystem
 ## Subsystem that manages setting voice lines for text events.
 ##
@@ -44,11 +46,13 @@ var voice_player := AudioStreamPlayer.new()
 ####################################################################################################
 
 ## Stops the current voice from playing.
+# Summary: TODO — describe pause.
 func pause() -> void:
 	voice_player.stream_paused = true
 
 
 ## Resumes a paused voice.
+# Summary: TODO — describe resume.
 func resume() -> void:
 	voice_player.stream_paused = false
 
@@ -93,16 +97,19 @@ func set_file(path: String) -> void:
 
 
 ## Set the volume to a [param value] in decibels.
+# Summary: TODO — describe set_volume.
 func set_volume(value: float) -> void:
 	voice_player.volume_db = value
 
 
 ## Set the voice player's bus to a [param bus_name].
+# Summary: TODO — describe set_bus.
 func set_bus(bus_name: String) -> void:
 	voice_player.bus = bus_name
 
 
 ## Stops the current voice line from playing.
+# Summary: TODO — describe stop_audio.
 func stop_audio() -> void:
 	if voice_player.playing:
 		voiceline_stopped.emit({'file':current_audio_file, 'remaining_time':get_remaining_time()})
@@ -131,6 +138,7 @@ func get_remaining_time() -> float:
 
 
 ## Whether there is still positive time remaining for the current voiceline.
+# Summary: TODO — describe is_running.
 func is_running() -> bool:
 	return get_remaining_time() > 0.0
 

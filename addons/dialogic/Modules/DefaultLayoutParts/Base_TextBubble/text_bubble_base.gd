@@ -1,3 +1,5 @@
+# Class
+# Summary: TODO — add brief description.
 @tool
 extends DialogicLayoutBase
 
@@ -24,6 +26,9 @@ func _ready() -> void:
 		add_bubble()
 
 
+# Summary: TODO — describe register_character.
+
+
 func register_character(character:Variant, node:Node):
 	if typeof(character) == TYPE_STRING:
 		var character_string: String = character
@@ -48,6 +53,9 @@ func _load_persistent_info(info: Dictionary) -> void:
 	for character in register_info:
 		if is_instance_valid(register_info[character]):
 			register_character(character, register_info[character])
+
+
+# Summary: TODO — describe add_bubble.
 
 
 func add_bubble() -> void:

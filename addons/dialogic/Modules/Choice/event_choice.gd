@@ -1,3 +1,5 @@
+# DialogicChoiceEvent
+# Summary: TODO — add brief description.
 @tool
 class_name DialogicChoiceEvent
 extends DialogicEvent
@@ -89,6 +91,9 @@ func to_text() -> String:
 	return result_string
 
 
+# Summary: TODO — describe from_text.
+
+
 func from_text(string:String) -> void:
 	var result := regex.search(string.strip_edges())
 	if result == null:
@@ -104,6 +109,9 @@ func from_text(string:String) -> void:
 		extra_data = shortcode.duplicate()
 
 
+# Summary: TODO — describe get_shortcode_parameters.
+
+
 func get_shortcode_parameters() -> Dictionary:
 	return {
 		"else"			: {"property": "else_action", 		"default": ElseActions.DEFAULT,
@@ -114,6 +122,9 @@ func get_shortcode_parameters() -> Dictionary:
 		"alt_text"		: {"property": "disabled_text", 	"default": ""},
 		"extra_data"	: {"property": "extra_data", 		"default": {}, "custom_stored":true},
 		}
+
+
+# Summary: TODO — describe is_valid_event.
 
 
 func is_valid_event(string:String) -> bool:
@@ -169,6 +180,9 @@ func build_event_editor() -> void:
 			'placeholder':'(Empty for same)'}, 'allow_alt_text()')
 	add_body_line_break()
 	add_body_edit("extra_data", ValueType.DICTIONARY, {"left_text":"Extra Data:"})
+
+
+# Summary: TODO — describe allow_alt_text.
 
 
 func allow_alt_text() -> bool:

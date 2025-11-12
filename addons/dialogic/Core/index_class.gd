@@ -1,3 +1,5 @@
+# DialogicIndexer
+# Summary: TODO — add brief description.
 @tool
 class_name DialogicIndexer
 extends RefCounted
@@ -75,12 +77,18 @@ func list_dir(subdir:='') -> Array:
 	return Array(DirAccess.get_files_at(this_folder.path_join(subdir))).map(func(file):return this_folder.path_join(subdir).path_join(file))
 
 
+# Summary: TODO — describe list_special_resources.
+
+
 func list_special_resources(subdir:='', extension:="") -> Dictionary:
 	var dict := {}
 	for i in list_dir(subdir):
 		if extension.is_empty() or i.ends_with(extension) or (extension == ".gd" and i.ends_with(".gdc")):
 			dict[DialogicUtil.pretty_name(i).to_lower()] = {"path":i}
 	return dict
+
+
+# Summary: TODO — describe list_animations.
 
 
 func list_animations(subdir := "") -> Dictionary:
@@ -116,6 +124,7 @@ func _get_layout_parts() -> Array[Dictionary]:
 
 
 ## Helper that allows scanning sub directories that might be layout parts or styles
+# Summary: TODO — describe scan_for_layout_parts.
 func scan_for_layout_parts() -> Array[Dictionary]:
 	var dir := DirAccess.open(this_folder)
 	var style_list: Array[Dictionary] = []

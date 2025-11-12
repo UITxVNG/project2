@@ -1,3 +1,6 @@
+# Subsystem: Styles
+# Summary: Manages loading, switching, and preloading of Dialogic styles and layouts.
+# Details: Coordinates style scenes, active layout nodes, and state persistence during gameplay.
 extends DialogicSubsystem
 
 ## Subsystem that manages loading layouts with specific styles applied.
@@ -8,14 +11,21 @@ signal style_changed(info:Dictionary)
 #region STATE
 ####################################################################################################
 
+# Summary: Prepares the subsystem once added to the scene tree.
 func _ready() -> void:
 	DialogicStylesUtil.update_style_directory()
 
 
+# Summary: Clears style-related state according to the given flag.
+# Params:
+# - _clear_flag: Determines the extent of state clearing.
 func clear_game_state(_clear_flag := DialogicGameHandler.ClearFlags.FULL_CLEAR) -> void:
 	pass
 
 
+# Summary: Loads style-related state according to the given flag.
+# Params:
+# - load_flag: Determines the extent of state loading.
 func load_game_state(load_flag := LoadFlags.FULL_LOAD) -> void:
 	if load_flag == LoadFlags.ONLY_DNODES:
 		return
@@ -29,6 +39,11 @@ func load_game_state(load_flag := LoadFlags.FULL_LOAD) -> void:
 
 ## This helper method calls load_style, but with the [parameter state_reload] as true,
 ## which is commonly wanted if you expect a game to already be in progress.
+# Summary: Changes the current style and returns the root of the new layout.
+# Params:
+# - style_name: Style resource name to apply.
+# - is_base_style: Whether to load from the base styles set.
+# Returns: Node — Root node of the loaded style.
 func change_style(style_name := "", is_base_style := true) -> Node:
 	return load_style(style_name, null, is_base_style, true)
 
@@ -36,6 +51,13 @@ func change_style(style_name := "", is_base_style := true) -> Node:
 ## Loads a style. Consider using the simpler [method change_style] if you want to change the style while another style is already in use.
 ## [br] If [param state_reload] is true, the current state will be loaded into a new layout scenes nodes.
 ## That should not be done before calling start() or load() as it would be unnecessary or cause double-loading.
+# Summary: Loads a style scene and attaches it under the given parent.
+# Params:
+# - style_name: Style resource name to load.
+# - parent: Optional parent node; defaults to the subsystem node.
+# - is_base_style: Whether to load from base styles.
+# - state_reload: If true, reloads state into the newly loaded style.
+# Returns: Node — Root node of the loaded style.
 func load_style(style_name := "", parent: Node = null, is_base_style := true, state_reload := false) -> Node:
 	var style := DialogicStylesUtil.get_style(style_name)
 
@@ -90,6 +112,11 @@ func load_style(style_name := "", parent: Node = null, is_base_style := true, st
 
 ## Method that adds a layout scene with all the necessary layers.
 ## The layout scene will be added to the tree root and returned.
+# Summary: Instantiates a layout for the given DialogicStyle.
+# Params:
+# - style: DialogicStyle resource to instantiate.
+# - parent: Optional parent node for the layout.
+# Returns: DialogicLayoutBase — The created layout instance.
 func create_layout(style: DialogicStyle, parent: Node = null) -> DialogicLayoutBase:
 
 	# Load base scene
@@ -137,12 +164,15 @@ func create_layout(style: DialogicStyle, parent: Node = null) -> DialogicLayoutB
 
 ## When changing to a different layout scene,
 ## we have to load all the info from the current_state_info (basically
+# Summary: Reloads persisted info from the previous style into the new one.
 func reload_current_info_into_new_style() -> void:
 	for subsystem in dialogic.get_children():
 		subsystem.load_game_state(LoadFlags.ONLY_DNODES)
 
 
 ## Returns the style currently in use
+# Summary: Returns the name of the currently active style.
+# Returns: String — Active style name or empty.
 func get_current_style() -> String:
 	if has_active_layout_node():
 		var style: DialogicStyle = get_layout_node().get_meta('style', null)
@@ -151,6 +181,8 @@ func get_current_style() -> String:
 	return ''
 
 
+# Summary: Indicates whether an active layout node is currently set.
+# Returns: bool — True if there is an active layout node.
 func has_active_layout_node() -> bool:
 	return (
 		get_tree().has_meta('dialogic_layout_node')
@@ -159,6 +191,8 @@ func has_active_layout_node() -> bool:
 	)
 
 
+# Summary: Gets the currently active layout node instance.
+# Returns: DialogicLayoutBase — The active layout or null.
 func get_layout_node() -> DialogicLayoutBase:
 	if has_active_layout_node():
 		return get_tree().get_meta('dialogic_layout_node')
@@ -166,6 +200,10 @@ func get_layout_node() -> DialogicLayoutBase:
 
 
 ## Similar to get_tree().get_first_node_in_group('group_name') but filtered to the active layout node subtree
+# Summary: Finds the first node in the active layout with the given group.
+# Params:
+# - group_name: Name of the group to search for.
+# Returns: Node — The first matching node or null.
 func get_first_node_in_layout(group_name: String) -> Node:
 	var layout_node := get_layout_node()
 	if null == layout_node:
@@ -177,6 +215,9 @@ func get_first_node_in_layout(group_name: String) -> Node:
 	return null
 
 
+# Summary: Preloads a style resource by name or path for faster switching.
+# Params:
+# - name_or_path: Style resource name or file path to preload.
 func preload_style(name_or_path:String = "") -> void:
 	DialogicStylesUtil.start_style_preload(name_or_path)
 

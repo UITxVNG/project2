@@ -1,3 +1,5 @@
+# Class
+# Summary: TODO — add brief description.
 extends DialogicBackgroundTransition
 
 func setup_push_shader() -> ShaderMaterial:

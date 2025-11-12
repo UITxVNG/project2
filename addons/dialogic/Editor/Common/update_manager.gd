@@ -1,3 +1,5 @@
+# Class
+# Summary: TODO — add brief description.
 @tool
 extends Node
 
@@ -26,10 +28,17 @@ func _ready() -> void:
 
 
 
+# Summary: TODO — describe get_current_version.
+
+
+
 func get_current_version() -> String:
 	var plugin_cfg := ConfigFile.new()
 	plugin_cfg.load("res://addons/dialogic/plugin.cfg")
 	return plugin_cfg.get_value('plugin', 'version', 'unknown version')
+
+
+# Summary: TODO — describe request_update_check.
 
 
 func request_update_check() -> void:
@@ -57,6 +66,9 @@ func _on_UpdateCheck_request_completed(result:int, response_code:int, headers:Pa
 	else:
 		update_info = current_info
 		update_check_completed.emit(UpdateCheckResult.UP_TO_DATE)
+
+
+# Summary: TODO — describe compare_versions.
 
 
 func compare_versions(release, current_release_info:Dictionary) -> bool:
@@ -87,6 +99,9 @@ func compare_versions(release, current_release_info:Dictionary) -> bool:
 	return true
 
 
+# Summary: TODO — describe get_release_tag_info.
+
+
 func get_release_tag_info(release_tag:String) -> Dictionary:
 	release_tag = release_tag.strip_edges().trim_prefix('v')
 	release_tag = release_tag.substr(0, release_tag.find('('))
@@ -113,6 +128,9 @@ func get_release_tag_info(release_tag:String) -> Dictionary:
 	info['state_version'] = int(result.get_string('stateversion'))
 
 	return info
+
+
+# Summary: TODO — describe request_update_download.
 
 
 func request_update_download() -> void:

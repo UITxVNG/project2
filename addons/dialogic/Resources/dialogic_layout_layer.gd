@@ -1,3 +1,5 @@
+# DialogicLayoutLayer
+# Summary: TODO — add brief description.
 @tool
 class_name DialogicLayoutLayer
 extends Node
@@ -26,6 +28,9 @@ func _apply_export_overrides() -> void:
 	pass
 
 
+# Summary: TODO — describe apply_export_overrides.
+
+
 func apply_export_overrides() -> void:
 	if disabled:
 		if "visible" in self:
@@ -40,5 +45,6 @@ func apply_export_overrides() -> void:
 
 
 ## Use this to get potential global settings.
+# Summary: TODO — describe get_global_setting.
 func get_global_setting(setting_name:StringName, default:Variant) -> Variant:
 	return get_parent().get_global_setting(setting_name, default)

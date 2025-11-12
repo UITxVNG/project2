@@ -1,3 +1,5 @@
+# DialogicWaitInputEvent
+# Summary: TODO — add brief description.
 @tool
 class_name DialogicWaitInputEvent
 extends DialogicEvent
@@ -36,11 +38,16 @@ func _init() -> void:
 func get_shortcode() -> String:
 	return "wait_input"
 
+# Summary: TODO — describe get_shortcode_parameters.
+
 func get_shortcode_parameters() -> Dictionary:
 	return {
 		#param_name : property_info
 		"hide_text" :  {"property": "hide_textbox", 	"default": true},
 	}
+
+
+# Summary: TODO — describe build_event_editor.
 
 
 func build_event_editor() -> void:

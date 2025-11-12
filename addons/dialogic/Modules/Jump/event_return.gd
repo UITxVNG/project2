@@ -1,3 +1,5 @@
+# DialogicReturnEvent
+# Summary: TODO — add brief description.
 @tool
 class_name DialogicReturnEvent
 extends DialogicEvent
@@ -39,8 +41,14 @@ func to_text() -> String:
 	return "return"
 
 
+# Summary: TODO — describe from_text.
+
+
 func from_text(_string:String) -> void:
 	pass
+
+
+# Summary: TODO — describe is_valid_event.
 
 
 func is_valid_event(string:String) -> bool:

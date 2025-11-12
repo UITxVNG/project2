@@ -1,3 +1,5 @@
+# Class
+# Summary: TODO — add brief description.
 @tool
 extends Node
 
@@ -37,25 +39,32 @@ func _ready() -> void:
 ################################################################################
 
 # Helper that gets the current line with a special character where the caret is
+# Summary: TODO — describe get_code_completion_line.
 func get_code_completion_line(text:CodeEdit) -> String:
 	return text.get_line(text.get_caret_line()).insert(text.get_caret_column(), String.chr(0xFFFF)).strip_edges()
 
 
 # Helper that gets the currently typed word
+# Summary: TODO — describe get_code_completion_word.
 func get_code_completion_word(text:CodeEdit) -> String:
 	var result := completion_word_regex.search(get_code_completion_line(text))
 	return result.get_string('word') if result else ""
 
 # Helper that gets the currently typed parameter
+# Summary: TODO — describe get_code_completion_parameter_value.
 func get_code_completion_parameter_value(text:CodeEdit) -> String:
 	var result := completion_shortcode_value_regex.search(get_code_completion_line(text))
 	return result.get_string('value') if result else ""
 
 
 # Helper that gets the symbol before the current word
+# Summary: TODO — describe get_code_completion_prev_symbol.
 func get_code_completion_prev_symbol(text:CodeEdit) -> String:
 	var result := completion_word_regex.search(get_code_completion_line(text))
 	return result.get_string('s') if result else ""
+
+
+# Summary: TODO — describe get_line_untill_caret.
 
 
 func get_line_untill_caret(line:String) -> String:
@@ -173,6 +182,7 @@ func request_code_completion(force:bool, text:CodeEdit, mode:=Modes.FULL_HIGHLIG
 
 
 # Helper that adds all characters as options
+# Summary: TODO — describe suggest_characters.
 func suggest_characters(text:CodeEdit, type := CodeEdit.KIND_MEMBER, event:DialogicEvent=null) -> void:
 	for character in DialogicResourceUtil.get_character_directory():
 		var result: String = character
@@ -185,9 +195,13 @@ func suggest_characters(text:CodeEdit, type := CodeEdit.KIND_MEMBER, event:Dialo
 		text.add_code_completion_option(type, character, result, syntax_highlighter.character_name_color, load("res://addons/dialogic/Editor/Images/Resources/character.svg"))
 
 # Helper that adds all timelines as options
+# Summary: TODO — describe suggest_timelines.
 func suggest_timelines(text:CodeEdit, type := CodeEdit.KIND_MEMBER, color:=Color()) -> void:
 	for timeline in DialogicResourceUtil.get_timeline_directory():
 		text.add_code_completion_option(type, timeline, timeline+'/', color, text.get_theme_icon("TripleBar", "EditorIcons"))
+
+
+# Summary: TODO — describe suggest_labels.
 
 
 func suggest_labels(text:CodeEdit, timeline:String='', end:='', color:=Color()) -> void:
@@ -197,6 +211,7 @@ func suggest_labels(text:CodeEdit, timeline:String='', end:='', color:=Color()) 
 
 
 # Helper that adds all portraits of a given character as options
+# Summary: TODO — describe suggest_portraits.
 func suggest_portraits(text:CodeEdit, character_name:String, end_check:=')') -> void:
 	if not character_name in DialogicResourceUtil.get_character_directory():
 		return
@@ -208,15 +223,20 @@ func suggest_portraits(text:CodeEdit, character_name:String, end_check:=')') -> 
 
 
 # Helper that adds all variable paths as options
+# Summary: TODO — describe suggest_variables.
 func suggest_variables(text:CodeEdit):
 	for variable in DialogicUtil.list_variables(ProjectSettings.get_setting('dialogic/variables')):
 		text.add_code_completion_option(CodeEdit.KIND_MEMBER, variable, variable, syntax_highlighter.variable_color, text.get_theme_icon("MemberProperty", "EditorIcons"), '}')
 
 
 # Helper that adds true and false as options
+# Summary: TODO — describe suggest_bool.
 func suggest_bool(text:CodeEdit, color:Color):
 	text.add_code_completion_option(CodeEdit.KIND_VARIABLE, 'true', 'true', color, text.get_theme_icon("GuiChecked", "EditorIcons"), '" ')
 	text.add_code_completion_option(CodeEdit.KIND_VARIABLE, 'false', 'false', color, text.get_theme_icon("GuiUnchecked", "EditorIcons"), '" ')
+
+
+# Summary: TODO — describe suggest_custom_suggestions.
 
 
 func suggest_custom_suggestions(suggestions:Dictionary, text:CodeEdit, color:Color) -> void:
@@ -225,6 +245,9 @@ func suggest_custom_suggestions(suggestions:Dictionary, text:CodeEdit, color:Col
 			text.add_code_completion_option(CodeEdit.KIND_VARIABLE, key, suggestions[key].text_alt[0], color, suggestions[key].get('icon', null), '" ')
 		else:
 			text.add_code_completion_option(CodeEdit.KIND_VARIABLE, key, str(suggestions[key].value), color, suggestions[key].get('icon', null), '" ')
+
+
+# Summary: TODO — describe suggest_shortcode_values.
 
 
 func suggest_shortcode_values(text:CodeEdit, event:DialogicEvent, line:String, word:String) -> void:
@@ -310,6 +333,7 @@ func confirm_code_completion(replace:bool, text:CodeEdit) -> void:
 ################################################################################
 
 # Performs an action (like opening a link) when a valid symbol was clicked
+# Summary: TODO — describe symbol_lookup.
 func symbol_lookup(symbol:String, line:int, column:int) -> void:
 	if symbol in shortcode_events.keys():
 		if !shortcode_events[symbol].help_page_path.is_empty():
@@ -321,6 +345,7 @@ func symbol_lookup(symbol:String, line:int, column:int) -> void:
 
 
 # Called to test if a symbol can be clicked
+# Summary: TODO — describe symbol_validate.
 func symbol_validate(symbol:String, text:CodeEdit) -> void:
 	if symbol in shortcode_events.keys():
 		if !shortcode_events[symbol].help_page_path.is_empty():

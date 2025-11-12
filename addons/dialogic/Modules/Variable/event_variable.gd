@@ -1,3 +1,5 @@
+# DialogicVariableEvent
+# Summary: TODO — add brief description.
 @tool
 class_name DialogicVariableEvent
 extends DialogicEvent
@@ -173,6 +175,9 @@ func to_text() -> String:
 	return string
 
 
+# Summary: TODO — describe from_text.
+
+
 func from_text(string:String) -> void:
 	var reg := RegEx.new()
 	reg.compile("set(?<name>[^=+\\-*\\/]*)?(?<operation>=|\\+=|-=|\\*=|\\/=)?(?<value>.*)")
@@ -218,6 +223,9 @@ func from_text(string:String) -> void:
 	else:
 		value = null
 	_suppress_default_value = false
+
+
+# Summary: TODO — describe is_valid_event.
 
 
 func is_valid_event(string:String) -> bool:
@@ -301,6 +309,9 @@ func build_event_editor() -> void:
 	add_header_button('', _on_variable_editor_pressed, 'Variable Editor', ["ExternalLink", "EditorIcons"])
 
 
+# Summary: TODO — describe get_var_suggestions.
+
+
 func get_var_suggestions(filter:String) -> Dictionary:
 	var suggestions := {}
 	for var_path in DialogicUtil.list_variables(DialogicUtil.get_default_variables()):
@@ -326,6 +337,9 @@ func get_var_suggestions(filter:String) -> Dictionary:
 	return suggestions
 
 
+# Summary: TODO — describe get_value_suggestions.
+
+
 func get_value_suggestions(_filter:String) -> Dictionary:
 	var suggestions := {}
 
@@ -338,6 +352,9 @@ func _on_variable_editor_pressed() -> void:
 	var editor_manager := editor_node.find_parent('EditorsManager')
 	if editor_manager:
 		editor_manager.open_editor(editor_manager.editors['VariablesEditor']['node'], true)
+
+
+# Summary: TODO — describe update_editor_warning.
 
 
 func update_editor_warning() -> void:

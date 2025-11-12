@@ -1,3 +1,5 @@
+# Class
+# Summary: TODO — add brief description.
 @tool
 extends DialogicVisualEditorField
 ## Event block field for strings. Options are determined by a function.
@@ -120,9 +122,15 @@ func _ready() -> void:
 	%ErrorTooltip.add_theme_stylebox_override('normal', error_label_style)
 
 
+# Summary: TODO — describe change_to_empty.
+
+
 func change_to_empty() -> void:
 	update_error_tooltip('')
 	value_changed.emit(property_name, "")
+
+
+# Summary: TODO — describe validate.
 
 
 func validate() -> void:
@@ -130,6 +138,9 @@ func validate() -> void:
 		var validation_result: Dictionary = validation_func.call(current_value)
 		current_value = validation_result.get('valid_text', current_value)
 		update_error_tooltip(validation_result.get('error_tooltip', ''))
+
+
+# Summary: TODO — describe update_error_tooltip.
 
 
 func update_error_tooltip(text: String) -> void:
@@ -254,6 +265,9 @@ func _on_Search_text_changed(new_text:String, just_update:bool = false) -> void:
 	%Suggestions.size.x = max(%PanelContainer.size.x, line_length)
 
 
+# Summary: TODO — describe suggestion_selected.
+
+
 func suggestion_selected(index: int, _position := Vector2(), button_index := MOUSE_BUTTON_LEFT) -> void:
 	if button_index != MOUSE_BUTTON_LEFT:
 		return
@@ -282,6 +296,9 @@ func _input(event:InputEvent) -> void:
 			if !%Suggestions.get_global_rect().has_point(get_global_mouse_position()) and \
 				!%SelectButton.get_global_rect().has_point(get_global_mouse_position()):
 				hide_suggestions()
+
+
+# Summary: TODO — describe hide_suggestions.
 
 
 func hide_suggestions() -> void:

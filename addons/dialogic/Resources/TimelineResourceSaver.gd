@@ -1,3 +1,5 @@
+# DialogicTimelineFormatSaver
+# Summary: TODO — add brief description.
 @tool
 class_name DialogicTimelineFormatSaver
 extends ResourceFormatSaver

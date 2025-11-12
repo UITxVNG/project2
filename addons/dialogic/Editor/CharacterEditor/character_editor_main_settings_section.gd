@@ -1,3 +1,5 @@
+# DialogicCharacterEditorMainSection
+# Summary: TODO — add brief description.
 @tool
 class_name DialogicCharacterEditorMainSection
 extends Control

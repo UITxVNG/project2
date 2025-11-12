@@ -1,3 +1,5 @@
+# DialogicNode_PortraitContainer
+# Summary: TODO — add brief description.
 @tool
 class_name DialogicNode_PortraitContainer
 extends Control
@@ -127,6 +129,7 @@ func update_portrait_transforms() -> void:
 
 
 ## Returns a Rect2 with the position as the position and the scale as the size.
+# Summary: TODO — describe get_local_portrait_transform.
 func get_local_portrait_transform(portrait_rect:Rect2, character_scale:=1.0) -> Rect2:
 	var transform := Rect2()
 	transform.position = _get_origin_position()
@@ -158,6 +161,9 @@ func _get_origin_position(rect_size = null) -> Vector2:
 	if rect_size == null:
 		rect_size = size
 	return rect_size * Vector2(origin_anchor%3 / 2.0, floor(origin_anchor/3.0) / 2.0) + origin_offset
+
+
+# Summary: TODO — describe is_container.
 
 
 func is_container(id:Variant) -> bool:

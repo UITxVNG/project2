@@ -1,3 +1,5 @@
+# Class
+# Summary: TODO — add brief description.
 @tool
 extends Node
 
@@ -17,6 +19,9 @@ func _ready() -> void:
 		button.tooltip_text = i.tooltip
 		button.pressed.connect(execute_tool.bind(i.method))
 		%ToolButtons.add_child(button)
+
+
+# Summary: TODO — describe execute_tool.
 
 
 func execute_tool(method:Callable) -> void:

@@ -1,3 +1,5 @@
+# Class
+# Summary: TODO — add brief description.
 @tool
 extends DialogicSettingsPage
 
@@ -77,6 +79,9 @@ func load_channel_defaults(dictionary:Dictionary) -> void:
 	revalidate_channel_names.call_deferred()
 
 
+# Summary: TODO — describe save_channel_defaults.
+
+
 func save_channel_defaults() -> void:
 	var dictionary := {}
 
@@ -115,6 +120,9 @@ func _on_add_channel_defaults_pressed() -> void:
 		added_node.take_autofocus()
 	_revalidate_channel_names = true
 	revalidate_channel_names.call_deferred()
+
+
+# Summary: TODO — describe add_channel_defaults.
 
 
 func add_channel_defaults(channel_name: String, volume: float, audio_bus: String, fade_length: float, loop: bool) -> Control:
@@ -177,6 +185,9 @@ func _on_remove_channel_defaults_pressed(index: int) -> void:
 	channel_defaults.erase(index)
 
 
+# Summary: TODO — describe get_audio_channel_suggestions.
+
+
 func get_audio_channel_suggestions(search_text:String) -> Dictionary:
 	var suggestions := DialogicUtil.get_audio_channel_suggestions(search_text)
 
@@ -191,12 +202,18 @@ func get_audio_channel_suggestions(search_text:String) -> Dictionary:
 	return suggestions
 
 
+# Summary: TODO — describe revalidate_channel_names.
+
+
 func revalidate_channel_names() -> void:
 	_revalidate_channel_names = false
 	for i in channel_defaults:
 		if (is_instance_valid(channel_defaults[i].channel_name)
 				and not channel_defaults[i].channel_name is Label):
 			channel_defaults[i].channel_name.validate()
+
+
+# Summary: TODO — describe validate_channel_names.
 
 
 func validate_channel_names(search_text: String, field_node: Control) -> Dictionary:

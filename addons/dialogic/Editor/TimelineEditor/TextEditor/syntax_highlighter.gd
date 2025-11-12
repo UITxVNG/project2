@@ -1,3 +1,5 @@
+# Class
+# Summary: TODO — add brief description.
 @tool
 extends SyntaxHighlighter
 
@@ -33,6 +35,9 @@ var text_event: DialogicTextEvent = null
 func _init() -> void:
 	update_colors()
 	DialogicUtil.get_dialogic_plugin().get_editor_interface().get_base_control().theme_changed.connect(update_colors)
+
+
+# Summary: TODO — describe update_colors.
 
 
 func update_colors() -> void:
@@ -95,6 +100,9 @@ func _get_line_syntax_highlighting(line:int) -> Dictionary:
 	return fix_dict(dict)
 
 
+# Summary: TODO — describe line_is_shortcode_event.
+
+
 func line_is_shortcode_event(line_idx:int) -> bool:
 	var str_line := get_text_edit().get_line(line_idx)
 	if text_event.text_effects_regex.search(str_line.get_slice(' ', 0)):
@@ -107,6 +115,9 @@ func line_is_shortcode_event(line_idx:int) -> bool:
 		return line_is_shortcode_event(line_idx-1)
 
 	return false
+
+
+# Summary: TODO — describe get_full_event.
 
 
 func get_full_event(line_idx:int) -> String:
@@ -128,6 +139,8 @@ func get_full_event(line_idx:int) -> String:
 
 	return str_line
 
+# Summary: TODO — describe fix_dict.
+
 func fix_dict(dict:Dictionary) -> Dictionary:
 	var d := {}
 	var k := dict.keys()
@@ -135,6 +148,9 @@ func fix_dict(dict:Dictionary) -> Dictionary:
 	for i in k:
 		d[i] = dict[i]
 	return d
+
+
+# Summary: TODO — describe color_condition.
 
 
 func color_condition(dict:Dictionary, line:String, from:int = 0, to:int = 0) -> Dictionary:
@@ -157,9 +173,15 @@ func color_condition(dict:Dictionary, line:String, from:int = 0, to:int = 0) -> 
 	return dict
 
 
+# Summary: TODO — describe color_translation_id.
+
+
 func color_translation_id(dict:Dictionary, line:String) -> Dictionary:
 	dict = color_region(dict, translation_id_color, line, '#id:', '')
 	return dict
+
+
+# Summary: TODO — describe color_word.
 
 
 func color_word(dict:Dictionary, color:Color, line:String, word:String, from:int= 0, to:int = 0) -> Dictionary:
@@ -170,6 +192,9 @@ func color_word(dict:Dictionary, color:Color, line:String, word:String, from:int
 		dict[i.get_start('word')+from] = {'color':color}
 		dict[i.get_end('word')+from] = {'color':normal_color}
 	return dict
+
+
+# Summary: TODO — describe color_region.
 
 
 func color_region(dict:Dictionary, color:Color, line:String, start:String, end:String, from:int = 0, to:int = 0, base_color:Color=normal_color) -> Dictionary:
@@ -191,6 +216,9 @@ func color_region(dict:Dictionary, color:Color, line:String, start:String, end:S
 	return dict
 
 
+# Summary: TODO — describe color_shortcode_content.
+
+
 func color_shortcode_content(dict:Dictionary, line:String, from:int = 0, to:int = 0, base_color:=normal_color) -> Dictionary:
 	if to <= from:
 		to = len(line)-1
@@ -200,6 +228,9 @@ func color_shortcode_content(dict:Dictionary, line:String, from:int = 0, to:int 
 		dict[x.get_start('value')+from-1] = {"color":base_color.lerp(normal_color, 0.7)}
 		dict[x.get_end()+from] = {"color":normal_color}
 	return dict
+
+
+# Summary: TODO — describe dict_get_color_at_column.
 
 
 func dict_get_color_at_column(dict:Dictionary, column:int) -> Color:

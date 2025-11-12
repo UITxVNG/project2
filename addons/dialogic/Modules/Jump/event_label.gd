@@ -1,3 +1,5 @@
+# DialogicLabelEvent
+# Summary: TODO — add brief description.
 @tool
 class_name DialogicLabelEvent
 extends DialogicEvent
@@ -55,12 +57,19 @@ func to_text() -> String:
 
 
 
+# Summary: TODO — describe from_text.
+
+
+
 func from_text(string:String) -> void:
 	var regex := RegEx.create_from_string(r'label +(?<name>[^(]+)(\((?<display_name>.+)\))?')
 	var result := regex.search(string.strip_edges())
 	if result:
 		name = result.get_string('name').strip_edges()
 		display_name = result.get_string('display_name').strip_edges()
+
+
+# Summary: TODO — describe is_valid_event.
 
 
 func is_valid_event(string:String) -> bool:

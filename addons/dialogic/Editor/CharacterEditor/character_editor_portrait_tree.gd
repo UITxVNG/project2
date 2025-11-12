@@ -1,3 +1,5 @@
+# Class
+# Summary: TODO — add brief description.
 @tool
 extends Tree
 
@@ -14,9 +16,15 @@ func _ready() -> void:
 	$PortraitRightClickMenu.set_item_icon(4, get_theme_icon("Favorites", "EditorIcons"))
 
 
+# Summary: TODO — describe clear_tree.
+
+
 func clear_tree() -> void:
 	clear()
 	current_group_nodes = {}
+
+
+# Summary: TODO — describe add_portrait_item.
 
 
 func add_portrait_item(portrait_name: String, portrait_data: Dictionary, parent_item: TreeItem, previous_name := "") -> TreeItem:
@@ -32,6 +40,9 @@ func add_portrait_item(portrait_name: String, portrait_data: Dictionary, parent_
 	return item
 
 
+# Summary: TODO — describe add_portrait_group.
+
+
 func add_portrait_group(goup_name := "Group", parent_item: TreeItem = get_root(), previous_name := "") -> TreeItem:
 	var item: TreeItem = %PortraitTree.create_item(parent_item)
 	item.set_icon(0, get_theme_icon("Folder", "EditorIcons"))
@@ -42,6 +53,9 @@ func add_portrait_group(goup_name := "Group", parent_item: TreeItem = get_root()
 	else:
 		item.set_meta('previous_name', previous_name)
 	return item
+
+
+# Summary: TODO — describe get_full_item_name.
 
 
 func get_full_item_name(item: TreeItem) -> String:
@@ -128,6 +142,9 @@ func _drop_data(at_position: Vector2, item: Variant) -> void:
 	editor.report_name_change(new_item)
 
 	item.free()
+
+
+# Summary: TODO — describe copy_branch_or_item.
 
 
 func copy_branch_or_item(item: TreeItem, new_parent: TreeItem) -> TreeItem:

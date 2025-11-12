@@ -1,3 +1,5 @@
+# DialogicBackgroundTransition
+# Summary: TODO — add brief description.
 class_name DialogicBackgroundTransition
 extends Node
 
@@ -31,6 +33,9 @@ func _fade() -> void:
 	pass
 
 
+# Summary: TODO — describe set_shader.
+
+
 func set_shader(path_to_shader:String=DialogicUtil.get_module_path('Background').path_join("Transitions/default_transition_shader.gdshader")) -> ShaderMaterial:
 	if bg_holder:
 		if path_to_shader.is_empty():
@@ -41,6 +46,9 @@ func set_shader(path_to_shader:String=DialogicUtil.get_module_path('Background')
 		bg_holder.material.shader = load(path_to_shader)
 		return bg_holder.material
 	return null
+
+
+# Summary: TODO — describe tween_shader_progress.
 
 
 func tween_shader_progress(_progress_parameter:="progress") -> PropertyTweener:

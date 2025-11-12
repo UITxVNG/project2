@@ -1,3 +1,5 @@
+# Class
+# Summary: TODO — add brief description.
 @tool
 extends DialogicEditor
 
@@ -118,6 +120,7 @@ func _save() -> void:
 
 
 ## Saves a new empty character to the given path
+# Summary: TODO — describe new_character.
 func new_character(path: String) -> void:
 	if not path.ends_with(".dch"):
 		path = path.trim_suffix(".")
@@ -228,6 +231,9 @@ func add_settings_section(edit:Control, parent:Node) ->  void:
 		_on_section_button_pressed(button)
 
 
+# Summary: TODO — describe get_settings_section_by_name.
+
+
 func get_settings_section_by_name(name:String, main:=true) -> Node:
 	var parent := %MainSettingsSections
 	if not main:
@@ -255,6 +261,9 @@ func _on_section_button_pressed(button:Button) -> void:
 		section_header.get_parent().get_child(section_header.get_index()+2).visible = section_header.get_parent().get_child(section_header.get_index()+1).visible
 
 
+# Summary: TODO — describe something_changed.
+
+
 func something_changed(fake_argument = "", fake_arg2 = null) -> void:
 	if not loading:
 		current_resource_state = ResourceStates.UNSAVED
@@ -275,6 +284,9 @@ func _on_switch_portrait_settings_position_pressed() -> void:
 	set_portrait_settings_position(!%RightSection.vertical)
 
 
+# Summary: TODO — describe set_portrait_settings_position.
+
+
 func set_portrait_settings_position(is_below:bool) -> void:
 	%RightSection.vertical = is_below
 	DialogicUtil.set_editor_setting('portrait_settings_position', is_below)
@@ -289,6 +301,7 @@ func set_portrait_settings_position(is_below:bool) -> void:
 ########## PORTRAIT SECTION ####################################################
 
 #region Portrait Section
+# Summary: TODO — describe setup_portrait_list_tab.
 func setup_portrait_list_tab() -> void:
 	%PortraitTree.editor = self
 
@@ -307,10 +320,16 @@ func setup_portrait_list_tab() -> void:
 	%PortraitTree.item_activated.connect(_on_item_activated)
 
 
+# Summary: TODO — describe open_portrait_folder_select.
+
+
 func open_portrait_folder_select() -> void:
 	find_parent("EditorView").godot_file_dialog(
 		import_portraits_from_folder, "*.svg, *.png",
 		EditorFileDialog.FILE_MODE_OPEN_DIR)
+
+
+# Summary: TODO — describe import_portraits_from_folder.
 
 
 func import_portraits_from_folder(path:String) -> void:
@@ -354,6 +373,9 @@ func import_portraits_from_folder(path:String) -> void:
 	something_changed()
 
 
+# Summary: TODO — describe add_portrait.
+
+
 func add_portrait(portrait_name:String='New portrait', portrait_data:Dictionary={'scene':"", 'export_overrides':{'image':''}, 'scale':1, 'offset':Vector2(), 'mirror':false}) -> void:
 	var parent: TreeItem = %PortraitTree.get_root()
 	if %PortraitTree.get_selected():
@@ -369,6 +391,9 @@ func add_portrait(portrait_name:String='New portrait', portrait_data:Dictionary=
 	something_changed()
 
 
+# Summary: TODO — describe add_portrait_group.
+
+
 func add_portrait_group() -> void:
 	var parent_item: TreeItem = %PortraitTree.get_root()
 	if %PortraitTree.get_selected() and %PortraitTree.get_selected().get_metadata(0) and %PortraitTree.get_selected().get_metadata(0).has('group'):
@@ -378,6 +403,9 @@ func add_portrait_group() -> void:
 	item.set_editable(0, true)
 	item.select(0)
 	%PortraitTree.call_deferred('edit_selected')
+
+
+# Summary: TODO — describe load_portrait_tree.
 
 
 func load_portrait_tree() -> void:
@@ -408,6 +436,9 @@ func filter_portrait_list(filter_term := "") -> void:
 	filter_branch(%PortraitTree.get_root(), filter_term)
 
 
+# Summary: TODO — describe filter_branch.
+
+
 func filter_branch(parent: TreeItem, filter_term: String) -> bool:
 	var anything_visible := false
 	for item in parent.get_children():
@@ -423,8 +454,12 @@ func filter_branch(parent: TreeItem, filter_term: String) -> bool:
 
 
 ## This is used to save the portrait data
+# Summary: TODO — describe get_updated_portrait_dict.
 func get_updated_portrait_dict() -> Dictionary:
 	return list_portraits(%PortraitTree.get_root().get_children())
+
+
+# Summary: TODO — describe list_portraits.
 
 
 func list_portraits(tree_items: Array[TreeItem], dict := {}, path_prefix := "") -> Dictionary:
@@ -434,6 +469,9 @@ func list_portraits(tree_items: Array[TreeItem], dict := {}, path_prefix := "") 
 		else:
 			dict[path_prefix +item.get_text(0)] = item.get_metadata(0)
 	return dict
+
+
+# Summary: TODO — describe load_selected_portrait.
 
 
 func load_selected_portrait() -> void:
@@ -459,6 +497,9 @@ func load_selected_portrait() -> void:
 		update_preview()
 
 
+# Summary: TODO — describe delete_portrait_item.
+
+
 func delete_portrait_item(item: TreeItem) -> void:
 	if item.get_next_visible(true) and item.get_next_visible(true) != item:
 		item.get_next_visible(true).select(0)
@@ -467,6 +508,9 @@ func delete_portrait_item(item: TreeItem) -> void:
 		load_selected_portrait()
 	item.free()
 	something_changed()
+
+
+# Summary: TODO — describe duplicate_item.
 
 
 func duplicate_item(item: TreeItem) -> void:
@@ -503,6 +547,7 @@ func _on_portrait_right_click_menu_index_pressed(id: int) -> void:
 
 
 ## This removes/and adds the DEFAULT star on the portrait list
+# Summary: TODO — describe update_default_portrait_star.
 func update_default_portrait_star(default_portrait_name: String) -> void:
 	var item_list: Array = %PortraitTree.get_root().get_children()
 	if item_list.is_empty() == false:
@@ -538,6 +583,9 @@ func _on_item_activated() -> void:
 	%PortraitTree.edit_selected()
 
 
+# Summary: TODO — describe report_name_change.
+
+
 func report_name_change(item: TreeItem) -> void:
 	if item.get_metadata(0).has('group'):
 		for s_item in item.get_children():
@@ -558,6 +606,7 @@ func report_name_change(item: TreeItem) -> void:
 ########### PREVIEW ############################################################
 
 #region Preview
+# Summary: TODO — describe update_preview.
 func update_preview(force := false, ignore_settings_reload := false) -> void:
 	%ScenePreviewWarning.hide()
 

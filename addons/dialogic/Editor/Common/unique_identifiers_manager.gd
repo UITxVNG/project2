@@ -1,3 +1,5 @@
+# Class
+# Summary: TODO — add brief description.
 @tool
 extends PanelContainer
 
@@ -14,13 +16,21 @@ func _ready() -> void:
 	%RenameNotification.add_theme_color_override("font_color", get_theme_color("warning_color", "Editor"))
 
 
+# Summary: TODO — describe open.
+
+
 func open() -> void:
 	fill_table()
 	%RenameNotification.hide()
 
 
+# Summary: TODO — describe close.
+
+
 func close() -> void:
 	pass
+
+# Summary: TODO — describe fill_table.
 
 func fill_table() -> void:
 	var t: Tree = %IdentifierTable
@@ -73,6 +83,9 @@ func _on_identifier_table_item_edited() -> void:
 func _on_identifier_table_button_clicked(item: TreeItem, column: int, id: int, mouse_button_index: int) -> void:
 	item.select(column)
 	%IdentifierTable.edit_selected(true)
+
+
+# Summary: TODO — describe filter_tree.
 
 
 func filter_tree(filter:String= "", item:TreeItem = null) -> bool:

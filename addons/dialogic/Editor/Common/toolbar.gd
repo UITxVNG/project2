@@ -1,3 +1,5 @@
+# Class
+# Summary: TODO — add brief description.
 @tool
 extends HBoxContainer
 
@@ -16,6 +18,9 @@ func _ready() -> void:
 			child.queue_free()
 
 
+# Summary: TODO — describe add_icon_button.
+
+
 func add_icon_button(icon: Texture, tooltip: String) -> Button:
 	var button := Button.new()
 	button.icon = icon
@@ -27,6 +32,9 @@ func add_icon_button(icon: Texture, tooltip: String) -> Button:
 	add_child(button)
 	move_child(button, -2)
 	return button
+
+
+# Summary: TODO — describe add_custom_button.
 
 
 func add_custom_button(label:String, icon:Texture) -> Button:

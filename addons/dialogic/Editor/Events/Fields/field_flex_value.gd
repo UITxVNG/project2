@@ -1,3 +1,5 @@
+# Class
+# Summary: TODO — add brief description.
 @tool
 extends HBoxContainer
 
@@ -38,6 +40,9 @@ func _ready() -> void:
 	%ValueType.tooltip_text = "Change type"
 
 
+# Summary: TODO — describe set_value.
+
+
 func set_value(value:Variant):
 	change_field_type(deduce_type(value))
 	%ValueType.set_value(deduce_type(value))
@@ -51,6 +56,9 @@ func set_value(value:Variant):
 			value_field.set_value(value)
 		TYPE_MAX, _:
 			value_field.text = value.trim_prefix('@')
+
+
+# Summary: TODO — describe deduce_type.
 
 
 func deduce_type(value:Variant) -> int:
@@ -90,6 +98,9 @@ func _on_type_changed(prop:String, type:Variant) -> void:
 	emit_signal.call_deferred('value_changed')
 
 
+# Summary: TODO — describe get_value.
+
+
 func get_value() -> Variant:
 	return current_value
 
@@ -97,6 +108,9 @@ func get_value() -> Variant:
 func _on_delete_pressed() -> void:
 	queue_free()
 	value_changed.emit()
+
+
+# Summary: TODO — describe change_field_type.
 
 
 func change_field_type(type:int) -> void:

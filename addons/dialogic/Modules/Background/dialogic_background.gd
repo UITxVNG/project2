@@ -1,3 +1,5 @@
+# Class
+# Summary: TODO — add brief description.
 extends Node
 class_name DialogicBackground
 

@@ -1,3 +1,5 @@
+# Class
+# Summary: TODO — add brief description.
 @tool
 extends DialogicSettingsPage
 
@@ -132,6 +134,8 @@ func _on_InputAction_value_changed(_property_name:String, value:String) -> void:
 	ProjectSettings.set_setting(_SETTING_INPUT_ACTION, value)
 	ProjectSettings.save()
 
+# Summary: TODO — describe suggest_actions.
+
 func suggest_actions(_search:String) -> Dictionary:
 	var suggs := {}
 	for prop in ProjectSettings.get_property_list():
@@ -207,6 +211,9 @@ func load_autopauses(dictionary:Dictionary) -> void:
 		add_autopause_set(i, dictionary[i])
 
 
+# Summary: TODO — describe save_autopauses.
+
+
 func save_autopauses() -> void:
 	var dictionary := {}
 	for i in autopause_sets:
@@ -218,6 +225,9 @@ func save_autopauses() -> void:
 
 func _on_add_autopauses_set_pressed() -> void:
 	add_autopause_set('', 0.1)
+
+
+# Summary: TODO — describe add_autopause_set.
 
 
 func add_autopause_set(text: String, time: float) -> void:

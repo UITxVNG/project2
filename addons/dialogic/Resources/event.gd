@@ -1,3 +1,5 @@
+# DialogicEvent
+# Summary: TODO — add brief description.
 @tool
 class_name DialogicEvent
 extends Resource
@@ -122,6 +124,7 @@ func _to_string() -> String:
 ################################################################################
 
 ## Executes the event behaviour. In subclasses [_execute] (not this one) should be overriden!
+# Summary: TODO — describe execute.
 func execute(_dialogic_game_handler) -> void:
 	event_started.emit(self)
 	dialogic = _dialogic_game_handler
@@ -129,6 +132,7 @@ func execute(_dialogic_game_handler) -> void:
 
 
 ## Ends the event behaviour.
+# Summary: TODO — describe finish.
 func finish() -> void:
 	event_finished.emit(self)
 
@@ -166,6 +170,7 @@ func _is_branch_starter() -> bool:
 
 
 ## Returns the index of the end branch event of this event (Only use if can_contain_events is true).
+# Summary: TODO — describe get_end_branch_index.
 func get_end_branch_index() -> int:
 	var idx: int = dialogic.current_timeline_events.find(self)
 	while true:
@@ -203,13 +208,20 @@ func can_be_translated() -> bool:
 
 
 ## This is automatically called, no need to use this.
+# Summary: TODO — describe add_translation_id.
 func add_translation_id() -> String:
 	_translation_id = DialogicUtil.get_next_translation_id()
 	return _translation_id
 
 
+# Summary: TODO — describe remove_translation_id.
+
+
 func remove_translation_id() -> void:
 	_translation_id = ""
+
+
+# Summary: TODO — describe get_property_translation_key.
 
 
 func get_property_translation_key(property_name:String) -> String:
@@ -217,6 +229,7 @@ func get_property_translation_key(property_name:String) -> String:
 
 
 ## Call this whenever you are using a translatable property
+# Summary: TODO — describe get_property_translated.
 func get_property_translated(property_name:String) -> String:
 	if !_translation_id.is_empty() and ProjectSettings.get_setting('dialogic/translation/enabled', false):
 		var translation := tr(get_property_translation_key(property_name))
@@ -242,6 +255,7 @@ func _store_as_string() -> String:
 
 
 ## Call this if you updated an event and want the changes to be saved.
+# Summary: TODO — describe update_text_version.
 func update_text_version() -> void:
 	event_node_as_text = _store_as_string()
 
@@ -271,6 +285,9 @@ func _test_event_string(string:String) -> bool:
 	return is_valid_event(string.strip_edges())
 
 
+# Summary: TODO — describe get_dependencies.
+
+
 func get_dependencies() -> PackedStringArray:
 	var deps := PackedStringArray()
 	var params := get_shortcode_parameters()
@@ -293,11 +310,13 @@ func get_dependencies() -> PackedStringArray:
 ### All of these functions can/should be overridden by the sub classes
 
 ## If this uses the short-code format, return the shortcode.
+# Summary: TODO — describe get_shortcode.
 func get_shortcode() -> String:
 	return 'default_shortcode'
 
 
 ## If this uses the short-code format, return the parameters and corresponding property names.
+# Summary: TODO — describe get_shortcode_parameters.
 func get_shortcode_parameters() -> Dictionary:
 	return {}
 
@@ -319,6 +338,7 @@ func from_text(string: String) -> void:
 
 
 ## Returns a string with all the shortcode parameters.
+# Summary: TODO — describe store_to_shortcode_parameters.
 func store_to_shortcode_parameters(params:Dictionary = {}) -> String:
 	if params.is_empty():
 		params = get_shortcode_parameters()
@@ -342,6 +362,9 @@ func store_to_shortcode_parameters(params:Dictionary = {}) -> String:
 		result_string += " " + parameter + '="' + value_to_string(value, parameter_info.get("suggestions", Callable())) + '"'
 
 	return result_string.strip_edges()
+
+
+# Summary: TODO — describe value_to_string.
 
 
 func value_to_string(value: Variant, suggestions := Callable()) -> String:
@@ -376,6 +399,9 @@ func value_to_string(value: Variant, suggestions := Callable()) -> String:
 		value_as_string.replace('"', '\\"')
 
 	return value_as_string
+
+
+# Summary: TODO — describe load_from_shortcode_parameters.
 
 
 func load_from_shortcode_parameters(string:String) -> void:
@@ -433,6 +459,7 @@ func is_string_full_event(string: String) -> bool:
 
 
 ## Used to get all the shortcode parameters in a string as a dictionary.
+# Summary: TODO — describe parse_shortcode_parameters.
 func parse_shortcode_parameters(shortcode: String) -> Dictionary:
 	var regex := RegEx.new()
 	regex.compile(r'(?<parameter>[^\s=]*)\s*=\s*"(?<value>(\{[^}]*\}|\[[^]]*\]|([^"]|\\")*|))(?<!\\)\"')
@@ -455,6 +482,9 @@ func _get_icon() -> Resource:
 	elif ResourceLoader.exists(self.get_script().get_path().get_base_dir() + "/icon.png"):
 		_icon_file_name = self.get_script().get_path().get_base_dir() + "/icon.png"
 	return load(_icon_file_name)
+
+
+# Summary: TODO — describe set_default_color.
 
 
 func set_default_color(value:Variant) -> void:
@@ -514,6 +544,7 @@ func get_event_editor_info() -> Array:
 
 
 ## to be overwritten by the sub_classes
+# Summary: TODO — describe build_event_editor.
 func build_event_editor() -> void:
 	pass
 
@@ -538,6 +569,9 @@ func add_header_label(text:String, condition:= "") -> void:
 		})
 
 
+# Summary: TODO — describe add_header_edit.
+
+
 func add_header_edit(variable:String, editor_type := ValueType.LABEL, extra_info:= {}, condition:= "") -> void:
 	editor_list.append({
 		"name" 			: variable,
@@ -552,6 +586,9 @@ func add_header_edit(variable:String, editor_type := ValueType.LABEL, extra_info
 		})
 
 
+# Summary: TODO — describe add_header_button.
+
+
 func add_header_button(text:String, callable:Callable, tooltip:String, icon: Variant = null, condition:= "") -> void:
 	editor_list.append({
 		"name"			: "Button",
@@ -562,6 +599,9 @@ func add_header_button(text:String, callable:Callable, tooltip:String, icon: Var
 		"display_info" 	: {'text':text, 'tooltip':tooltip, 'callable':callable, 'icon':icon},
 		"condition" 	: condition,
 	})
+
+
+# Summary: TODO — describe add_body_edit.
 
 
 func add_body_edit(variable:String, editor_type := ValueType.LABEL, extra_info:= {}, condition:= "") -> void:
@@ -576,6 +616,9 @@ func add_body_edit(variable:String, editor_type := ValueType.LABEL, extra_info:=
 		"right_text" 	: extra_info.get('right_text', ''),
 		"condition" 	: condition,
 		})
+
+
+# Summary: TODO — describe add_body_line_break.
 
 
 func add_body_line_break(condition:= "") -> void:

@@ -1,3 +1,5 @@
+# Class
+# Summary: TODO — add brief description.
 @tool
 extends Control
 
@@ -16,10 +18,16 @@ func _ready() -> void:
 	DialogicUtil.get_dialogic_plugin().get_editor_interface().get_resource_filesystem().resources_reimported.connect(_on_resources_reimported)
 
 
+# Summary: TODO — describe open.
+
+
 func open() -> void:
 	get_parent().popup_centered_ratio(0.5)
 	get_parent().mode = Window.MODE_WINDOWED
 	get_parent().grab_focus()
+
+
+# Summary: TODO — describe load_info.
 
 
 func load_info(info:Dictionary, update_type:int) -> void:
@@ -108,6 +116,9 @@ func _on_resources_reimported(resources:Array) -> void:
 	if is_inside_tree():
 		await get_tree().process_frame
 		get_parent().grab_focus()
+
+
+# Summary: TODO — describe markdown_to_bbcode.
 
 
 func markdown_to_bbcode(text:String) -> String:

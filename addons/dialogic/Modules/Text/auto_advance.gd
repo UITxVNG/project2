@@ -1,3 +1,5 @@
+# DialogicAutoAdvance
+# Summary: TODO — add brief description.
 class_name DialogicAutoAdvance
 extends RefCounted
 ## This class holds the settings for the Auto-Advance feature.
@@ -83,6 +85,8 @@ func _init() -> void:
 	ignored_characters = ProjectSettings.get_setting('dialogic/text/autoadvance_ignored_characters', {})
 
 #region AUTOADVANCE INTERNALS
+
+# Summary: TODO — describe start.
 
 func start() -> void:
 	if not is_enabled():
@@ -177,12 +181,19 @@ func _on_toggled(enabled: bool) -> void:
 #endregion
 
 #region AUTOADVANCE HELPERS
+# Summary: TODO — describe is_advancing.
 func is_advancing() -> bool:
 	return !autoadvance_timer.is_stopped()
 
 
+# Summary: TODO — describe get_time_left.
+
+
 func get_time_left() -> float:
 	return autoadvance_timer.time_left
+
+
+# Summary: TODO — describe get_time.
 
 
 func get_time() -> float:

@@ -1,3 +1,5 @@
+# Class
+# Summary: TODO — add brief description.
 extends DialogicSubsystem
 
 ## Subsystem that manages showing and activating of choices.
@@ -57,6 +59,9 @@ func _ready() -> void:
 	default_false_behaviour = ProjectSettings.get_setting('dialogic/choices/def_false_behaviour', default_false_behaviour)
 
 
+# Summary: TODO — describe post_install.
+
+
 func post_install() -> void:
 	dialogic.Inputs.dialogic_action.connect(_on_dialogic_action)
 
@@ -67,6 +72,7 @@ func post_install() -> void:
 ####################################################################################################
 
 ## Hides all choice buttons.
+# Summary: TODO — describe hide_all_choices.
 func hide_all_choices() -> void:
 	for node in get_tree().get_nodes_in_group('dialogic_choice_button'):
 		node.hide()
@@ -134,6 +140,7 @@ func get_current_question_info() -> Dictionary:
 
 
 ## Lists all current choices and shows buttons.
+# Summary: TODO — describe show_current_question.
 func show_current_question(instant:=true) -> void:
 	hide_all_choices()
 	_choice_blocker.stop()
@@ -193,10 +200,16 @@ func show_current_question(instant:=true) -> void:
 		printerr("[Dialogic] The layout you are using doesn't have enough Choice Buttons for the choices you are trying to display.")
 
 
+# Summary: TODO — describe focus_choice.
+
+
 func focus_choice(button_index:int) -> void:
 	var node: DialogicNode_ChoiceButton = get_choice_button(button_index)
 	if node:
 		node.grab_focus()
+
+
+# Summary: TODO — describe select_choice.
 
 
 func select_choice(button_index:int) -> void:
@@ -205,9 +218,15 @@ func select_choice(button_index:int) -> void:
 		node.choice_selected.emit()
 
 
+# Summary: TODO — describe select_focused_choice.
+
+
 func select_focused_choice() -> void:
 	if get_viewport().gui_get_focus_owner() is DialogicNode_ChoiceButton:
 		(get_viewport().gui_get_focus_owner() as DialogicNode_ChoiceButton).choice_selected.emit()
+
+
+# Summary: TODO — describe get_choice_button.
 
 
 func get_choice_button(button_index:int) -> DialogicNode_ChoiceButton:
@@ -245,6 +264,7 @@ func _on_choice_selected(choice_info := {}) -> void:
 
 
 ## Returns the indexes of the choice events related to the current question.
+# Summary: TODO — describe get_current_choice_indexes.
 func get_current_choice_indexes() -> Array:
 	var choices := []
 	var index := dialogic.current_event_idx-1
@@ -276,6 +296,7 @@ func _on_dialogic_action() -> void:
 ####################################################################################################
 
 ## Returns `true` if the given index is a text event before a question or the first choice event of a question.
+# Summary: TODO — describe is_question.
 func is_question(index:int) -> bool:
 	var event: DialogicEvent = dialogic.current_timeline_events[index]
 	if event is DialogicTextEvent:

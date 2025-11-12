@@ -1,3 +1,5 @@
+# Class
+# Summary: TODO — add brief description.
 @tool
 extends VSplitContainer
 
@@ -43,6 +45,9 @@ func _ready() -> void:
 
 	tab_button.add_child(dot)
 	update_indicator()
+
+
+# Summary: TODO — describe open.
 
 
 func open() -> void:
@@ -115,6 +120,9 @@ func _on_check_button_pressed() -> void:
 	%CheckButton.disabled = true
 
 
+# Summary: TODO — describe open_finder.
+
+
 func open_finder(replacements:Array[Dictionary]) -> void:
 	%ReplacementSection.show()
 	%Progress.show()
@@ -144,6 +152,10 @@ func _process(delta: float) -> void:
 		else:
 			var finds: Variant = finder_thread.wait_to_finish()
 			display_search_results(finds)
+
+
+
+# Summary: TODO — describe display_search_results.
 
 
 
@@ -222,6 +234,9 @@ func _custom_draw(item:TreeItem, rect:Rect2) -> void:
 	%ReferenceTree.draw_rect(match_rect, get_theme_color("box_selection_stroke_color", "Editor"), false)
 
 
+# Summary: TODO — describe search_timelines.
+
+
 func search_timelines(regexes:Array[Array]) -> Array[Dictionary]:
 	var finds: Array[Dictionary] = []
 
@@ -268,8 +283,14 @@ func _exit_tree() -> void:
 		finder_thread.wait_to_finish()
 
 
+# Summary: TODO — describe get_line.
+
+
 func get_line(string:String, at_index:int) -> String:
 	return string.substr(max(string.rfind('\n', at_index), 0), string.find('\n', at_index)-string.rfind('\n', at_index))
+
+
+# Summary: TODO — describe update_count_coloring.
 
 
 func update_count_coloring() -> void:
@@ -308,6 +329,9 @@ func _on_replace_pressed() -> void:
 			if !item.get_metadata(0).timeline in affected_timelines:
 				affected_timelines.append(item.get_metadata(0).timeline)
 	replace(affected_timelines, to_be_replaced)
+
+
+# Summary: TODO — describe replace.
 
 
 func replace(timelines:Array[String], replacement_info:Array[Dictionary]) -> void:
@@ -366,8 +390,14 @@ func replace(timelines:Array[String], replacement_info:Array[Dictionary]) -> voi
 	%State.text = "Done Replacing"
 
 
+# Summary: TODO — describe update_indicator.
+
+
 func update_indicator() -> void:
 	%TabA.get_child(0).visible = !reference_changes.is_empty()
+
+
+# Summary: TODO — describe close.
 
 
 func close() -> void:

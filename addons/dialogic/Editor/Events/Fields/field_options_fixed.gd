@@ -1,3 +1,5 @@
+# Class
+# Summary: TODO — add brief description.
 @tool
 extends DialogicVisualEditorField
 
@@ -43,8 +45,14 @@ func _set_value(value:Variant) -> void:
 	current_value = value
 
 
+# Summary: TODO — describe get_value.
+
+
 func get_value() -> Variant:
 	return current_value
+
+
+# Summary: TODO — describe insert_options.
 
 
 func insert_options() -> void:
@@ -57,6 +65,9 @@ func insert_options() -> void:
 		call("get_popup").add_icon_item(option.get('icon', null), option['label'])
 		call("get_popup").set_item_metadata(idx, option['value'])
 		idx += 1
+
+
+# Summary: TODO — describe index_pressed.
 
 
 func index_pressed(idx:int) -> void:

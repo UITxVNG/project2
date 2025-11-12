@@ -1,3 +1,5 @@
+# DialogicEndBranchEvent
+# Summary: TODO — add brief description.
 @tool
 class_name DialogicEndBranchEvent
 extends DialogicEvent
@@ -37,6 +39,9 @@ func find_next_index() -> int:
 	return idx
 
 
+# Summary: TODO — describe get_opening_index.
+
+
 func get_opening_index() -> int:
 	var index: int = dialogic.current_timeline_events.find(self)
 	while true:
@@ -71,8 +76,14 @@ func to_text() -> String:
 	return "<<END BRANCH>>"
 
 
+# Summary: TODO — describe from_text.
+
+
 func from_text(_string:String) -> void:
 	pass
+
+
+# Summary: TODO — describe is_valid_event.
 
 
 func is_valid_event(string:String) -> bool:

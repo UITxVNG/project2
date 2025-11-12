@@ -1,3 +1,5 @@
+# Class
+# Summary: TODO — add brief description.
 extends Control
 
 func _ready() -> void:
@@ -23,8 +25,12 @@ func _ready() -> void:
 	DialogicUtil.autoload().signal_event.connect(receive_event_signal)
 	DialogicUtil.autoload().text_signal.connect(receive_text_signal)
 
+# Summary: TODO — describe receive_event_signal.
+
 func receive_event_signal(argument:Variant) -> void:
 	print("[Dialogic] Encountered a signal event: ", argument)
+
+# Summary: TODO — describe receive_text_signal.
 
 func receive_text_signal(argument:String) -> void:
 	print("[Dialogic] Encountered a signal in text: ", argument)

@@ -1,3 +1,5 @@
+# DialogicNode_NextIndicator
+# Summary: TODO — add brief description.
 @icon("node_next_indicator_icon.svg")
 class_name DialogicNode_NextIndicator
 extends Control
@@ -60,6 +62,9 @@ func _ready() -> void:
 func _on_visibility_changed() -> void:
 	if visible:
 		play_animation(animation, 1.0)
+
+
+# Summary: TODO — describe play_animation.
 
 
 func play_animation(current_animation: int, time:float) -> void:

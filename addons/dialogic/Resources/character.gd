@@ -1,4 +1,6 @@
 @tool
+# DialogicCharacter
+# Summary: TODO — add brief description.
 @icon("uid://bbea0efx0ybu7")
 extends "res://addons/dialogic/Resources/dialogic_identifiable_resource.gd"
 class_name DialogicCharacter
@@ -40,6 +42,7 @@ func _get_resource_name() -> String:
 
 
 ## Adds a translation ID to the character.
+# Summary: TODO — describe add_translation_id.
 func add_translation_id() -> String:
 	_translation_id = DialogicUtil.get_next_translation_id()
 	return _translation_id
@@ -55,6 +58,7 @@ func get_set_translation_id() -> String:
 
 
 ## Removes the translation ID from the character.
+# Summary: TODO — describe remove_translation_id.
 func remove_translation_id() -> void:
 	_translation_id = ""
 
@@ -124,11 +128,13 @@ func get_nicknames_translated() -> Array:
 
 
 ## Translates and returns the display name of the character.
+# Summary: TODO — describe get_display_name_translated.
 func get_display_name_translated() -> String:
 	return _get_property_translated(TranslatedProperties.NAME)
 
 
 ## Returns the best name for this character.
+# Summary: TODO — describe get_character_name.
 func get_character_name() -> String:
 	var unique_identifier := get_identifier()
 	if not unique_identifier.is_empty():

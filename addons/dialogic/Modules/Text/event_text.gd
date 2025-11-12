@@ -1,3 +1,5 @@
+# DialogicTextEvent
+# Summary: TODO — add brief description.
 @tool
 class_name DialogicTextEvent
 extends DialogicEvent
@@ -312,6 +314,9 @@ func to_text() -> String:
 	return result
 
 
+# Summary: TODO — describe from_text.
+
+
 func from_text(string:String) -> void:
 	# Load default character
 	# This is only of relevance if the default has been overriden (usually not)
@@ -342,6 +347,9 @@ func from_text(string:String) -> void:
 		text = ""
 
 
+# Summary: TODO — describe get_or_create_character.
+
+
 func get_or_create_character(name:String) -> void:
 	character = DialogicResourceUtil.get_character_resource(name)
 
@@ -359,8 +367,14 @@ func get_or_create_character(name:String) -> void:
 			character_identifier = name
 
 
+# Summary: TODO — describe is_valid_event.
+
+
 func is_valid_event(_string:String) -> bool:
 	return true
+
+
+# Summary: TODO — describe is_string_full_event.
 
 
 func is_string_full_event(string:String) -> bool:
@@ -402,6 +416,9 @@ func _enter_visual_editor(editor:DialogicEditor):
 	editor.opened.connect(func(): ui_update_needed.emit())
 
 
+# Summary: TODO — describe build_event_editor.
+
+
 func build_event_editor() -> void:
 	add_header_edit('character_identifier', ValueType.DYNAMIC_OPTIONS,
 			{'file_extension' 	: '.dch',
@@ -418,12 +435,21 @@ func build_event_editor() -> void:
 	add_body_edit('text', ValueType.MULTILINE_TEXT, {'autofocus':true})
 
 
+# Summary: TODO — describe should_show_portrait_selector.
+
+
 func should_show_portrait_selector() -> bool:
 	return character and not character.portraits.is_empty() and not character.portraits.size() == 1
 
 
+# Summary: TODO — describe do_any_characters_exist.
+
+
 func do_any_characters_exist() -> bool:
 	return not DialogicResourceUtil.get_character_directory().is_empty()
+
+
+# Summary: TODO — describe get_character_suggestions.
 
 
 func get_character_suggestions(search_text:String) -> Dictionary:
@@ -434,6 +460,8 @@ func get_character_suggestions(search_text:String) -> Dictionary:
 			"tooltip": "A temporary character, created on the spot.",
 			"editor_icon":["GuiEllipsis", "EditorIcons"]}
 	return suggestions
+
+# Summary: TODO — describe get_portrait_suggestions.
 
 func get_portrait_suggestions(search_text:String) -> Dictionary:
 	return DialogicUtil.get_portrait_suggestions(search_text, character, true, "Don't change")
@@ -480,6 +508,9 @@ func _get_start_code_completion(CodeCompletionHelper:Node, TextNode:TextEdit) ->
 	CodeCompletionHelper.suggest_characters(TextNode, CodeEdit.KIND_CLASS, self)
 
 
+# Summary: TODO — describe suggest_bbcode.
+
+
 func suggest_bbcode(TextNode:CodeEdit):
 	for i in [['b (bold)', 'b'], ['i (italics)', 'i'], ['color', 'color='], ['font size','font_size=']]:
 		TextNode.add_code_completion_option(CodeEdit.KIND_MEMBER, i[0], i[1],  TextNode.syntax_highlighter.normal_color, TextNode.get_theme_icon("RichTextEffect", "EditorIcons"),)
@@ -495,6 +526,7 @@ func suggest_bbcode(TextNode:CodeEdit):
 
 var text_effects := ""
 var text_effects_regex := RegEx.new()
+# Summary: TODO — describe load_text_effects.
 func load_text_effects() -> void:
 	if text_effects.is_empty():
 		for idx in DialogicUtil.get_indexers():

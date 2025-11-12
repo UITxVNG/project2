@@ -1,3 +1,5 @@
+# DialogicCharacterEvent
+# Summary: TODO — add brief description.
 @tool
 class_name DialogicCharacterEvent
 extends DialogicEvent
@@ -254,6 +256,9 @@ func to_text() -> String:
 	return result_string
 
 
+# Summary: TODO — describe from_text.
+
+
 func from_text(string:String) -> void:
 	# Load default character
 	character = DialogicResourceUtil.get_character_resource(character_identifier)
@@ -294,6 +299,9 @@ func from_text(string:String) -> void:
 	load_from_shortcode_parameters(result.get_string('shortcode'))
 
 
+# Summary: TODO — describe get_shortcode_parameters.
+
+
 func get_shortcode_parameters() -> Dictionary:
 	return {
 		#param_name 	: property_info
@@ -322,6 +330,9 @@ func get_shortcode_parameters() -> Dictionary:
 								"suggestions": func(): return list_to_suggestions(trans_options)},
 		"extra_data"	: {"property": "extra_data", 					"default": ""},
 	}
+
+
+# Summary: TODO — describe is_valid_event.
 
 
 func is_valid_event(string:String) -> bool:
@@ -422,28 +433,49 @@ func build_event_editor() -> void:
 	add_body_edit('extra_data', ValueType.SINGLELINE_TEXT, {'left_text':'Extra Data:'}, 'action != Actions.LEAVE')
 
 
+# Summary: TODO — describe should_show_transform_options.
+
+
 func should_show_transform_options() -> bool:
 	return action == Actions.UPDATE and set_transform
+
+
+# Summary: TODO — describe should_show_animation_options.
 
 
 func should_show_animation_options() -> bool:
 	return (character and !character.portraits.is_empty()) or character_identifier == '--All--'
 
 
+# Summary: TODO — describe should_show_fade_options.
+
+
 func should_show_fade_options() -> bool:
 	return action == Actions.UPDATE and set_portrait and character and not character.portraits.is_empty()
+
+
+# Summary: TODO — describe should_show_portrait_selector.
 
 
 func should_show_portrait_selector() -> bool:
 	return character and len(character.portraits) > 1 and action != Actions.LEAVE
 
 
+# Summary: TODO — describe has_no_portraits.
+
+
 func has_no_portraits() -> bool:
 	return character and character.portraits.is_empty()
 
 
+# Summary: TODO — describe get_character_suggestions.
+
+
 func get_character_suggestions(search_text:String) -> Dictionary:
 	return DialogicUtil.get_character_suggestions(search_text, character, false, action == Actions.LEAVE, editor_node)
+
+
+# Summary: TODO — describe get_portrait_suggestions.
 
 
 func get_portrait_suggestions(search_text:String) -> Dictionary:
@@ -453,8 +485,14 @@ func get_portrait_suggestions(search_text:String) -> Dictionary:
 	return DialogicUtil.get_portrait_suggestions(search_text, character, true, empty_text)
 
 
+# Summary: TODO — describe get_position_suggestions.
+
+
 func get_position_suggestions(search_text:String='') -> Dictionary:
 	return DialogicUtil.get_portrait_position_suggestions(search_text)
+
+
+# Summary: TODO — describe get_animation_suggestions.
 
 
 func get_animation_suggestions(search_text:String='') -> Dictionary:
@@ -467,6 +505,9 @@ func get_animation_suggestions(search_text:String='') -> Dictionary:
 		Actions.UPDATE:
 			return DPAU.get_suggestions(search_text, animation_name, "None", DPAU.AnimationType.ACTION)
 	return {}
+
+
+# Summary: TODO — describe get_fade_suggestions.
 
 
 func get_fade_suggestions(search_text:String='') -> Dictionary:
@@ -540,6 +581,9 @@ func _get_code_completion(CodeCompletionHelper:Node, TextNode:TextEdit, line:Str
 					CodeCompletionHelper.suggest_custom_suggestions(list_to_suggestions(ease_options), TextNode, TextNode.syntax_highlighter.normal_color)
 
 
+# Summary: TODO — describe suggest_parameter.
+
+
 func suggest_parameter(parameter:String, line:String, TextNode:TextEdit) -> void:
 	if not parameter + "=" in line:
 		TextNode.add_code_completion_option(CodeEdit.KIND_MEMBER, parameter, parameter + '="', TextNode.syntax_highlighter.normal_color)
@@ -572,6 +616,7 @@ func _get_syntax_highlighting(Highlighter:SyntaxHighlighter, dict:Dictionary, li
 
 
 ## HELPER
+# Summary: TODO — describe list_to_suggestions.
 func list_to_suggestions(list:Array) -> Dictionary:
 	return list.reduce(
 		func(accum, value):

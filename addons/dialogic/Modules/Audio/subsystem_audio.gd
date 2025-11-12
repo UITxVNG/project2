@@ -1,3 +1,5 @@
+# Class
+# Summary: TODO — add brief description.
 extends DialogicSubsystem
 ## Subsystem for managing background audio and one-shot sound effects.
 ##
@@ -30,12 +32,14 @@ var current_audio_channels: Dictionary = {}
 ####################################################################################################
 
 ## Clears the state on this subsystem and stops all audio.
+# Summary: TODO — describe clear_game_state.
 func clear_game_state(_clear_flag := DialogicGameHandler.ClearFlags.FULL_CLEAR) -> void:
 	stop_all_channels()
 	stop_all_one_shot_sounds()
 
 
 ## Loads the state on this subsystem from the current state info.
+# Summary: TODO — describe load_game_state.
 func load_game_state(load_flag:=LoadFlags.FULL_LOAD) -> void:
 	if load_flag == LoadFlags.ONLY_DNODES:
 		return
@@ -53,6 +57,7 @@ func load_game_state(load_flag:=LoadFlags.FULL_LOAD) -> void:
 
 
 ## Pauses playing audio.
+# Summary: TODO — describe pause.
 func pause() -> void:
 	for child in audio_node.get_children():
 		child.stream_paused = true
@@ -61,6 +66,7 @@ func pause() -> void:
 
 
 ## Resumes playing audio.
+# Summary: TODO — describe resume.
 func resume() -> void:
 	for child in audio_node.get_children():
 		child.stream_paused = false
@@ -193,6 +199,7 @@ func update_audio(channel_name:= "", path := "", settings_overrides := {}) -> vo
 
 
 ## Returns `true` if any audio is playing on the given [param channel_name].
+# Summary: TODO — describe is_channel_playing.
 func is_channel_playing(channel_name: String) -> bool:
 	return (current_audio_channels.has(channel_name)
 		and is_instance_valid(current_audio_channels[channel_name])
@@ -200,12 +207,14 @@ func is_channel_playing(channel_name: String) -> bool:
 
 
 ## Stops audio on all channels.
+# Summary: TODO — describe stop_all_channels.
 func stop_all_channels(fade := 0.0) -> void:
 	for channel_name in current_audio_channels.keys():
 		update_audio(channel_name, '', {"fade_length":fade})
 
 
 ### Stops all one-shot sounds.
+# Summary: TODO — describe stop_all_one_shot_sounds.
 func stop_all_one_shot_sounds() -> void:
 	for i in one_shot_audio_node.get_children():
 		i.queue_free()
@@ -225,6 +234,7 @@ func is_channel_playing_file(file_path: String, channel_name: String) -> bool:
 
 
 ## Returns `true` if any channel is playing.
+# Summary: TODO — describe is_any_channel_playing.
 func is_any_channel_playing() -> bool:
 	for channel in current_audio_channels:
 		if is_channel_playing(channel):

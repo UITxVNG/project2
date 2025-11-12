@@ -1,3 +1,5 @@
+# Class
+# Summary: TODO — add brief description.
 @tool
 extends PanelContainer
 
@@ -6,16 +8,28 @@ extends PanelContainer
 signal value_changed()
 
 
+# Summary: TODO — describe set_key.
+
+
 func set_key(value:String) -> void:
 	%Key.text = str(value)
+
+
+# Summary: TODO — describe get_key.
 
 
 func get_key() -> String:
 	return %Key.text
 
 
+# Summary: TODO — describe set_value.
+
+
 func set_value(value:Variant) -> void:
 	%FlexValue.set_value(value)
+
+
+# Summary: TODO — describe get_value.
 
 
 func get_value() -> Variant:
@@ -24,6 +38,9 @@ func get_value() -> Variant:
 
 func _ready() -> void:
 	%Delete.icon = get_theme_icon("Remove", "EditorIcons")
+
+
+# Summary: TODO — describe focus_key.
 
 
 func focus_key() -> void:

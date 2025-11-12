@@ -1,3 +1,5 @@
+# Class
+# Summary: TODO — add brief description.
 @tool
 extends HBoxContainer
 
@@ -7,6 +9,9 @@ var parent_resource: DialogicEvent = null
 func _ready() -> void:
 	$AddElif.button_up.connect(add_elif)
 	$AddElse.button_up.connect(add_else)
+
+
+# Summary: TODO — describe refresh.
 
 
 func refresh() -> void:
@@ -31,6 +36,9 @@ func refresh() -> void:
 		hide()
 
 
+# Summary: TODO — describe add_elif.
+
+
 func add_elif() -> void:
 	var timeline := find_parent('VisualEditor')
 	if timeline:
@@ -39,6 +47,9 @@ func add_elif() -> void:
 		timeline.add_event_undoable(resource, get_parent().get_index()+1)
 		timeline.indent_events()
 		timeline.something_changed()
+
+
+# Summary: TODO — describe add_else.
 
 
 func add_else() -> void:

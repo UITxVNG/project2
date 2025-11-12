@@ -1,3 +1,5 @@
+# Class
+# Summary: TODO — add brief description.
 @tool
 extends Resource
 
@@ -15,6 +17,7 @@ func _to_string() -> String:
 
 
 ## Returns the best name for this character.
+# Summary: TODO — describe get_identifier.
 func get_identifier() -> String:
 	if resource_path:
 		return DialogicResourceUtil.get_unique_identifier_by_path(resource_path)

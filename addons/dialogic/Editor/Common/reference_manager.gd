@@ -1,3 +1,5 @@
+# Class
+# Summary: TODO — add brief description.
 @tool
 extends PanelContainer
 
@@ -15,6 +17,9 @@ func _ready() -> void:
 		tab.toggled.connect(tab_changed.bind(tab.get_index()+1))
 
 
+# Summary: TODO — describe tab_changed.
+
+
 func tab_changed(enabled:bool, index:int) -> void:
 	for child in $Tabs.get_children():
 		if child.get_index() == 0 or child.get_index() == index or child is Button:
@@ -27,6 +32,9 @@ func tab_changed(enabled:bool, index:int) -> void:
 			child.hide()
 	for child in $Tabs/Tabs.get_children():
 		child.set_pressed_no_signal(index-1 == child.get_index())
+
+
+# Summary: TODO — describe open.
 
 
 func open() -> void:

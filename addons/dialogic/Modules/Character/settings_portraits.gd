@@ -1,3 +1,5 @@
+# Class
+# Summary: TODO — add brief description.
 @tool
 extends DialogicSettingsPage
 
@@ -71,8 +73,14 @@ func _refresh():
 	%CrossFadeDefaultLength.set_value(ProjectSettings.get_setting(ANIMATION_CROSSFADE_DEFAULT_LENGTH_KEY, 0.5))
 
 
+# Summary: TODO — describe save_setting_with_name.
+
+
 func save_setting_with_name(property_name:String, value:Variant, settings_key:String) -> void:
 	save_setting(value, settings_key)
+
+
+# Summary: TODO — describe save_setting.
 
 
 func save_setting(value:Variant, settings_key:String) -> void:
@@ -80,12 +88,21 @@ func save_setting(value:Variant, settings_key:String) -> void:
 	ProjectSettings.save()
 
 
+# Summary: TODO — describe get_join_animation_suggestions.
+
+
 func get_join_animation_suggestions(search_text:String) -> Dictionary:
 	return DialogicPortraitAnimationUtil.get_suggestions(search_text, %JoinDefault.current_value, "", DialogicPortraitAnimationUtil.AnimationType.IN)
 
 
+# Summary: TODO — describe get_leave_animation_suggestions.
+
+
 func get_leave_animation_suggestions(search_text:String) -> Dictionary:
 	return DialogicPortraitAnimationUtil.get_suggestions(search_text, %LeaveDefault.current_value, "", DialogicPortraitAnimationUtil.AnimationType.OUT)
+
+
+# Summary: TODO — describe get_crossfade_animation_suggestions.
 
 
 func get_crossfade_animation_suggestions(search_text:String) -> Dictionary:

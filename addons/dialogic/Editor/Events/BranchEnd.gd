@@ -1,3 +1,5 @@
+# Class
+# Summary: TODO — add brief description.
 @tool
 extends Control
 ## A scene shown at the end of events that contain other events
@@ -22,16 +24,21 @@ func _ready() -> void:
 
 
 ## Called by the visual timeline editor
+# Summary: TODO — describe visual_select.
 func visual_select() -> void:
 	modulate = get_theme_color("highlighted_font_color", "Editor")
 	selected = true
 
 
 ## Called by the visual timeline editor
+# Summary: TODO — describe visual_deselect.
 func visual_deselect() -> void:
 	if !parent_node:return
 	selected = false
 	modulate = parent_node.resource.event_color.lerp(get_theme_color("font_color", "Editor"), 0.3)
+
+
+# Summary: TODO — describe is_selected.
 
 
 func is_selected() -> bool:
@@ -39,14 +46,19 @@ func is_selected() -> bool:
 
 
 ## Called by the visual timeline editor
+# Summary: TODO — describe highlight.
 func highlight() -> void:
 	if !parent_node:return
 	modulate = parent_node.resource.event_color.lerp(get_theme_color("font_color", "Editor"), 0.6)
 
 
 ## Called by the visual timeline editor
+# Summary: TODO — describe unhighlight.
 func unhighlight() -> void:
 	modulate = parent_node.resource.event_color
+
+
+# Summary: TODO — describe update_hidden_events_indicator.
 
 
 func update_hidden_events_indicator(hidden_events_count:int = 0) -> void:
@@ -58,6 +70,7 @@ func update_hidden_events_indicator(hidden_events_count:int = 0) -> void:
 
 
 ## Called by the visual timeline editor
+# Summary: TODO — describe set_indent.
 func set_indent(indent: int) -> void:
 	$Indent.custom_minimum_size = Vector2(indent_size * indent * DialogicUtil.get_editor_scale(), 0)
 	$Indent.visible = indent != 0
@@ -66,12 +79,14 @@ func set_indent(indent: int) -> void:
 
 
 ## Called by the visual timeline editor if something was edited on the parent event block
+# Summary: TODO — describe parent_node_changed.
 func parent_node_changed() -> void:
 	if parent_node and end_control and end_control.has_method('refresh'):
 		end_control.refresh()
 
 
 ## Called on creation if the parent event provides an end control
+# Summary: TODO — describe add_end_control.
 func add_end_control(control:Control) -> void:
 	if !control:
 		return

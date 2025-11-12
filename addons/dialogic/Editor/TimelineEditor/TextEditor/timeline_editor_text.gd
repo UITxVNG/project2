@@ -1,3 +1,5 @@
+# Class
+# Summary: TODO — add brief description.
 @tool
 extends CodeEdit
 
@@ -24,9 +26,15 @@ func _on_text_editor_text_changed() -> void:
 	$UpdateTimer.start()
 
 
+# Summary: TODO — describe clear_timeline.
+
+
 func clear_timeline() -> void:
 	text = ''
 	update_content_list()
+
+
+# Summary: TODO — describe load_timeline.
 
 
 func load_timeline(timeline:DialogicTimeline) -> void:
@@ -39,6 +47,9 @@ func load_timeline(timeline:DialogicTimeline) -> void:
 
 	await get_tree().process_frame
 	update_content_list()
+
+
+# Summary: TODO — describe save_timeline.
 
 
 func save_timeline() -> void:
@@ -54,6 +65,9 @@ func save_timeline() -> void:
 	timeline_editor.current_resource.set_meta("timeline_not_saved", false)
 	timeline_editor.current_resource_state = DialogicEditor.ResourceStates.SAVED
 	DialogicResourceUtil.update_directory('dtl')
+
+
+# Summary: TODO — describe text_timeline_to_array.
 
 
 func text_timeline_to_array(text:String) -> Array:
@@ -79,6 +93,9 @@ func text_timeline_to_array(text:String) -> Array:
 func _on_context_menu_id_pressed(id:int) -> void:
 	if id == 42:
 		play_from_here()
+
+
+# Summary: TODO — describe play_from_here.
 
 
 func play_from_here() -> void:
@@ -123,6 +140,7 @@ func _gui_input(event):
 
 
 # Toggle the selected lines as comments
+# Summary: TODO — describe toggle_comment.
 func toggle_comment() -> void:
 	var cursor: Vector2 = Vector2(get_caret_column(), get_caret_line())
 	var selection := Rect2i(
@@ -188,6 +206,9 @@ func _on_update_timer_timeout() -> void:
 	update_content_list()
 
 
+# Summary: TODO — describe update_content_list.
+
+
 func update_content_list() -> void:
 	var labels: PackedStringArray = []
 	for i in label_regex.search_all(text):
@@ -242,6 +263,9 @@ func _search_navigate_up() -> void:
 	search_navigate(true)
 
 
+# Summary: TODO — describe search_navigate.
+
+
 func search_navigate(navigate_up := false) -> void:
 	var pos := get_next_search_position(navigate_up)
 	if pos.x == -1:
@@ -250,6 +274,9 @@ func search_navigate(navigate_up := false) -> void:
 	set_caret_line(pos.y)
 	center_viewport_to_caret()
 	queue_redraw()
+
+
+# Summary: TODO — describe get_next_search_position.
 
 
 func get_next_search_position(navigate_up := false) -> Vector2i:
@@ -283,6 +310,9 @@ func get_next_search_position(navigate_up := false) -> Vector2i:
 	return pos
 
 
+# Summary: TODO — describe replace.
+
+
 func replace(replace_text:String) -> void:
 	if has_selection():
 		set_caret_line(get_selection_from_line())
@@ -307,6 +337,9 @@ func replace(replace_text:String) -> void:
 	set_caret_column(pos.x)
 
 	timeline_editor.replace_in_timeline()
+
+
+# Summary: TODO — describe replace_all.
 
 
 func replace_all(replace_text:String) -> void:

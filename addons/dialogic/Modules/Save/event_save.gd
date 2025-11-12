@@ -1,3 +1,5 @@
+# DialogicSaveEvent
+# Summary: TODO — add brief description.
 @tool
 class_name DialogicSaveEvent
 extends DialogicEvent
@@ -48,6 +50,9 @@ func _get_icon() -> Resource:
 
 func get_shortcode() -> String:
 	return "save"
+
+
+# Summary: TODO — describe get_shortcode_parameters.
 
 
 func get_shortcode_parameters() -> Dictionary:

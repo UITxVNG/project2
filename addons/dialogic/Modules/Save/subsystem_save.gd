@@ -1,3 +1,5 @@
+# Class
+# Summary: TODO — add brief description.
 extends DialogicSubsystem
 ## Subsystem to save and load game states.
 ##
@@ -77,16 +79,19 @@ var autosave_time := 60:
 ####################################################################################################
 
 ## Built-in, called by DialogicGameHandler.
+# Summary: TODO — describe clear_game_state.
 func clear_game_state(_clear_flag := DialogicGameHandler.ClearFlags.FULL_CLEAR) -> void:
 	_make_sure_slot_dir_exists()
 
 
 ## Built-in, called by DialogicGameHandler.
+# Summary: TODO — describe pause.
 func pause() -> void:
 	autosave_timer.paused = true
 
 
 ## Built-in, called by DialogicGameHandler.
+# Summary: TODO — describe resume.
 func resume() -> void:
 	autosave_timer.paused = false
 
@@ -296,6 +301,7 @@ func get_slot_names() -> Array[String]:
 
 
 ## Returns true if the given slot exists.
+# Summary: TODO — describe has_slot.
 func has_slot(slot_name: String) -> bool:
 	if slot_name.is_empty():
 		slot_name = get_default_slot()
@@ -304,6 +310,7 @@ func has_slot(slot_name: String) -> bool:
 
 
 ## Removes all the given slot along with all it's info/files.
+# Summary: TODO — describe delete_slot.
 func delete_slot(slot_name: String) -> Error:
 	var path := SAVE_SLOTS_DIR.path_join(slot_name)
 
@@ -328,6 +335,7 @@ func delete_slot(slot_name: String) -> Error:
 
 
 ## This adds a new save folder with the given name
+# Summary: TODO — describe add_empty_slot.
 func add_empty_slot(slot_name: String) -> Error:
 	if DirAccess.dir_exists_absolute(SAVE_SLOTS_DIR):
 		var directory := DirAccess.open(SAVE_SLOTS_DIR)
@@ -340,6 +348,7 @@ func add_empty_slot(slot_name: String) -> Error:
 
 
 ## Reset the state of the given save folder (or default)
+# Summary: TODO — describe reset_slot.
 func reset_slot(slot_name := "") -> Error:
 	if slot_name.is_empty():
 		slot_name = get_default_slot()
@@ -348,16 +357,19 @@ func reset_slot(slot_name := "") -> Error:
 
 
 ## Returns the full path to the given slot folder
+# Summary: TODO — describe get_slot_path.
 func get_slot_path(slot_name: String) -> String:
 	return SAVE_SLOTS_DIR.path_join(slot_name)
 
 
 ## Returns the default slot name defined in the dialogic settings
+# Summary: TODO — describe get_default_slot.
 func get_default_slot() -> String:
 	return ProjectSettings.get_setting('dialogic/save/default_slot', 'Default')
 
 
 ## Returns the latest slot or empty if nothing was saved yet
+# Summary: TODO — describe get_latest_slot.
 func get_latest_slot() -> String:
 	var latest_slot := ""
 
@@ -373,6 +385,9 @@ func get_latest_slot() -> String:
 		return ''
 
 	return latest_slot
+
+
+# Summary: TODO — describe set_latest_slot.
 
 
 func set_latest_slot(slot_name:String) -> Error:
@@ -413,6 +428,9 @@ func set_slot_info(slot_name:String, info: Dictionary) -> Error:
 	return save_file(slot_name, 'info.txt', info)
 
 
+# Summary: TODO — describe get_slot_info.
+
+
 func get_slot_info(slot_name := "") -> Dictionary:
 	if slot_name.is_empty():
 		slot_name = get_default_slot()
@@ -448,6 +466,7 @@ func save_slot_thumbnail(slot_name: String) -> Error:
 
 
 ## Returns the thumbnail of the given slot.
+# Summary: TODO — describe get_slot_thumbnail.
 func get_slot_thumbnail(slot_name: String) -> ImageTexture:
 	if slot_name.is_empty():
 		slot_name = get_default_slot()

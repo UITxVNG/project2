@@ -1,3 +1,5 @@
+# Class
+# Summary: TODO — add brief description.
 extends DialogicSubsystem
 ## Subsystem that handles input, Auto-Advance, and skipping.
 ##
@@ -36,10 +38,16 @@ func clear_game_state(_clear_flag := DialogicGameHandler.ClearFlags.FULL_CLEAR) 
 	manual_advance.system_enabled = true
 
 
+# Summary: TODO — describe pause.
+
+
 func pause() -> void:
 	auto_advance.autoadvance_timer.paused = true
 	input_block_timer.paused = true
 	set_process(false)
+
+
+# Summary: TODO — describe resume.
 
 
 func resume() -> void:
@@ -47,6 +55,9 @@ func resume() -> void:
 	input_block_timer.paused = false
 	var is_autoskip_timer_done := _auto_skip_timer_left > 0.0
 	set_process(!is_autoskip_timer_done)
+
+
+# Summary: TODO — describe post_install.
 
 
 func post_install() -> void:
@@ -113,12 +124,16 @@ func _input(event:InputEvent) -> void:
 		handle_input()
 
 
+# Summary: TODO — describe is_input_pressed.
+
+
 func is_input_pressed(event: InputEvent, exact := false) -> bool:
 	var action: String = ProjectSettings.get_setting(_SETTING_INPUT_ACTION, _SETTING_INPUT_ACTION_DEFAULT)
 	return (event is InputEventAction and event.action == action) or Input.is_action_just_pressed(action, exact)
 
 
 ## This is called from the gui_input of the InputCatcher and DialogText nodes
+# Summary: TODO — describe handle_node_gui_input.
 func handle_node_gui_input(event:InputEvent) -> void:
 	if Input.is_action_just_pressed(ProjectSettings.get_setting(_SETTING_INPUT_ACTION, _SETTING_INPUT_ACTION_DEFAULT)):
 		if event is InputEventMouseButton and event.pressed:
@@ -126,8 +141,14 @@ func handle_node_gui_input(event:InputEvent) -> void:
 			handle_input()
 
 
+# Summary: TODO — describe is_input_blocked.
+
+
 func is_input_blocked() -> bool:
 	return input_block_timer.time_left > 0.0 and not auto_skip.enabled
+
+
+# Summary: TODO — describe block_input.
 
 
 func block_input(time:=0.1) -> void:
@@ -199,10 +220,16 @@ func effect_input(_text_node:Control, skipped:bool, _argument:String) -> void:
 	dialogic.Inputs.action_was_consumed = true
 
 
+# Summary: TODO — describe effect_noskip.
+
+
 func effect_noskip(text_node:Control, skipped:bool, argument:String) -> void:
 	dialogic.Text.set_text_reveal_skippable(false, true)
 	manual_advance.disabled_until_next_event = true
 	effect_autoadvance(text_node, skipped, argument)
+
+
+# Summary: TODO — describe effect_autoadvance.
 
 
 func effect_autoadvance(_text_node: Control, _skipped:bool, argument:String) -> void:

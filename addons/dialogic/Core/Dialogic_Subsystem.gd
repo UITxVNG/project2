@@ -1,3 +1,5 @@
+# DialogicSubsystem
+# Summary: TODO — add brief description.
 class_name DialogicSubsystem
 extends Node
 
@@ -32,10 +34,12 @@ func save_game_state() -> void:
 
 
 # To be overriden by sub-classes
+# Summary: TODO — describe pause.
 func pause() -> void:
 	pass
 
 
 # To be overriden by sub-classes
+# Summary: TODO — describe resume.
 func resume() -> void:
 	pass

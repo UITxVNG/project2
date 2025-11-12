@@ -1,3 +1,5 @@
+# Class
+# Summary: TODO — add brief description.
 @tool
 extends PanelContainer
 
@@ -15,8 +17,14 @@ func _ready() -> void:
 	%Delete.icon = get_theme_icon("Remove", "EditorIcons")
 
 
+# Summary: TODO — describe set_value.
+
+
 func set_value(value:Variant):
 	%FlexValue.set_value(value)
+
+
+# Summary: TODO — describe get_value.
 
 
 func get_value() -> Variant:

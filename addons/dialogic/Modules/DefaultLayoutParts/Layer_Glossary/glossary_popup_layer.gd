@@ -1,3 +1,5 @@
+# Class
+# Summary: TODO — add brief description.
 @tool
 extends DialogicLayoutLayer
 
@@ -40,24 +42,40 @@ enum ModulateModes {BASE_COLOR_ONLY, ENTRY_COLOR_ON_BOX, GLOBAL_BG_COLOR}
 @export var box_width: int = 200
 
 const MISSING_INDEX := -1
+# Summary: TODO — describe get_pointer.
 func get_pointer() -> Control:
 	return $Pointer
+
+
+# Summary: TODO — describe get_title.
 
 
 func get_title() -> Label:
 	return %Title
 
 
+# Summary: TODO — describe get_text.
+
+
 func get_text() -> RichTextLabel:
 	return %Text
+
+
+# Summary: TODO — describe get_extra.
 
 
 func get_extra() -> RichTextLabel:
 	return %Extra
 
 
+# Summary: TODO — describe get_panel.
+
+
 func get_panel() -> PanelContainer:
 	return %Panel
+
+
+# Summary: TODO — describe get_panel_point.
 
 
 func get_panel_point() -> PanelContainer:

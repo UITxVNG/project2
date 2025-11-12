@@ -1,3 +1,5 @@
+# Class
+# Summary: TODO — add brief description.
 @tool
 extends Container
 
@@ -19,6 +21,9 @@ func _ready() -> void:
 	if %Image.texture == null:
 		%Image.texture = get_theme_icon("ImportFail", "EditorIcons")
 		%Image.stretch_mode = TextureRect.STRETCH_KEEP_CENTERED
+
+
+# Summary: TODO — describe load_info.
 
 
 func load_info(info:Dictionary) -> void:
@@ -47,11 +52,18 @@ func load_info(info:Dictionary) -> void:
 	tooltip_text = info.description
 
 
+# Summary: TODO — describe set_scene_preview.
+
+
 func set_scene_preview(path:String, preview:Texture2D, thumbnail:Texture2D, userdata:Variant) -> void:
 	if preview:
 		%Image.texture = preview
 	else:
 		%Image.texture = get_theme_icon("PackedScene", "EditorIcons")
+
+
+
+# Summary: TODO — describe set_current.
 
 
 

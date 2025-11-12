@@ -1,3 +1,5 @@
+# Class
+# Summary: TODO — add brief description.
 extends DialogicSubsystem
 
 ## Subsystem that handles showing of dialog text (+text effects & modifiers), name label, and next indicator
@@ -94,6 +96,9 @@ func clear_game_state(_clear_flag:=DialogicGameHandler.ClearFlags.FULL_CLEAR) ->
 			text_node.textbox_root.hide()
 
 
+# Summary: TODO — describe load_game_state.
+
+
 func load_game_state(_load_flag:=LoadFlags.FULL_LOAD) -> void:
 	update_textbox(dialogic.current_state_info.get('text', ''), true)
 	update_dialog_text(dialogic.current_state_info.get('text', ''), true)
@@ -101,6 +106,9 @@ func load_game_state(_load_flag:=LoadFlags.FULL_LOAD) -> void:
 
 	if character:
 		update_name_label(character)
+
+
+# Summary: TODO — describe post_install.
 
 
 func post_install() -> void:
@@ -255,6 +263,9 @@ func update_name_label(character:DialogicCharacter):
 			name_label.self_modulate = Color(1,1,1,1)
 
 
+# Summary: TODO — describe update_typing_sound_mood_from_character.
+
+
 func update_typing_sound_mood_from_character(character:DialogicCharacter, mood:String) -> void:
 	if character.custom_info.get("sound_moods", {}).is_empty():
 		update_typing_sound_mood()
@@ -266,12 +277,17 @@ func update_typing_sound_mood_from_character(character:DialogicCharacter, mood:S
 
 
 
+# Summary: TODO — describe update_typing_sound_mood.
+
+
+
 func update_typing_sound_mood(mood:Dictionary = {}) -> void:
 	for typing_sound in get_tree().get_nodes_in_group("dialogic_type_sounds"):
 		typing_sound.load_overwrite(mood)
 
 
 ## instant skips the signal and thus possible animations
+# Summary: TODO — describe show_textbox.
 func show_textbox(instant:=false) -> void:
 	var emitted := instant
 	for text_node in get_tree().get_nodes_in_group('dialogic_dialog_text'):
@@ -289,6 +305,7 @@ func show_textbox(instant:=false) -> void:
 
 
 ## Instant skips the signal and thus possible animations
+# Summary: TODO — describe hide_textbox.
 func hide_textbox(instant:=false) -> void:
 	dialogic.current_state_info['text'] = ''
 	var emitted := instant
@@ -305,8 +322,14 @@ func hide_textbox(instant:=false) -> void:
 		text_node.textbox_root.hide()
 
 
+# Summary: TODO — describe is_textbox_visible.
+
+
 func is_textbox_visible() -> bool:
 	return get_tree().get_nodes_in_group('dialogic_dialog_text').any(func(x): return x.textbox_root.visible)
+
+
+# Summary: TODO — describe show_next_indicators.
 
 
 func show_next_indicators(question:=false, autoadvance:=false) -> void:
@@ -317,6 +340,9 @@ func show_next_indicators(question:=false, autoadvance:=false) -> void:
 				next_indicator.show()
 		else:
 			next_indicator.hide()
+
+
+# Summary: TODO — describe hide_next_indicators.
 
 
 func hide_next_indicators(_fake_arg :Variant= null) -> void:
@@ -336,6 +362,7 @@ func set_text_voice_synced(enabled: bool = true) -> void:
 
 
 ## Returns whether voice-synced text is enabled.
+# Summary: TODO — describe is_text_voice_synced.
 func is_text_voice_synced() -> bool:
 	return _voice_synced_text
 
@@ -372,6 +399,9 @@ func update_text_speed(letter_speed: float = -1,
 			text_node.set_speed(letter_speed * _speed_multiplier * user_speed)
 
 
+# Summary: TODO — describe set_text_reveal_skippable.
+
+
 func set_text_reveal_skippable(skippable:= true, temp:=false) -> void:
 	if !dialogic.current_state_info.has('text_reveal_skippable'):
 		dialogic.current_state_info['text_reveal_skippable'] = {'enabled':false, 'temp_enabled':false}
@@ -382,8 +412,14 @@ func set_text_reveal_skippable(skippable:= true, temp:=false) -> void:
 		dialogic.current_state_info['text_reveal_skippable']['enabled'] = skippable
 
 
+# Summary: TODO — describe is_text_reveal_skippable.
+
+
 func is_text_reveal_skippable() -> bool:
 	return dialogic.current_state_info['text_reveal_skippable']['enabled'] and dialogic.current_state_info['text_reveal_skippable'].get('temp_enabled', true)
+
+
+# Summary: TODO — describe skip_text_reveal.
 
 
 func skip_text_reveal() -> void:
@@ -441,6 +477,9 @@ func parse_text_effects(text:String) -> String:
 	return text
 
 
+# Summary: TODO — describe execute_effects.
+
+
 func execute_effects(current_index:int, text_node:Control, skipping := false) -> void:
 	# might have to execute multiple effects
 	while true:
@@ -452,6 +491,9 @@ func execute_effects(current_index:int, text_node:Control, skipping := false) ->
 		var callable: Callable = effect['execution_info']['callable']
 		if is_instance_valid(text_node):
 			await callable.call(text_node, skipping, effect['value'])
+
+
+# Summary: TODO — describe collect_text_modifiers.
 
 
 func collect_text_modifiers() -> void:
@@ -510,6 +552,9 @@ func _update_user_speed(_user_speed:float) -> void:
 	update_text_speed(_pure_letter_speed, _letter_speed_absolute)
 
 
+# Summary: TODO — describe connect_meta_signals.
+
+
 func connect_meta_signals(text_node: Node) -> void:
 	if not text_node.meta_clicked.is_connected(emit_meta_signal):
 		text_node.meta_clicked.connect(emit_meta_signal.bind("meta_clicked"))
@@ -519,6 +564,9 @@ func connect_meta_signals(text_node: Node) -> void:
 
 	if not text_node.meta_hover_ended.is_connected(emit_meta_signal):
 		text_node.meta_hover_ended.connect(emit_meta_signal.bind("meta_hover_ended"))
+
+
+# Summary: TODO — describe emit_meta_signal.
 
 
 func emit_meta_signal(meta:Variant, sig:String) -> void:
@@ -542,6 +590,9 @@ func color_character_names(text:String) -> String:
 		counter += 1
 
 	return text
+
+
+# Summary: TODO — describe collect_character_names.
 
 
 func collect_character_names() -> void:
@@ -582,6 +633,9 @@ func collect_character_names() -> void:
 	color_regex.compile(r"(?<=\W|^)(?<name>" + character_names + r")(?=\W|$)")
 
 
+# Summary: TODO — describe sort_by_length.
+
+
 func sort_by_length(a:String, b:String) -> bool:
 	if a.length() > b.length():
 		return true
@@ -613,6 +667,9 @@ func effect_pause(_text_node:Control, skipped:bool, argument:String) -> void:
 		await get_tree().create_timer(0.5 * _speed_multiplier * text_speed).timeout
 
 
+# Summary: TODO — describe effect_speed.
+
+
 func effect_speed(_text_node:Control, skipped:bool, argument:String) -> void:
 	if skipped:
 		return
@@ -620,6 +677,9 @@ func effect_speed(_text_node:Control, skipped:bool, argument:String) -> void:
 		update_text_speed(-1, false, float(argument))
 	else:
 		update_text_speed(-1, false, 1)
+
+
+# Summary: TODO — describe effect_lspeed.
 
 
 func effect_lspeed(_text_node:Control, skipped:bool, argument:String) -> void:
@@ -634,8 +694,14 @@ func effect_lspeed(_text_node:Control, skipped:bool, argument:String) -> void:
 		update_text_speed()
 
 
+# Summary: TODO — describe effect_signal.
+
+
 func effect_signal(_text_node:Control, _skipped:bool, argument:String) -> void:
 	dialogic.text_signal.emit(argument)
+
+
+# Summary: TODO — describe effect_mood.
 
 
 func effect_mood(_text_node:Control, _skipped:bool, argument:String) -> void:
@@ -647,6 +713,7 @@ func effect_mood(_text_node:Control, _skipped:bool, argument:String) -> void:
 
 var modifier_select_regex := RegEx.create_from_string(r"(?<!\\)\<[^\>]+(\/[^\>]*)\>")
 var modifier_select_split_regex := RegEx.create_from_string(r"(\[[^\]]*\]|[^\/]|\/\/)+")
+# Summary: TODO — describe modifier_random_selection.
 func modifier_random_selection(text:String) -> String:
 	for replace_mod_match: RegExMatch in modifier_select_regex.search_all(text):
 		var string: String = replace_mod_match.get_string().trim_prefix("<").trim_suffix(">")
@@ -658,8 +725,14 @@ func modifier_random_selection(text:String) -> String:
 	return text
 
 
+# Summary: TODO — describe modifier_break.
+
+
 func modifier_break(text:String) -> String:
 	return text.replace('[br]', '\n')
+
+
+# Summary: TODO — describe modifier_autopauses.
 
 
 func modifier_autopauses(text:String) -> String:

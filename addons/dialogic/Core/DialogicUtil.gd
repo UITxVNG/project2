@@ -1,3 +1,5 @@
+# DialogicUtil
+# Summary: TODO — add brief description.
 @tool
 class_name DialogicUtil
 

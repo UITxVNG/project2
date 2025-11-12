@@ -1,3 +1,5 @@
+# Class
+# Summary: TODO — add brief description.
 @tool
 extends DialogicCharacterEditorPortraitSection
 
@@ -15,6 +17,9 @@ func _load_portrait_data(data:Dictionary):
 	%PortraitMood.set_value(data.get('sound_mood'))
 
 
+# Summary: TODO — describe update_visibility.
+
+
 func update_visibility(show:=true):
 	if !show:
 		hide()
@@ -28,6 +33,9 @@ func _on_portrait_mood_value_changed(property_name:String, value:String):
 	var data: Dictionary = selected_item.get_metadata(0)
 	data['sound_mood'] = value
 	changed.emit()
+
+
+# Summary: TODO — describe mood_suggestions.
 
 
 func mood_suggestions(filter:String) -> Dictionary:

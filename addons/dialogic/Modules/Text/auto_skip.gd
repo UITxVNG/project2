@@ -1,3 +1,5 @@
+# DialogicAutoSkip
+# Summary: TODO — add brief description.
 class_name DialogicAutoSkip
 extends RefCounted
 ## This class holds the settings for the Auto-Skip feature.

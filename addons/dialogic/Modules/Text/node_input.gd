@@ -1,3 +1,5 @@
+# DialogicNode_Input
+# Summary: TODO — add brief description.
 class_name DialogicNode_Input
 extends Control
 

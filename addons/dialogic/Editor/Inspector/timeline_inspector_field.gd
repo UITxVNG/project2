@@ -1,3 +1,5 @@
+# Class
+# Summary: TODO — add brief description.
 @tool
 extends EditorProperty
 
@@ -67,6 +69,9 @@ func _update_property() -> void:
 		button.hide()
 		field.set_value("")
 	updating = false
+
+
+# Summary: TODO — describe get_timeline_suggestions.
 
 
 func get_timeline_suggestions(filter:String) -> Dictionary:

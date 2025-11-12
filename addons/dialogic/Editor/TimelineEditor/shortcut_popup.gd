@@ -1,3 +1,5 @@
+# Class
+# Summary: TODO — add brief description.
 @tool
 extends PanelContainer
 
@@ -49,6 +51,9 @@ func _ready() -> void:
 	get_theme_stylebox("panel").bg_color = get_theme_color("dark_color_3", "Editor")
 
 
+# Summary: TODO — describe reload_shortcuts.
+
+
 func reload_shortcuts() -> void:
 	for i in %ShortcutList.get_children():
 		i.queue_free()
@@ -97,6 +102,9 @@ func reload_shortcuts() -> void:
 		%ShortcutList.add_child(text)
 
 
+# Summary: TODO — describe open.
+
+
 func open():
 	if visible:
 		close()
@@ -113,6 +121,8 @@ func open():
 
 func _on_close_shortcut_panel_pressed() -> void:
 	close()
+
+# Summary: TODO — describe close.
 
 func close() -> void:
 	hide()

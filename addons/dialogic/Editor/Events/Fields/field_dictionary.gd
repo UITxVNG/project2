@@ -1,3 +1,5 @@
+# Class
+# Summary: TODO — add brief description.
 @tool
 extends DialogicVisualEditorField
 
@@ -39,6 +41,9 @@ func _set_value(value:Variant) -> void:
 
 func _on_value_changed(value:Variant) -> void:
 	value_changed.emit(property_name, value)
+
+
+# Summary: TODO — describe recalculate_values.
 
 
 func recalculate_values() -> void:

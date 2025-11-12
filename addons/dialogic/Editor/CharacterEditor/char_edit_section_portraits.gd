@@ -1,3 +1,5 @@
+# Class
+# Summary: TODO — add brief description.
 @tool
 extends DialogicCharacterEditorMainSection
 
@@ -23,6 +25,7 @@ func _ready() -> void:
 
 
 ## Make sure preview get's updated when portrait settings change
+# Summary: TODO — describe main_portrait_settings_update.
 func main_portrait_settings_update(_something=null, _value=null) -> void:
 	if loading:
 		return
@@ -33,9 +36,15 @@ func main_portrait_settings_update(_something=null, _value=null) -> void:
 	character_editor.something_changed()
 
 
+# Summary: TODO — describe default_portrait_changed.
+
+
 func default_portrait_changed(_property:String, value:String) -> void:
 	character_editor.current_resource.default_portrait = value
 	character_editor.update_default_portrait_star(value)
+
+
+# Summary: TODO — describe set_default_portrait.
 
 
 func set_default_portrait(portrait_name:String) -> void:
@@ -69,6 +78,7 @@ func _save_changes(resource:DialogicCharacter) -> DialogicCharacter:
 
 
 ## Get suggestions for DefaultPortraitPicker
+# Summary: TODO — describe suggest_portraits.
 func suggest_portraits(_search:String) -> Dictionary:
 	var suggestions := {}
 	for portrait in character_editor.get_updated_portrait_dict().keys():

@@ -1,3 +1,5 @@
+# Class
+# Summary: TODO — add brief description.
 @tool
 extends DialogicSettingsPage
 
@@ -22,6 +24,9 @@ func _refresh() -> void:
 	%FullHistoryEnabled.button_pressed = ProjectSettings.get_setting('dialogic/history/full_history_enabled', false)
 	%FullHistorySave.button_pressed = ProjectSettings.get_setting('dialogic/history/full_history_save', false)
 	%AlreadyReadHistoryEnabled.button_pressed = ProjectSettings.get_setting('dialogic/history/visited_event_history_enabled', false)
+
+
+# Summary: TODO — describe setting_toggled.
 
 
 func setting_toggled(button_pressed: bool, setting: String) -> void:

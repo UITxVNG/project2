@@ -1,3 +1,5 @@
+# Class
+# Summary: TODO — add brief description.
 @tool
 extends DialogicSettingsPage
 
@@ -42,6 +44,9 @@ func _ready() -> void:
 func _about_to_close():
 	if do_timeline_editor_refresh_on_close:
 		refresh_visual_timeline_editor()
+
+
+# Summary: TODO — describe refresh_visual_timeline_editor.
 
 
 func refresh_visual_timeline_editor() -> void:
@@ -109,6 +114,7 @@ func _on_section_list_button_clicked(item:TreeItem, column, id, mouse_button_ind
 ################################################################################
 
 ## Completely reloads the color palette buttons
+# Summary: TODO — describe update_color_palette.
 func update_color_palette() -> void:
 	for child in %Colors.get_children():
 		child.queue_free()

@@ -1,3 +1,5 @@
+# DialogicBackgroundEvent
+# Summary: TODO — add brief description.
 @tool
 class_name DialogicBackgroundEvent
 extends DialogicEvent
@@ -83,6 +85,9 @@ func get_shortcode() -> String:
 	return "background"
 
 
+# Summary: TODO — describe get_shortcode_parameters.
+
+
 func get_shortcode_parameters() -> Dictionary:
 	return {
 		#param_name 	: property_info
@@ -152,6 +157,9 @@ func build_event_editor() -> void:
 			'suggestions_func':get_transition_suggestions,
 			'editor_icon':["PopupMenu", "EditorIcons"]})
 	add_body_edit("fade", ValueType.NUMBER, {'left_text':'Fade time:'})
+
+
+# Summary: TODO — describe get_transition_suggestions.
 
 
 func get_transition_suggestions(_filter:String="") -> Dictionary:

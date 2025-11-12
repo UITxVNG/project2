@@ -1,3 +1,5 @@
+# DialogicJumpEvent
+# Summary: TODO — add brief description.
 @tool
 class_name DialogicJumpEvent
 extends DialogicEvent
@@ -78,6 +80,9 @@ func to_text() -> String:
 	return result
 
 
+# Summary: TODO — describe from_text.
+
+
 func from_text(string:String) -> void:
 	var result := RegEx.create_from_string(r"jump (?<timeline>.*\/)?(?<label>.*)?").search(string.strip_edges())
 	if result:
@@ -85,10 +90,16 @@ func from_text(string:String) -> void:
 		label_name = result.get_string('label')
 
 
+# Summary: TODO — describe is_valid_event.
+
+
 func is_valid_event(string:String) -> bool:
 	if string.strip_edges().begins_with("jump"):
 		return true
 	return false
+
+
+# Summary: TODO — describe get_shortcode_parameters.
 
 
 func get_shortcode_parameters() -> Dictionary:
@@ -119,6 +130,9 @@ func build_event_editor() -> void:
 		'editor_icon':["ArrowRight", "EditorIcons"]})
 
 
+# Summary: TODO — describe get_timeline_suggestions.
+
+
 func get_timeline_suggestions(_filter:String= "") -> Dictionary:
 	var suggestions := {}
 
@@ -126,6 +140,9 @@ func get_timeline_suggestions(_filter:String= "") -> Dictionary:
 	for resource in  DialogicResourceUtil.get_timeline_directory().keys():
 		suggestions[resource] = {'value': resource, 'tooltip':DialogicResourceUtil.get_timeline_directory()[resource], 'editor_icon': ["TripleBar", "EditorIcons"]}
 	return suggestions
+
+
+# Summary: TODO — describe get_label_suggestions.
 
 
 func get_label_suggestions(_filter:String="") -> Dictionary:

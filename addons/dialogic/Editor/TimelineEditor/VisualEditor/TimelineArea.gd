@@ -1,3 +1,5 @@
+# Class
+# Summary: TODO — add brief description.
 @tool
 extends ScrollContainer
 
@@ -62,6 +64,9 @@ func _process(delta:float) -> void:
 			else:
 				drag_to_position = child.get_index()
 				queue_redraw()
+
+
+# Summary: TODO — describe finish_dragging.
 
 
 func finish_dragging() -> void:

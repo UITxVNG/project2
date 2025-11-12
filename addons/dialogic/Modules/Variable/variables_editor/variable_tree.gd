@@ -1,3 +1,5 @@
+# Class
+# Summary: TODO — add brief description.
 @tool
 extends Tree
 
@@ -33,6 +35,8 @@ func _ready() -> void:
 
 #region POPULATING THE TREE
 
+# Summary: TODO — describe load_info.
+
 func load_info(dict:Dictionary, parent:TreeItem = null, is_new:=false) -> void:
 	if parent == null:
 		clear()
@@ -52,6 +56,9 @@ func load_info(dict:Dictionary, parent:TreeItem = null, is_new:=false) -> void:
 			if is_new:
 				folder.set_meta("new", true)
 			load_info(dict[key], folder, is_new)
+
+
+# Summary: TODO — describe add_variable_item.
 
 
 func add_variable_item(item_name:String, value:Variant, parent:TreeItem) -> TreeItem:
@@ -74,6 +81,9 @@ func add_variable_item(item_name:String, value:Variant, parent:TreeItem) -> Tree
 
 	item.set_meta('prev_path', get_item_path(item))
 	return item
+
+
+# Summary: TODO — describe add_folder_item.
 
 
 func add_folder_item(item_name:String, parent:TreeItem) -> TreeItem:
@@ -129,9 +139,14 @@ func add_folder_item(item_name:String, parent:TreeItem) -> TreeItem:
 
 #region EDITING THE TREE
 
+# Summary: TODO — describe set_variable_item_type.
+
 func set_variable_item_type(item:TreeItem, type:int) -> void:
 	item.set_meta('value_type', type)
 	item.set_button(1, 0, get_theme_icon(["Variant", "String", "float", "int", "bool"][type], "EditorIcons"))
+
+
+# Summary: TODO — describe get_variable_item_default.
 
 
 func get_variable_item_default(item:TreeItem) -> Variant:
@@ -217,6 +232,9 @@ func _on_item_edited() -> void:
 				item_rename_undoable(item)
 
 
+# Summary: TODO — describe item_add_undoable.
+
+
 func item_add_undoable(parent_item:TreeItem, item_name:String, type:String, value:Variant) -> void:
 	undo.create_action("Add Item")
 	undo.add_do_method(
@@ -230,6 +248,9 @@ func item_add_undoable(parent_item:TreeItem, item_name:String, type:String, valu
 	undo.commit_action()
 
 
+# Summary: TODO — describe add_item.
+
+
 func add_item(parent_path:String, text:String, type:String, value:Variant) -> void:
 	var parent_item := get_path_item(parent_path)
 	match type:
@@ -237,6 +258,9 @@ func add_item(parent_path:String, text:String, type:String, value:Variant) -> vo
 			add_variable_item(text, value, parent_item)
 		"FOLDER":
 			load_info({text:value}, parent_item, true)
+
+
+# Summary: TODO — describe item_remove_undoable.
 
 
 func item_remove_undoable(item:TreeItem) -> void:
@@ -251,8 +275,13 @@ func item_remove_undoable(item:TreeItem) -> void:
 			)
 	undo.commit_action()
 
+# Summary: TODO — describe remove_item.
+
 func remove_item(item_path:String) -> void:
 	get_path_item(item_path).free()
+
+
+# Summary: TODO — describe item_rename_undoable.
 
 
 func item_rename_undoable(item:TreeItem) -> void:
@@ -267,12 +296,18 @@ func item_rename_undoable(item:TreeItem) -> void:
 	undo.commit_action()
 
 
+# Summary: TODO — describe item_rename.
+
+
 func item_rename(item_path:String, new_name:String, old_name:String) -> void:
 	var item := get_path_item(item_path)
 	if item.get_text(0) == old_name:
 		item.set_text(0, new_name)
 	report_name_changes(item)
 	item.set_metadata(0, item.get_text(0))
+
+
+# Summary: TODO — describe item_change_value_undoable.
 
 
 func item_change_value_undoable(item:TreeItem) -> void:
@@ -286,11 +321,17 @@ func item_change_value_undoable(item:TreeItem) -> void:
 	undo.commit_action()
 
 
+# Summary: TODO — describe item_change_value.
+
+
 func item_change_value(item_path:String, value:Variant) -> void:
 	#print("SET VARIABLE VALUE ", value)
 	var item := get_path_item(item_path)
 	set_variable_value(item, DialogicUtil.get_variable_value_type(value), value)
 	item.set_metadata(2, value)
+
+
+# Summary: TODO — describe validate_name.
 
 
 func validate_name(item:TreeItem, check_for_imaginary_child := "") -> String:
@@ -329,6 +370,9 @@ func validate_name(item:TreeItem, check_for_imaginary_child := "") -> String:
 		item.set_text(0, item_name)
 
 	return item_name
+
+
+# Summary: TODO — describe set_variable_value.
 
 
 func set_variable_value(item:TreeItem, type:int, prev_value:Variant) -> void:
@@ -373,6 +417,9 @@ func _input(event:InputEvent) -> void:
 #endregion
 
 
+# Summary: TODO — describe filter.
+
+
 func filter(filter_term:String, item:TreeItem = null) -> bool:
 	if item == null:
 		item = get_root()
@@ -391,6 +438,7 @@ func filter(filter_term:String, item:TreeItem = null) -> bool:
 
 
 ## Parses the tree and returns a dictionary representing it.
+# Summary: TODO — describe get_info.
 func get_info(item:TreeItem = null) -> Dictionary:
 	if item == null:
 		item = get_root()
@@ -491,6 +539,9 @@ func report_name_changes(item:TreeItem) -> void:
 				report_name_changes(child)
 
 
+# Summary: TODO — describe get_item_path.
+
+
 func get_item_path(item:TreeItem, imaginary_child:String = "") -> String:
 	var path := ""
 	if item != get_root():
@@ -504,6 +555,9 @@ func get_item_path(item:TreeItem, imaginary_child:String = "") -> String:
 		else:
 			path = imaginary_child
 	return path
+
+
+# Summary: TODO — describe get_path_item.
 
 
 func get_path_item(path:String) -> TreeItem:

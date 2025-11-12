@@ -1,3 +1,5 @@
+# Class
+# Summary: TODO — add brief description.
 @tool
 extends DialogicCharacterEditorMainSection
 
@@ -22,6 +24,9 @@ func _load_character(character:DialogicCharacter) -> void:
 func _save_changes(character:DialogicCharacter) -> DialogicCharacter:
 	character.custom_info['style'] = %StyleName.current_value
 	return character
+
+
+# Summary: TODO — describe get_style_suggestions.
 
 
 func get_style_suggestions(filter:String="") -> Dictionary:

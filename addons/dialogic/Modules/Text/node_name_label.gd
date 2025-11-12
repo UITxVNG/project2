@@ -1,3 +1,5 @@
+# Class
+# Summary: TODO — add brief description.
 @icon("node_name_label_icon.svg")
 extends Label
 

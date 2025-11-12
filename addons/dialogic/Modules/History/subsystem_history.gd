@@ -1,3 +1,5 @@
+# Class
+# Summary: TODO — add brief description.
 extends DialogicSubsystem
 
 ## Subsystem that manages history storing.
@@ -98,9 +100,15 @@ func _on_save(info: Dictionary) -> void:
 		save_visited_history()
 
 
+# Summary: TODO — describe post_install.
+
+
 func post_install() -> void:
 	save_visited_history_on_autosave = ProjectSettings.get_setting('dialogic/history/save_on_autosave', save_visited_history_on_autosave)
 	save_visited_history_on_save = ProjectSettings.get_setting('dialogic/history/save_on_save', save_visited_history_on_save)
+
+
+# Summary: TODO — describe clear_game_state.
 
 
 func clear_game_state(clear_flag := DialogicGameHandler.ClearFlags.FULL_CLEAR) -> void:
@@ -111,6 +119,9 @@ func clear_game_state(clear_flag := DialogicGameHandler.ClearFlags.FULL_CLEAR) -
 		if full_event_history_save:
 			full_event_history_content = []
 			dialogic.current_state_info.erase("history_full")
+
+
+# Summary: TODO — describe load_game_state.
 
 
 func load_game_state(load_flag := LoadFlags.FULL_LOAD) -> void:
@@ -131,6 +142,9 @@ func load_game_state(load_flag := LoadFlags.FULL_LOAD) -> void:
 				full_event_history_content.append(event)
 
 
+# Summary: TODO — describe save_game_state.
+
+
 func save_game_state() -> void:
 	if simple_history_save:
 		dialogic.current_state_info["history_simple"] = Array(simple_history_content)
@@ -144,8 +158,14 @@ func save_game_state() -> void:
 		dialogic.current_state_info.erase("history_full")
 
 
+# Summary: TODO — describe open_history.
+
+
 func open_history() -> void:
 	open_requested.emit()
+
+
+# Summary: TODO — describe close_history.
 
 
 func close_history() -> void:
@@ -165,6 +185,9 @@ func store_simple_history_entry(text:String, event_type:String, extra_info := {}
 	simple_history_changed.emit()
 
 
+# Summary: TODO — describe get_simple_history.
+
+
 func get_simple_history() -> Array:
 	return simple_history_content
 
@@ -175,6 +198,7 @@ func get_simple_history() -> Array:
 ####################################################################################################
 
 ## Called on each event.
+# Summary: TODO — describe store_full_event.
 func store_full_event(event: DialogicEvent) -> void:
 	if !full_event_history_enabled: return
 	full_event_history_content.append(event)
@@ -205,6 +229,7 @@ func _get_event_key(event_index: int, timeline_path: String) -> String:
 
 
 ## Called if an event is marked as visited.
+# Summary: TODO — describe mark_event_as_visited.
 func mark_event_as_visited(event_index := dialogic.current_event_idx, timeline := dialogic.current_timeline) -> void:
 	if !visited_event_history_enabled:
 		return

@@ -1,3 +1,5 @@
+# Class
+# Summary: TODO — add brief description.
 @tool
 extends Resource
 class_name DialogicStyle
@@ -35,6 +37,7 @@ func _init(_name := "") -> void:
 
 
 ## Returns the amount of layers (the base layer is not included).
+# Summary: TODO — describe get_layer_count.
 func get_layer_count() -> int:
 	return layer_list.size()
 
@@ -46,22 +49,28 @@ func get_layer_index(id:String) -> int:
 
 
 ## Returns `true` if [param id] is a valid id for a layer.
+# Summary: TODO — describe has_layer.
 func has_layer(id:String) -> bool:
 	return id in layer_info or id == ""
 
 
 ## Returns `true` if [param index] is a valid index for a layer.
+# Summary: TODO — describe has_layer_index.
 func has_layer_index(index:int) -> bool:
 	return index < layer_list.size()
 
 
 ## Returns the id of the layer at [param index].
+# Summary: TODO — describe get_layer_id_at_index.
 func get_layer_id_at_index(index:int) -> String:
 	if index == -1:
 		return ""
 	if has_layer_index(index):
 		return layer_list[index]
 	return ""
+
+
+# Summary: TODO — describe get_layer_info.
 
 
 func get_layer_info(id:String) -> Dictionary:
@@ -87,6 +96,7 @@ func get_layer_info(id:String) -> Dictionary:
 
 
 ## Returns a new layer id not yet in use.
+# Summary: TODO — describe get_new_layer_id.
 func get_new_layer_id() -> String:
 	var i := 16
 	while String.num_int64(i, 16) in layer_info:
@@ -118,6 +128,7 @@ func delete_layer(id:String) -> void:
 
 
 ## Moves the layer at [param from_index] to [param to_index].
+# Summary: TODO — describe move_layer.
 func move_layer(from_index:int, to_index:int) -> void:
 	if not has_layer_index(from_index) or not has_layer_index(to_index-1):
 		return
@@ -129,11 +140,15 @@ func move_layer(from_index:int, to_index:int) -> void:
 
 
 ## Changes the scene property of the DialogicStyleLayer resource at [param layer_id].
+# Summary: TODO — describe set_layer_scene.
 func set_layer_scene(layer_id:String, scene:String) -> void:
 	if not has_layer(layer_id):
 		return
 	layer_info[layer_id].scene = load(scene)
 	changed.emit()
+
+
+# Summary: TODO — describe set_layer_overrides.
 
 
 func set_layer_overrides(layer_id:String, overrides:Dictionary) -> void:
@@ -145,6 +160,7 @@ func set_layer_overrides(layer_id:String, overrides:Dictionary) -> void:
 
 
 ## Changes an override of the DialogicStyleLayer resource at [param layer_id].
+# Summary: TODO — describe set_layer_setting.
 func set_layer_setting(layer_id:String, setting:String, value:Variant) -> void:
 	if not has_layer(layer_id):
 		return
@@ -154,6 +170,7 @@ func set_layer_setting(layer_id:String, setting:String, value:Variant) -> void:
 
 
 ## Resets (removes) an override of the DialogicStyleLayer resource at [param layer_id].
+# Summary: TODO — describe remove_layer_setting.
 func remove_layer_setting(layer_id:String, setting:String) -> void:
 	if not has_layer(layer_id):
 		return
@@ -170,11 +187,13 @@ func remove_layer_setting(layer_id:String, setting:String) -> void:
 
 
 ## Returns `true` if this style is inheriting from another style.
+# Summary: TODO — describe inherits_anything.
 func inherits_anything() -> bool:
 	return inherits != null
 
 
 ## Returns the base style of this style.
+# Summary: TODO — describe get_inheritance_root.
 func get_inheritance_root() -> DialogicStyle:
 	if not inherits_anything():
 		return self
@@ -187,6 +206,7 @@ func get_inheritance_root() -> DialogicStyle:
 
 
 ## This merges some [param layer_info] with it's param ancestors layer info.
+# Summary: TODO — describe merge_layer_infos.
 func merge_layer_infos(new_layer_info:Dictionary, ancestor_info:Dictionary) -> Dictionary:
 	var combined := new_layer_info.duplicate(true)
 
@@ -213,6 +233,7 @@ func get_layer_inherited_info(id:String, inherited_only := false) -> Dictionary:
 
 
 ## Returns the layer list of the root style.
+# Summary: TODO — describe get_layer_inherited_list.
 func get_layer_inherited_list() -> Array:
 	var list := layer_list
 
@@ -240,6 +261,7 @@ func realize_inheritance() -> void:
 #endregion
 
 ## Creates a fresh new style with the same settings.
+# Summary: TODO — describe clone.
 func clone() -> DialogicStyle:
 	var style := DialogicStyle.new()
 	style.name = name
@@ -257,6 +279,7 @@ func clone() -> DialogicStyle:
 
 
 ## Starts preloading all the scenes used by this style.
+# Summary: TODO — describe prepare.
 func prepare() -> void:
 	for id in layer_info:
 		if layer_info[id].scene:

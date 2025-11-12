@@ -1,3 +1,5 @@
+# Class
+# Summary: TODO — add brief description.
 @tool
 extends DialogicVisualEditorField
 
@@ -79,6 +81,9 @@ func _ready() -> void:
 	]
 
 
+# Summary: TODO — describe load_simple_editor.
+
+
 func load_simple_editor(condition_string:String) -> void:
 	var data := complex2simple(condition_string)
 	%Value1Type.set_value(get_value_type(data[0], 2))
@@ -88,6 +93,9 @@ func load_simple_editor(condition_string:String) -> void:
 	%Value2Type.set_value(get_value_type(data[2], 0))
 	_current_value2 = data[2]
 	value_type_changed('', get_value_type(data[2], 0), 'Value2')
+
+
+# Summary: TODO — describe value_type_changed.
 
 
 func value_type_changed(property:String, value_type:int, value_name:String) -> void:
@@ -119,6 +127,9 @@ func value_type_changed(property:String, value_type:int, value_name:String) -> v
 			get_node('%'+value_name+'Text').set_value(str(current_val))
 
 
+# Summary: TODO — describe get_value_type.
+
+
 func get_value_type(value:String, default:int) -> int:
 	value = value.strip_edges()
 	if value.begins_with('"') and value.ends_with('"') and value.count('"')-value.count('\\"') == 2:
@@ -136,6 +147,9 @@ func get_value_type(value:String, default:int) -> int:
 			return 4
 
 
+# Summary: TODO — describe prep_value.
+
+
 func prep_value(value:Variant, value_type:int) -> String:
 	if value != null: value = str(value)
 	else: value = ""
@@ -144,6 +158,9 @@ func prep_value(value:Variant, value_type:int) -> String:
 		0: return '"'+value.replace('"', '\\"')+'"'
 		2: return '{'+value+'}'
 		_: return value
+
+
+# Summary: TODO — describe trim_value.
 
 
 func trim_value(value:Variant, value_type:int) -> String:
@@ -157,6 +174,9 @@ func trim_value(value:Variant, value_type:int) -> String:
 			else:
 				return "false"
 		_: return value
+
+
+# Summary: TODO — describe something_changed.
 
 
 func something_changed(fake_arg1=null, fake_arg2 = null):
@@ -188,6 +208,9 @@ func something_changed(fake_arg1=null, fake_arg2 = null):
 	value_changed.emit(property_name, get_simple_condition())
 
 
+# Summary: TODO — describe is_too_complex.
+
+
 func is_too_complex(condition:String) -> bool:
 	if condition.strip_edges().is_empty():
 		return false
@@ -202,8 +225,12 @@ func is_too_complex(condition:String) -> bool:
 
 
 ## Combines the info from the simple editor fields into a string condition
+# Summary: TODO — describe get_simple_condition.
 func get_simple_condition() -> String:
 	return _current_value1 +" "+ %Operator.text +" "+ _current_value2
+
+
+# Summary: TODO — describe complex2simple.
 
 
 func complex2simple(condition:String) -> Array:
@@ -233,6 +260,9 @@ func _on_toggle_complex_toggled(button_pressed:bool) -> void:
 func _on_complex_editor_text_changed(new_text:String) -> void:
 	%ToggleComplex.disabled = is_too_complex(%ComplexEditor.text)
 	something_changed()
+
+
+# Summary: TODO — describe get_variable_suggestions.
 
 
 func get_variable_suggestions(filter:String) -> Dictionary:

@@ -1,3 +1,5 @@
+# Class
+# Summary: TODO — add brief description.
 @tool
 extends Window
 
@@ -42,6 +44,9 @@ func _ready() -> void:
 	get_parent().plugin_reference.get_editor_interface().get_file_system_dock().files_moved.connect(_on_file_moved)
 	get_parent().plugin_reference.get_editor_interface().get_file_system_dock().file_removed.connect(_on_file_removed)
 	get_parent().get_node('ResourceRenameWarning').confirmed.connect(open)
+
+
+# Summary: TODO — describe add_ref_change.
 
 
 func add_ref_change(old_name:String, new_name:String, type:Types, where:=Where.TEXTS_ONLY, character_names:=[],
@@ -140,23 +145,30 @@ func _check_for_ref_change_cycle(old_name:String, new_name:String, category:Stri
 
 
 ## Helper for adding variable ref changes
+# Summary: TODO — describe add_variable_ref_change.
 func add_variable_ref_change(old_name:String, new_name:String) -> void:
 	add_ref_change(old_name, new_name, Types.VARIABLE, Where.EVERYWHERE)
 
 
 ## Helper for adding portrait ref changes
+# Summary: TODO — describe add_portrait_ref_change.
 func add_portrait_ref_change(old_name:String, new_name:String, character_names:PackedStringArray) -> void:
 	add_ref_change(old_name, new_name, Types.PORTRAIT, Where.BY_CHARACTER, character_names)
 
 
 ## Helper for adding character name ref changes
+# Summary: TODO — describe add_character_name_ref_change.
 func add_character_name_ref_change(old_name:String, new_name:String) -> void:
 	add_ref_change(old_name, new_name, Types.CHARACTER_NAME, Where.EVERYWHERE)
 
 
 ## Helper for adding timeline name ref changes
+# Summary: TODO — describe add_timeline_name_ref_change.
 func add_timeline_name_ref_change(old_name:String, new_name:String) -> void:
 	add_ref_change(old_name, new_name, Types.TIMELINE_NAME, Where.EVERYWHERE)
+
+
+# Summary: TODO — describe open.
 
 
 func open() -> void:
@@ -171,8 +183,14 @@ func _on_close_requested() -> void:
 	broken_manager.close()
 
 
+# Summary: TODO — describe get_change_count.
+
+
 func get_change_count() -> int:
 	return len(broken_manager.reference_changes)
+
+
+# Summary: TODO — describe update_indicator.
 
 
 func update_indicator() -> void:

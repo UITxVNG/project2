@@ -1,3 +1,5 @@
+# DialogicRichTextTransitionEffect
+# Summary: TODO — add brief description.
 @tool
 class_name DialogicRichTextTransitionEffect
 extends RichTextEffect
@@ -27,10 +29,16 @@ var was_skipped := false
 var was_reset := false
 
 
+# Summary: TODO — describe reset.
+
+
 func reset() -> void:
 	was_reset = true
 	was_skipped = false
 	cache.clear()
+
+
+# Summary: TODO — describe skip.
 
 
 func skip() -> void:

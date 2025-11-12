@@ -1,3 +1,5 @@
+# Class
+# Summary: TODO — add brief description.
 extends Control
 
 func _ready() -> void:

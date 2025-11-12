@@ -1,3 +1,5 @@
+# Class
+# Summary: TODO — add brief description.
 extends DialogicSubsystem
 
 ## Subsystem that manages portrait positions.
@@ -24,10 +26,16 @@ func get_container(position_id: String) -> DialogicNode_PortraitContainer:
 	return null
 
 
+# Summary: TODO — describe get_containers.
+
+
 func get_containers(position_id: String) -> Array[DialogicNode_PortraitContainer]:
 	return get_tree().get_nodes_in_group(&'dialogic_portrait_con_position').filter(
 		func(node:DialogicNode_PortraitContainer):
 			return node.is_visible_in_tree() and node.is_container(position_id))
+
+
+# Summary: TODO — describe get_container_container.
 
 
 func get_container_container() -> CanvasItem:
@@ -93,6 +101,9 @@ func move_container(container:DialogicNode_PortraitContainer, destination:String
 			copy_container_setup(destination_container, container)
 
 
+# Summary: TODO — describe copy_container_setup.
+
+
 func copy_container_setup(from:DialogicNode_PortraitContainer, to:DialogicNode_PortraitContainer) -> void:
 	to.ignore_resize = true
 	to.layout_mode = from.layout_mode
@@ -138,6 +149,9 @@ func translate_container(container:DialogicNode_PortraitContainer, translation:V
 	position_changed.emit({&'change':'moved', &'container_node':container})
 
 
+# Summary: TODO — describe rotate_container.
+
+
 func rotate_container(container:DialogicNode_PortraitContainer, rotation:float, relative := false, tween:Tween=null, time:float=1.0) -> void:
 	if !container.has_meta(&'default_rotation'):
 		container.set_meta(&'default_rotation', container.rotation_degrees)
@@ -158,6 +172,9 @@ func rotate_container(container:DialogicNode_PortraitContainer, rotation:float, 
 		save_position_container(container)
 
 	position_changed.emit({&'change':'rotated', &'container_node':container})
+
+
+# Summary: TODO — describe resize_container.
 
 
 func resize_container(container: DialogicNode_PortraitContainer, rect_size: Variant, relative := false, tween:Tween=null, time:float=1.0) -> void:
@@ -189,6 +206,9 @@ func resize_container(container: DialogicNode_PortraitContainer, rect_size: Vari
 	position_changed.emit({&'change':'resized', &'container_node':container})
 
 
+# Summary: TODO — describe save_position_container.
+
+
 func save_position_container(container: DialogicNode_PortraitContainer) -> void:
 	if not dialogic.current_state_info.has('portrait_containers'):
 		dialogic.current_state_info['portrait_containers'] = {}
@@ -212,6 +232,9 @@ func save_position_container(container: DialogicNode_PortraitContainer) -> void:
 	}
 
 	dialogic.current_state_info.portrait_containers[container.container_ids[0]] = info
+
+
+# Summary: TODO — describe load_position_container.
 
 
 func load_position_container(position_id: String) -> DialogicNode_PortraitContainer:
@@ -248,6 +271,9 @@ func load_position_container(position_id: String) -> DialogicNode_PortraitContai
 	return container
 
 
+# Summary: TODO — describe str_to_vector.
+
+
 func str_to_vector(input: String, base_vector:=Vector2()) -> Vector2:
 	var vector_regex := RegEx.create_from_string(r"(?<part>x|y)\s*(?<number>(-|\+)?(\d|\.|)*)(\s*(?<type>%|px))?")
 	var vec := base_vector
@@ -267,13 +293,22 @@ func str_to_vector(input: String, base_vector:=Vector2()) -> Vector2:
 	return vec
 
 
+# Summary: TODO — describe vector_to_str.
+
+
 func vector_to_str(vec:Vector2) -> String:
 	return "x" + str(vec.x) + "px y" + str(vec.y) + "px"
+
+
+# Summary: TODO — describe reset_all_containers.
 
 
 func reset_all_containers(time:= 0.0, tween:Tween = null) -> void:
 	for container in get_tree().get_nodes_in_group(&'dialogic_portrait_con_position'):
 		reset_container(container, time, tween)
+
+
+# Summary: TODO — describe reset_container.
 
 
 func reset_container(container:DialogicNode_PortraitContainer, time := 0.0, tween: Tween = null ) -> void:

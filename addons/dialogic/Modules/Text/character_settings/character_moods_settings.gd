@@ -1,3 +1,5 @@
+# Class
+# Summary: TODO — add brief description.
 @tool
 extends DialogicCharacterEditorMainSection
 
@@ -38,10 +40,16 @@ func _save_changes(character:DialogicCharacter) -> DialogicCharacter:
 	return character
 
 
+# Summary: TODO — describe get_portrait_data.
+
+
 func get_portrait_data() -> Dictionary:
 	if character_editor.selected_item and is_instance_valid(character_editor.selected_item):
 		return character_editor.selected_item.get_metadata(0)
 	return {}
+
+
+# Summary: TODO — describe set_portrait_data.
 
 
 func set_portrait_data(data:Dictionary) -> void:
@@ -62,6 +70,9 @@ func _ready() -> void:
 	%Default.icon = get_theme_icon("NonFavorite", "EditorIcons")
 
 	%NameWarning.texture = get_theme_icon("StatusWarning", "EditorIcons")
+
+
+# Summary: TODO — describe update_mood_list.
 
 
 func update_mood_list(selected_name := "") -> void:
@@ -116,6 +127,9 @@ func _on_mood_list_item_selected(index:int) -> void:
 	%Settings.visible = %MoodList.is_anything_selected()
 
 
+# Summary: TODO — describe load_mood_info.
+
+
 func load_mood_info(dict:Dictionary) -> void:
 	%Name.text = dict.get('name', '')
 	%NameWarning.hide()
@@ -127,6 +141,9 @@ func load_mood_info(dict:Dictionary) -> void:
 	%VolumeBase.set_value(dict.get('volume_base', 0))
 	%VolumeVariance.set_value(dict.get('volume_variance', 0))
 	%Skip.set_value(dict.get('skip_characters', 0))
+
+
+# Summary: TODO — describe get_mood_info.
 
 
 func get_mood_info() -> Dictionary:
@@ -208,12 +225,18 @@ func _on_default_toggled(button_pressed:bool) -> void:
 	set_default_button(button_pressed)
 
 
+# Summary: TODO — describe set_default_button.
+
+
 func set_default_button(enabled:bool) -> void:
 	%Default.set_pressed_no_signal(enabled)
 	if enabled:
 		%Default.icon = get_theme_icon("Favorites", "EditorIcons")
 	else:
 		%Default.icon = get_theme_icon("NonFavorite", "EditorIcons")
+
+
+# Summary: TODO — describe preview.
 
 
 func preview() -> void:

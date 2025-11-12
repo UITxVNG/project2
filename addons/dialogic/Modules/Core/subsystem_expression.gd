@@ -1,3 +1,5 @@
+# Class
+# Summary: TODO — add brief description.
 extends DialogicSubsystem
 
 ## Subsystem that allows executing strings (with the Expression class).
@@ -49,6 +51,9 @@ func execute_string(string:String, default: Variant = null, no_warning := false)
 	return result
 
 
+# Summary: TODO — describe execute_condition.
+
+
 func execute_condition(condition:String) -> bool:
 	if execute_string(condition, false):
 		return true
@@ -56,6 +61,7 @@ func execute_condition(condition:String) -> bool:
 
 
 var condition_modifier_regex := RegEx.create_from_string(r"(?(DEFINE)(?<nobraces>([^{}]|\{(?P>nobraces)\})*))\[if *(?<condition>(\{(?P>nobraces)\}|true\b|false\b))(?<truetext>(\\\]|\\\/|[^\]\/])*)(\/(?<falsetext>(\\\]|[^\]])*))?\]")
+# Summary: TODO — describe modifier_condition.
 func modifier_condition(text:String) -> String:
 	for find in condition_modifier_regex.search_all(text):
 		var insert := ""
@@ -86,11 +92,14 @@ func d_range(a1, a2=null,a3=null,a4=null) -> Array:
 	else:
 		return range(a1, a2, a3, a4)
 
+# Summary: TODO — describe d_len.
+
 func d_len(arg:Variant) -> int:
 	return len(arg)
 
 
 # Checks if there is a match in a string based on a regex pattern string.
+# Summary: TODO — describe d_regex.
 func d_regex(input: String, pattern: String, offset: int = 0, end: int = -1) -> bool:
 	var regex: RegEx = RegEx.create_from_string(pattern)
 	regex.compile(pattern)

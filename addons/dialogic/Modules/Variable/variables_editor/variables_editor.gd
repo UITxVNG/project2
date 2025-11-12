@@ -1,3 +1,5 @@
+# Class
+# Summary: TODO — add brief description.
 @tool
 extends DialogicEditor
 
@@ -39,6 +41,8 @@ func _ready() -> void:
 	%Search.right_icon = get_theme_icon("Search", "EditorIcons")
 
 #region RENAMING
+
+# Summary: TODO — describe variable_renamed.
 
 func variable_renamed(old_name:String, new_name:String):
 	if old_name == new_name:

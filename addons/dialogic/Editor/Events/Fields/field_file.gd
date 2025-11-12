@@ -1,3 +1,5 @@
+# Class
+# Summary: TODO — add brief description.
 @tool
 extends DialogicVisualEditorField
 
@@ -103,6 +105,9 @@ func _on_file_dialog_selected(path:String) -> void:
 func _on_EditButton_pressed() -> void:
 	if ResourceLoader.exists(current_value):
 		EditorInterface.inspect_object(load(current_value), "", true)
+
+
+# Summary: TODO — describe clear_path.
 
 
 func clear_path() -> void:

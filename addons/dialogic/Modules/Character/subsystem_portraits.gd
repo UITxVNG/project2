@@ -1,3 +1,5 @@
+# Class
+# Summary: TODO — add brief description.
 extends DialogicSubsystem
 
 ## Subsystem that manages portraits and portrait positions.
@@ -22,6 +24,9 @@ func clear_game_state(_clear_flag:=DialogicGameHandler.ClearFlags.FULL_CLEAR) ->
 	for character_identifier in dialogic.current_state_info.get('portraits', {}).keys():
 		remove_character(DialogicResourceUtil.get_character_resource(character_identifier))
 	dialogic.current_state_info['portraits'] = {}
+
+
+# Summary: TODO — describe load_game_state.
 
 
 func load_game_state(_load_flag:=LoadFlags.FULL_LOAD) -> void:
@@ -51,10 +56,16 @@ func load_game_state(_load_flag:=LoadFlags.FULL_LOAD) -> void:
 	dialogic.current_state_info["speaker"] = speaker
 
 
+# Summary: TODO — describe pause.
+
+
 func pause() -> void:
 	for portrait in dialogic.current_state_info['portraits'].values():
 		if portrait.node.has_meta('animation_node'):
 			portrait.node.get_meta('animation_node').pause()
+
+
+# Summary: TODO — describe resume.
 
 
 func resume() -> void:
@@ -312,6 +323,9 @@ func get_character_portrait(character: DialogicCharacter) -> DialogicPortrait:
 	return null
 
 
+# Summary: TODO — describe z_sort_portrait_containers.
+
+
 func z_sort_portrait_containers(con1: DialogicNode_PortraitContainer, con2: DialogicNode_PortraitContainer) -> bool:
 	if con1.get_meta('z_index', 0) < con2.get_meta('z_index', 0):
 		return true
@@ -348,6 +362,7 @@ func _get_leave_default_length() -> float:
 
 
 ## Checks multiple cases to return a valid portrait to use.
+# Summary: TODO — describe get_valid_portrait.
 func get_valid_portrait(character:DialogicCharacter, portrait:String) -> String:
 	if character == null:
 		printerr('[Dialogic] Tried to use portrait "', portrait, '" on <null> character.')
@@ -429,6 +444,9 @@ func join_character(character:DialogicCharacter, portrait:String,  position_id:S
 	return character_node
 
 
+# Summary: TODO — describe add_character.
+
+
 func add_character(character: DialogicCharacter, container: DialogicNode_PortraitContainer, portrait: String, position_id: String) -> Node:
 	if is_character_joined(character):
 		printerr('[DialogicError] Cannot add an already joined character. If this is intended, call _create_character_node manually.')
@@ -458,6 +476,7 @@ func add_character(character: DialogicCharacter, container: DialogicNode_Portrai
 
 
 ## Changes the portrait of a character. Only works with joined characters.
+# Summary: TODO — describe change_character_portrait.
 func change_character_portrait(character: DialogicCharacter, portrait: String, fade_animation:="", fade_length := -1.0) -> void:
 	if not is_character_joined(character):
 		return
@@ -483,6 +502,7 @@ func change_character_portrait(character: DialogicCharacter, portrait: String, f
 
 
 ## Changes the mirror of the given character. Only works with joined characters
+# Summary: TODO — describe change_character_mirror.
 func change_character_mirror(character:DialogicCharacter, mirrored:= false, force:= false) -> void:
 	if !is_character_joined(character):
 		return
@@ -492,6 +512,7 @@ func change_character_mirror(character:DialogicCharacter, mirrored:= false, forc
 
 
 ## Changes the z_index of a character. Only works with joined characters
+# Summary: TODO — describe change_character_z_index.
 func change_character_z_index(character:DialogicCharacter, z_index:int, update_zindex:= true) -> void:
 	if !is_character_joined(character):
 		return
@@ -502,6 +523,7 @@ func change_character_z_index(character:DialogicCharacter, z_index:int, update_z
 
 
 ## Changes the extra data on the given character. Only works with joined characters
+# Summary: TODO — describe change_character_extradata.
 func change_character_extradata(character:DialogicCharacter, extra_data:="") -> void:
 	if !is_character_joined(character):
 		return
@@ -510,6 +532,7 @@ func change_character_extradata(character:DialogicCharacter, extra_data:="") -> 
 
 
 ## Starts the given animation on the given character. Only works with joined characters
+# Summary: TODO — describe animate_character.
 func animate_character(character: DialogicCharacter, animation_path: String, length: float, repeats := 1, is_reversed := false) -> DialogicAnimation:
 	if not is_character_joined(character):
 		return null
@@ -522,6 +545,7 @@ func animate_character(character: DialogicCharacter, animation_path: String, len
 
 
 ## Moves the given character to the given position. Only works with joined characters
+# Summary: TODO — describe move_character.
 func move_character(character:DialogicCharacter, position_id:String, time:= 0.0, easing:=Tween.EASE_IN_OUT, trans:=Tween.TRANS_SINE) -> void:
 	if !is_character_joined(character):
 		return
@@ -535,6 +559,7 @@ func move_character(character:DialogicCharacter, position_id:String, time:= 0.0,
 
 
 ## Removes a character with a given animation or the default animation.
+# Summary: TODO — describe leave_character.
 func leave_character(character: DialogicCharacter, animation_name:= "", animation_length:= 0.0, animation_wait := false) -> void:
 	if not is_character_joined(character):
 		return
@@ -563,6 +588,7 @@ func leave_character(character: DialogicCharacter, animation_name:= "", animatio
 
 
 ## Removes all joined characters with a given animation or the default animation.
+# Summary: TODO — describe leave_all_characters.
 func leave_all_characters(animation_name:="", animation_length:=0.0, animation_wait := false) -> void:
 	for character in get_joined_characters():
 		await leave_character(character, animation_name, animation_length, animation_wait)
@@ -593,6 +619,7 @@ func remove_character(character: DialogicCharacter) -> void:
 
 
 ## Returns true if the given character is currently joined.
+# Summary: TODO — describe is_character_joined.
 func is_character_joined(character: DialogicCharacter) -> bool:
 	if character == null or not character.get_identifier() in dialogic.current_state_info['portraits']:
 		return false
@@ -601,6 +628,7 @@ func is_character_joined(character: DialogicCharacter) -> bool:
 
 
 ## Returns a list of the joined charcters (as resources)
+# Summary: TODO — describe get_joined_characters.
 func get_joined_characters() -> Array[DialogicCharacter]:
 	var chars: Array[DialogicCharacter] = []
 
@@ -628,6 +656,7 @@ func get_character_info(character:DialogicCharacter) -> Dictionary:
 ####################################################################################################
 
 ## Updates all portrait containers set to SPEAKER.
+# Summary: TODO — describe change_speaker.
 func change_speaker(speaker: DialogicCharacter = null, portrait := "") -> void:
 	for container: Node in get_tree().get_nodes_in_group('dialogic_portrait_con_speaker'):
 
@@ -713,6 +742,7 @@ func change_speaker(speaker: DialogicCharacter = null, portrait := "") -> void:
 ####################################################################################################
 
 ## Called from the [portrait=something] text effect.
+# Summary: TODO — describe text_effect_portrait.
 func text_effect_portrait(_text_node:Control, _skipped:bool, argument:String) -> void:
 	if argument:
 		var current_speaker := dialogic.Text.get_current_speaker()
@@ -722,6 +752,7 @@ func text_effect_portrait(_text_node:Control, _skipped:bool, argument:String) ->
 
 
 ## Called from the [extra_data=something] text effect.
+# Summary: TODO — describe text_effect_extradata.
 func text_effect_extradata(_text_node:Control, _skipped:bool, argument:String) -> void:
 	if argument:
 		if dialogic.Text.get_current_speaker():

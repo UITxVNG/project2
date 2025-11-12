@@ -1,3 +1,5 @@
+# DialogicVisualEditorFieldNumber
+# Summary: TODO — add brief description.
 @tool
 class_name DialogicVisualEditorFieldNumber
 extends DialogicVisualEditorField
@@ -57,8 +59,14 @@ func _autofocus() -> void:
 	%Value.grab_focus()
 
 
+# Summary: TODO — describe get_value.
+
+
 func get_value() -> float:
 	return value
+
+
+# Summary: TODO — describe use_float_mode.
 
 
 func use_float_mode() -> void:
@@ -66,9 +74,15 @@ func use_float_mode() -> void:
 	enforce_step = false
 
 
+# Summary: TODO — describe use_int_mode.
+
+
 func use_int_mode() -> void:
 	update_suffix("")
 	enforce_step = true
+
+
+# Summary: TODO — describe use_decibel_mode.
 
 
 func use_decibel_mode() -> void:
@@ -122,10 +136,16 @@ func _holding_button(value_direction: int, button: BaseButton) -> void:
 		_on_value_text_submitted(str(value+(step * value_direction)))
 
 
+# Summary: TODO — describe update_prefix.
+
+
 func update_prefix(to_prefix: String) -> void:
 	prefix = to_prefix
 	%Prefix.visible = to_prefix != null and to_prefix != ""
 	%Prefix.text = prefix
+
+
+# Summary: TODO — describe update_suffix.
 
 
 func update_suffix(to_suffix: String) -> void:

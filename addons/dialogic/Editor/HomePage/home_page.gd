@@ -1,3 +1,5 @@
+# Class
+# Summary: TODO — add brief description.
 @tool
 extends DialogicEditor
 
@@ -50,6 +52,9 @@ func _open(extra_info:Variant="") -> void:
 	if action == text:
 		action = ""
 	show_tip(text, action)
+
+
+# Summary: TODO — describe show_tip.
 
 
 func show_tip(text:String='', action:String='') -> void:

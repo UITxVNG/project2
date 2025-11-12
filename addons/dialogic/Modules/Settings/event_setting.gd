@@ -1,3 +1,5 @@
+# DialogicSettingEvent
+# Summary: TODO — add brief description.
 @tool
 class_name DialogicSettingEvent
 extends DialogicEvent
@@ -104,6 +106,9 @@ func to_text() -> String:
 	return string
 
 
+# Summary: TODO — describe from_text.
+
+
 func from_text(string:String) -> void:
 	var reg := RegEx.new()
 	reg.compile('setting (?<reset>reset)? *("(?<name>[^=+\\-*\\/]*)")?( *= *(?<value>.*))?')
@@ -135,6 +140,9 @@ func from_text(string:String) -> void:
 			else:
 				_value_type = SettingValueType.EXPRESSION
 		_suppress_default_value = false
+
+
+# Summary: TODO — describe is_valid_event.
 
 
 func is_valid_event(string:String) -> bool:
@@ -191,6 +199,9 @@ func build_event_editor() -> void:
 			'!name.is_empty() and _value_type == SettingValueType.VARIABLE and mode == Modes.SET')
 
 
+# Summary: TODO — describe get_settings_suggestions.
+
+
 func get_settings_suggestions(filter:String) -> Dictionary:
 	var suggestions := {filter:{'value':filter, 'editor_icon':["GDScriptInternal", "EditorIcons"]}}
 
@@ -198,6 +209,9 @@ func get_settings_suggestions(filter:String) -> Dictionary:
 		if prop.name.begins_with('dialogic/settings/'):
 			suggestions[prop.name.trim_prefix('dialogic/settings/')] = {'value':prop.name.trim_prefix('dialogic/settings/'), 'editor_icon':["GDScript", "EditorIcons"]}
 	return suggestions
+
+
+# Summary: TODO — describe get_value_suggestions.
 
 
 func get_value_suggestions(_filter:String) -> Dictionary:

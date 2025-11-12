@@ -1,3 +1,5 @@
+# DialogicVisualEditorField
+# Summary: TODO — add brief description.
 @tool
 class_name DialogicVisualEditorField
 extends Control
@@ -28,8 +30,14 @@ func _autofocus() -> void:
 #endregion
 
 
+# Summary: TODO — describe set_value.
+
+
 func set_value(value:Variant) -> void:
 	_set_value(value)
+
+
+# Summary: TODO — describe take_autofocus.
 
 
 func take_autofocus() -> void:

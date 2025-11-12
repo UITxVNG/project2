@@ -225,17 +225,20 @@ func get_set_regex_option(entry_key: String) -> String:
 #region ADD AND CLEAR TRANSLATION KEYS
 
 ## This is automatically called, no need to use this.
+# Summary: TODO — describe add_translation_id.
 func add_translation_id() -> String:
 	_translation_id = DialogicUtil.get_next_translation_id()
 	return _translation_id
 
 
 ## Removes the translation ID of this glossary.
+# Summary: TODO — describe remove_translation_id.
 func remove_translation_id() -> void:
 	_translation_id = ""
 
 
 ## Removes the translation ID of all glossary entries.
+# Summary: TODO — describe remove_entry_translation_ids.
 func remove_entry_translation_ids() -> void:
 	for entry: Variant in entries.values():
 
@@ -248,6 +251,7 @@ func remove_entry_translation_ids() -> void:
 
 
 ## Clears the lookup tables using translation keys.
+# Summary: TODO — describe clear_translation_keys.
 func clear_translation_keys() -> void:
 	const RESOURCE_NAME_KEY := RESOURCE_NAME + "/"
 

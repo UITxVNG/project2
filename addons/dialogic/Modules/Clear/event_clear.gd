@@ -1,3 +1,5 @@
+# DialogicClearEvent
+# Summary: TODO — add brief description.
 @tool
 class_name DialogicClearEvent
 extends DialogicEvent
@@ -78,6 +80,9 @@ func _init() -> void:
 
 func get_shortcode() -> String:
 	return "clear"
+
+
+# Summary: TODO — describe get_shortcode_parameters.
 
 
 func get_shortcode_parameters() -> Dictionary:

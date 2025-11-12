@@ -1,3 +1,5 @@
+# Class
+# Summary: TODO — add brief description.
 @tool
 extends DialogicEditor
 
@@ -106,6 +108,7 @@ func _input(event: InputEvent) -> void:
 					replace_in_timeline(true)
 
 ## Method to play the current timeline. Connected to the button in the sidebar.
+# Summary: TODO — describe play_timeline.
 func play_timeline(index := -1) -> void:
 	_save()
 
@@ -118,6 +121,7 @@ func play_timeline(index := -1) -> void:
 
 
 ## Method to switch from visual to text editor (and vice versa). Connected to the button in the sidebar.
+# Summary: TODO — describe toggle_editor_mode.
 func toggle_editor_mode() -> void:
 	match current_editor_mode:
 		EditorMode.VISUAL:
@@ -154,6 +158,9 @@ func _on_resource_saved() -> void:
 		current_resource.set_meta("timeline_not_saved", false)
 
 
+# Summary: TODO — describe new_timeline.
+
+
 func new_timeline(path:String) -> void:
 	_save()
 	var new_timeline := DialogicTimeline.new()
@@ -166,6 +173,9 @@ func new_timeline(path:String) -> void:
 	EditorInterface.get_resource_filesystem().update_file(new_timeline.resource_path)
 	DialogicResourceUtil.update_directory('dtl')
 	editors_manager.edit_resource(new_timeline)
+
+
+# Summary: TODO — describe update_audio_channel_cache.
 
 
 func update_audio_channel_cache(list:PackedStringArray) -> void:
@@ -227,12 +237,17 @@ func _clear() -> void:
 	play_timeline_button.disabled = true
 
 
+# Summary: TODO — describe get_current_editor.
+
+
 func get_current_editor() -> Node:
 	if current_editor_mode == 1:
 		return %TextEditor
 	return %VisualEditor
 
 #region SEARCH
+
+# Summary: TODO — describe search_timeline.
 
 func search_timeline() -> void:
 	%SearchReplaceSection.show()
@@ -285,6 +300,8 @@ func _on_whole_words_toggled(toggled_on: bool) -> void:
 
 #region REPLACE
 
+# Summary: TODO — describe replace_in_timeline.
+
 func replace_in_timeline(focus_grab:=false) -> void:
 	search_timeline()
 	%ReplaceSection.show()
@@ -310,6 +327,8 @@ func _on_replace_global_pressed() -> void:
 
 
 #region PROGRESS
+
+# Summary: TODO — describe set_progress.
 
 func set_progress(percentage:float, text := "") -> void:
 	%ProgressSection.visible = percentage != 1

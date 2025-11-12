@@ -1,3 +1,5 @@
+# DialogicEditor
+# Summary: TODO — add brief description.
 @tool
 class_name DialogicEditor
 extends Control

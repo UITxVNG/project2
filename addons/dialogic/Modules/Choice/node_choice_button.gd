@@ -1,3 +1,5 @@
+# DialogicNode_ChoiceButton
+# Summary: TODO — add brief description.
 class_name DialogicNode_ChoiceButton
 extends Button
 ## This button allows the player to make a choice in the Dialogic system.
@@ -79,6 +81,7 @@ func _load_info(choice_info: Dictionary) -> void:
 
 
 ## Called when the text changes.
+# Summary: TODO — describe set_choice_text.
 func set_choice_text(new_text: String) -> void:
 	if text_node:
 		text_node.text = new_text

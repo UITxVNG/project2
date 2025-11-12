@@ -1,3 +1,5 @@
+# DialogicHistoryEvent
+# Summary: TODO — add brief description.
 @tool
 class_name DialogicHistoryEvent
 extends DialogicEvent
@@ -45,6 +47,8 @@ func _init() -> void:
 
 func get_shortcode() -> String:
 	return "history"
+
+# Summary: TODO — describe get_shortcode_parameters.
 
 func get_shortcode_parameters() -> Dictionary:
 	return {

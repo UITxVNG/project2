@@ -1,3 +1,5 @@
+# DialogicPortrait
+# Summary: TODO — add brief description.
 class_name DialogicPortrait
 extends Node
 
@@ -80,12 +82,16 @@ func _unhighlight() -> void:
 ################################################################################
 
 ## Helper that quickly setups and checks the character and portrait.
+# Summary: TODO — describe apply_character_and_portrait.
 func apply_character_and_portrait(passed_character:DialogicCharacter, passed_portrait:String) -> void:
 	if passed_portrait == "" or not passed_portrait in passed_character.portraits.keys():
 		passed_portrait = passed_character.default_portrait
 
 	portrait = passed_portrait
 	character = passed_character
+
+
+# Summary: TODO — describe apply_texture.
 
 
 func apply_texture(node:Node, texture_path:String) -> void:

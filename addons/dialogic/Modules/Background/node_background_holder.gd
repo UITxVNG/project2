@@ -1,3 +1,5 @@
+# DialogicNode_BackgroundHolder
+# Summary: TODO — add brief description.
 class_name DialogicNode_BackgroundHolder
 extends ColorRect
 

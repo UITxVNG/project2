@@ -1,3 +1,5 @@
+# Class
+# Summary: TODO — add brief description.
 @tool
 extends DialogicLayoutLayer
 
@@ -44,8 +46,13 @@ extends DialogicLayoutLayer
 @export var maximum_choices: int = 10
 @export_file('*.tscn') var choices_custom_button: String = ""
 
+# Summary: TODO — describe get_choices.
+
 func get_choices() -> VBoxContainer:
 	return $Choices
+
+
+# Summary: TODO — describe get_button_sound.
 
 
 func get_button_sound() -> DialogicNode_ButtonSound:

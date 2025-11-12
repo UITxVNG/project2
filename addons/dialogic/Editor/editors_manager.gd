@@ -1,3 +1,5 @@
+# Class
+# Summary: TODO — add brief description.
 @tool
 extends Control
 
@@ -77,6 +79,7 @@ func _add_editor(path:String) -> void:
 
 
 ## Call to register an editor/tab that edits a resource with a custom ending.
+# Summary: TODO — describe register_resource_editor.
 func register_resource_editor(resource_extension:String, editor:DialogicEditor) -> void:
 	editors[editor.name] = {'node':editor, 'buttons':[], 'extension': resource_extension}
 	supported_file_extensions.append(resource_extension)
@@ -85,11 +88,13 @@ func register_resource_editor(resource_extension:String, editor:DialogicEditor) 
 
 
 ## Call to register an editor/tab that doesn't edit a resource
+# Summary: TODO — describe register_simple_editor.
 func register_simple_editor(editor:DialogicEditor) -> void:
 	editors[editor.name] = {'node': editor,  'buttons':[]}
 
 
 ## Call to add an icon button. These buttons are always visible.
+# Summary: TODO — describe add_icon_button.
 func add_icon_button(icon:Texture, tooltip:String, editor:DialogicEditor=null) -> Node:
 	var button: Button = toolbar.add_icon_button(icon, tooltip)
 	if editor != null:
@@ -98,10 +103,14 @@ func add_icon_button(icon:Texture, tooltip:String, editor:DialogicEditor=null) -
 
 
 ## Call to add a custom action button. Only visible if editor is visible.
+# Summary: TODO — describe add_custom_button.
 func add_custom_button(label:String, icon:Texture, editor:DialogicEditor) -> Node:
 	var button: Button = toolbar.add_custom_button(label, icon)
 	editors[editor.name]['buttons'].append(button)
 	return button
+
+
+# Summary: TODO — describe can_edit_resource.
 
 
 func can_edit_resource(resource:Resource) -> bool:
@@ -115,6 +124,9 @@ func can_edit_resource(resource:Resource) -> bool:
 
 func _on_editors_tab_changed(tab:int) -> void:
 	open_editor(editors_holder.get_child(tab))
+
+
+# Summary: TODO — describe edit_resource.
 
 
 func edit_resource(resource:Resource, save_previous:bool = true, silent:= false) -> void:
@@ -143,6 +155,7 @@ func edit_resource(resource:Resource, save_previous:bool = true, silent:= false)
 
 
 ## Only works if there was a different editor opened previously
+# Summary: TODO — describe toggle_editor.
 func toggle_editor(editor) -> void:
 	if editor.visible:
 		open_editor(previous_editor, true)
@@ -151,6 +164,7 @@ func toggle_editor(editor) -> void:
 
 
 ## Shows the given editor
+# Summary: TODO — describe open_editor.
 func open_editor(editor:DialogicEditor, save_previous: bool = true, extra_info:Variant = null) -> void:
 	if current_editor and save_previous:
 		current_editor._save()
@@ -181,6 +195,7 @@ func open_editor(editor:DialogicEditor, save_previous: bool = true, extra_info:V
 
 
 ## Rarely used to completely clear an editor.
+# Summary: TODO — describe clear_editor.
 func clear_editor(editor:DialogicEditor, save:bool = false) -> void:
 	if save:
 		editor._save()
@@ -188,6 +203,7 @@ func clear_editor(editor:DialogicEditor, save:bool = false) -> void:
 	editor._clear()
 
 ## Shows a file selector. Calls [accept_callable] once accepted
+# Summary: TODO — describe show_add_resource_dialog.
 func show_add_resource_dialog(accept_callable:Callable, filter:String = "*", title = "New resource", default_name = "new_character", mode = EditorFileDialog.FILE_MODE_SAVE_FILE) -> void:
 	find_parent('EditorView').godot_file_dialog(
 		_on_add_resource_dialog_accepted.bind(accept_callable),
@@ -208,6 +224,7 @@ func _on_add_resource_dialog_accepted(path:String, callable:Callable) -> void:
 
 
 ## Called by the plugin.gd script on CTRL+S or Debug Game start
+# Summary: TODO — describe save_current_resource.
 func save_current_resource() -> void:
 	if current_editor:
 		current_editor._save()
@@ -224,6 +241,7 @@ func _on_resource_unsaved(editor:DialogicEditor):
 
 
 ## Tries opening the last resource
+# Summary: TODO — describe load_saved_state.
 func load_saved_state() -> void:
 	var current_resources: Dictionary = DialogicUtil.get_editor_setting('current_resources', {})
 	for editor in current_resources.keys():
@@ -231,6 +249,9 @@ func load_saved_state() -> void:
 
 	var current_editor: String = DialogicUtil.get_editor_setting('current_editor', 'HomePage')
 	open_editor(editors[current_editor]['node'])
+
+
+# Summary: TODO — describe save_current_state.
 
 
 func save_current_state() -> void:

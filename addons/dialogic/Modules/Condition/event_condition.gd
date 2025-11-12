@@ -1,3 +1,5 @@
+# DialogicConditionEvent
+# Summary: TODO — add brief description.
 @tool
 class_name DialogicConditionEvent
 extends DialogicEvent
@@ -70,6 +72,9 @@ func to_text() -> String:
 	return result_string
 
 
+# Summary: TODO — describe from_text.
+
+
 func from_text(string:String) -> void:
 	if string.strip_edges().begins_with('if'):
 		condition = string.strip_edges().trim_prefix('if ').trim_suffix(':').strip_edges()
@@ -80,6 +85,9 @@ func from_text(string:String) -> void:
 	elif string.strip_edges().begins_with('else'):
 		condition = ""
 		condition_type = ConditionTypes.ELSE
+
+
+# Summary: TODO — describe is_valid_event.
 
 
 func is_valid_event(string:String) -> bool:

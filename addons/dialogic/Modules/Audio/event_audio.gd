@@ -104,6 +104,9 @@ func to_text () -> String:
 	return result_string
 
 
+# Summary: TODO — describe from_text.
+
+
 func from_text(string:String) -> void:
 	# Pre Alpha 17 Conversion
 	if string.begins_with('[music'):
@@ -128,6 +131,9 @@ func from_text(string:String) -> void:
 	load_from_shortcode_parameters(result.get_string('shortcode'))
 
 
+# Summary: TODO — describe get_shortcode_parameters.
+
+
 func get_shortcode_parameters() -> Dictionary:
 	return {
 		#param_name : property_info
@@ -144,6 +150,7 @@ func get_shortcode_parameters() -> Dictionary:
 
 
 ## Returns a string with all the shortcode parameters.
+# Summary: TODO — describe store_to_shortcode_parameters.
 func store_to_shortcode_parameters(params:Dictionary = {}) -> String:
 	if params.is_empty():
 		params = get_shortcode_parameters()
@@ -171,6 +178,9 @@ func store_to_shortcode_parameters(params:Dictionary = {}) -> String:
 		result_string += " " + parameter + '="' + value_to_string(value, parameter_info.get("suggestions", Callable())) + '"'
 
 	return result_string.strip_edges()
+
+
+# Summary: TODO — describe is_valid_event.
 
 
 func is_valid_event(string:String) -> bool:
@@ -334,9 +344,13 @@ func _open_audio_settings() -> void:
 
 
 ## Helper for the visibility conditions
+# Summary: TODO — describe has_channel_defaults.
 func has_channel_defaults() -> bool:
 	var defaults := DialogicUtil.get_audio_channel_defaults()
 	return defaults.has(channel_name)
+
+
+# Summary: TODO — describe get_audio_channel_suggestions.
 
 
 func get_audio_channel_suggestions(filter:String) -> Dictionary:
@@ -349,6 +363,8 @@ func get_audio_channel_suggestions(filter:String) -> Dictionary:
 	# TODO use .merged after dropping 4.2 support
 	suggestions.merge(DialogicUtil.get_audio_channel_suggestions(filter))
 	return suggestions
+
+# Summary: TODO — describe get_sync_audio_channel_suggestions.
 
 func get_sync_audio_channel_suggestions(filter:="") -> Dictionary:
 	return DialogicUtil.get_audio_channel_suggestions(filter)

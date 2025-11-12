@@ -1,3 +1,5 @@
+# Class
+# Summary: TODO — add brief description.
 extends DialogicSubsystem
 
 ## Subsystem that holds methods for jumping to specific labels, or return to the previous jump.
@@ -47,6 +49,9 @@ func clear_game_state(_clear_flag:=DialogicGameHandler.ClearFlags.FULL_CLEAR) ->
 	dialogic.current_state_info.erase("last_label")
 
 
+# Summary: TODO — describe load_game_state.
+
+
 func load_game_state(_load_flag:=LoadFlags.FULL_LOAD) -> void:
 	if not 'jump_stack' in dialogic.current_state_info:
 		dialogic.current_state_info['jump_stack'] = []
@@ -78,8 +83,14 @@ func jump_to_label(label:String) -> void:
 	jumped_to_label.emit({'timeline':dialogic.current_timeline, 'label':label})
 
 
+# Summary: TODO — describe push_to_jump_stack.
+
+
 func push_to_jump_stack() -> void:
 	dialogic.current_state_info['jump_stack'].push_back({'timeline':dialogic.current_timeline, 'index':dialogic.current_event_idx, 'label':dialogic.current_timeline_events[dialogic.current_event_idx].label_name})
+
+
+# Summary: TODO — describe resume_from_last_jump.
 
 
 func resume_from_last_jump() -> void:
@@ -87,6 +98,9 @@ func resume_from_last_jump() -> void:
 	var stack_info: Dictionary = dialogic.current_state_info['jump_stack'].pop_back()
 	dialogic.start_timeline(stack_info.timeline, stack_info.index+1)
 	returned_from_jump.emit({'sub_timeline':sub_timeline, 'label':stack_info.label})
+
+
+# Summary: TODO — describe is_jump_stack_empty.
 
 
 func is_jump_stack_empty() -> bool:
@@ -107,6 +121,7 @@ func _on_passed_label(info:Dictionary) -> void:
 
 
 ## Returns the identifier name of the last passed label
+# Summary: TODO — describe get_last_label_identifier.
 func get_last_label_identifier() -> String:
 	if not dialogic.current_state_info.has("last_label"):
 		return ""
@@ -115,6 +130,7 @@ func get_last_label_identifier() -> String:
 
 
 ## Returns the display name of the last passed label (translated if translation are enabled)
+# Summary: TODO — describe get_last_label_name.
 func get_last_label_name() -> String:
 	if not dialogic.current_state_info.has("last_label"):
 		return ""

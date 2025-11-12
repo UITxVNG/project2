@@ -1,3 +1,5 @@
+# Class
+# Summary: TODO — add brief description.
 @tool
 extends DialogicLayoutLayer
 
@@ -68,6 +70,9 @@ var fallback_bubble: TextBubble = null
 const textbubble_scene: PackedScene = preload("res://addons/dialogic/Modules/DefaultLayoutParts/Layer_Textbubble/text_bubble.tscn")
 
 
+# Summary: TODO — describe add_bubble.
+
+
 func add_bubble() -> TextBubble:
 	var new_bubble: TextBubble = textbubble_scene.instantiate()
 	add_child(new_bubble)
@@ -82,6 +87,7 @@ func _apply_export_overrides() -> void:
 
 
 ## Called by the base layer before opening the bubble
+# Summary: TODO — describe bubble_apply_overrides.
 func bubble_apply_overrides(bubble:TextBubble) -> void:
 	## TEXT FONT AND COLOR
 	var rtl: RichTextLabel = bubble.text

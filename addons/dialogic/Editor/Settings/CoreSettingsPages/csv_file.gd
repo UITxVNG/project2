@@ -1,3 +1,5 @@
+# DialogicCsvFile
+# Summary: TODO — add brief description.
 class_name DialogicCsvFile
 extends RefCounted
 ## Handles translation of a [class DialogicTimeline] to a CSV file.

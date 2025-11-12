@@ -1,3 +1,5 @@
+# Class
+# Summary: TODO — add brief description.
 @tool
 extends Window
 
@@ -9,6 +11,9 @@ func _on_close_requested() -> void:
 	info = {}
 	part_selected.emit({})
 	hide()
+
+
+# Summary: TODO — describe get_picked_info.
 
 
 func get_picked_info() -> Dictionary:

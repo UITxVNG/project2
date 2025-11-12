@@ -1,3 +1,5 @@
+# Class
+# Summary: TODO — add brief description.
 extends Control
 
 @onready var tail: Line2D = ($Group/Tail as Line2D)
@@ -38,6 +40,9 @@ var bg_padding := 30
 func _ready() -> void:
 	reset()
 	DialogicUtil.autoload().Choices.question_shown.connect(_on_question_shown)
+
+
+# Summary: TODO — describe reset.
 
 
 func reset() -> void:
@@ -92,6 +97,9 @@ func _process(delta:float) -> void:
 	tail.width = bubble_rect.size.x * 0.15
 
 
+# Summary: TODO — describe open.
+
+
 func open() -> void:
 	set_process(true)
 	show()
@@ -99,6 +107,9 @@ func open() -> void:
 	var open_tween := create_tween().set_parallel(true)
 	open_tween.tween_property(self, "scale", Vector2.ONE, 0.1).from(Vector2.ZERO)
 	open_tween.tween_property(self, "modulate:a", 1.0, 0.1).from(0.0)
+
+
+# Summary: TODO — describe close.
 
 
 func close() -> void:
@@ -179,6 +190,9 @@ func get_base_content_size() -> Vector2:
 	return text.size
 
 
+# Summary: TODO — describe add_choice_container.
+
+
 func add_choice_container(node:Container, alignment:=FlowContainer.ALIGNMENT_BEGIN, choices_button_path:="", maximum_choices:=5) -> void:
 	if choice_container:
 		choice_container.get_parent().remove_child(choice_container)
@@ -228,6 +242,9 @@ func add_choice_container(node:Container, alignment:=FlowContainer.ALIGNMENT_BEG
 		child.focus_neighbor_bottom = next
 
 
+# Summary: TODO — describe get_speaker_canvas_position.
+
+
 func get_speaker_canvas_position() -> Vector2:
 	if is_instance_valid(node_to_point_at):
 		if node_to_point_at is Node3D:
@@ -239,6 +256,7 @@ func get_speaker_canvas_position() -> Vector2:
 
 
 ## Changes the property of mouse filter of the bubble and its children (text and label).
+# Summary: TODO — describe change_mouse_filter.
 func change_mouse_filter(mouse_filter: Control.MouseFilter) -> void:
 	mouse_filter = mouse_filter
 	text.mouse_filter = mouse_filter

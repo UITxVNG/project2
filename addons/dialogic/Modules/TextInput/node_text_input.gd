@@ -1,3 +1,5 @@
+# DialogicNode_TextInput
+# Summary: TODO — add brief description.
 class_name DialogicNode_TextInput
 extends Control
 
@@ -25,9 +27,15 @@ func _ready() -> void:
 	visible = false
 
 
+# Summary: TODO — describe set_text.
+
+
 func set_text(text:String) -> void:
 	if get_node(text_label) is Label:
 		get_node(text_label).text = text
+
+
+# Summary: TODO — describe set_placeholder.
 
 
 func set_placeholder(placeholder:String) -> void:
@@ -36,10 +44,16 @@ func set_placeholder(placeholder:String) -> void:
 		get_node(input_line_edit).grab_focus()
 
 
+# Summary: TODO — describe set_default.
+
+
 func set_default(default:String) -> void:
 	if get_node(input_line_edit) is LineEdit:
 		get_node(input_line_edit).text = default
 		_on_input_text_changed(default)
+
+
+# Summary: TODO — describe set_allow_empty.
 
 
 func set_allow_empty(boolean:bool) -> void:

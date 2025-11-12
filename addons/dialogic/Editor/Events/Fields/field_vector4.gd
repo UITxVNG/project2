@@ -1,3 +1,5 @@
+# Class
+# Summary: TODO — add brief description.
 @tool
 extends DialogicVisualEditorFieldVector
 ## Event block field for a Vector4.
@@ -8,6 +10,9 @@ var current_value := Vector4()
 func _set_value(value: Variant) -> void:
 	current_value = value
 	super(value)
+
+
+# Summary: TODO — describe get_value.
 
 
 func get_value() -> Vector4:

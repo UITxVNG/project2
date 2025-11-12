@@ -1,3 +1,5 @@
+# DialogicNode_StyleLayer
+# Summary: TODO — add brief description.
 class_name DialogicNode_StyleLayer
 extends Control
 

@@ -1,3 +1,5 @@
+# DialogicGlossaryEvent
+# Summary: TODO — add brief description.
 @tool
 class_name DialogicGlossaryEvent
 extends DialogicEvent
@@ -29,6 +31,8 @@ func _init() -> void:
 ################################################################################
 func get_shortcode() -> String:
 	return "glossary"
+
+# Summary: TODO — describe get_shortcode_parameters.
 
 func get_shortcode_parameters() -> Dictionary:
 	return {

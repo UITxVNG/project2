@@ -1,3 +1,5 @@
+# DialogicCommentEvent
+# Summary: TODO — add brief description.
 @tool
 class_name DialogicCommentEvent
 extends DialogicEvent
@@ -39,8 +41,14 @@ func to_text() -> String:
 	return "# "+text
 
 
+# Summary: TODO — describe from_text.
+
+
 func from_text(string:String) -> void:
 	text = string.trim_prefix("# ")
+
+
+# Summary: TODO — describe is_valid_event.
 
 
 func is_valid_event(string:String) -> bool:

@@ -1,3 +1,5 @@
+# Class
+# Summary: TODO — add brief description.
 @tool
 extends MarginContainer
 
@@ -52,6 +54,9 @@ func _ready() -> void:
 	initialize_logic()
 
 
+# Summary: TODO — describe initialize_ui.
+
+
 func initialize_ui() -> void:
 	var _scale := DialogicUtil.get_editor_scale()
 
@@ -101,6 +106,9 @@ func initialize_ui() -> void:
 	visual_deselect()
 
 
+# Summary: TODO — describe initialize_logic.
+
+
 func initialize_logic() -> void:
 	resized.connect(get_parent().get_parent().queue_redraw)
 
@@ -124,6 +132,9 @@ func visual_select() -> void:
 	%IconTexture.modulate = get_theme_color("icon_saturation", "Editor")
 
 
+# Summary: TODO — describe visual_deselect.
+
+
 func visual_deselect() -> void:
 	$PanelContainer.add_theme_stylebox_override('panel', load("res://addons/dialogic/Editor/Events/styles/unselected_stylebox.tres"))
 	selected = false
@@ -131,8 +142,14 @@ func visual_deselect() -> void:
 	%IconTexture.modulate = get_theme_color('font_color', 'Label')
 
 
+# Summary: TODO — describe is_selected.
+
+
 func is_selected() -> bool:
 	return selected
+
+
+# Summary: TODO — describe set_warning.
 
 
 func set_warning(text:String= "") -> void:
@@ -141,6 +158,9 @@ func set_warning(text:String= "") -> void:
 		%Warning.tooltip_text = text
 	else:
 		%Warning.hide()
+
+
+# Summary: TODO — describe set_indent.
 
 
 func set_indent(indent: int) -> void:
@@ -172,6 +192,8 @@ var FIELD_SCENES := {
 	DialogicEvent.ValueType.AUDIO_PREVIEW: 		"res://addons/dialogic/Editor/Events/Fields/field_audio_preview.tscn",
 	DialogicEvent.ValueType.IMAGE_PREVIEW:		"res://addons/dialogic/Editor/Events/Fields/field_image_preview.tscn",
 	}
+
+# Summary: TODO — describe build_editor.
 
 func build_editor(build_header:bool = true, build_body:bool = false) ->  void:
 	var current_body_container: HFlowContainer = null
@@ -317,6 +339,9 @@ func build_editor(build_header:bool = true, build_body:bool = false) ->  void:
 	recalculate_field_visibility()
 
 
+# Summary: TODO — describe recalculate_field_visibility.
+
+
 func recalculate_field_visibility() -> void:
 	has_any_enabled_body_content = false
 	for p in field_list:
@@ -339,6 +364,9 @@ func recalculate_field_visibility() -> void:
 	%ToggleBodyVisibilityButton.visible = has_any_enabled_body_content
 
 
+# Summary: TODO — describe set_property.
+
+
 func set_property(property_name:String, value:Variant) -> void:
 	resource.set(property_name, value)
 	content_changed.emit()
@@ -357,6 +385,9 @@ func _evaluate_visibility_condition(p: Dictionary) -> bool:
 	if expr.has_execute_failed():
 		printerr("[Dialogic] Failed executing visibility condition for '",p.get('property', 'unnamed'),"': " + expr.get_error_text())
 	return result
+
+
+# Summary: TODO — describe get_field_node.
 
 
 func get_field_node(property_name:String) -> Node:

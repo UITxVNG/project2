@@ -1,3 +1,5 @@
+# Class
+# Summary: TODO — add brief description.
 @tool
 extends DialogicEditor
 
@@ -47,6 +49,9 @@ func _ready() -> void:
 	%EntryCaseSensitive.icon = get_theme_icon("MatchCase", "EditorIcons")
 
 	%EntryAlternatives.text_changed.connect(_on_entry_alternatives_text_changed)
+
+
+# Summary: TODO — describe set_setting.
 
 
 func set_setting(value: Variant, setting: String)  -> void:
@@ -132,6 +137,9 @@ func _on_add_glossary_file_pressed() -> void:
 	find_parent('EditorView').godot_file_dialog(create_new_glossary_file, '*.tres', EditorFileDialog.FILE_MODE_SAVE_FILE, 'Create new glossary resource')
 
 
+# Summary: TODO — describe create_new_glossary_file.
+
+
 func create_new_glossary_file(path:String) -> void:
 	var glossary := DialogicGlossary.new()
 	glossary.resource_path = path
@@ -141,6 +149,9 @@ func create_new_glossary_file(path:String) -> void:
 
 func _on_load_glossary_file_pressed() -> void:
 	find_parent('EditorView').godot_file_dialog(load_glossary_file, '*.tres', EditorFileDialog.FILE_MODE_OPEN_FILE, 'Select glossary resource')
+
+
+# Summary: TODO — describe load_glossary_file.
 
 
 func load_glossary_file(path:String) -> void:

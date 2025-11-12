@@ -1,3 +1,5 @@
+# DialogicNode_DialogText
+# Summary: TODO — add brief description.
 @icon("node_dialog_text_icon.svg")
 class_name DialogicNode_DialogText
 extends RichTextLabel
@@ -61,6 +63,8 @@ func _ready() -> void:
 
 # this is called by the DialogicGameHandler to set text
 
+# Summary: TODO — describe reveal_text.
+
 func reveal_text(_text: String, keep_previous:=false) -> void:
 	if !enabled:
 		return
@@ -95,6 +99,9 @@ func reveal_text(_text: String, keep_previous:=false) -> void:
 	started_revealing_text.emit()
 
 
+# Summary: TODO — describe set_speed.
+
+
 func set_speed(delay_per_character:float) -> void:
 	if DialogicUtil.autoload().Text.is_text_voice_synced() and DialogicUtil.autoload().Voice.is_running():
 		var total_characters := get_total_character_count() as float
@@ -107,6 +114,7 @@ func set_speed(delay_per_character:float) -> void:
 
 
 ## Reveals one additional character.
+# Summary: TODO — describe continue_reveal.
 func continue_reveal() -> void:
 	if visible_characters <= get_total_character_count():
 		revealing = false
@@ -132,6 +140,7 @@ func continue_reveal() -> void:
 
 
 ## Reveals the entire text instantly.
+# Summary: TODO — describe finish_text.
 func finish_text(is_organic := false) -> void:
 	visible_ratio = 1
 	custom_fx_update()
@@ -168,8 +177,12 @@ func _on_meta_clicked(_meta:Variant) -> void:
 
 
 ## Handle mouse input
+# Summary: TODO — describe on_gui_input.
 func on_gui_input(event:InputEvent) -> void:
 	DialogicUtil.autoload().Inputs.handle_node_gui_input(event)
+
+
+# Summary: TODO — describe custom_fx_update.
 
 
 func custom_fx_update() -> void:
@@ -178,10 +191,16 @@ func custom_fx_update() -> void:
 			effect.visible_characters = visible_characters
 
 
+# Summary: TODO — describe custom_fx_reset.
+
+
 func custom_fx_reset() -> void:
 	for effect in custom_effects:
 		if effect.has_method("reset"):
 			effect.reset()
+
+
+# Summary: TODO — describe custom_fx_skip.
 
 
 func custom_fx_skip() -> void:

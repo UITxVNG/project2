@@ -1,3 +1,5 @@
+# Class
+# Summary: TODO — add brief description.
 @tool
 extends DialogicSettingsPage
 
@@ -84,6 +86,9 @@ func _refresh() -> void:
 	loading = false
 
 
+# Summary: TODO — describe store_changes.
+
+
 func store_changes(_fake_arg: Variant = null, _fake_arg2: Variant = null) -> void:
 	if loading:
 		return
@@ -132,6 +137,9 @@ func _verify_translation_file() -> void:
 			status_message += "."
 
 	%StatusMessage.text = status_message
+
+
+# Summary: TODO — describe get_locales.
 
 
 func get_locales(_filter: String) -> Dictionary:
@@ -256,6 +264,9 @@ class CsvUpdateData:
 
 	var new_glossary_entries := 0
 	var updated_glossary_entries := 0
+
+
+# Summary: TODO — describe update_csv_files.
 
 
 func update_csv_files() -> void:
@@ -410,6 +421,9 @@ func _handle_character_names(
 
 	character_name_csv.collect_lines_from_characters(all_characters)
 	character_name_csv.update_csv_file_on_disk()
+
+
+# Summary: TODO — describe collect_translations.
 
 
 func collect_translations() -> void:

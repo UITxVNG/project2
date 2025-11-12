@@ -1,3 +1,5 @@
+# DialogicGameHandler
+# Summary: TODO — add brief description.
 class_name DialogicGameHandler
 extends Node
 
@@ -294,6 +296,7 @@ func timeline_exists(timeline:Variant) -> bool:
 
 
 ## Handles the next event.
+# Summary: TODO — describe handle_next_event.
 func handle_next_event(_ignore_argument: Variant = "") -> void:
 	handle_event(current_event_idx+1)
 
@@ -432,16 +435,19 @@ func _collect_subsystems() -> void:
 
 
 ## Returns `true` if a subystem with the given [param subsystem_name] exists.
+# Summary: TODO — describe has_subsystem.
 func has_subsystem(subsystem_name:String) -> bool:
 	return has_node(subsystem_name)
 
 
 ## Returns the subsystem node of the given [param subsystem_name] or null if it doesn't exist.
+# Summary: TODO — describe get_subsystem.
 func get_subsystem(subsystem_name:String) -> DialogicSubsystem:
 	return get_node(subsystem_name)
 
 
 ## Adds a subsystem node with the given [param subsystem_name] and [param script_path].
+# Summary: TODO — describe add_subsystem.
 func add_subsystem(subsystem_name:String, script_path:String) -> DialogicSubsystem:
 	var node: Node = Node.new()
 	node.name = subsystem_name

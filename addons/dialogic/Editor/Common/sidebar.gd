@@ -1,3 +1,5 @@
+# DialogicSidebar
+# Summary: TODO — add brief description.
 @tool
 class_name DialogicSidebar extends Control
 
@@ -93,6 +95,9 @@ func _ready() -> void:
 	update_resource_list()
 
 
+# Summary: TODO — describe set_unsaved_indicator.
+
+
 func set_unsaved_indicator(saved: bool = true) -> void:
 	if saved and %CurrentResource.text.ends_with("(*)"):
 		%CurrentResource.text = %CurrentResource.text.trim_suffix("(*)")
@@ -139,11 +144,14 @@ func _on_editors_editor_changed(_previous: DialogicEditor, current: DialogicEdit
 
 
 ## Cleans resources that have been deleted from the resource list
+# Summary: TODO — describe clean_resource_list.
 func clean_resource_list(resources_list: Array = []) -> PackedStringArray:
 	return PackedStringArray(resources_list.filter(func(x): return ResourceLoader.exists(x)))
 
 
 #region BULDING/FILTERING THE RESOURCE LIST
+
+# Summary: TODO — describe update_resource_list.
 
 func update_resource_list(resources_list: PackedStringArray = []) -> void:
 	var filter: String = %Search.text
@@ -276,6 +284,9 @@ func update_resource_list(resources_list: PackedStringArray = []) -> void:
 	DialogicUtil.set_editor_setting("last_resources", resources_list)
 
 
+# Summary: TODO — describe add_item.
+
+
 func add_item(item:ResourceListItem, parent:TreeItem, current_file := "") -> TreeItem:
 	var tree_item := resource_tree.create_item(parent)
 	tree_item.set_text(0, item.text)
@@ -295,6 +306,9 @@ func add_item(item:ResourceListItem, parent:TreeItem, current_file := "") -> Tre
 	return tree_item
 
 
+# Summary: TODO — describe add_folder_item.
+
+
 func add_folder_item(label: String, parent:TreeItem, color:= Color.BLACK, tooltip:="") -> TreeItem:
 	var folder_item := resource_tree.create_item(parent)
 	folder_item.set_text(0, label)
@@ -310,6 +324,9 @@ func add_folder_item(label: String, parent:TreeItem, color:= Color.BLACK, toolti
 		folder_item.collapsed = true
 
 	return folder_item
+
+
+# Summary: TODO — describe get_directory_items.
 
 
 func get_directory_items(directory:Dictionary, filter:String, icon:Texture2D, resources_list:Array) -> Array:
@@ -347,6 +364,8 @@ class ResourceListItem:
 			"\t",
 			false
 		)
+
+	# Summary: TODO — describe get_parent_directory.
 
 	func get_parent_directory() -> String:
 		return (metadata.get_base_dir() as String).split("/")[-1]
@@ -401,11 +420,17 @@ func _on_resources_tree_item_collapsed(item:TreeItem) -> void:
 	DialogicUtil.set_editor_setting("resource_list_collapsed_info", collapsed_info)
 
 
+# Summary: TODO — describe edit_resource.
+
+
 func edit_resource(resource_item: Variant) -> void:
 	if resource_item is Resource:
 		editors_manager.edit_resource(resource_item)
 	else:
 		editors_manager.edit_resource(load(resource_item))
+
+
+# Summary: TODO — describe remove_item_from_list.
 
 
 func remove_item_from_list(item: TreeItem) -> void:
@@ -463,6 +488,8 @@ func _on_search_text_submitted(_new_text: String) -> void:
 
 
 #region CONTENT LIST
+
+# Summary: TODO — describe update_content_list.
 
 func update_content_list(list: PackedStringArray) -> void:
 	var prev_selected := ""

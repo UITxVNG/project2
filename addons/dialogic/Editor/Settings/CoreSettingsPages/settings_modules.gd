@@ -1,3 +1,5 @@
+# Class
+# Summary: TODO — add brief description.
 @tool
 extends DialogicSettingsPage
 
@@ -40,6 +42,9 @@ func _on_refresh_pressed() -> void:
 	DialogicUtil.get_indexers(true, true)
 	DialogicResourceUtil.update_event_cache()
 	load_modules_tree()
+
+
+# Summary: TODO — describe filters_updated.
 
 
 func filters_updated(fake_arg:Variant) -> void:
@@ -96,6 +101,10 @@ func _on_search_text_changed(new_text:String) -> void:
 				counter += 1
 				any_visible = true
 		child.visible = any_visible
+
+
+
+# Summary: TODO — describe load_modules_tree.
 
 
 
@@ -279,6 +288,9 @@ func _on_external_link_pressed() -> void:
 		OS.shell_open(%ExternalLink.get_meta('url'))
 
 
+# Summary: TODO — describe change_event_visibility.
+
+
 func change_event_visibility(event:DialogicEvent, visibility:bool) -> void:
 	if event:
 		var list: Array= DialogicUtil.get_editor_setting('hidden_event_buttons', [])
@@ -303,6 +315,10 @@ func _on_visibility_toggle_toggled(button_pressed:bool) -> void:
 		var color: Color = %Tree.get_selected().get_icon_modulate(0)
 		color.a = 0.5
 		%Tree.get_selected().get_parent().set_button_color(0, %Tree.get_selected().get_index(), color)
+
+
+
+# Summary: TODO — describe force_event_button_list_update.
 
 
 
@@ -389,6 +405,9 @@ func load_event_settings(event:DialogicEvent) -> void:
 		reset.pressed.connect(reset_event_default_override.bind(prop, editor_node, params[prop].default))
 
 
+# Summary: TODO — describe set_event_default_override.
+
+
 func set_event_default_override(prop:String, value:Variant) -> void:
 	var event_default_overrides: Dictionary = ProjectSettings.get_setting('dialogic/event_default_overrides', {})
 	var event: DialogicEvent = %Tree.get_selected().get_metadata(0).event
@@ -399,6 +418,9 @@ func set_event_default_override(prop:String, value:Variant) -> void:
 	event_default_overrides[event.event_name][prop] = value
 
 	ProjectSettings.set_setting('dialogic/event_default_overrides', event_default_overrides)
+
+
+# Summary: TODO — describe reset_event_default_override.
 
 
 func reset_event_default_override(prop:String, node:Node, default:Variant) -> void:

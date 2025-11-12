@@ -1,3 +1,5 @@
+# Class
+# Summary: TODO — add brief description.
 @tool
 extends HSplitContainer
 
@@ -33,6 +35,9 @@ func _ready() -> void:
 	%LayerTree.add_theme_constant_override("icon_max_width", _minimum_tree_item_height)
 
 
+# Summary: TODO — describe load_style.
+
+
 func load_style(style:DialogicStyle) -> void:
 	current_style = style
 
@@ -47,6 +52,9 @@ func load_style(style:DialogicStyle) -> void:
 	%DeleteLayerButton.disabled = style.inherits_anything()
 
 	load_style_layer_list()
+
+
+# Summary: TODO — describe load_style_layer_list.
 
 
 func load_style_layer_list() -> void:
@@ -65,6 +73,9 @@ func load_style_layer_list() -> void:
 	select_layer(current_layer_id)
 
 
+# Summary: TODO — describe select_layer.
+
+
 func select_layer(id:String) -> void:
 	if id == "":
 		tree.get_root().select(0)
@@ -73,6 +84,9 @@ func select_layer(id:String) -> void:
 			if child.get_meta("id", "") == id:
 				child.select(0)
 				return
+
+
+# Summary: TODO — describe setup_layer_tree_item.
 
 
 func setup_layer_tree_item(info:Dictionary, item:TreeItem) -> void:
@@ -94,6 +108,9 @@ func setup_layer_tree_item(info:Dictionary, item:TreeItem) -> void:
 func _on_layer_selected() -> void:
 	var item: TreeItem = %LayerTree.get_selected()
 	load_layer(item.get_meta("id", ""))
+
+
+# Summary: TODO — describe load_layer.
 
 
 func load_layer(layer_id:=""):
@@ -131,11 +148,18 @@ func load_layer(layer_id:=""):
 
 
 
+# Summary: TODO — describe add_layer.
+
+
+
 func add_layer(scene_path:="", overrides:= {}):
 	current_style.add_layer(scene_path, overrides)
 	load_style_layer_list()
 	await get_tree().process_frame
 	%LayerTree.get_root().get_child(-1).select(0)
+
+
+# Summary: TODO — describe delete_layer.
 
 
 func delete_layer() -> void:
@@ -147,11 +171,17 @@ func delete_layer() -> void:
 	%LayerTree.get_root().select(0)
 
 
+# Summary: TODO — describe move_layer.
+
+
 func move_layer(from_idx:int, to_idx:int) -> void:
 	current_style.move_layer(from_idx, to_idx)
 
 	load_style_layer_list()
 	select_layer(current_style.get_layer_id_at_index(to_idx))
+
+
+# Summary: TODO — describe replace_layer.
 
 
 func replace_layer(layer_id:String, scene_path:String) -> void:
@@ -243,6 +273,9 @@ func _on_make_custom_layout_file_selected(file:String) -> void:
 	make_layout_custom(file)
 
 
+# Summary: TODO — describe make_layer_custom.
+
+
 func make_layer_custom(target_folder:String, custom_name := "") -> void:
 
 	var original_file: String = current_style.get_layer_info(current_layer_id).path
@@ -267,6 +300,9 @@ func make_layer_custom(target_folder:String, custom_name := "") -> void:
 		%LayerTree.get_root().select(0)
 	else:
 		%LayerTree.get_root().get_child(%LayerTree.get_selected().get_index()).select(0)
+
+
+# Summary: TODO — describe make_layout_custom.
 
 
 func make_layout_custom(target_folder:String) -> void:
@@ -437,6 +473,9 @@ func load_layout_scene_customization(custom_scene_path:String, overrides:Diction
 		scene.queue_free()
 
 
+# Summary: TODO — describe collect_settings.
+
+
 func collect_settings(properties:Array[Dictionary]) -> Array[Dictionary]:
 	var settings: Array[Dictionary] = []
 
@@ -481,6 +520,9 @@ func collect_settings(properties:Array[Dictionary]) -> Array[Dictionary]:
 	return settings
 
 
+# Summary: TODO — describe set_export_override.
+
+
 func set_export_override(property_name:String, value:String = "") -> void:
 	if str_to_var(value) != customization_editor_info[property_name]['orig']:
 		current_style.set_layer_setting(current_layer_id, property_name, value)
@@ -494,6 +536,9 @@ func _on_export_override_reset(property_name:String) -> void:
 	current_style.remove_layer_setting(current_layer_id, property_name)
 	customization_editor_info[property_name]['reset'].disabled = true
 	set_customization_value(property_name, customization_editor_info[property_name]['orig'])
+
+
+# Summary: TODO — describe set_customization_value.
 
 
 func set_customization_value(property_name:String, value:Variant) -> void:

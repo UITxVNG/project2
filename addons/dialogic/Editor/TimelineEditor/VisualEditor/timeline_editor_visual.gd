@@ -1,3 +1,5 @@
+# Class
+# Summary: TODO — add brief description.
 @tool
 extends Container
 
@@ -38,6 +40,9 @@ func something_changed() -> void:
 	timeline_editor.current_resource_state = DialogicEditor.ResourceStates.UNSAVED
 
 
+# Summary: TODO — describe save_timeline.
+
+
 func save_timeline() -> void:
 	if !is_inside_tree():
 		return
@@ -74,6 +79,9 @@ func _notification(what:int) -> void:
 		save_timeline()
 
 
+# Summary: TODO — describe load_timeline.
+
+
 func load_timeline(resource:DialogicTimeline) -> void:
 	# In case another timeline is still loading
 	cancel_loading()
@@ -105,6 +113,8 @@ func load_timeline(resource:DialogicTimeline) -> void:
 func is_loading_timeline() -> bool:
 	return _building_timeline
 
+# Summary: TODO — describe cancel_loading.
+
 func cancel_loading() -> void:
 	timeline_editor.set_progress(1)
 	if _building_timeline:
@@ -112,6 +122,9 @@ func cancel_loading() -> void:
 		await batch_loaded
 		_cancel_loading = false
 		_building_timeline = false
+
+
+# Summary: TODO — describe batch_events.
 
 
 func batch_events(array: Array, size: int, batch_number: int) -> Array:
@@ -164,6 +177,9 @@ func _on_batch_loaded() -> void:
 	_building_timeline = false
 
 
+# Summary: TODO — describe clear_timeline_nodes.
+
+
 func clear_timeline_nodes() -> void:
 	deselect_all_items()
 	for event in %Timeline.get_children():
@@ -191,6 +207,9 @@ func _ready() -> void:
 	load_event_buttons()
 	_on_right_sidebar_resized()
 	_initialized = true
+
+
+# Summary: TODO — describe load_event_buttons.
 
 
 func load_event_buttons() -> void:
@@ -295,6 +314,9 @@ func _on_content_item_clicked(label:String) -> void:
 			if event.resource.name == label:
 				scroll_to_piece(event.get_index())
 				return
+
+
+# Summary: TODO — describe update_content_list.
 
 
 func update_content_list() -> void:
@@ -412,6 +434,9 @@ func add_event_node(event_resource:DialogicEvent, at_index:int = -1, auto_select
 	return block
 
 
+# Summary: TODO — describe create_end_branch_event.
+
+
 func create_end_branch_event(at_index:int, parent_node:Node) -> Node:
 	var end_branch_event: Control = load("res://addons/dialogic/Editor/Events/BranchEnd.tscn").instantiate()
 	end_branch_event.resource = DialogicEndBranchEvent.new()
@@ -425,12 +450,14 @@ func create_end_branch_event(at_index:int, parent_node:Node) -> Node:
 
 
 # combination of the above that establishes the correct connection between the event and it's end branch
+# Summary: TODO — describe add_event_with_end_branch.
 func add_event_with_end_branch(resource, at_index:int=-1, auto_select:bool = false, indent:bool = false) -> void:
 	var event := add_event_node(resource, at_index, auto_select, indent)
 	create_end_branch_event(at_index+1, event)
 
 
 ## Adds an event (either single nodes or with end branches) to the timeline with UndoRedo support
+# Summary: TODO — describe add_event_undoable.
 func add_event_undoable(event_resource: DialogicEvent, at_index: int = -1) -> void:
 		TimelineUndoRedo.create_action("[D] Add "+event_resource.event_name+" event.")
 		if event_resource.can_contain_events:
@@ -471,6 +498,7 @@ func get_events_indexed(events:Array) -> Dictionary:
 
 
 ## Returns an indexed dictionary of [amount] events at [index]
+# Summary: TODO — describe get_events_at_index_indexed.
 func get_events_at_index_indexed(index:int, amount:int) -> Dictionary:
 	var events := []
 
@@ -481,6 +509,7 @@ func get_events_at_index_indexed(index:int, amount:int) -> Dictionary:
 
 
 ## Selects events based on an indexed dictionary
+# Summary: TODO — describe select_events_indexed.
 func select_events_indexed(indexed_events:Dictionary) -> void:
 	selected_items = []
 	for event_index in indexed_events.keys():
@@ -488,6 +517,7 @@ func select_events_indexed(indexed_events:Dictionary) -> void:
 
 
 ## Adds events based on an indexed dictionary
+# Summary: TODO — describe add_events_indexed.
 func add_events_indexed(indexed_events:Dictionary) -> void:
 	# sort the dictionaries indexes just in case
 	var indexes := indexed_events.keys()
@@ -524,6 +554,7 @@ func add_events_indexed(indexed_events:Dictionary) -> void:
 
 
 ## Deletes events based on an indexed dictionary
+# Summary: TODO — describe delete_events_indexed.
 func delete_events_indexed(indexed_events:Dictionary) -> void:
 	if indexed_events.is_empty():
 		return
@@ -541,6 +572,9 @@ func delete_events_indexed(indexed_events:Dictionary) -> void:
 
 	indent_events()
 	something_changed()
+
+
+# Summary: TODO — describe delete_selected_events.
 
 
 func delete_selected_events() -> void:
@@ -561,10 +595,16 @@ func delete_selected_events() -> void:
 		deselect_all_items()
 
 
+# Summary: TODO — describe cut_events_indexed.
+
+
 func cut_events_indexed(indexed_events:Dictionary) -> void:
 	select_events_indexed(indexed_events)
 	copy_selected_events()
 	delete_events_indexed(indexed_events)
+
+
+# Summary: TODO — describe copy_selected_events.
 
 
 func copy_selected_events() -> void:
@@ -587,6 +627,9 @@ func copy_selected_events() -> void:
 		}))
 
 
+# Summary: TODO — describe get_clipboard_data.
+
+
 func get_clipboard_data() -> Array:
 	var clipboard_parse: Variant = str_to_var(DisplayServer.clipboard_get())
 
@@ -599,6 +642,9 @@ func get_clipboard_data() -> Array:
 	return []
 
 
+# Summary: TODO — describe add_events_at_index.
+
+
 func add_events_at_index(event_list:Array, at_index:int) -> void:
 	var new_indexed_events := {}
 
@@ -606,6 +652,9 @@ func add_events_at_index(event_list:Array, at_index:int) -> void:
 		new_indexed_events[at_index+i] = event_list[i]
 
 	add_events_indexed(new_indexed_events)
+
+
+# Summary: TODO — describe delete_events_at_index.
 
 
 func delete_events_at_index(at_index:int, amount:int = 1)-> void:
@@ -624,6 +673,9 @@ func delete_events_at_index(at_index:int, amount:int = 1)-> void:
 
 func _is_item_selected(item: Node) -> bool:
 	return item in selected_items
+
+
+# Summary: TODO — describe select_item.
 
 
 func select_item(item: Node, multi_possible:bool = true) -> void:
@@ -664,6 +716,7 @@ func select_item(item: Node, multi_possible:bool = true) -> void:
 
 
 # checks all the events and sets their styles (selected/deselected)
+# Summary: TODO — describe visual_update_selection.
 func visual_update_selection() -> void:
 	for item in %Timeline.get_children():
 		item.visual_deselect()
@@ -677,13 +730,18 @@ func visual_update_selection() -> void:
 
 
 ## Sorts the selection using 'custom_sort_selection'
+# Summary: TODO — describe sort_selection.
 func sort_selection() -> void:
 	selected_items.sort_custom(custom_sort_selection)
 
 
 ## Compares two event blocks based on their position in the timeline
+# Summary: TODO — describe custom_sort_selection.
 func custom_sort_selection(item1, item2) -> bool:
 	return item1.get_index() < item2.get_index()
+
+
+# Summary: TODO — describe select_all_items.
 
 
 func select_all_items() -> void:
@@ -691,6 +749,9 @@ func select_all_items() -> void:
 	for event in %Timeline.get_children():
 		selected_items.append(event)
 	visual_update_selection()
+
+
+# Summary: TODO — describe deselect_all_items.
 
 
 func deselect_all_items() -> void:
@@ -740,6 +801,9 @@ func get_block_above(block:Node) -> Node:
 	if block.get_index() > 0:
 		return %Timeline.get_child(block.get_index() - 1)
 	return null
+
+
+# Summary: TODO — describe get_block_below.
 
 
 func get_block_below(block:Node) -> Node:
@@ -816,6 +880,9 @@ func move_blocks_to_index(blocks:Array, index:int):
 	TimelineUndoRedo.commit_action()
 
 
+# Summary: TODO — describe move_events_by_indexes.
+
+
 func move_events_by_indexes(index_dict:Dictionary) -> void:
 	var sorted_indexes := index_dict.keys()
 	sorted_indexes.sort()
@@ -836,6 +903,9 @@ func move_events_by_indexes(index_dict:Dictionary) -> void:
 	indent_events()
 	visual_update_selection()
 	something_changed()
+
+
+# Summary: TODO — describe offset_blocks_by_index.
 
 
 func offset_blocks_by_index(blocks:Array, offset:int):
@@ -874,6 +944,9 @@ func scroll_to_piece(piece_index:int) -> void:
 	var height: float = %Timeline.get_child(min(piece_index, %Timeline.get_child_count()-1)).position.y
 	if height < %TimelineArea.scroll_vertical or height > %TimelineArea.scroll_vertical+%TimelineArea.size.y:
 		%TimelineArea.scroll_vertical = height
+
+
+# Summary: TODO — describe indent_events.
 
 
 func indent_events() -> void:
@@ -972,6 +1045,9 @@ func _on_event_popup_menu_id_pressed(id:int) -> void:
 		TimelineUndoRedo.add_undo_method(add_events_indexed.bind(events_indexed))
 		TimelineUndoRedo.commit_action()
 		indent_events()
+
+
+# Summary: TODO — describe play_from_here.
 
 
 func play_from_here(index:=-1) -> void:
@@ -1192,6 +1268,9 @@ func _input(event:InputEvent) -> void:
 				get_viewport().set_input_as_handled()
 
 
+# Summary: TODO — describe get_previous_character.
+
+
 func get_previous_character(double_previous := false) -> DialogicCharacter:
 	var character: DialogicCharacter = null
 	var idx: int = %Timeline.get_child_count()
@@ -1270,6 +1349,9 @@ func _search_navigate_up() -> void:
 	search_navigate(true)
 
 
+# Summary: TODO — describe search_navigate.
+
+
 func search_navigate(navigate_up := false) -> void:
 	var next_pos := get_next_search_position(navigate_up)
 	if next_pos:
@@ -1281,6 +1363,9 @@ func search_navigate(navigate_up := false) -> void:
 		%TimelineArea.ensure_control_visible(event)
 		event._on_ToggleBodyVisibility_toggled(true)
 		field.call_deferred("select", result.y, result.x, result.y, result.x+len(get_meta("current_search")))
+
+
+# Summary: TODO — describe get_next_search_position.
 
 
 func get_next_search_position(navigate_up:= false, include_current := false) -> Array:
@@ -1354,6 +1439,9 @@ func get_next_search_position(navigate_up:= false, include_current := false) -> 
 	return []
 
 
+# Summary: TODO — describe search_text_field.
+
+
 func search_text_field(field:TextEdit, search_text := "", flags:= 0, navigate_up:= false, include_current := false) -> Vector2i:
 	var search_from_line: int = 0
 	var search_from_column: int = 0
@@ -1384,6 +1472,9 @@ func search_text_field(field:TextEdit, search_text := "", flags:= 0, navigate_up
 	return search
 
 
+# Summary: TODO — describe replace.
+
+
 func replace(replace_text:String) -> void:
 	var next_pos := get_next_search_position(false, true)
 	var event: Node = next_pos[0]
@@ -1403,6 +1494,9 @@ func replace(replace_text:String) -> void:
 	field.end_complex_operation()
 
 	timeline_editor.replace_in_timeline()
+
+
+# Summary: TODO — describe replace_all.
 
 
 func replace_all(replace_text:String) -> void:

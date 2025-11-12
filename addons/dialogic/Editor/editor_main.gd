@@ -1,3 +1,5 @@
+# Class
+# Summary: TODO — add brief description.
 @tool
 extends Control
 
@@ -50,6 +52,9 @@ func _on_sidebar_toggled(sidebar_shown: bool) -> void:
 		h_split.dragger_visibility = SplitContainer.DRAGGER_HIDDEN_COLLAPSED
 		h_split.split_offset = 0
 		h_split.collapsed = true
+
+
+# Summary: TODO — describe update_theme_additions.
 
 
 func update_theme_additions() -> void:
@@ -229,6 +234,7 @@ func update_theme_additions() -> void:
 
 
 ## Switches from floating window mode to embedded mode based on current mode
+# Summary: TODO — describe toggle_floating_window.
 func toggle_floating_window() -> void:
 	if get_parent() is Window:
 		swap_to_embedded_editor()
@@ -237,6 +243,7 @@ func toggle_floating_window() -> void:
 
 
 ## Removes the main control from it's parent and adds it to a new Window node
+# Summary: TODO — describe swap_to_floating_window.
 func swap_to_floating_window() -> void:
 	if get_parent() is Window:
 		return
@@ -270,6 +277,9 @@ func swap_to_embedded_editor() -> void:
 	plugin_reference.get_editor_interface().set_main_screen_editor("Dialogic")
 	window.get_parent().add_child(self)
 	window.queue_free()
+
+
+# Summary: TODO — describe godot_file_dialog.
 
 
 func godot_file_dialog(

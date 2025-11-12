@@ -1,3 +1,5 @@
+# Class
+# Summary: TODO — add brief description.
 @tool
 extends Button
 
@@ -24,6 +26,9 @@ func _ready() -> void:
 	apply_base_button_style()
 
 
+# Summary: TODO — describe apply_base_button_style.
+
+
 func apply_base_button_style() -> void:
 	var nstyle: StyleBoxFlat = get_parent().get_theme_stylebox('normal', 'Button').duplicate()
 	nstyle.border_width_left = 5 * DialogicUtil.get_editor_scale()
@@ -34,6 +39,9 @@ func apply_base_button_style() -> void:
 	set_color(resource.event_color)
 
 
+# Summary: TODO — describe set_color.
+
+
 func set_color(color:Color) -> void:
 	var style := get_theme_stylebox('normal', 'Button')
 	style.border_color = color
@@ -41,6 +49,9 @@ func set_color(color:Color) -> void:
 	style = get_theme_stylebox('hover', 'Button')
 	style.border_color = color
 	add_theme_stylebox_override('hover', style)
+
+
+# Summary: TODO — describe toggle_name.
 
 
 func toggle_name(on:= false) -> void:

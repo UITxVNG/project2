@@ -1,3 +1,5 @@
+# DialogicWaitEvent
+# Summary: TODO — add brief description.
 @tool
 class_name DialogicWaitEvent
 extends DialogicEvent
@@ -73,6 +75,9 @@ func _init() -> void:
 
 func get_shortcode() -> String:
 	return "wait"
+
+
+# Summary: TODO — describe get_shortcode_parameters.
 
 
 func get_shortcode_parameters() -> Dictionary:

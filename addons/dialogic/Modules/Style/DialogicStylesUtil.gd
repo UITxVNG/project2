@@ -1,3 +1,5 @@
+# DialogicStylesUtil
+# Summary: TODO — add brief description.
 @tool
 class_name DialogicStylesUtil
 extends Node

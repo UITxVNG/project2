@@ -1,3 +1,5 @@
+# Class
+# Summary: TODO — add brief description.
 @tool
 extends DialogicCharacterEditorPortraitSection
 
@@ -59,9 +61,15 @@ func _on_portrait_scene_browser_activate_part(part_info: Dictionary) -> void:
 			set_scene_path("")
 
 
+# Summary: TODO — describe create_new_portrait_scene.
+
+
 func create_new_portrait_scene(target_file: String, info: Dictionary) -> void:
 	var path := make_portrait_preset_custom(target_file, info)
 	set_scene_path(path)
+
+
+# Summary: TODO — describe make_portrait_preset_custom.
 
 
 func make_portrait_preset_custom(target_file:String, info: Dictionary) -> String:
@@ -72,12 +80,18 @@ func make_portrait_preset_custom(target_file:String, info: Dictionary) -> String
 	return result_path
 
 
+# Summary: TODO — describe set_scene_path.
+
+
 func set_scene_path(path:String) -> void:
 	var data: Dictionary = selected_item.get_metadata(0)
 	data['scene'] = path
 	update_preview.emit()
 	changed.emit()
 	reload_ui(data)
+
+
+# Summary: TODO — describe reload_ui.
 
 
 func reload_ui(data: Dictionary) -> void:

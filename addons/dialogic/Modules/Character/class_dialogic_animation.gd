@@ -1,3 +1,5 @@
+# DialogicAnimation
+# Summary: TODO — add brief description.
 class_name DialogicAnimation
 extends Node
 
@@ -50,9 +52,15 @@ func finished_one_loop() -> void:
 		finished.emit()
 
 
+# Summary: TODO — describe pause.
+
+
 func pause() -> void:
 	if node:
 		node.process_mode = Node.PROCESS_MODE_DISABLED
+
+
+# Summary: TODO — describe resume.
 
 
 func resume() -> void:
@@ -90,12 +98,18 @@ func get_node_size() -> Vector2:
 	return node.get_viewport().size
 
 
+# Summary: TODO — describe get_node_origin.
+
+
 func get_node_origin() -> Vector2:
 	if not node:
 		return Vector2()
 	if node.get_parent() is DialogicNode_PortraitContainer:
 		return node.get_parent()._get_origin_position()
 	return Vector2()
+
+
+# Summary: TODO — describe get_viewport_size.
 
 
 func get_viewport_size() -> Vector2:

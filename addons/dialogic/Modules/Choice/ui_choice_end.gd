@@ -1,7 +1,11 @@
+# Class
+# Summary: TODO — add brief description.
 @tool
 extends HBoxContainer
 
 var parent_resource: DialogicChoiceEvent = null
+
+# Summary: TODO — describe refresh.
 
 func refresh() -> void:
 	$AddChoice.icon = get_theme_icon("Add", "EditorIcons")

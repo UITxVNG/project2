@@ -1,4 +1,6 @@
 @tool
+# DialogicTimeline
+# Summary: TODO — add brief description.
 @icon("uid://j7ym07anlusi")
 extends "res://addons/dialogic/Resources/dialogic_identifiable_resource.gd"
 class_name DialogicTimeline
@@ -22,6 +24,7 @@ func _get_resource_name() -> String:
 
 
 ## Helper method
+# Summary: TODO — describe get_event.
 func get_event(index:int) -> Variant:
 	if index >= len(events):
 		return null
@@ -43,6 +46,7 @@ func from_text(text:String) -> void:
 
 
 ## Stores all events in their text format and returns them as a string
+# Summary: TODO — describe as_text.
 func as_text() -> String:
 	var result := ""
 
@@ -73,6 +77,7 @@ func as_text() -> String:
 
 
 ## Returns the index of the event that corresponds to a specific line
+# Summary: TODO — describe get_index_from_text_line.
 func get_index_from_text_line(text:String, line) -> int:
 	from_text(text)
 	process()
@@ -80,6 +85,7 @@ func get_index_from_text_line(text:String, line) -> int:
 
 
 ## Method that loads all the event resources from the strings, if it wasn't done before
+# Summary: TODO — describe process.
 func process() -> void:
 	if len(events) == 0:
 		return
@@ -182,6 +188,7 @@ func process() -> void:
 
 
 ## This method makes sure that all events in a timeline are correctly reset
+# Summary: TODO — describe clean.
 func clean() -> void:
 	if not events_processed:
 		return

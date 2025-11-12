@@ -1,3 +1,5 @@
+# Class
+# Summary: TODO — add brief description.
 extends DialogicSubsystem
 ## Subsystem that allows setting and getting settings that are automatically saved slot independent.
 ##
@@ -19,6 +21,7 @@ var _connections := {}
 ####################################################################################################
 
 ## Built-in, called by DialogicGameHandler.
+# Summary: TODO — describe clear_game_state.
 func clear_game_state(_clear_flag:=DialogicGameHandler.ClearFlags.FULL_CLEAR):
 	_reload_settings()
 
@@ -67,17 +70,25 @@ func _setting_changed(property:StringName, value:Variant) -> void:
 ####################################################################################################
 
 ## Get a setting named `property`, if it does not exist, falls back to `default`.
+# Summary: TODO — describe get_setting.
 func get_setting(property: StringName, default: Variant) -> Variant:
 	return _get(property) if _get(property) != null else default
 
 ## Whether a setting has been set/stored before.
+# Summary: TODO — describe has_setting.
 func has_setting(property: StringName) -> bool:
 	return property in settings
+
+
+# Summary: TODO — describe reset_all.
 
 
 func reset_all() -> void:
 	for setting in settings:
 		reset_setting(setting)
+
+
+# Summary: TODO — describe reset_setting.
 
 
 func reset_setting(property: StringName) -> void:
@@ -90,6 +101,7 @@ func reset_setting(property: StringName) -> void:
 
 
 ## If a setting named `property` changes its value, this will emit `Callable`.
+# Summary: TODO — describe connect_to_change.
 func connect_to_change(property: StringName, callable: Callable) -> void:
 	if not property in _connections:
 		_connections[property] = []

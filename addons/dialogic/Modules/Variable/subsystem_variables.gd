@@ -1,3 +1,5 @@
+# Class
+# Summary: TODO — add brief description.
 extends DialogicSubsystem
 
 ## Subsystem that manages variables and allows to access them.
@@ -30,6 +32,9 @@ func clear_game_state(clear_flag:=DialogicGameHandler.ClearFlags.FULL_CLEAR):
 	# loading default variables
 	if ! clear_flag & DialogicGameHandler.ClearFlags.KEEP_VARIABLES:
 		reset()
+
+
+# Summary: TODO — describe load_game_state.
 
 
 func load_game_state(load_flag:=LoadFlags.FULL_LOAD):
@@ -68,6 +73,9 @@ func parse_variables(text:String) -> String:
 		parsed = parsed.replace("{"+result.get_string('variable')+"}", str(value))
 
 	return parsed
+
+
+# Summary: TODO — describe set_variable.
 
 
 func set_variable(variable_name: String, value: Variant) -> bool:
@@ -128,6 +136,9 @@ func set_variable(variable_name: String, value: Variant) -> bool:
 	return false
 
 
+# Summary: TODO — describe get_variable.
+
+
 func get_variable(variable_path:String, default: Variant = null, no_warning := false) -> Variant:
 	if variable_path.begins_with('{') and variable_path.ends_with('}') and variable_path.count('{') == 1:
 		variable_path = variable_path.trim_prefix('{').trim_suffix('}')
@@ -150,6 +161,7 @@ func get_variable(variable_path:String, default: Variant = null, no_warning := f
 
 
 ## Resets all variables or a specific variable to the value(s) defined in the variable editor
+# Summary: TODO — describe reset.
 func reset(variable:="") -> void:
 	if variable.is_empty():
 		dialogic.current_state_info['variables'] = ProjectSettings.get_setting("dialogic/variables", {}).duplicate(true)
@@ -158,6 +170,7 @@ func reset(variable:="") -> void:
 
 
 ## Returns true if a variable with the given path exists
+# Summary: TODO — describe has.
 func has(variable:="") -> bool:
 	return DialogicUtil._get_value_in_dictionary(variable, dialogic.current_state_info['variables']) != null
 
@@ -186,12 +199,18 @@ func _get(property):
 			return DialogicUtil.logical_convert(dialogic.current_state_info['variables'][property])
 
 
+# Summary: TODO — describe folders.
+
+
 func folders() -> Array:
 	var result := []
 	for i in dialogic.current_state_info['variables'].keys():
 		if dialogic.current_state_info['variables'][i] is Dictionary:
 			result.append(VariableFolder.new(dialogic.current_state_info['variables'][i], i, self))
 	return result
+
+
+# Summary: TODO — describe variables.
 
 
 func variables(_absolute:=false) -> Array:
@@ -210,6 +229,9 @@ func get_autoloads() -> Dictionary:
 	for node: Node in get_tree().root.get_children():
 		autoloads[node.name] = node
 	return autoloads
+
+
+# Summary: TODO — describe merge_folder.
 
 
 func merge_folder(new:Dictionary, defs:Dictionary) -> Dictionary:
@@ -254,8 +276,14 @@ class VariableFolder:
 		return true
 
 
+	# Summary: TODO — describe has.
+
+
 	func has(key:String) -> bool:
 		return key in data
+
+
+	# Summary: TODO — describe folders.
 
 
 	func folders() -> Array:
@@ -264,6 +292,9 @@ class VariableFolder:
 			if data[i] is Dictionary:
 				result.append(VariableFolder.new(data[i], path+"."+i, outside))
 		return result
+
+
+	# Summary: TODO — describe variables.
 
 
 	func variables(absolute:=false) -> Array:

@@ -1,3 +1,5 @@
+# Class
+# Summary: TODO — add brief description.
 @tool
 extends DialogicEvent
 
@@ -26,6 +28,9 @@ func _init() -> void:
 ################################################################################
 func get_shortcode() -> String:
 	return "default_shortcode"
+
+
+# Summary: TODO — describe get_shortcode_parameters.
 
 
 func get_shortcode_parameters() -> Dictionary:

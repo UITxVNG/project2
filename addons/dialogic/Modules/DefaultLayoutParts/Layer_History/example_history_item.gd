@@ -1,15 +1,26 @@
+# Class
+# Summary: TODO — add brief description.
 extends Container
 
 func get_text_box() -> RichTextLabel:
 	return %TextBox
 
 
+# Summary: TODO — describe get_name_label.
+
+
 func get_name_label() -> Label:
 	return %NameLabel
 
 
+# Summary: TODO — describe get_icon.
+
+
 func get_icon() -> TextureRect:
 	return %Icon
+
+
+# Summary: TODO — describe load_info.
 
 
 func load_info(text:String, character:String = "", character_color: Color =Color(), icon:Texture= null) -> void:

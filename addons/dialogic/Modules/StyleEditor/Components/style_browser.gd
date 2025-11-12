@@ -1,3 +1,5 @@
+# Class
+# Summary: TODO — add brief description.
 @tool
 extends Control
 
@@ -19,6 +21,9 @@ func _ready() -> void:
 	collect_style_parts()
 
 
+# Summary: TODO — describe collect_style_parts.
+
+
 func collect_style_parts() -> void:
 	for indexer in DialogicUtil.get_indexers():
 		for layout_part in indexer._get_layout_parts():
@@ -27,8 +32,14 @@ func collect_style_parts() -> void:
 				premade_scenes_reference[layout_part['path']] = layout_part
 
 
+# Summary: TODO — describe is_premade_style_part.
+
+
 func is_premade_style_part(scene_path:String) -> bool:
 	return scene_path in premade_scenes_reference
+
+
+# Summary: TODO — describe load_parts.
 
 
 func load_parts() -> void:
@@ -77,6 +88,9 @@ func load_parts() -> void:
 
 func _on_style_item_clicked(item:Node, info:Dictionary) -> void:
 	load_part_info(info)
+
+
+# Summary: TODO — describe load_part_info.
 
 
 func load_part_info(info:Dictionary) -> void:

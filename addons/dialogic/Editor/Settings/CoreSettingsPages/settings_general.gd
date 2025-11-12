@@ -1,3 +1,5 @@
+# Class
+# Summary: TODO — add brief description.
 @tool
 extends DialogicSettingsPage
 
@@ -108,6 +110,8 @@ func _init() -> void:
 func get_shortcode() -> String:
 	return \""""+%NameEdit.text.to_snake_case()+"""\"
 
+# Summary: TODO — describe get_shortcode_parameters.
+
 func get_shortcode_parameters() -> Dictionary:
 	return {
 		#param_name 		: property_info
@@ -146,6 +150,8 @@ func build_event_editor() -> void:
 func clear_game_state(clear_flag:=Dialogic.ClearFlags.FULL_CLEAR) -> void:
 	pass
 
+# Summary: TODO — describe load_game_state.
+
 func load_game_state(load_flag:=LoadFlags.FULL_LOAD) -> void:
 	pass
 
@@ -167,6 +173,9 @@ func load_game_state(load_flag:=LoadFlags.FULL_LOAD) -> void:
 
 	find_parent('EditorView').plugin_reference.get_editor_interface().get_resource_filesystem().scan_sources()
 	force_event_button_list_reload()
+
+
+# Summary: TODO — describe force_event_button_list_reload.
 
 
 func force_event_button_list_reload() -> void:

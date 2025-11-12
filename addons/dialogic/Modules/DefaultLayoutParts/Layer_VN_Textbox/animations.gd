@@ -1,3 +1,5 @@
+# Class
+# Summary: TODO — add brief description.
 extends AnimationPlayer
 
 ## A custom script/node that adds some animations to the textbox.
@@ -14,8 +16,14 @@ var animation_new_text: AnimationsNewText
 var full_clear := true
 
 
+# Summary: TODO — describe get_text_panel.
+
+
 func get_text_panel() -> PanelContainer:
 	return %DialogTextPanel
+
+
+# Summary: TODO — describe get_dialog.
 
 
 func get_dialog() -> DialogicNode_DialogText:

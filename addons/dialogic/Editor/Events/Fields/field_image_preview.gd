@@ -1,3 +1,5 @@
+# Class
+# Summary: TODO — add brief description.
 @tool
 extends DialogicVisualEditorField
 
@@ -55,8 +57,13 @@ func _on_body_visibility_toggled() -> void:
 
 #endregion
 
+# Summary: TODO — describe is_preview_enabled.
+
 func is_preview_enabled() -> bool:
 	return get_preview_size() != 0
+
+
+# Summary: TODO — describe get_preview_size.
 
 
 func get_preview_size() -> int:

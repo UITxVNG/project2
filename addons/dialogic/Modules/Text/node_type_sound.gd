@@ -1,3 +1,5 @@
+# DialogicNode_TypeSounds
+# Summary: TODO — add brief description.
 @tool
 class_name DialogicNode_TypeSounds
 extends AudioStreamPlayer
@@ -110,6 +112,9 @@ func _on_finished_revealing_text() -> void:
 	if end_sound != null:
 		stream = end_sound
 		play()
+
+
+# Summary: TODO — describe load_overwrite.
 
 
 func load_overwrite(dictionary:Dictionary) -> void:

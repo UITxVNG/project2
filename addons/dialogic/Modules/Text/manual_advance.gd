@@ -1,3 +1,5 @@
+# Class
+# Summary: TODO — add brief description.
 extends RefCounted
 class_name DialogicManualAdvance
 ## This class holds the settings for the Manual-Advance feature.
@@ -54,6 +56,7 @@ func _init() -> void:
 #region MANUAL ADVANCE HELPERS
 
 ## Whether the player can use Manual-Advance to advance the timeline.
+# Summary: TODO — describe is_enabled.
 func is_enabled() -> bool:
 	return system_enabled and not disabled_until_next_event
 

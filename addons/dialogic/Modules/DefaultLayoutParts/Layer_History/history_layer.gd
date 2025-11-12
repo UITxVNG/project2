@@ -1,3 +1,5 @@
+# Class
+# Summary: TODO — add brief description.
 @tool
 extends DialogicLayoutLayer
 
@@ -34,16 +36,27 @@ var scroll_to_bottom_flag: bool = false
 
 var history_item_theme: Theme = null
 
+# Summary: TODO — describe get_show_history_button.
+
 func get_show_history_button() -> Button:
 	return $ShowHistory
+
+
+# Summary: TODO — describe get_hide_history_button.
 
 
 func get_hide_history_button() -> Button:
 	return $HideHistory
 
 
+# Summary: TODO — describe get_history_box.
+
+
 func get_history_box() -> ScrollContainer:
 	return %HistoryBox
+
+
+# Summary: TODO — describe get_history_log.
 
 
 func get_history_log() -> VBoxContainer:
@@ -95,6 +108,9 @@ func _process(_delta : float) -> void:
 func _on_show_history_pressed() -> void:
 	DialogicUtil.autoload().paused = true
 	show_history()
+
+
+# Summary: TODO — describe show_history.
 
 
 func show_history() -> void:

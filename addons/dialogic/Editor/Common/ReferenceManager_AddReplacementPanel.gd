@@ -1,3 +1,5 @@
+# Class
+# Summary: TODO — add brief description.
 @tool
 extends PanelContainer
 
@@ -33,6 +35,9 @@ func _on_add_pressed() -> void:
 	_on_where_item_selected(2)
 	%Old.text = ""
 	%New.text = ""
+
+
+# Summary: TODO — describe open_existing.
 
 
 func open_existing(_item:TreeItem, info:Dictionary):
@@ -85,6 +90,9 @@ func _on_where_item_selected(index:int) -> void:
 	%Character.visible = index == 1
 
 
+# Summary: TODO — describe get_character_suggestions.
+
+
 func get_character_suggestions(search_text:String) -> Dictionary:
 	var suggestions := {}
 
@@ -100,6 +108,9 @@ func get_character_suggestions(search_text:String) -> Dictionary:
 				'tooltip' 	: _character_directory[resource],
 				'icon' 		: icon.duplicate()}
 	return suggestions
+
+
+# Summary: TODO — describe save.
 
 
 func save() -> void:

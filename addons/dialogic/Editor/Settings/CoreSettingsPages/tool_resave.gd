@@ -1,3 +1,5 @@
+# Class
+# Summary: TODO — add brief description.
 @tool
 extends Node
 
@@ -6,6 +8,9 @@ extends Node
 var button_text := "Resave all timelines"
 var tooltip := "Opens and resaves all timelines. This can be useful if an update introduced a syntax change."
 var method := resave_tool
+
+
+# Summary: TODO — describe resave_tool.
 
 
 func resave_tool() -> void:

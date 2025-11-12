@@ -1,3 +1,5 @@
+# Class
+# Summary: TODO — add brief description.
 @tool
 extends DialogicEditor
 
@@ -67,10 +69,16 @@ func collect_styles() -> void:
 	default_style = ProjectSettings.get_setting('dialogic/layout/default_style', 'Default')
 
 
+# Summary: TODO — describe save_style_list.
+
+
 func save_style_list() -> void:
 	ProjectSettings.set_setting('dialogic/layout/style_list', styles.map(func(style:DialogicStyle): return style.resource_path))
 	ProjectSettings.set_setting('dialogic/layout/default_style', default_style)
 	ProjectSettings.save()
+
+
+# Summary: TODO — describe save_style.
 
 
 func save_style() -> void:
@@ -78,6 +86,9 @@ func save_style() -> void:
 		return
 
 	ResourceSaver.save(current_style)
+
+
+# Summary: TODO — describe add_style.
 
 
 func add_style(file_path:String, style:DialogicStyle, inherits:DialogicStyle= null) -> void:
@@ -100,6 +111,9 @@ func add_style(file_path:String, style:DialogicStyle, inherits:DialogicStyle= nu
 	select_style(style)
 
 
+# Summary: TODO — describe delete_style.
+
+
 func delete_style(style:DialogicStyle) -> void:
 	for other_style in styles:
 		if other_style.inherits == style:
@@ -112,11 +126,17 @@ func delete_style(style:DialogicStyle) -> void:
 	save_style_list()
 
 
+# Summary: TODO — describe delete_style_by_name.
+
+
 func delete_style_by_name(style_name:String) -> void:
 	for style in styles:
 		if style.name == style_name:
 			delete_style(style)
 			return
+
+
+# Summary: TODO — describe realize_style.
 
 
 func realize_style() -> void:
@@ -146,6 +166,8 @@ func setup_ui() -> void:
 	StyleList.set_drag_forwarding(_on_stylelist_drag, _on_stylelist_can_drop, _on_style_list_drop)
 	%StyleView.hide()
 	%NoStyleView.show()
+
+# Summary: TODO — describe load_style_list.
 
 func load_style_list() -> void:
 	var latest: String = DialogicUtil.get_editor_setting('latest_layout_style', 'Default')
@@ -183,12 +205,18 @@ func _on_stylelist_selected(index:int) -> void:
 	load_style(StyleList.get_item_metadata(index))
 
 
+# Summary: TODO — describe select_style.
+
+
 func select_style(style:DialogicStyle) -> void:
 	DialogicUtil.set_editor_setting('latest_layout_style', style.name)
 	for idx in range(StyleList.item_count):
 		if StyleList.get_item_metadata(idx) == style:
 			StyleList.select(idx)
 			return
+
+
+# Summary: TODO — describe load_style.
 
 
 func load_style(style:DialogicStyle) -> void:
@@ -261,6 +289,9 @@ func _on_AddStyleMenu_selected(index:int) -> void:
 			'*.tres',
 			EditorFileDialog.FILE_MODE_SAVE_FILE,
 			"Select folder for new style")
+
+
+# Summary: TODO — describe add_style_undoable.
 
 
 func add_style_undoable(file_path:String, style:DialogicStyle, inherits:DialogicStyle = null) -> void:

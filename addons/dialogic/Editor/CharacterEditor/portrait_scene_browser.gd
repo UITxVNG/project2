@@ -1,3 +1,5 @@
+# Class
+# Summary: TODO — add brief description.
 @tool
 extends Control
 
@@ -22,10 +24,16 @@ func _ready() -> void:
 	get_parent().visibility_changed.connect(func():if get_parent().visible: open())
 
 
+# Summary: TODO — describe collect_portrait_scenes.
+
+
 func collect_portrait_scenes() -> void:
 	for indexer in DialogicUtil.get_indexers():
 		for element in indexer._get_portrait_scene_presets():
 			portrait_scenes_info[element.get('path', '')] = element
+
+
+# Summary: TODO — describe open.
 
 
 func open() -> void:
@@ -33,8 +41,14 @@ func open() -> void:
 	load_parts()
 
 
+# Summary: TODO — describe is_premade_portrait_scene.
+
+
 func is_premade_portrait_scene(scene_path:String) -> bool:
 	return scene_path in portrait_scenes_info
+
+
+# Summary: TODO — describe load_parts.
 
 
 func load_parts() -> void:
@@ -70,6 +84,9 @@ func load_parts() -> void:
 
 func _on_item_clicked(item: Node, info:Dictionary) -> void:
 	load_part_info(info)
+
+
+# Summary: TODO — describe load_part_info.
 
 
 func load_part_info(info:Dictionary) -> void:

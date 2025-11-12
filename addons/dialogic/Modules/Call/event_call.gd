@@ -1,3 +1,5 @@
+# DialogicCallEvent
+# Summary: TODO — add brief description.
 @tool
 class_name DialogicCallEvent
 extends DialogicEvent
@@ -98,6 +100,9 @@ func to_text() -> String:
 	return result
 
 
+# Summary: TODO — describe from_text.
+
+
 func from_text(string:String) -> void:
 	var result := RegEx.create_from_string(r"do (?<autoload>[^\(]*)\.((?<method>[^.(]*)(\((?<arguments>.*)\))?)?").search(string.strip_edges())
 	if result:
@@ -117,10 +122,16 @@ func from_text(string:String) -> void:
 			arguments = arr
 
 
+# Summary: TODO — describe is_valid_event.
+
+
 func is_valid_event(string:String) -> bool:
 	if string.strip_edges().begins_with("do"):
 		return true
 	return false
+
+
+# Summary: TODO — describe get_shortcode_parameters.
 
 
 func get_shortcode_parameters() -> Dictionary:
@@ -148,8 +159,14 @@ func build_event_editor() -> void:
 	add_body_edit('arguments', ValueType.ARRAY, {'left_text':'Arguments:'}, 'not autoload_name.is_empty() and not method.is_empty()')
 
 
+# Summary: TODO — describe get_method_suggestions.
+
+
 func get_method_suggestions(filter:="") -> Dictionary:
 	return DialogicUtil.get_autoload_method_suggestions(filter, autoload_name)
+
+
+# Summary: TODO — describe update_argument_info.
 
 
 func update_argument_info() -> void:
@@ -162,6 +179,9 @@ func update_argument_info() -> void:
 			if m.name == method:
 				_current_method_arg_hints = {'a':autoload_name, 'm':method, 'info':m}
 				break
+
+
+# Summary: TODO — describe check_arguments_and_update_warning.
 
 
 func check_arguments_and_update_warning() -> void:

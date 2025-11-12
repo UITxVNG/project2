@@ -1,3 +1,5 @@
+# DialogicTextInputEvent
+# Summary: TODO — add brief description.
 @tool
 class_name DialogicTextInputEvent
 extends DialogicEvent
@@ -60,6 +62,9 @@ func get_shortcode() -> String:
 	return "text_input"
 
 
+# Summary: TODO — describe get_shortcode_parameters.
+
+
 func get_shortcode_parameters() -> Dictionary:
 	return {
 		#param_name 	: property_info
@@ -99,6 +104,9 @@ func build_event_editor() -> void:
 	add_body_edit('placeholder', ValueType.SINGLELINE_TEXT, {'left_text':'Placeholder:'})
 	add_body_edit('default', ValueType.SINGLELINE_TEXT, {'left_text':'Default:'})
 	add_body_edit('allow_empty', ValueType.BOOL, {'left_text':'Allow empty:'})
+
+
+# Summary: TODO — describe get_var_suggestions.
 
 
 func get_var_suggestions(filter: String = "") -> Dictionary:

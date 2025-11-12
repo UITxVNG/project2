@@ -1,3 +1,5 @@
+# Class
+# Summary: TODO — add brief description.
 @tool
 extends DialogicEditor
 
@@ -38,9 +40,15 @@ func _ready() -> void:
 	%SettingsContent.get_child(0).show()
 
 
+# Summary: TODO — describe register_settings_section.
+
+
 func register_settings_section(path:String) -> void:
 	var section: Control = load(path).instantiate()
 	registered_sections.append(section)
+
+
+# Summary: TODO — describe add_registered_sections.
 
 
 func add_registered_sections() -> void:
@@ -141,6 +149,9 @@ func open_tab(tab_to_show:Control) -> void:
 	tab_to_show.show()
 
 
+# Summary: TODO — describe section_sort.
+
+
 func section_sort(item1:DialogicSettingsPage, item2:DialogicSettingsPage) -> bool:
 	if !item1._is_feature_tab() and item2._is_feature_tab():
 		return true
@@ -161,6 +172,9 @@ func _close() -> void:
 	for child in %SettingsContent.get_children():
 		if child.get_meta('section').has_method('_about_to_close'):
 			child.get_meta('section')._about_to_close()
+
+
+# Summary: TODO — describe refresh.
 
 
 func refresh() -> void:

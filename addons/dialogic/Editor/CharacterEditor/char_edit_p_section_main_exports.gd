@@ -1,3 +1,5 @@
+# Class
+# Summary: TODO — add brief description.
 @tool
 extends DialogicCharacterEditorPortraitSection
 
@@ -25,6 +27,9 @@ func _recheck(data:Dictionary, force := false) -> void:
 	current_portrait_data = data
 
 	load_portrait_scene_export_variables()
+
+
+# Summary: TODO — describe load_portrait_scene_export_variables.
 
 
 func load_portrait_scene_export_variables() -> void:
@@ -67,6 +72,8 @@ func load_portrait_scene_export_variables() -> void:
 			else:
 				skip = true
 				continue
+
+# Summary: TODO — describe set_export_override.
 
 func set_export_override(property_name:String, value:String = "") -> void:
 	var data: Dictionary = selected_item.get_metadata(0)
