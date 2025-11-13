@@ -13,7 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://cjgvg81b80ge4" path="res://scenes/enemies/starfish/starfish.tscn" id="9_xm0ii"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_51e2l"]
-size = Vector2(120, 122)
+size = Vector2(124.689, 122)
 
 [node name="Stage" type="Node2D"]
 
@@ -53,7 +53,7 @@ position = Vector2(0.382662, -11.6364)
 shape = SubResource("RectangleShape2D_51e2l")
 
 [node name="Player" parent="World" instance=ExtResource("2_st4qh")]
-position = Vector2(-501, 360)
+position = Vector2(695, 394)
 
 [node name="Sprite2D2" type="Sprite2D" parent="World"]
 position = Vector2(973, 463)
@@ -67,14 +67,15 @@ position = Vector2(-3.91123, -6.99502)
 shape = SubResource("RectangleShape2D_51e2l")
 
 [node name="Sprite2D3" type="Sprite2D" parent="World"]
-position = Vector2(1416, 174)
+position = Vector2(1242, 415)
 scale = Vector2(5.44272, -0.558964)
 texture = ExtResource("1_da6vm")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="World/Sprite2D3"]
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/Sprite2D3/StaticBody2D"]
-position = Vector2(0.382662, -11.6364)
+position = Vector2(-1.65361, -3.57805)
 shape = SubResource("RectangleShape2D_51e2l")
 
 [node name="Barrel3s" parent="World" instance=ExtResource("4_saoeg")]
@@ -99,6 +100,7 @@ target_stage = "uid://qjojp3xo7ie3"
 position = Vector2(142, 149)
 
 [node name="Bullets" type="Node2D" parent="."]
+visibility_layer = 2
 
 [node name="Path2D" parent="." instance=ExtResource("3_st4qh")]
 position = Vector2(380, 112)
@@ -110,7 +112,7 @@ position = Vector2(272, 156)
 position = Vector2(202, 134)
 
 [node name="Pelicant" parent="." instance=ExtResource("7_2dgve")]
-position = Vector2(-629, 268)
+position = Vector2(1021, 317)
 
 [node name="Spike" parent="." instance=ExtResource("8_x4ubh")]
 position = Vector2(-10, 422)
