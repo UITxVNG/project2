@@ -12,7 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://ca1dyh5b7r205" path="res://assets/sprites/enemy/starfish/starfish_01.png" id="10_xwfen"]
 [ext_resource type="Texture2D" uid="uid://dwy03sn36it50" path="res://assets/sprites/enemy/starfish/starfish_02.png" id="11_ovnnu"]
 [ext_resource type="Texture2D" uid="uid://dee4q7t4veweg" path="res://assets/sprites/enemy/starfish/starfish_03.png" id="12_prmsh"]
-[ext_resource type="Script" path="res://scripts/hurt_area_2d.gd" id="13_gg7bh"]
+[ext_resource type="Script" uid="uid://csu2b21cwchqw" path="res://scripts/hurt_area_2d.gd" id="13_gg7bh"]
 [ext_resource type="Script" uid="uid://bojxilxfo7byr" path="res://scenes/enemies/crab/run.gd" id="14_e14ma"]
 [ext_resource type="Script" uid="uid://d344fp7pskpua" path="res://scenes/enemies/crab/hurt.gd" id="15_pn2ss"]
 [ext_resource type="Script" uid="uid://co8a08ha2mc64" path="res://scenes/enemies/crab/dead.gd" id="16_xgyjk"]
@@ -148,3 +148,5 @@ script = ExtResource("16_xgyjk")
 
 [node name="Attack" type="Node" parent="States"]
 script = ExtResource("17_wmhok")
+
+[connection signal="hurt" from="Direction/HurtArea2D" to="." method="_on_hurt_area_2d_hurt"]

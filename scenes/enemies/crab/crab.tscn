@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://dmrvkxdykrbhy" path="res://assets/sprites/enemy/crab/crab_02.png" id="5_vrp73"]
 [ext_resource type="Script" uid="uid://dbbfdchjn8157" path="res://scripts/hit_area_2d.gd" id="6_d2rnu"]
 [ext_resource type="Texture2D" uid="uid://cy2ogxeqcdbnj" path="res://assets/sprites/enemy/crab/crab_03.png" id="6_tg6md"]
-[ext_resource type="Script" path="res://scripts/hurt_area_2d.gd" id="7_fxk31"]
+[ext_resource type="Script" uid="uid://csu2b21cwchqw" path="res://scripts/hurt_area_2d.gd" id="7_fxk31"]
 [ext_resource type="Script" uid="uid://d344fp7pskpua" path="res://scenes/enemies/crab/hurt.gd" id="8_0g23w"]
 [ext_resource type="Script" uid="uid://co8a08ha2mc64" path="res://scenes/enemies/crab/dead.gd" id="9_yfbxp"]
 
@@ -77,10 +77,12 @@ animation = &"dead"
 [node name="DownRayCast2D" type="RayCast2D" parent="Direction"]
 position = Vector2(25, 0)
 target_position = Vector2(0, 33)
+collide_with_areas = true
 
 [node name="FrontRayCast2D" type="RayCast2D" parent="Direction"]
 position = Vector2(10, -3)
 target_position = Vector2(12, 0)
+collide_with_areas = true
 
 [node name="HurtArea2D" type="Area2D" parent="Direction"]
 position = Vector2(1, 0)
