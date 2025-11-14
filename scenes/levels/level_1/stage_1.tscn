@@ -51,6 +51,9 @@ curve = SubResource("Curve2D_5usqu")
 [node name="Door" parent="." instance=ExtResource("6_bfafv")]
 position = Vector2(-535, -679)
 target_stage = "uid://boxp0pgyq4pfu"
+<<<<<<< Updated upstream
 
 [connection signal="body_entered" from="TileMapLayer/Checkpoint" to="TileMapLayer/Checkpoint" method="_on_body_entered"]
 [connection signal="body_entered" from="TileMapLayer/@Area2D@36489" to="TileMapLayer/@Area2D@36489" method="_on_body_entered"]
+=======
+>>>>>>> Stashed changes

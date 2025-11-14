@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://wuy1uuiar5ks" path="res://assets/sprites/enemy/pelican/pelican_atk_01.png" id="6_5i1qw"]
 [ext_resource type="Texture2D" uid="uid://mm1wjsljkgdi" path="res://assets/sprites/enemy/pelican/pelican_atk_02.png" id="7_klicm"]
 [ext_resource type="Texture2D" uid="uid://fkjxlfeiwlc7" path="res://assets/sprites/enemy/pelican/pelican_atk_03.png" id="8_jt330"]
-[ext_resource type="Script" path="res://scripts/node2d_factory.gd" id="9_1jev2"]
+[ext_resource type="Script" uid="uid://dva73oliuh5wk" path="res://scripts/node2d_factory.gd" id="9_1jev2"]
 [ext_resource type="PackedScene" uid="uid://dsce4j04uulo7" path="res://scenes/enemies/pelicant/pelicanbullet.tscn" id="10_5tuwc"]
 [ext_resource type="Script" uid="uid://cscdlf2ka50l5" path="res://scenes/enemies/pelicant/idle.gd" id="11_5tuwc"]
 [ext_resource type="Script" uid="uid://cg0od6l3ox5eg" path="res://scenes/enemies/barrel/shoot.gd" id="12_25q3l"]

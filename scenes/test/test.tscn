@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://qjojp3xo7ie3"]
+[gd_scene load_steps=15 format=3 uid="uid://qjojp3xo7ie3"]
 
 [ext_resource type="Texture2D" uid="uid://ilolheqwlwk2" path="res://icon.svg" id="1_da6vm"]
 [ext_resource type="PackedScene" uid="uid://cr06n1w1va6i8" path="res://scenes/player/player.tscn" id="2_st4qh"]
@@ -10,6 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://cbsa8w2lp8433" path="res://scenes/enemies/crab/crab.tscn" id="5_we7ej"]
 [ext_resource type="PackedScene" uid="uid://d2dcr3gj11aw1" path="res://scenes/enemies/pelicant/pelicant.tscn" id="7_2dgve"]
 [ext_resource type="PackedScene" uid="uid://dm2c4i1jf7orw" path="res://scenes/enemies/spike/spike.tscn" id="8_x4ubh"]
+[ext_resource type="PackedScene" uid="uid://rygmcgeq7rdd" path="res://scenes/enemies/blueturtle/TurtleBlue.tscn" id="8_xi5sv"]
+[ext_resource type="PackedScene" uid="uid://b1vdpb6cs2n6o" path="res://scenes/enemies/shieldspearman/shieldspearman.tscn" id="9_2dgve"]
 [ext_resource type="PackedScene" uid="uid://cjgvg81b80ge4" path="res://scenes/enemies/starfish/starfish.tscn" id="9_xm0ii"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_51e2l"]
@@ -53,7 +55,11 @@ position = Vector2(0.382662, -11.6364)
 shape = SubResource("RectangleShape2D_51e2l")
 
 [node name="Player" parent="World" instance=ExtResource("2_st4qh")]
+<<<<<<< Updated upstream
 position = Vector2(-501, 360)
+=======
+position = Vector2(1434, 363)
+>>>>>>> Stashed changes
 
 [node name="Sprite2D2" type="Sprite2D" parent="World"]
 position = Vector2(973, 463)
@@ -84,7 +90,7 @@ position = Vector2(852, 423)
 position = Vector2(1334, 424)
 
 [node name="Starfish" parent="World" instance=ExtResource("9_xm0ii")]
-position = Vector2(2176, 429)
+position = Vector2(317, 411)
 
 [node name="Door" parent="World" instance=ExtResource("5_oj4i3")]
 position = Vector2(93, 174)
@@ -97,6 +103,12 @@ target_stage = "uid://qjojp3xo7ie3"
 
 [node name="Barrel" parent="World" instance=ExtResource("3_5unt0")]
 position = Vector2(142, 149)
+
+[node name="TurtleBlue" parent="World" instance=ExtResource("8_xi5sv")]
+position = Vector2(1116, 356)
+
+[node name="Shieldspearman" parent="World" instance=ExtResource("9_2dgve")]
+position = Vector2(1771, 416)
 
 [node name="Bullets" type="Node2D" parent="."]
 
