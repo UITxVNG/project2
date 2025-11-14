@@ -55,11 +55,8 @@ position = Vector2(0.382662, -11.6364)
 shape = SubResource("RectangleShape2D_51e2l")
 
 [node name="Player" parent="World" instance=ExtResource("2_st4qh")]
-<<<<<<< Updated upstream
-position = Vector2(-501, 360)
-=======
+
 position = Vector2(1434, 363)
->>>>>>> Stashed changes
 
 [node name="Sprite2D2" type="Sprite2D" parent="World"]
 position = Vector2(973, 463)
