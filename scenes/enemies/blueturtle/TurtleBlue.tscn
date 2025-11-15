@@ -1,0 +1,156 @@
+[gd_scene load_steps=20 format=3 uid="uid://rygmcgeq7rdd"]
+
+[ext_resource type="Script" uid="uid://cr5t5yfiaugpe" path="res://scenes/enemies/blueturtle/turtle_blue.gd" id="1_fw2m5"]
+[ext_resource type="Texture2D" uid="uid://dslgbn6ylpub8" path="res://assets/sprites/enemy/turtle/turtle_blue_01.png" id="2_4vxk1"]
+[ext_resource type="Texture2D" uid="uid://wbb0c5d2b7nc" path="res://assets/sprites/enemy/turtle/turtle_blue_02.png" id="3_127uh"]
+[ext_resource type="Texture2D" uid="uid://bocogk0royfrf" path="res://assets/sprites/enemy/turtle/turtle_blue_03.png" id="4_8krtr"]
+[ext_resource type="Texture2D" uid="uid://di1syh2le2jaj" path="res://assets/sprites/enemy/turtle/turtle_blue_04.png" id="5_mcwtl"]
+[ext_resource type="Texture2D" uid="uid://f2ncj0urb07k" path="res://assets/sprites/enemy/turtle/turtle_blue_05.png" id="6_2jnfn"]
+[ext_resource type="Texture2D" uid="uid://w7ur5hdfbdax" path="res://assets/sprites/enemy/turtle/turtle_blue_walk_01.png" id="7_ixw1h"]
+[ext_resource type="Texture2D" uid="uid://625rpssl5oxa" path="res://assets/sprites/enemy/turtle/turtle_blue_walk_02.png" id="8_4amho"]
+[ext_resource type="Script" uid="uid://csu2b21cwchqw" path="res://scripts/hurt_area_2d.gd" id="9_8krtr"]
+[ext_resource type="Script" uid="uid://dn0uskloavfv1" path="res://scenes/enemies/blueturtle/run.gd" id="9_d024s"]
+[ext_resource type="Script" uid="uid://ddayoq73fvrhb" path="res://scenes/enemies/blueturtle/hide.gd" id="11_mcwtl"]
+[ext_resource type="Script" uid="uid://dbbfdchjn8157" path="res://scripts/hit_area_2d.gd" id="12_2jnfn"]
+[ext_resource type="Script" uid="uid://d344fp7pskpua" path="res://scenes/enemies/crab/hurt.gd" id="13_4amho"]
+[ext_resource type="Script" uid="uid://co8a08ha2mc64" path="res://scenes/enemies/crab/dead.gd" id="14_d024s"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_f36l2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_4vxk1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_127uh")
+}],
+"loop": true,
+"name": &"dead",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_4vxk1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_127uh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_8krtr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_mcwtl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_2jnfn")
+}],
+"loop": true,
+"name": &"hide",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_8krtr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_mcwtl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_ixw1h")
+}],
+"loop": true,
+"name": &"hurt",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_ixw1h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_4amho")
+}],
+"loop": true,
+"name": &"run",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ixw1h"]
+size = Vector2(33.125, 28.0313)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8krtr"]
+size = Vector2(32.5, 31)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4amho"]
+radius = 15.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8krtr"]
+radius = 13.0
+height = 26.0
+
+[node name="TurtleBlue" type="CharacterBody2D"]
+collision_layer = 8
+script = ExtResource("1_fw2m5")
+metadata/_custom_type_script = "uid://s4xx82espxdt"
+
+[node name="Direction" type="Node2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Direction"]
+position = Vector2(-1, 3)
+scale = Vector2(0.969363, 0.936782)
+sprite_frames = SubResource("SpriteFrames_f36l2")
+animation = &"dead"
+
+[node name="DownRayCast2D" type="RayCast2D" parent="Direction"]
+position = Vector2(37, 0)
+target_position = Vector2(0, 25)
+
+[node name="FrontRayCast2D" type="RayCast2D" parent="Direction"]
+position = Vector2(11, 0)
+target_position = Vector2(7, 0)
+
+[node name="HurtArea2D" type="Area2D" parent="Direction"]
+position = Vector2(1, 0)
+collision_layer = 16
+collision_mask = 8
+script = ExtResource("9_8krtr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Direction/HurtArea2D"]
+position = Vector2(-2, 4)
+shape = SubResource("RectangleShape2D_ixw1h")
+
+[node name="DetectPlayerArea2D" type="Area2D" parent="Direction"]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Direction/DetectPlayerArea2D"]
+position = Vector2(0, 4)
+shape = SubResource("RectangleShape2D_8krtr")
+
+[node name="States" type="Node" parent="."]
+
+[node name="Run" type="Node" parent="States"]
+script = ExtResource("9_d024s")
+
+[node name="Hide" type="Node" parent="States"]
+script = ExtResource("11_mcwtl")
+
+[node name="Hurt" type="Node" parent="States"]
+script = ExtResource("13_4amho")
+
+[node name="Dead" type="Node" parent="States"]
+script = ExtResource("14_d024s")
+
+[node name="HitArea2D" type="Area2D" parent="."]
+position = Vector2(1, 0)
+collision_layer = 2
+collision_mask = 4
+script = ExtResource("12_2jnfn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitArea2D"]
+position = Vector2(-2, 3)
+shape = SubResource("CapsuleShape2D_4amho")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 7)
+shape = SubResource("CapsuleShape2D_8krtr")
+
+[connection signal="hurt" from="Direction/HurtArea2D" to="." method="_on_hurt_area_2d_hurt"]

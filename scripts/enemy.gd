@@ -1,7 +1,7 @@
 class_name EnemyCharacter
 extends BaseCharacter
 
-
+@export var movement_range: float = 50 #pham vi di chuyen cua quai
 
 # Raycast check wall and fall
 var front_ray_cast: RayCast2D;
@@ -10,6 +10,11 @@ var down_ray_cast: RayCast2D;
 # detect player area
 var detect_player_area: Area2D;
 var found_player: Player = null
+var _movement_speed: float = movement_speed
+
+
+var _patrol_controller: PatrolController = PatrolController.new(movement_range)
+
 
 func _ready() -> void:
 	_init_ray_cast()
@@ -66,6 +71,12 @@ func _on_body_entered(_body: CharacterBody2D) -> void:
 		found_player = _body
 		_on_player_in_sight(_body.global_position)
 
+func try_patrol_turn(_delta: float):
+	var is_reach_limit = _patrol_controller.track_patrol(position.x, direction)
+	var should_turn_around = is_touch_wall() or is_can_fall() or is_reach_limit
+	if should_turn_around:
+		_patrol_controller.set_start_position(position.x)
+		turn_around()
 
 func _on_body_exited(_body: CharacterBody2D) -> void:
 	found_player = null

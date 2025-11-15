@@ -1,0 +1,278 @@
+[gd_scene load_steps=46 format=3 uid="uid://dk3cjc74xm8k0"]
+
+[ext_resource type="Texture2D" uid="uid://bu0d7a21casqt" path="res://assets/sprites/King_Crab/King_Crab_25.png" id="1_8t8c3"]
+[ext_resource type="Script" uid="uid://byepj7yntgcpt" path="res://scenes/bosses/king_crab/king_crab.gd" id="1_n7tu5"]
+[ext_resource type="Texture2D" uid="uid://cdcc7r5maun8j" path="res://assets/sprites/King_Crab/King_Crab_26.png" id="2_n7tu5"]
+[ext_resource type="Texture2D" uid="uid://cyhtl6ggcv2sa" path="res://assets/sprites/King_Crab/King_Crab_27.png" id="3_3obn1"]
+[ext_resource type="Texture2D" uid="uid://bwjtropggvwv" path="res://assets/sprites/King_Crab/King_Crab_28.png" id="4_syons"]
+[ext_resource type="Texture2D" uid="uid://dwl2m8iag8snv" path="res://assets/sprites/King_Crab/King_Crab_29.png" id="5_4qkfu"]
+[ext_resource type="Texture2D" uid="uid://ktkbdsr5iinv" path="res://assets/sprites/King_Crab/King_Crab_30.png" id="6_34k3w"]
+[ext_resource type="Texture2D" uid="uid://fs7q7hpijmvf" path="res://assets/sprites/King_Crab/King_Crab_1.png" id="7_ybokd"]
+[ext_resource type="Texture2D" uid="uid://bndkfvwjbo6kg" path="res://assets/sprites/King_Crab/King_Crab_2.png" id="8_bs65c"]
+[ext_resource type="Texture2D" uid="uid://dggyphb2r5euy" path="res://assets/sprites/King_Crab/King_Crab_3.png" id="9_cgg3e"]
+[ext_resource type="Texture2D" uid="uid://3is6l7808p3y" path="res://assets/sprites/King_Crab/King_Crab_4.png" id="10_ipm0x"]
+[ext_resource type="Texture2D" uid="uid://bpcedtgf5ve1n" path="res://assets/sprites/King_Crab/King_Crab_19.png" id="11_rk73w"]
+[ext_resource type="Texture2D" uid="uid://slamw63jgng" path="res://assets/sprites/King_Crab/King_Crab_20.png" id="12_ethvr"]
+[ext_resource type="Texture2D" uid="uid://brph0nesl5qfv" path="res://assets/sprites/King_Crab/King_Crab_21.png" id="13_tkfty"]
+[ext_resource type="Texture2D" uid="uid://b5xowf4k6wbdi" path="res://assets/sprites/King_Crab/King_Crab_22.png" id="14_w03xm"]
+[ext_resource type="Texture2D" uid="uid://cls7lvdt83flh" path="res://assets/sprites/King_Crab/King_Crab_5.png" id="15_qsf77"]
+[ext_resource type="Texture2D" uid="uid://dhijlyjry860u" path="res://assets/sprites/King_Crab/King_Crab_6.png" id="16_vlw8a"]
+[ext_resource type="Texture2D" uid="uid://c201rlvly7dj1" path="res://assets/sprites/King_Crab/King_Crab_7.png" id="17_yg65w"]
+[ext_resource type="Texture2D" uid="uid://d12c2af8qb2bt" path="res://assets/sprites/King_Crab/King_Crab_8.png" id="18_beqod"]
+[ext_resource type="Texture2D" uid="uid://bdxk7kaji8tna" path="res://assets/sprites/King_Crab/King_Crab_13.png" id="19_8qnyq"]
+[ext_resource type="Texture2D" uid="uid://qt2a4r6tp56g" path="res://assets/sprites/King_Crab/King_Crab_14.png" id="20_wwxs8"]
+[ext_resource type="Texture2D" uid="uid://ce7j7in7ct285" path="res://assets/sprites/King_Crab/King_Crab_15.png" id="21_pnc4w"]
+[ext_resource type="Texture2D" uid="uid://co7echjleim3n" path="res://assets/sprites/King_Crab/King_Crab_16.png" id="22_lj3l2"]
+[ext_resource type="Texture2D" uid="uid://dc26cpu434y7y" path="res://assets/sprites/King_Crab/King_Crab_9.png" id="23_nw15n"]
+[ext_resource type="Texture2D" uid="uid://b8cv0nwa0s2fq" path="res://assets/sprites/King_Crab/King_Crab_10.png" id="24_5jg2x"]
+[ext_resource type="Texture2D" uid="uid://wg7mq4gs1kr8" path="res://assets/sprites/King_Crab/King_Crab_11.png" id="25_u25ey"]
+[ext_resource type="Texture2D" uid="uid://bowb5k2lofagk" path="res://assets/sprites/King_Crab/King_Crab_12.png" id="26_322rn"]
+[ext_resource type="Texture2D" uid="uid://bkjkwsxlq6e6q" path="res://assets/sprites/King_Crab/King_Crab_23.png" id="27_txknd"]
+[ext_resource type="Texture2D" uid="uid://chnw3a84ql3ve" path="res://assets/sprites/King_Crab/King_Crab_24.png" id="28_0kpch"]
+[ext_resource type="Script" uid="uid://cnjbeusghyxky" path="res://scenes/bosses/king_crab/normal.gd" id="30_ipm0x"]
+[ext_resource type="Script" uid="uid://dva73oliuh5wk" path="res://scripts/node2d_factory.gd" id="30_rk73w"]
+[ext_resource type="Script" uid="uid://dbbfdchjn8157" path="res://scripts/hit_area_2d.gd" id="30_w03xm"]
+[ext_resource type="PackedScene" uid="uid://cg4dofch48b6t" path="res://scenes/bosses/king_crab/claw.tscn" id="31_ethvr"]
+[ext_resource type="Script" uid="uid://cdibr77j1axxx" path="res://scenes/bosses/king_crab/roll.gd" id="31_rk73w"]
+[ext_resource type="Script" uid="uid://jn6q5aeibb8l" path="res://scenes/bosses/king_crab/stop_roll.gd" id="32_ethvr"]
+[ext_resource type="Script" uid="uid://csu2b21cwchqw" path="res://scripts/hurt_area_2d.gd" id="33_qsf77"]
+[ext_resource type="Script" uid="uid://dwcwip5xt6jdn" path="res://scenes/bosses/king_crab/shoot.gd" id="33_tkfty"]
+[ext_resource type="Script" uid="uid://bgeci4olewm0g" path="res://scenes/bosses/king_crab/recall.gd" id="34_w03xm"]
+[ext_resource type="Script" uid="uid://kye3aq6mns" path="res://scenes/bosses/king_crab/stun.gd" id="35_qsf77"]
+[ext_resource type="Script" uid="uid://cilgq4clhxc8f" path="res://scenes/bosses/king_crab/hurt.gd" id="36_vlw8a"]
+[ext_resource type="Script" uid="uid://cin74if78xv74" path="res://scenes/bosses/king_crab/dead.gd" id="37_yg65w"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_t4cur"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_4qkfu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_34k3w")
+}],
+"loop": true,
+"name": &"dead",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_8t8c3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_n7tu5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_3obn1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_syons")
+}],
+"loop": false,
+"name": &"end_stun",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_4qkfu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_34k3w")
+}],
+"loop": false,
+"name": &"hurt",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_ybokd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_bs65c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_cgg3e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_ipm0x")
+}],
+"loop": true,
+"name": &"normal",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_rk73w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_ethvr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_tkfty")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_w03xm")
+}],
+"loop": false,
+"name": &"recall",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("15_qsf77")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_vlw8a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_yg65w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_beqod")
+}],
+"loop": true,
+"name": &"roll",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("19_8qnyq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_wwxs8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_pnc4w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_lj3l2")
+}],
+"loop": false,
+"name": &"shoot",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("23_nw15n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_5jg2x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_u25ey")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_322rn")
+}],
+"loop": false,
+"name": &"stop_roll",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("27_txknd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_0kpch")
+}],
+"loop": true,
+"name": &"stun",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oxkaf"]
+size = Vector2(89, 37)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5tar6"]
+size = Vector2(61, 37)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iu7th"]
+size = Vector2(44, 42)
+
+[node name="KingCrab" type="CharacterBody2D"]
+collision_layer = 0
+script = ExtResource("1_n7tu5")
+
+[node name="Direction" type="Node2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Direction"]
+sprite_frames = SubResource("SpriteFrames_t4cur")
+animation = &"dead"
+flip_h = true
+
+[node name="HitArea2D" type="Area2D" parent="Direction"]
+collision_layer = 2
+collision_mask = 4
+script = ExtResource("30_w03xm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Direction/HitArea2D"]
+position = Vector2(2.5, 6.5)
+shape = SubResource("RectangleShape2D_oxkaf")
+
+[node name="FrontRayCast2D" type="RayCast2D" parent="Direction"]
+position = Vector2(0, 13)
+target_position = Vector2(45, 0)
+
+[node name="DownRayCast2D" type="RayCast2D" parent="Direction"]
+position = Vector2(28, 13)
+target_position = Vector2(0, 22)
+
+[node name="BulletFactory" type="Marker2D" parent="Direction"]
+position = Vector2(47, 5)
+script = ExtResource("30_rk73w")
+product_packed_scene = ExtResource("31_ethvr")
+target_container_name = &"Bullets"
+
+[node name="RecallArea2D" type="Area2D" parent="Direction"]
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Direction/RecallArea2D"]
+visible = false
+position = Vector2(4.5, 5.5)
+shape = SubResource("RectangleShape2D_5tar6")
+
+[node name="HurtArea2D" type="Area2D" parent="Direction"]
+collision_layer = 16
+collision_mask = 8
+script = ExtResource("33_qsf77")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Direction/HurtArea2D"]
+position = Vector2(2.5, 6.5)
+shape = SubResource("RectangleShape2D_oxkaf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 7)
+shape = SubResource("RectangleShape2D_iu7th")
+
+[node name="States" type="Node" parent="."]
+
+[node name="Normal" type="Node" parent="States"]
+script = ExtResource("30_ipm0x")
+
+[node name="Roll" type="Node" parent="States"]
+script = ExtResource("31_rk73w")
+
+[node name="StopRoll" type="Node" parent="States"]
+script = ExtResource("32_ethvr")
+
+[node name="Shoot" type="Node" parent="States"]
+script = ExtResource("33_tkfty")
+
+[node name="Recall" type="Node" parent="States"]
+script = ExtResource("34_w03xm")
+
+[node name="Stun" type="Node" parent="States"]
+script = ExtResource("35_qsf77")
+
+[node name="Hurt" type="Node" parent="States"]
+script = ExtResource("36_vlw8a")
+
+[node name="Dead" type="Node" parent="States"]
+script = ExtResource("37_yg65w")
+
+[node name="ActionTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="body_entered" from="Direction/RecallArea2D" to="." method="_on_recall_area_2d_body_entered"]
+[connection signal="hurt" from="Direction/HurtArea2D" to="." method="_on_hurt_area_2d_hurt"]

@@ -1,9 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://qjojp3xo7ie3"]
+[gd_scene load_steps=17 format=3 uid="uid://qjojp3xo7ie3"]
 
 [ext_resource type="Texture2D" uid="uid://ilolheqwlwk2" path="res://icon.svg" id="1_da6vm"]
 [ext_resource type="PackedScene" uid="uid://cr06n1w1va6i8" path="res://scenes/player/player.tscn" id="2_st4qh"]
 [ext_resource type="PackedScene" uid="uid://cioy73jn1bmv" path="res://scenes/enemies/barrel/barrel.tscn" id="3_5unt0"]
 [ext_resource type="PackedScene" uid="uid://0ynutkwlhlce" path="res://scenes/objects/platforms/path2d_moving_platform.tscn" id="3_st4qh"]
+[ext_resource type="PackedScene" uid="uid://dk3cjc74xm8k0" path="res://scenes/bosses/king_crab/king_crab.tscn" id="3_x4ubh"]
 [ext_resource type="PackedScene" uid="uid://cw41ooeg3pxq1" path="res://scenes/objects/checkpoint/checkpoint.tscn" id="4_51e2l"]
 [ext_resource type="PackedScene" uid="uid://bock2o462txmp" path="res://scenes/enemies/barrel3s/barrel3s.tscn" id="4_saoeg"]
 [ext_resource type="PackedScene" uid="uid://dubb5b1vjmsxd" path="res://scenes/objects/door/door.tscn" id="5_oj4i3"]
@@ -11,9 +12,12 @@
 [ext_resource type="PackedScene" uid="uid://d2dcr3gj11aw1" path="res://scenes/enemies/pelicant/pelicant.tscn" id="7_2dgve"]
 [ext_resource type="PackedScene" uid="uid://dm2c4i1jf7orw" path="res://scenes/enemies/spike/spike.tscn" id="8_x4ubh"]
 [ext_resource type="PackedScene" uid="uid://cjgvg81b80ge4" path="res://scenes/enemies/starfish/starfish.tscn" id="9_xm0ii"]
+[ext_resource type="PackedScene" uid="uid://b1vdpb6cs2n6o" path="res://scenes/enemies/shieldspearman/shieldspearman.tscn" id="12_2dgve"]
+[ext_resource type="PackedScene" uid="uid://rygmcgeq7rdd" path="res://scenes/enemies/blueturtle/TurtleBlue.tscn" id="13_x4ubh"]
+[ext_resource type="PackedScene" uid="uid://ddc86ootpum2i" path="res://scenes/bosses/warlord_turtle/warlord_turtle.tscn" id="15_xm0ii"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_51e2l"]
-size = Vector2(120, 122)
+size = Vector2(124.689, 122)
 
 [node name="Stage" type="Node2D"]
 
@@ -42,18 +46,18 @@ position = Vector2(0.382662, -11.6364)
 shape = SubResource("RectangleShape2D_51e2l")
 
 [node name="Sprite2D5" type="Sprite2D" parent="World"]
-position = Vector2(-62, 183)
+position = Vector2(-67, 346)
 scale = Vector2(0.355468, 2.63672)
 texture = ExtResource("1_da6vm")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="World/Sprite2D5"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/Sprite2D5/StaticBody2D"]
-position = Vector2(0.382662, -11.6364)
+position = Vector2(-1.04308e-06, -2.27555)
 shape = SubResource("RectangleShape2D_51e2l")
 
 [node name="Player" parent="World" instance=ExtResource("2_st4qh")]
-position = Vector2(-501, 360)
+position = Vector2(1871, 442)
 
 [node name="Sprite2D2" type="Sprite2D" parent="World"]
 position = Vector2(973, 463)
@@ -67,14 +71,15 @@ position = Vector2(-3.91123, -6.99502)
 shape = SubResource("RectangleShape2D_51e2l")
 
 [node name="Sprite2D3" type="Sprite2D" parent="World"]
-position = Vector2(1416, 174)
+position = Vector2(1242, 415)
 scale = Vector2(5.44272, -0.558964)
 texture = ExtResource("1_da6vm")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="World/Sprite2D3"]
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/Sprite2D3/StaticBody2D"]
-position = Vector2(0.382662, -11.6364)
+position = Vector2(-1.46986, 3.57805)
 shape = SubResource("RectangleShape2D_51e2l")
 
 [node name="Barrel3s" parent="World" instance=ExtResource("4_saoeg")]
@@ -84,7 +89,7 @@ position = Vector2(852, 423)
 position = Vector2(1334, 424)
 
 [node name="Starfish" parent="World" instance=ExtResource("9_xm0ii")]
-position = Vector2(2176, 429)
+position = Vector2(416, 431)
 
 [node name="Door" parent="World" instance=ExtResource("5_oj4i3")]
 position = Vector2(93, 174)
@@ -99,6 +104,7 @@ target_stage = "uid://qjojp3xo7ie3"
 position = Vector2(142, 149)
 
 [node name="Bullets" type="Node2D" parent="."]
+visibility_layer = 2
 
 [node name="Path2D" parent="." instance=ExtResource("3_st4qh")]
 position = Vector2(380, 112)
@@ -110,10 +116,22 @@ position = Vector2(272, 156)
 position = Vector2(202, 134)
 
 [node name="Pelicant" parent="." instance=ExtResource("7_2dgve")]
-position = Vector2(-629, 268)
+position = Vector2(1013, 219)
 
 [node name="Spike" parent="." instance=ExtResource("8_x4ubh")]
 position = Vector2(-10, 422)
 
 [node name="Starfish" parent="." instance=ExtResource("9_xm0ii")]
-position = Vector2(-272, 418)
+position = Vector2(174, 427)
+
+[node name="Shieldspearman" parent="." instance=ExtResource("12_2dgve")]
+position = Vector2(1175, 368)
+
+[node name="TurtleBlue" parent="." instance=ExtResource("13_x4ubh")]
+position = Vector2(630, 422)
+
+[node name="KingCrab" parent="." instance=ExtResource("3_x4ubh")]
+position = Vector2(2144, 420)
+
+[node name="WarlordTurtle" parent="." instance=ExtResource("15_xm0ii")]
+position = Vector2(-502, 408)

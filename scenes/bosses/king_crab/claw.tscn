@@ -1,0 +1,52 @@
+[gd_scene load_steps=8 format=3 uid="uid://cg4dofch48b6t"]
+
+[ext_resource type="Script" uid="uid://dustv3w8nlpkj" path="res://scenes/bosses/king_crab/claw.gd" id="1_a4gvr"]
+[ext_resource type="Texture2D" uid="uid://cy4qe36iv73mb" path="res://assets/sprites/King_Crab/King_Crab_31.png" id="1_ufo5v"]
+[ext_resource type="Texture2D" uid="uid://tcyqnrt32e87" path="res://assets/sprites/King_Crab/King_Crab_32.png" id="2_a4gvr"]
+[ext_resource type="Script" uid="uid://dbbfdchjn8157" path="res://scripts/hit_area_2d.gd" id="4_hp2ps"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hkb6n"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_ufo5v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_a4gvr")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_thy4w"]
+radius = 16.0312
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hkb6n"]
+size = Vector2(0, 0)
+
+[node name="Claw" type="CharacterBody2D"]
+collision_layer = 8
+collision_mask = 0
+script = ExtResource("1_a4gvr")
+
+[node name="Direction" type="Node2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Direction"]
+sprite_frames = SubResource("SpriteFrames_hkb6n")
+frame_progress = 0.858133
+flip_h = true
+
+[node name="HitArea2D" type="Area2D" parent="Direction"]
+collision_layer = 0
+collision_mask = 4
+script = ExtResource("4_hp2ps")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Direction/HitArea2D"]
+position = Vector2(9, -2)
+shape = SubResource("CircleShape2D_thy4w")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_hkb6n")
+
+[connection signal="body_entered" from="Direction/HitArea2D" to="." method="_on_hit_area_2d_body_entered"]
