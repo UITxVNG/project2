@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://gbkw5to7ma8c"
-path="res://.godot/imported/Mossy - BackgroundDecoration.png-0925d9fbbfb8d615ab18ee7e8659e9cd.ctex"
+uid="uid://c8tgfpnydyn1j"
+path="res://.godot/imported/HangingPlant_3.png-f0677a07350a7a29fe51d7fd71b1a006.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tilesets/Mossy Tileset/Mossy - BackgroundDecoration.png"
-dest_files=["res://.godot/imported/Mossy - BackgroundDecoration.png-0925d9fbbfb8d615ab18ee7e8659e9cd.ctex"]
+source_file="res://assets/tilesets/Mossy Tileset/HangingPlants/HangingPlant_3.png"
+dest_files=["res://.godot/imported/HangingPlant_3.png-f0677a07350a7a29fe51d7fd71b1a006.ctex"]
 
 [params]
 

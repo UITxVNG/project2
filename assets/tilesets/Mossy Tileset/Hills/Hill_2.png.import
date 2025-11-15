@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c8e7sq3kb02x4"
-path="res://.godot/imported/Mossy - MossyHills.png-7dc44d35a810ea091e32d021b91edddc.ctex"
+uid="uid://b3pjmj2xp4axr"
+path="res://.godot/imported/Hill_2.png-8fb0b968165f5765619f4421287c7452.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tilesets/Mossy Tileset/Mossy - MossyHills.png"
-dest_files=["res://.godot/imported/Mossy - MossyHills.png-7dc44d35a810ea091e32d021b91edddc.ctex"]
+source_file="res://assets/tilesets/Mossy Tileset/Hills/Hill_2.png"
+dest_files=["res://.godot/imported/Hill_2.png-8fb0b968165f5765619f4421287c7452.ctex"]
 
 [params]
 
