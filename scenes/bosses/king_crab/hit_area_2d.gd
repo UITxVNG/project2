@@ -19,3 +19,7 @@ func _on_area_entered(area):
 
 func set_dealt_damage(dealt_damage: float) -> void:
 	_dealt_damage = dealt_damage
+
+
+func _on_hitted(area: Variant) -> void:
+	pass # Replace with function body.

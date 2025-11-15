@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://ci66febm8eq4h"]
 
-[ext_resource type="Texture2D" uid="uid://c11p6ikywh5gi" path="res://assets/sprites/enemies/bosses/war_lord_bullet/bullet_rocket_particle.png" id="1_s8ofv"]
+[ext_resource type="Texture2D" uid="uid://ia0y42ncy4i2" path="res://assets/sprites/war_lord_bullet/bullet_rocket_particle.png" id="1_scfj3"]
 
 [sub_resource type="GDScript" id="GDScript_s8ofv"]
 script/source = "extends RigidBody2D
@@ -18,7 +18,7 @@ collision_mask = 0
 script = SubResource("GDScript_s8ofv")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_s8ofv")
+texture = ExtResource("1_scfj3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_s8ofv")
