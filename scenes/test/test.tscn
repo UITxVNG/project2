@@ -115,7 +115,7 @@ position = Vector2(272, 156)
 position = Vector2(202, 134)
 
 [node name="Pelicant" parent="." instance=ExtResource("7_2dgve")]
-position = Vector2(1021, 317)
+position = Vector2(1013, 219)
 
 [node name="Spike" parent="." instance=ExtResource("8_x4ubh")]
 position = Vector2(-10, 422)
@@ -124,7 +124,7 @@ position = Vector2(-10, 422)
 position = Vector2(-272, 418)
 
 [node name="Shieldspearman" parent="." instance=ExtResource("12_2dgve")]
-position = Vector2(233, 421)
+position = Vector2(1175, 368)
 
 [node name="TurtleBlue" parent="." instance=ExtResource("13_x4ubh")]
 position = Vector2(630, 422)
