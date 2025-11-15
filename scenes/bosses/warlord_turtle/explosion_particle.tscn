@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://ci66febm8eq4h"]
+
+[ext_resource type="Texture2D" uid="uid://c11p6ikywh5gi" path="res://assets/sprites/enemies/bosses/war_lord_bullet/bullet_rocket_particle.png" id="1_s8ofv"]
+
+[sub_resource type="GDScript" id="GDScript_s8ofv"]
+script/source = "extends RigidBody2D
+
+func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
+	queue_free()
+"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_s8ofv"]
+radius = 5.09902
+
+[node name="ExplosionParticle" type="RigidBody2D"]
+collision_layer = 0
+collision_mask = 0
+script = SubResource("GDScript_s8ofv")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_s8ofv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_s8ofv")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

@@ -1,0 +1,250 @@
+[gd_scene load_steps=36 format=3 uid="uid://ddc86ootpum2i"]
+
+[ext_resource type="Script" uid="uid://c28t2iakx47cc" path="res://scripts/enemies/bosses/warlord_turtle/warlord_turtle.gd" id="1_8yvna"]
+[ext_resource type="Texture2D" uid="uid://brmjb4s52rg7x" path="res://assets/sprites/enemies/bosses/war_lord/war_lord_turtle19.png" id="2_d1744"]
+[ext_resource type="Texture2D" uid="uid://bhbqte6bf3x4e" path="res://assets/sprites/enemies/bosses/war_lord/war_lord_turtle20.png" id="3_gmvus"]
+[ext_resource type="Texture2D" uid="uid://dtqtvtc83ffya" path="res://assets/sprites/enemies/bosses/war_lord/war_lord_turtle9.png" id="4_oj4m5"]
+[ext_resource type="Texture2D" uid="uid://c54q3ror5h4kp" path="res://assets/sprites/enemies/bosses/war_lord/war_lord_turtle10.png" id="5_dsagu"]
+[ext_resource type="Texture2D" uid="uid://b3tuv00eq5bpr" path="res://assets/sprites/enemies/bosses/war_lord/war_lord_turtle11.png" id="6_jm27j"]
+[ext_resource type="Texture2D" uid="uid://dpk6r4bigp35r" path="res://assets/sprites/enemies/bosses/war_lord/war_lord_turtle12.png" id="7_267mo"]
+[ext_resource type="Texture2D" uid="uid://c4di26dvs7hub" path="res://assets/sprites/enemies/bosses/war_lord/war_lord_turtle13.png" id="8_76xbk"]
+[ext_resource type="Texture2D" uid="uid://cte8daeb1kr1n" path="res://assets/sprites/enemies/bosses/war_lord/war_lord_turtle14.png" id="9_eey5d"]
+[ext_resource type="Texture2D" uid="uid://cdgs3ru52tr15" path="res://assets/sprites/enemies/bosses/war_lord/war_lord_turtle15.png" id="10_5rhnn"]
+[ext_resource type="Texture2D" uid="uid://hmfdpagixh1" path="res://assets/sprites/enemies/bosses/war_lord/war_lord_turtle16.png" id="11_8w8h5"]
+[ext_resource type="Texture2D" uid="uid://b0ieg5bueklii" path="res://assets/sprites/enemies/bosses/war_lord/war_lord_turtle17.png" id="12_evixd"]
+[ext_resource type="Texture2D" uid="uid://b5ptspns5wamk" path="res://assets/sprites/enemies/bosses/war_lord/war_lord_turtle18.png" id="13_xcmxk"]
+[ext_resource type="Texture2D" uid="uid://uaado4acgjxm" path="res://assets/sprites/enemies/bosses/war_lord/war_lord_turtle1.png" id="14_60uey"]
+[ext_resource type="Texture2D" uid="uid://dxephchi6du0s" path="res://assets/sprites/enemies/bosses/war_lord/war_lord_turtle2.png" id="15_jxwj8"]
+[ext_resource type="Texture2D" uid="uid://belq4156trlmq" path="res://assets/sprites/enemies/bosses/war_lord/war_lord_turtle3.png" id="16_2oprm"]
+[ext_resource type="Texture2D" uid="uid://c8vb51byi3d0j" path="res://assets/sprites/enemies/bosses/war_lord/war_lord_turtle4.png" id="17_557ro"]
+[ext_resource type="Texture2D" uid="uid://bnfjid7sfn7wi" path="res://assets/sprites/enemies/bosses/war_lord/war_lord_turtle5.png" id="18_2nf6b"]
+[ext_resource type="Texture2D" uid="uid://b767nhml2smxh" path="res://assets/sprites/enemies/bosses/war_lord/war_lord_turtle6.png" id="19_85n5f"]
+[ext_resource type="Texture2D" uid="uid://bd11owlleqwqp" path="res://assets/sprites/enemies/bosses/war_lord/war_lord_turtle7.png" id="20_vl3do"]
+[ext_resource type="Texture2D" uid="uid://cv1e56rgrcuvo" path="res://assets/sprites/enemies/bosses/war_lord/war_lord_turtle8.png" id="21_qbl8w"]
+[ext_resource type="Script" uid="uid://dkb25vr64v37l" path="res://scripts/utils/hit_area_2d.gd" id="22_gmvus"]
+[ext_resource type="Script" uid="uid://2dtm6jeegr43" path="res://scripts/utils/node2d_factory.gd" id="23_dsagu"]
+[ext_resource type="Script" uid="uid://dliarx6jpwlho" path="res://scripts/enemies/bosses/king_crab/normal.gd" id="23_gmvus"]
+[ext_resource type="PackedScene" uid="uid://cllda15ck0g1a" path="res://scenes/enemies/bosses/warlord_turtle/bomb.tscn" id="24_jm27j"]
+[ext_resource type="Script" uid="uid://chqg2tcnsujj8" path="res://scripts/enemies/bosses/warlord_turtle/drop_bomb.gd" id="24_oj4m5"]
+[ext_resource type="Script" uid="uid://cofkmvw2auxcs" path="res://scripts/utils/hurt_area_2d.gd" id="25_eey5d"]
+[ext_resource type="Script" uid="uid://bq0h6rwr31w52" path="res://scripts/enemies/states/hurt.gd" id="27_76xbk"]
+[ext_resource type="Script" uid="uid://1oi8lur0a64f" path="res://scripts/enemies/states/dead.gd" id="28_eey5d"]
+[ext_resource type="Script" uid="uid://bprruaqbtisbi" path="res://scripts/enemies/bosses/warlord_turtle/launch_rocket.gd" id="30_5rhnn"]
+[ext_resource type="Script" uid="uid://db8lo56hyva45" path="res://scripts/enemies/bosses/king_crab/stun.gd" id="31_8w8h5"]
+[ext_resource type="PackedScene" uid="uid://dqrfrb8e5g4kh" path="res://scenes/enemies/bosses/warlord_turtle/rocket.tscn" id="32_evixd"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_b7cjc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_60uey")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_jxwj8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_2oprm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_557ro")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_2nf6b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_85n5f")
+}],
+"loop": false,
+"name": &"drop_bomb",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_d1744")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_gmvus")
+}],
+"loop": false,
+"name": &"hurt",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_jm27j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_267mo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_76xbk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_eey5d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_5rhnn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_8w8h5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_evixd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_xcmxk")
+}],
+"loop": false,
+"name": &"launch_rocket",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("20_vl3do")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_qbl8w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_oj4m5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_dsagu")
+}],
+"loop": true,
+"name": &"normal",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("20_vl3do")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_qbl8w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_oj4m5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_dsagu")
+}],
+"loop": true,
+"name": &"stun",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_evixd"]
+size = Vector2(62, 65)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8yvna"]
+size = Vector2(42, 62)
+
+[node name="WarlordTurtle" type="CharacterBody2D"]
+collision_layer = 0
+script = ExtResource("1_8yvna")
+health = 1000.0
+spike = 70.0
+movement_speed = 50.0
+metadata/_custom_type_script = "uid://da4xpmamo1d7r"
+
+[node name="Direction" type="Node2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Direction"]
+sprite_frames = SubResource("SpriteFrames_b7cjc")
+animation = &"normal"
+flip_h = true
+
+[node name="HitArea2D" type="Area2D" parent="Direction"]
+visible = false
+collision_layer = 0
+collision_mask = 32
+script = ExtResource("22_gmvus")
+metadata/_custom_type_script = "uid://dkb25vr64v37l"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Direction/HitArea2D"]
+position = Vector2(-1, 0.5)
+shape = SubResource("RectangleShape2D_evixd")
+
+[node name="LeftFactory" type="Marker2D" parent="Direction"]
+visible = false
+position = Vector2(1, -23)
+script = ExtResource("23_dsagu")
+product_packed_scene = ExtResource("24_jm27j")
+target_container_name = &"Bullets"
+metadata/_custom_type_script = "uid://2dtm6jeegr43"
+
+[node name="RightFactory" type="Marker2D" parent="Direction"]
+visible = false
+position = Vector2(31, -16)
+script = ExtResource("23_dsagu")
+product_packed_scene = ExtResource("24_jm27j")
+target_container_name = &"Bullets"
+metadata/_custom_type_script = "uid://2dtm6jeegr43"
+
+[node name="HurtArea2D" type="Area2D" parent="Direction"]
+visible = false
+collision_layer = 16
+collision_mask = 0
+script = ExtResource("25_eey5d")
+metadata/_custom_type_script = "uid://cofkmvw2auxcs"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Direction/HurtArea2D"]
+position = Vector2(-1, 0.5)
+shape = SubResource("RectangleShape2D_evixd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(-1, 2)
+shape = SubResource("RectangleShape2D_8yvna")
+
+[node name="States" type="Node" parent="."]
+
+[node name="Normal" type="Node" parent="States"]
+script = ExtResource("23_gmvus")
+
+[node name="DropBomb" type="Node" parent="States"]
+script = ExtResource("24_oj4m5")
+
+[node name="Hurt" type="Node" parent="States"]
+script = ExtResource("27_76xbk")
+
+[node name="Dead" type="Node" parent="States"]
+script = ExtResource("28_eey5d")
+
+[node name="LaunchRocket" type="Node" parent="States"]
+script = ExtResource("30_5rhnn")
+
+[node name="Stun" type="Node" parent="States"]
+script = ExtResource("31_8w8h5")
+
+[node name="DropTimer" type="Timer" parent="."]
+
+[node name="RocketPositions" type="Node2D" parent="."]
+
+[node name="RocketFactory1" type="Marker2D" parent="RocketPositions"]
+position = Vector2(150, 25)
+script = ExtResource("23_dsagu")
+product_packed_scene = ExtResource("32_evixd")
+target_container_name = &"Bullets"
+metadata/_custom_type_script = "uid://2dtm6jeegr43"
+
+[node name="RocketFactory2" type="Marker2D" parent="RocketPositions"]
+position = Vector2(75, 25)
+script = ExtResource("23_dsagu")
+product_packed_scene = ExtResource("32_evixd")
+target_container_name = &"Bullets"
+metadata/_custom_type_script = "uid://2dtm6jeegr43"
+
+[node name="RocketFactory3" type="Marker2D" parent="RocketPositions"]
+position = Vector2(-75, 25)
+script = ExtResource("23_dsagu")
+product_packed_scene = ExtResource("32_evixd")
+target_container_name = &"Bullets"
+metadata/_custom_type_script = "uid://2dtm6jeegr43"
+
+[node name="RocketFactory4" type="Marker2D" parent="RocketPositions"]
+position = Vector2(-150, 25)
+script = ExtResource("23_dsagu")
+product_packed_scene = ExtResource("32_evixd")
+target_container_name = &"Bullets"
+metadata/_custom_type_script = "uid://2dtm6jeegr43"

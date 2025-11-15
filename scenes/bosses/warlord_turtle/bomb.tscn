@@ -1,0 +1,49 @@
+[gd_scene load_steps=8 format=3 uid="uid://cllda15ck0g1a"]
+
+[ext_resource type="Script" uid="uid://c1ttc5pwxrijv" path="res://scripts/enemies/bosses/warlord_turtle/bomb.gd" id="1_7177j"]
+[ext_resource type="Texture2D" uid="uid://1o0wojqnpg0d" path="res://assets/sprites/enemies/bosses/war_lord_bullet/bullet_cannon.png" id="2_35a51"]
+[ext_resource type="Script" uid="uid://dkb25vr64v37l" path="res://scripts/utils/hit_area_2d.gd" id="3_t35eg"]
+[ext_resource type="Script" uid="uid://cofkmvw2auxcs" path="res://scripts/utils/hurt_area_2d.gd" id="4_hymdp"]
+[ext_resource type="Script" uid="uid://2dtm6jeegr43" path="res://scripts/utils/node2d_factory.gd" id="5_qnd3d"]
+[ext_resource type="PackedScene" uid="uid://ci66febm8eq4h" path="res://scenes/enemies/bosses/warlord_turtle/explosion_particle.tscn" id="6_1evna"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fsxe1"]
+radius = 9.0
+
+[node name="Bomb" type="CharacterBody2D"]
+collision_layer = 0
+script = ExtResource("1_7177j")
+metadata/_custom_type_script = "uid://2jpuxlemniop"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_35a51")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_fsxe1")
+
+[node name="HitArea2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 32
+script = ExtResource("3_t35eg")
+metadata/_custom_type_script = "uid://dkb25vr64v37l"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitArea2D"]
+shape = SubResource("CircleShape2D_fsxe1")
+
+[node name="HurtArea2D" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 0
+script = ExtResource("4_hymdp")
+metadata/_custom_type_script = "uid://cofkmvw2auxcs"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtArea2D"]
+shape = SubResource("CircleShape2D_fsxe1")
+
+[node name="ParticlesFactory" type="Marker2D" parent="."]
+script = ExtResource("5_qnd3d")
+product_packed_scene = ExtResource("6_1evna")
+target_container_name = &"Bullets"
+metadata/_custom_type_script = "uid://2dtm6jeegr43"
+
+[connection signal="hitted" from="HitArea2D" to="." method="_on_hit_area_2d_hitted"]
+[connection signal="hurt" from="HurtArea2D" to="." method="_on_hurt_area_2d_hurt"]

@@ -20,7 +20,6 @@
 [ext_resource type="Texture2D" uid="uid://de0k1nlysp2fb" path="res://assets/sprites/spear/spear/spear_8.png" id="18_ddr4m"]
 [ext_resource type="Texture2D" uid="uid://cb3hpm2xu3emu" path="res://assets/sprites/spear/spear/spear_7.png" id="19_0aei7"]
 [ext_resource type="Script" uid="uid://csu2b21cwchqw" path="res://scripts/hurt_area_2d.gd" id="24_j7bb0"]
-[ext_resource type="Script" uid="uid://dbbfdchjn8157" path="res://scripts/hit_area_2d.gd" id="25_q8gql"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_jylan"]
 animations = [{
@@ -102,6 +101,28 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j6dvx"]
 size = Vector2(21.3906, 39.5078)
 
+[sub_resource type="GDScript" id="GDScript_551w8"]
+script/source = "extends Area2D
+
+@export var damage = 1.0
+signal hitted(area)
+
+func _ready():
+	self.area_entered.connect(_on_area_entered)
+	self.body_entered.connect(_on_body_entered)
+
+func _on_area_entered(area: Area2D) -> void:
+	if area.has_method(\"take_damage\"):
+		var hit_dir: Vector2 = area.global_position - global_position
+		area.take_damage(hit_dir.normalized(), damage)
+	emit_signal(\"hitted\", area)
+func _on_body_entered(body: Node) -> void:
+	if body.has_method(\"take_damage\"):
+		var hit_dir: Vector2 = body.global_position - global_position
+		body.take_damage(hit_dir.normalized(), damage)  # Call take_damage on the body
+	emit_signal(\"hitted\", body)
+"
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kwof4"]
 size = Vector2(48, 33)
 
@@ -158,7 +179,7 @@ shape = SubResource("RectangleShape2D_j6dvx")
 [node name="HitArea2D" type="Area2D" parent="Direction"]
 collision_layer = 2
 collision_mask = 4
-script = ExtResource("25_q8gql")
+script = SubResource("GDScript_551w8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Direction/HitArea2D"]
 position = Vector2(13, 2)

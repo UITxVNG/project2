@@ -1,0 +1,72 @@
+[gd_scene load_steps=7 format=3 uid="uid://dqrfrb8e5g4kh"]
+
+[ext_resource type="Texture2D" uid="uid://bqqkluxpnvgqo" path="res://assets/sprites/enemies/bosses/war_lord_bullet/bullet_rocket.png" id="1_pnicj"]
+[ext_resource type="Script" uid="uid://dkb25vr64v37l" path="res://scripts/utils/hit_area_2d.gd" id="2_mx2dt"]
+[ext_resource type="Script" uid="uid://2dtm6jeegr43" path="res://scripts/utils/node2d_factory.gd" id="3_40bsi"]
+[ext_resource type="PackedScene" uid="uid://ci66febm8eq4h" path="res://scenes/enemies/bosses/warlord_turtle/explosion_particle.tscn" id="4_fjb2r"]
+
+[sub_resource type="GDScript" id="GDScript_piatw"]
+script/source = "extends Bomb
+
+@export var impulse: Vector2 = Vector2(150, 400)
+
+@onready var _particles_factory := $ParticlesFactory
+
+func _on_hit_area_2d_body_entered(_body: Node2D) -> void:
+	explosion()
+
+func explosion() -> void:
+	create_particles()
+	queue_free()
+
+func create_particles() -> void:
+	call_deferred(\"_create_particles_safe\")
+
+func _create_particles_safe() -> void:
+	var top_left = _particles_factory.create() as RigidBody2D
+	var top_right = _particles_factory.create() as RigidBody2D
+	var bot_left = _particles_factory.create() as RigidBody2D
+	var bot_right = _particles_factory.create() as RigidBody2D
+
+	top_left.apply_impulse(Vector2(-impulse.x, -impulse.y))
+	top_right.apply_impulse(Vector2(impulse.x, -impulse.y))
+	bot_left.apply_impulse(Vector2(-impulse.x, -impulse.y / 2))
+	bot_right.apply_impulse(Vector2(impulse.x, -impulse.y / 2))
+
+func _on_hit_area_2d_hitted(_area: Variant) -> void:
+	explosion()
+"
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xxana"]
+radius = 6.0
+height = 24.0
+
+[node name="Rocket" type="RigidBody2D"]
+collision_layer = 0
+collision_mask = 0
+script = SubResource("GDScript_piatw")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_pnicj")
+flip_v = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_xxana")
+
+[node name="HitArea2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 33
+script = ExtResource("2_mx2dt")
+metadata/_custom_type_script = "uid://dkb25vr64v37l"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitArea2D"]
+shape = SubResource("CapsuleShape2D_xxana")
+
+[node name="ParticlesFactory" type="Marker2D" parent="."]
+script = ExtResource("3_40bsi")
+product_packed_scene = ExtResource("4_fjb2r")
+target_container_name = &"Bullets"
+metadata/_custom_type_script = "uid://2dtm6jeegr43"
+
+[connection signal="body_entered" from="HitArea2D" to="." method="_on_hit_area_2d_body_entered"]
+[connection signal="hitted" from="HitArea2D" to="." method="_on_hit_area_2d_hitted"]
