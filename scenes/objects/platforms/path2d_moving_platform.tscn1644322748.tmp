@@ -54,8 +54,7 @@ _data = {
 curve = SubResource("Curve2D_lg0vp")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="."]
-position = Vector2(-2.23483, 20.4411)
-progress = 14.5696
+position = Vector2(-2, 35)
 rotates = false
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="PathFollow2D"]

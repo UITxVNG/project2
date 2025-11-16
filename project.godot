@@ -29,6 +29,7 @@ layout/style_directory={}
 
 [display]
 
+window/size/viewport_height=1000
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 
