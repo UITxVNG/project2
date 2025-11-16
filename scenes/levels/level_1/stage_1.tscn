@@ -26,18 +26,22 @@ collision_layer = 2
 
 [node name="Movement" parent="." instance=ExtResource("3_dwsf3")]
 position = Vector2(-349, -52)
+collision_mask = 2
 hint_text = "⬅⮕ để di chuyển"
 hint_icon = ExtResource("4_i388g")
 
 [node name="Jump" parent="." instance=ExtResource("3_dwsf3")]
 position = Vector2(202, -54)
+collision_mask = 2
 
 [node name="Attack" parent="." instance=ExtResource("3_dwsf3")]
 position = Vector2(653, -116)
+collision_mask = 2
 hint_text = "Nhấn C để tấn công"
 
 [node name="Check_Point" parent="." instance=ExtResource("3_dwsf3")]
 position = Vector2(1106, 49)
+collision_mask = 2
 hint_text = "Game được lưu !"
 
 [node name="Path2D" parent="." instance=ExtResource("5_5usqu")]
@@ -47,6 +51,3 @@ curve = SubResource("Curve2D_5usqu")
 [node name="Door" parent="." instance=ExtResource("6_bfafv")]
 position = Vector2(-535, -679)
 target_stage = "uid://boxp0pgyq4pfu"
-
-[connection signal="body_entered" from="TileMapLayer/Checkpoint" to="TileMapLayer/Checkpoint" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMapLayer/@Area2D@23000" to="TileMapLayer/@Area2D@23000" method="_on_body_entered"]

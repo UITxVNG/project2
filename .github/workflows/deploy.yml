@@ -4,16 +4,18 @@ on:
   push:
     branches:
       - main
-      
     tags:
-      - 'v*'   
+      - 'v*'
 
-
+  pull_request:
+    branches:
+      - main
+    types:
+      - closed
   workflow_dispatch:
 
 env:
   GODOT_BIN: /home/runner/.local/share/godot/godot_executable/Godot_v4.4-stable_linux.x86_64
-
 
 jobs:
   export:
@@ -24,9 +26,9 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v5.0.0
         with:
-          fetch-depth: 0  # Fetch all history for diff and tag
+          fetch-depth: 0  # Full history for diffs and tags
 
-      # Determine version (from tag or fallback to run number)
+      # Determine version (from tag or fallback to build number)
       - name: Set version
         id: version
         run: |
@@ -37,22 +39,26 @@ jobs:
           fi
           echo "Detected version: ${{ steps.version.outputs.version }}"
 
-      # Detect if files changed (to skip unnecessary rebuilds)
+      # Detect if relevant files changed (scenes, scripts, assets, etc.)
       - name: Check for changes
         id: changes
         run: |
-          git fetch origin main
-          CHANGED=$(git diff --name-only origin/main...HEAD -- 'scenes/**' 'scripts/**' 'assets/**' 'project.godot' 'export_presets.cfg')
+          echo "🔍 Checking for relevant changes..."
+          # Get list of changed files from the last commit
+          CHANGED=$(git diff --name-only HEAD^ HEAD -- 'scenes/**' 'scripts/**' 'assets/**' 'project.godot' 'export_presets.cfg' || true)
+
           if [ -z "$CHANGED" ]; then
             echo "No relevant changes detected. Skipping export."
             echo "skip=true" >> $GITHUB_OUTPUT
           else
-            echo "Changes detected in game files."
+            echo "Changes detected in game files:"
+            echo "$CHANGED"
             echo "skip=false" >> $GITHUB_OUTPUT
           fi
 
+      # Install and set up Godot (always required before export)
       - name: Set up Godot
-        if: steps.changes.outputs.skip == 'false'
+        if: steps.changes.outputs.skip == 'false' || github.event_name == 'workflow_dispatch'
         uses: firebelley/godot-export@v7.0.0
         with:
           godot_executable_download_url: "https://github.com/godotengine/godot-builds/releases/download/4.4-stable/Godot_v4.4-stable_linux.x86_64.zip"
@@ -62,21 +68,25 @@ jobs:
           verbose: true
           presets_to_export: "Web"
 
+      # Export the Godot project to HTML5
       - name: Export project to HTML5
-        if: steps.changes.outputs.skip == 'false'
+        if: steps.changes.outputs.skip == 'false' || github.event_name == 'workflow_dispatch'
         run: |
+          echo "🚀 Exporting project..."
           mkdir -p public
           $GODOT_BIN --headless --export-release "Web" public/index.html
 
+      # Upload artifact for debugging or manual review
       - name: Upload artifact (optional)
-        if: steps.changes.outputs.skip == 'false'
+        if: steps.changes.outputs.skip == 'false' || github.event_name == 'workflow_dispatch'
         uses: actions/upload-artifact@v4
         with:
           name: html5-build-${{ steps.version.outputs.version }}
           path: public
 
+      # Deploy to itch.io using Butler
       - name: Deploy to itch.io
-        if: steps.changes.outputs.skip == 'false'
+        if: steps.changes.outputs.skip == 'false' || github.event_name == 'workflow_dispatch'
         uses: josephbmanley/butler-publish-itchio-action@v1.0.3
         env:
           BUTLER_CREDENTIALS: ${{ secrets.ITCHIO_API_KEY }}
@@ -86,6 +96,7 @@ jobs:
           PACKAGE: public
           VERSION: ${{ steps.version.outputs.version }}
 
+      # Skip notice when no changes found (only on push)
       - name: Skip notice
-        if: steps.changes.outputs.skip == 'true'
+        if: steps.changes.outputs.skip == 'true' && github.event_name != 'workflow_dispatch'
         run: echo "✅ No changes in game files — skipping export & deploy."

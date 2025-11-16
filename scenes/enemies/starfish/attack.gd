@@ -7,8 +7,10 @@ func _enter() -> void:
 	timer = 1.2
 	time_prepare = 0.3
 	obj.velocity.x = 0
+
 func _exit() -> void:
 	obj.get_node("Direction/HitArea2D/CollisionShape2D").disabled = true
+
 func _update(delta: float) -> void:
 	time_prepare -= delta
 	if time_prepare < 0:
