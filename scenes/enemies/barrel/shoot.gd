@@ -1,22 +1,17 @@
 extends EnemyState
 
-@export var shoot_delay: float = 1.0
-@export var duration: float = 1.0
-var shoot_timer: float = 0.0
+@export var attack_delay: float = 0.3
+var attack_timer: float = 0.0
 
-func _enter() -> void:
+func _enter():
 	obj.change_animation("Shoot")
-	shoot_timer = 0.0
-	timer = duration
-
-func _update(delta: float) -> void:
-	if shoot_timer > 0.0:
-		shoot_timer -= delta
-	else:
-		if obj != null and obj.has_method("fire"):
-			obj.fire()
-		shoot_timer = shoot_delay
-
-	# sử dụng hàm của lớp cha nếu có
-	if update_timer(delta):  # giả sử update_timer giảm timer và trả về true khi hết
+	attack_timer = attack_delay
+	timer = 0.5
+	
+func _update(_delta: float):
+	if attack_timer > 0:
+		attack_timer -= _delta
+		if attack_timer <= 0:
+			obj.attack()
+	if update_timer(_delta):
 		change_state(fsm.previous_state)

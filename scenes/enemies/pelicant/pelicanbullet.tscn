@@ -2,10 +2,31 @@
 
 [ext_resource type="Script" uid="uid://by7woiwt4gd7w" path="res://scenes/enemies/pelicant/pelicanbullet.gd" id="1_530bf"]
 [ext_resource type="Texture2D" uid="uid://dakf53ikqp0tr" path="res://assets/sprites/enemy/pelican/pelican_bullet.png" id="2_530bf"]
-[ext_resource type="Script" uid="uid://dbbfdchjn8157" path="res://scripts/hit_area_2d.gd" id="3_fiarj"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cmonk"]
 radius = 5.09902
+
+[sub_resource type="GDScript" id="GDScript_551w8"]
+script/source = "extends Area2D
+
+@export var damage = 1.0
+signal hitted(area)
+
+func _ready():
+	self.area_entered.connect(_on_area_entered)
+	self.body_entered.connect(_on_body_entered)
+
+func _on_area_entered(area: Area2D) -> void:
+	if area.has_method(\"take_damage\"):
+		var hit_dir: Vector2 = area.global_position - global_position
+		area.take_damage(hit_dir.normalized(), damage)
+	emit_signal(\"hitted\", area)
+func _on_body_entered(body: Node) -> void:
+	if body.has_method(\"take_damage\"):
+		var hit_dir: Vector2 = body.global_position - global_position
+		body.take_damage(hit_dir.normalized(), damage)  # Call take_damage on the body
+	emit_signal(\"hitted\", body)
+"
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3b0h3"]
 radius = 5.0
@@ -25,12 +46,13 @@ shape = SubResource("CircleShape2D_cmonk")
 [node name="HitArea2D" type="Area2D" parent="."]
 collision_layer = 0
 collision_mask = 4
-script = ExtResource("3_fiarj")
+script = SubResource("GDScript_551w8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitArea2D"]
 position = Vector2(0, 1)
 shape = SubResource("CircleShape2D_3b0h3")
 
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="area_entered" from="HitArea2D" to="." method="_on_hit_area_2d_area_entered"]
 [connection signal="body_entered" from="HitArea2D" to="." method="_on_hit_area_2d_body_entered"]
 [connection signal="hitted" from="HitArea2D" to="." method="_on_hit_area_2d_hitted"]
