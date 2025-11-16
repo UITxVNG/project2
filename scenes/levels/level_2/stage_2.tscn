@@ -19,3 +19,6 @@ position = Vector2(2960, 37)
 target_stage = "uid://276dirptn36f"
 
 [node name="ParallaxBackground" parent="." instance=ExtResource("4_vcha2")]
+
+[node name="Door2" parent="." instance=ExtResource("7_wdfub")]
+position = Vector2(99, 224)

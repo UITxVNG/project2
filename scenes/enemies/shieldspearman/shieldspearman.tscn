@@ -1,0 +1,202 @@
+[gd_scene load_steps=27 format=3 uid="uid://b1vdpb6cs2n6o"]
+
+[ext_resource type="Script" uid="uid://dvog31ie0deej" path="res://scenes/enemies/shieldspearman/shieldspearman.gd" id="1_eo6yd"]
+[ext_resource type="Script" uid="uid://7do6rjyryhlb" path="res://scenes/enemies/shieldspearman/idle.gd" id="2_jfvnj"]
+[ext_resource type="Script" uid="uid://tpwab8mul3ql" path="res://scenes/enemies/shieldspearman/hurt.gd" id="3_fwvuu"]
+[ext_resource type="Script" uid="uid://cpycw1t120g8r" path="res://scenes/enemies/shieldspearman/dead.gd" id="4_g8m6q"]
+[ext_resource type="Script" uid="uid://i5lmul0n7xth" path="res://scenes/enemies/shieldspearman/attack.gd" id="5_766md"]
+[ext_resource type="Texture2D" uid="uid://c564k0p7wnki1" path="res://assets/sprites/spear/spear/spear_9.png" id="6_80vrr"]
+[ext_resource type="Texture2D" uid="uid://dh24p72ehytsq" path="res://assets/sprites/spear/spear/spear_10.png" id="7_c11ji"]
+[ext_resource type="Texture2D" uid="uid://bw7iw0ovpf7xi" path="res://assets/sprites/spear/spear/spear_11.png" id="8_ufun1"]
+[ext_resource type="Texture2D" uid="uid://btto0mubsshhn" path="res://assets/sprites/spear/spear/spear_12.png" id="9_jtyfr"]
+[ext_resource type="Texture2D" uid="uid://c4j4gxvpk07mx" path="res://assets/sprites/spear/spear/spear_17.png" id="10_qxu73"]
+[ext_resource type="Texture2D" uid="uid://1dr1im2gqaj7" path="res://assets/sprites/spear/spear/spear_18.png" id="11_lvv0j"]
+[ext_resource type="Texture2D" uid="uid://bqe0ahkabd85f" path="res://assets/sprites/spear/spear/spear_1.png" id="12_5perc"]
+[ext_resource type="Texture2D" uid="uid://dlyjpr0ifvrhk" path="res://assets/sprites/spear/spear/spear_2.png" id="13_y7s2i"]
+[ext_resource type="Texture2D" uid="uid://dreitdw0tihms" path="res://assets/sprites/spear/spear/spear_3.png" id="14_s08an"]
+[ext_resource type="Texture2D" uid="uid://lli8wum1qdwt" path="res://assets/sprites/spear/spear/spear_4.png" id="15_xm6j2"]
+[ext_resource type="Texture2D" uid="uid://b0v0joui0u4i6" path="res://assets/sprites/spear/spear/spear_5.png" id="16_qcoce"]
+[ext_resource type="Texture2D" uid="uid://mi4i3i2ffj7j" path="res://assets/sprites/spear/spear/spear_6.png" id="17_nxq52"]
+[ext_resource type="Texture2D" uid="uid://de0k1nlysp2fb" path="res://assets/sprites/spear/spear/spear_8.png" id="18_ddr4m"]
+[ext_resource type="Texture2D" uid="uid://cb3hpm2xu3emu" path="res://assets/sprites/spear/spear/spear_7.png" id="19_0aei7"]
+[ext_resource type="Script" uid="uid://csu2b21cwchqw" path="res://scripts/hurt_area_2d.gd" id="24_j7bb0"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jylan"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_80vrr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_c11ji")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_ufun1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_jtyfr")
+}],
+"loop": true,
+"name": &"attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_qxu73")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_lvv0j")
+}],
+"loop": true,
+"name": &"dead",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_qxu73")
+}],
+"loop": true,
+"name": &"hurt",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_5perc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_y7s2i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_s08an")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_qcoce")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_xm6j2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_nxq52")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_0aei7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_80vrr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_ddr4m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_c11ji")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_ufun1")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j6dvx"]
+size = Vector2(21.3906, 39.5078)
+
+[sub_resource type="GDScript" id="GDScript_551w8"]
+script/source = "extends Area2D
+
+@export var damage = 1.0
+signal hitted(area)
+
+func _ready():
+	self.area_entered.connect(_on_area_entered)
+	self.body_entered.connect(_on_body_entered)
+
+func _on_area_entered(area: Area2D) -> void:
+	if area.has_method(\"take_damage\"):
+		var hit_dir: Vector2 = area.global_position - global_position
+		area.take_damage(hit_dir.normalized(), damage)
+	emit_signal(\"hitted\", area)
+func _on_body_entered(body: Node) -> void:
+	if body.has_method(\"take_damage\"):
+		var hit_dir: Vector2 = body.global_position - global_position
+		body.take_damage(hit_dir.normalized(), damage)  # Call take_damage on the body
+	emit_signal(\"hitted\", body)
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kwof4"]
+size = Vector2(48, 33)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jfvnj"]
+size = Vector2(96, 41.5)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jnaj4"]
+radius = 19.0
+height = 42.0
+
+[node name="Shieldspearman" type="CharacterBody2D"]
+script = ExtResource("1_eo6yd")
+metadata/_custom_type_script = "uid://s4xx82espxdt"
+
+[node name="States" type="Node" parent="."]
+
+[node name="Idle" type="Node" parent="States"]
+script = ExtResource("2_jfvnj")
+
+[node name="Hurt" type="Node" parent="States"]
+script = ExtResource("3_fwvuu")
+
+[node name="Dead" type="Node" parent="States"]
+script = ExtResource("4_g8m6q")
+
+[node name="Attack" type="Node" parent="States"]
+script = ExtResource("5_766md")
+
+[node name="Direction" type="Node2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Direction"]
+sprite_frames = SubResource("SpriteFrames_jylan")
+animation = &"attack"
+
+[node name="DownRayCast2D" type="RayCast2D" parent="Direction"]
+position = Vector2(37, 0)
+target_position = Vector2(0, 25)
+
+[node name="FrontRayCast2D" type="RayCast2D" parent="Direction"]
+position = Vector2(11, 0)
+target_position = Vector2(14, 0)
+
+[node name="HurtArea2D" type="Area2D" parent="Direction"]
+visible = false
+position = Vector2(1, 0)
+collision_layer = 16
+collision_mask = 8
+script = ExtResource("24_j7bb0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Direction/HurtArea2D"]
+position = Vector2(-14.6953, -1.24609)
+shape = SubResource("RectangleShape2D_j6dvx")
+
+[node name="HitArea2D" type="Area2D" parent="Direction"]
+collision_layer = 2
+collision_mask = 4
+script = SubResource("GDScript_551w8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Direction/HitArea2D"]
+position = Vector2(13, 2)
+shape = SubResource("RectangleShape2D_kwof4")
+
+[node name="DetectPlayerArea2D" type="Area2D" parent="Direction"]
+position = Vector2(-26, -1)
+disable_mode = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Direction/DetectPlayerArea2D"]
+position = Vector2(28, -1.25)
+shape = SubResource("RectangleShape2D_jfvnj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 0)
+shape = SubResource("CapsuleShape2D_jnaj4")
+
+[connection signal="hurt" from="Direction/HurtArea2D" to="." method="_on_hurt_area_2d_hurt"]
+[connection signal="area_entered" from="Direction/DetectPlayerArea2D" to="." method="_on_detect_player_area_2d_area_entered"]
