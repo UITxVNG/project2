@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=4 uid="uid://fr0jpxxybedf"]
+[gd_scene load_steps=10 format=4 uid="uid://fr0jpxxybedf"]
 
 [ext_resource type="TileSet" uid="uid://c8m8q0fe452q3" path="res://assets/tilesets/tile_set.tres" id="1_33rtp"]
 [ext_resource type="PackedScene" uid="uid://cr06n1w1va6i8" path="res://scenes/player/player.tscn" id="2_dwsf3"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://0ynutkwlhlce" path="res://scenes/objects/platforms/path2d_moving_platform.tscn" id="5_5usqu"]
 [ext_resource type="PackedScene" uid="uid://dubb5b1vjmsxd" path="res://scenes/objects/door/door.tscn" id="6_bfafv"]
 [ext_resource type="PackedScene" uid="uid://dm03l7lbfeh6a" path="res://scenes/util/death_zone.tscn" id="7_death"]
+[ext_resource type="PackedScene" uid="uid://bok3o4ruf7n8x" path="res://scenes/island/background/parallax_background.tscn" id="8_wuvcj"]
 
 [sub_resource type="Curve2D" id="Curve2D_5usqu"]
 _data = {
@@ -56,5 +57,4 @@ position = Vector2(0, 400)
 position = Vector2(-535, -679)
 target_stage = "uid://boxp0pgyq4pfu"
 
-[connection signal="body_entered" from="TileMapLayer/Checkpoint" to="TileMapLayer/Checkpoint" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMapLayer/@Area2D@28670" to="TileMapLayer/@Area2D@28670" method="_on_body_entered"]
+[node name="ParallaxBackground" parent="." instance=ExtResource("8_wuvcj")]
