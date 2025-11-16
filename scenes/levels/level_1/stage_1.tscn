@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=4 uid="uid://fr0jpxxybedf"]
+[gd_scene load_steps=9 format=4 uid="uid://fr0jpxxybedf"]
 
 [ext_resource type="TileSet" uid="uid://c8m8q0fe452q3" path="res://assets/tilesets/tile_set.tres" id="1_33rtp"]
 [ext_resource type="PackedScene" uid="uid://cr06n1w1va6i8" path="res://scenes/player/player.tscn" id="2_dwsf3"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://ilolheqwlwk2" path="res://icon.svg" id="4_i388g"]
 [ext_resource type="PackedScene" uid="uid://0ynutkwlhlce" path="res://scenes/objects/platforms/path2d_moving_platform.tscn" id="5_5usqu"]
 [ext_resource type="PackedScene" uid="uid://dubb5b1vjmsxd" path="res://scenes/objects/door/door.tscn" id="6_bfafv"]
+[ext_resource type="PackedScene" uid="uid://dm03l7lbfeh6a" path="res://scenes/util/death_zone.tscn" id="7_death"]
 
 [sub_resource type="Curve2D" id="Curve2D_5usqu"]
 _data = {
@@ -48,6 +49,12 @@ hint_text = "Game được lưu !"
 position = Vector2(1350, -66)
 curve = SubResource("Curve2D_5usqu")
 
+[node name="DeathZone" parent="." instance=ExtResource("7_death")]
+position = Vector2(0, 400)
+
 [node name="Door" parent="." instance=ExtResource("6_bfafv")]
 position = Vector2(-535, -679)
 target_stage = "uid://boxp0pgyq4pfu"
+
+[connection signal="body_entered" from="TileMapLayer/Checkpoint" to="TileMapLayer/Checkpoint" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMapLayer/@Area2D@28670" to="TileMapLayer/@Area2D@28670" method="_on_body_entered"]

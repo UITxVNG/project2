@@ -1,7 +1,49 @@
 [gd_scene load_steps=3 format=3 uid="uid://b32kumq6nodgw"]
 
 [sub_resource type="GDScript" id="GDScript_1ugvg"]
-script/source = "extends Area2D\n\n@export var hint_text: String = \"Nhấn Space để nhảy\"\n@export var hint_icon: Texture2D\n@export var show_duration: float = 0.3\n\n@onready var popup = $CanvasLayer/Control\n@onready var label = $CanvasLayer/Control/Panel/HBoxContainer/Label\n@onready var icon = $CanvasLayer/Control/Panel/HBoxContainer/TextureRect\n\nvar tween: Tween\n\nfunc _ready():\n\thide_hint()\n\tconnect(\"body_entered\", _on_body_entered)\n\tconnect(\"body_exited\", _on_body_exited)\n\tlabel.text = hint_text\n\ticon.texture = hint_icon\n\nfunc _on_body_entered(body):\n\tif body.name == \"Player\":\n\t\tshow_hint()\n\nfunc _on_body_exited(body):\n\tif body.name == \"Player\":\n\t\thide_hint()\n\nfunc show_hint():\n\tpopup.visible = true\n\tpopup.modulate.a = 0\n\tif tween:\n\t\ttween.kill()\n\ttween = create_tween()\n\ttween.tween_property(popup, \"modulate:a\", 1.0, show_duration)\n\nfunc hide_hint():\n\tif tween:\n\t\ttween.kill()\n\ttween = create_tween()\n\ttween.tween_property(popup, \"modulate:a\", 0.0, show_duration)\n\tawait tween.finished\n\tpopup.visible = false\n"
+script/source = "extends Area2D
+
+@export var hint_text: String = \"Nhấn Space để nhảy\"
+@export var hint_icon: Texture2D
+@export var show_duration: float = 0.3
+
+@onready var popup = $CanvasLayer/Control
+@onready var label = $CanvasLayer/Control/Panel/HBoxContainer/Label
+@onready var icon = $CanvasLayer/Control/Panel/HBoxContainer/TextureRect
+
+var tween: Tween
+
+func _ready():
+	hide_hint()
+	connect(\"body_entered\", _on_body_entered)
+	connect(\"body_exited\", _on_body_exited)
+	label.text = hint_text
+	icon.texture = hint_icon
+
+func _on_body_entered(body):
+	if body.name == \"Player\":
+		show_hint()
+
+func _on_body_exited(body):
+	if body.name == \"Player\":
+		hide_hint()
+
+func show_hint():
+	popup.visible = true
+	popup.modulate.a = 0
+	if tween:
+		tween.kill()
+	tween = create_tween()
+	tween.tween_property(popup, \"modulate:a\", 1.0, show_duration)
+
+func hide_hint():
+	if tween:
+		tween.kill()
+	tween = create_tween()
+	tween.tween_property(popup, \"modulate:a\", 0.0, show_duration)
+	await tween.finished
+	popup.visible = false
+"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1ugvg"]
 size = Vector2(249.375, 104)

@@ -38,7 +38,7 @@
 [ext_resource type="Texture2D" uid="uid://cr8a68nw3dww1" path="res://assets/sprites/foxy/foxy/fox_hat_blade/fox_walk_2.png" id="27_rw8a5"]
 [ext_resource type="Texture2D" uid="uid://d0jfmp24jrfcy" path="res://assets/sprites/foxy/foxy/fox_hat_blade/fox_walk_3.png" id="28_iwuka"]
 [ext_resource type="Texture2D" uid="uid://ce35c6mn7dcok" path="res://assets/sprites/foxy/foxy/fox_hat_blade/fox_walk_4.png" id="29_hyqqp"]
-[ext_resource type="Script" uid="uid://dva73oliuh5wk" path="res://scripts/node2d_factory.gd" id="34_niom3"]
+[ext_resource type="Script" path="res://scripts/node2d_factory.gd" id="34_niom3"]
 [ext_resource type="PackedScene" uid="uid://y3b3kg7aa6lr" path="res://scenes/player/blade.tscn" id="35_ttakn"]
 [ext_resource type="Texture2D" uid="uid://dow5s0yba664y" path="res://assets/sprites/island/objects/buffs/shield/bubbleshield.png" id="37_hyqqp"]
 [ext_resource type="Script" uid="uid://dp3lba7mnpcyn" path="res://scenes/player/states/idle.gd" id="39_art4l"]
