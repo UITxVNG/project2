@@ -60,7 +60,12 @@ func turn_right() -> void:
 	_next_direction = 1
 
 func jump() -> void:
-	velocity.y = -jump_speed
+	if is_on_floor():
+		var pv = get_platform_velocity()
+		velocity.y = -jump_speed
+		velocity.y -= pv.y   # triệt tiêu ngay sau khi áp jump force
+
+
 func attack() -> void:
 	pass
 func stop_move() -> void:
