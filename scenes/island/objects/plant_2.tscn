@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://bjx5f372xekt8"]
+
+[ext_resource type="Texture2D" uid="uid://ci6tq4gtsvdpn" path="res://assets/tilesets/Mossy Tileset/HangingPlants/HangingPlant_7.png" id="1_uja1d"]
+
+[node name="Plant2" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_uja1d")
+flip_h = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-8, -30, 9, -43, 38, -42, 58, -34, 64, -17)
+one_way_collision = true

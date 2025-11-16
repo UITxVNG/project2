@@ -24,4 +24,4 @@ target_stage = "uid://276dirptn36f"
 position = Vector2(86, 213)
 
 [connection signal="body_entered" from="TileMapLayer/Checkpoint" to="TileMapLayer/Checkpoint" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMapLayer/@Area2D@27220" to="TileMapLayer/@Area2D@27220" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMapLayer/@Area2D@25761" to="TileMapLayer/@Area2D@25761" method="_on_body_entered"]
