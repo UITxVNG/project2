@@ -15,7 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://b1vdpb6cs2n6o" path="res://scenes/enemies/shieldspearman/shieldspearman.tscn" id="12_2dgve"]
 [ext_resource type="PackedScene" uid="uid://rygmcgeq7rdd" path="res://scenes/enemies/blueturtle/TurtleBlue.tscn" id="13_x4ubh"]
 [ext_resource type="PackedScene" uid="uid://ddc86ootpum2i" path="res://scenes/bosses/warlord_turtle/warlord_turtle.tscn" id="15_xm0ii"]
-[ext_resource type="PackedScene" uid="uid://cixw6ionnf1xk" path="res://scenes/util/rising_water.tscn" id="16_bg4ew"]
+[ext_resource type="PackedScene" uid="uid://b8dad0e1f2g3h" path="res://scenes/objects/rotating_saw/rotating_saw.tscn" id="17_vq3si"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_51e2l"]
 size = Vector2(124.689, 122)
@@ -104,6 +104,17 @@ target_stage = "uid://qjojp3xo7ie3"
 [node name="Barrel" parent="World" instance=ExtResource("3_5unt0")]
 position = Vector2(142, 149)
 
+[node name="Sprite2D6" type="Sprite2D" parent="World"]
+position = Vector2(2002, 270)
+scale = Vector2(5.22656, 0.601563)
+texture = ExtResource("1_da6vm")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="World/Sprite2D6"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Sprite2D6/StaticBody2D"]
+position = Vector2(0.382662, -11.6364)
+shape = SubResource("RectangleShape2D_51e2l")
+
 [node name="Bullets" type="Node2D" parent="."]
 visibility_layer = 2
 
@@ -137,7 +148,5 @@ position = Vector2(2144, 420)
 [node name="WarlordTurtle" parent="." instance=ExtResource("15_xm0ii")]
 position = Vector2(-502, 408)
 
-[node name="RisingWater" parent="." instance=ExtResource("16_bg4ew")]
-position = Vector2(697, 597)
-scale = Vector2(1, 0.5)
-rise_speed = 30.0
+[node name="RotatingSaw" parent="." instance=ExtResource("17_vq3si")]
+position = Vector2(1717, 198)

@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://b8dad0e1f2g3h"]
+
+[ext_resource type="Script" path="res://scripts/rotating_saw.gd" id="1_saw"]
+[ext_resource type="Texture2D" path="res://icon.svg" id="2_icon"]
+
+[sub_resource type="Curve2D" id="Curve2D_path"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 200, 0)
+}
+point_count = 2
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_saw"]
+radius = 32.0
+
+[node name="RotatingSaw" type="Path2D"]
+curve = SubResource("Curve2D_path")
+script = ExtResource("1_saw")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="."]
+loop = true
+
+[node name="SawBlade" type="Node2D" parent="PathFollow2D"]
+
+[node name="Sprite" type="Sprite2D" parent="PathFollow2D/SawBlade"]
+modulate = Color(0.7, 0.7, 0.7, 1)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_icon")
+
+[node name="HitArea2D" type="Area2D" parent="PathFollow2D/SawBlade"]
+collision_layer = 16
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PathFollow2D/SawBlade/HitArea2D"]
+shape = SubResource("CircleShape2D_saw")
