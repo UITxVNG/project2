@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://b8dad0e1f2g3h"]
+[gd_scene load_steps=5 format=3 uid="uid://24ab6tp306xf"]
 
 [ext_resource type="Script" path="res://scripts/rotating_saw.gd" id="1_saw"]
 [ext_resource type="Texture2D" path="res://icon.svg" id="2_icon"]

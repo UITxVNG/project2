@@ -1,12 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://b8dad0e1f2g3h"]
+[gd_scene load_steps=5 format=3 uid="uid://b8dad0e1f2g3h"]
 
 [ext_resource type="Script" uid="uid://d4bpjq6c07gor" path="res://scenes/objects/rotating_saw/rotating_saw.gd" id="1_saw"]
+[ext_resource type="Texture2D" uid="uid://bhi0q6tit1say" path="res://assets/sprites/saw_blade/saw_blade.png" id="2_j4rjn"]
 
 [sub_resource type="Curve2D" id="Curve2D_path"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 200, 0)
+"points": PackedVector2Array(0, 0, 0, 0, -60.9573, 305.696, 0, 0, 0, 0, 611.11, 306.67, 0, 0, 0, 0, 615.134, 369.969, 0, 0, 0, 0, -64.9817, 377.759, 0, 0, 0, 0, -64.9817, 305.696)
 }
-point_count = 2
+point_count = 5
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_saw"]
 radius = 32.0
@@ -16,16 +17,14 @@ curve = SubResource("Curve2D_path")
 script = ExtResource("1_saw")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="."]
+position = Vector2(-68, 220)
+rotation = -0.313017
 
 [node name="SawBlade" type="Node2D" parent="PathFollow2D"]
 
-[node name="Blade" type="Polygon2D" parent="PathFollow2D/SawBlade"]
-color = Color(0.5, 0.5, 0.5, 1)
-polygon = PackedVector2Array(-32, 0, -22, -12, -16, 0, -22, 12, -32, 0, -12, 22, 0, 16, 12, 22, 0, 32, 12, 22, 16, 0, 22, 12, 32, 0, 22, -12, 16, 0, 12, -22, 0, -16, -12, -22, 0, -32, -12, -22, -16, 0, -22, -12)
-
-[node name="InnerCircle" type="Polygon2D" parent="PathFollow2D/SawBlade"]
-color = Color(0.3, 0.3, 0.3, 1)
-polygon = PackedVector2Array(-8, 0, -6, -6, 0, -8, 6, -6, 8, 0, 6, 6, 0, 8, -6, 6)
+[node name="Sprite" type="Sprite2D" parent="PathFollow2D/SawBlade"]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_j4rjn")
 
 [node name="HitArea2D" type="Area2D" parent="PathFollow2D/SawBlade"]
 collision_layer = 16
