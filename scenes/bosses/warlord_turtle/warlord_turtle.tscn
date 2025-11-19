@@ -217,27 +217,28 @@ script = ExtResource("30_44inj")
 [node name="DropTimer" type="Timer" parent="."]
 
 [node name="RocketPositions" type="Node2D" parent="."]
+position = Vector2(-1, 0)
 
 [node name="RocketFactory1" type="Marker2D" parent="RocketPositions"]
-position = Vector2(150, 25)
+position = Vector2(146, -44)
 script = ExtResource("22_5qai5")
 product_packed_scene = ExtResource("32_evixd")
 target_container_name = &"Bullets"
 
 [node name="RocketFactory2" type="Marker2D" parent="RocketPositions"]
-position = Vector2(75, 25)
+position = Vector2(75, -45)
 script = ExtResource("22_5qai5")
 product_packed_scene = ExtResource("32_evixd")
 target_container_name = &"Bullets"
 
 [node name="RocketFactory3" type="Marker2D" parent="RocketPositions"]
-position = Vector2(-75, 25)
+position = Vector2(-72, -45)
 script = ExtResource("22_5qai5")
 product_packed_scene = ExtResource("32_evixd")
 target_container_name = &"Bullets"
 
 [node name="RocketFactory4" type="Marker2D" parent="RocketPositions"]
-position = Vector2(-150, 25)
+position = Vector2(-148, -46)
 script = ExtResource("22_5qai5")
 product_packed_scene = ExtResource("32_evixd")
 target_container_name = &"Bullets"
