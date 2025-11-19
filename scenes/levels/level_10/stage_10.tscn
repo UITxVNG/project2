@@ -47,10 +47,10 @@ parameters/looping = true
 [node name="Bullets" type="Node2D" parent="."]
 
 [node name="Player" parent="." instance=ExtResource("4_5eobn")]
-position = Vector2(1180, -127)
+position = Vector2(1170, -139)
 
 [node name="WarlordTurtle" parent="." instance=ExtResource("6_g2cvb")]
-position = Vector2(1440, -164)
+position = Vector2(1368, -159)
 
 [node name="Path2D" parent="." instance=ExtResource("7_un7i3")]
 position = Vector2(348, 338)
@@ -124,3 +124,5 @@ motion_mirroring = Vector2(1900, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer9"]
 texture = ExtResource("15_hgwr1")
+
+[connection signal="body_entered" from="TileMapLayer/Checkpoint" to="TileMapLayer/Checkpoint" method="_on_body_entered"]
