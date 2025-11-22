@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://qjojp3xo7ie3"]
+[gd_scene load_steps=19 format=3 uid="uid://qjojp3xo7ie3"]
 
 [ext_resource type="Texture2D" uid="uid://ilolheqwlwk2" path="res://icon.svg" id="1_da6vm"]
 [ext_resource type="PackedScene" uid="uid://cr06n1w1va6i8" path="res://scenes/player/player.tscn" id="2_st4qh"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://b1vdpb6cs2n6o" path="res://scenes/enemies/shieldspearman/shieldspearman.tscn" id="12_2dgve"]
 [ext_resource type="PackedScene" uid="uid://rygmcgeq7rdd" path="res://scenes/enemies/blueturtle/TurtleBlue.tscn" id="13_x4ubh"]
 [ext_resource type="PackedScene" uid="uid://ddc86ootpum2i" path="res://scenes/bosses/warlord_turtle/warlord_turtle.tscn" id="15_xm0ii"]
+[ext_resource type="PackedScene" path="res://scenes/util/rising_water.tscn" id="17_nnbvn"]
 [ext_resource type="PackedScene" uid="uid://b8dad0e1f2g3h" path="res://scenes/objects/rotating_saw/rotating_saw.tscn" id="17_vq3si"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_51e2l"]
@@ -58,7 +59,7 @@ position = Vector2(-1.04308e-06, -2.27555)
 shape = SubResource("RectangleShape2D_51e2l")
 
 [node name="Player" parent="World" instance=ExtResource("2_st4qh")]
-position = Vector2(1902, 285)
+position = Vector2(1848, 292)
 
 [node name="Sprite2D2" type="Sprite2D" parent="World"]
 position = Vector2(973, 463)
@@ -105,7 +106,7 @@ target_stage = "uid://qjojp3xo7ie3"
 position = Vector2(142, 149)
 
 [node name="Sprite2D6" type="Sprite2D" parent="World"]
-position = Vector2(2014, 327)
+position = Vector2(2013, 330)
 scale = Vector2(5.22656, 0.601563)
 texture = ExtResource("1_da6vm")
 
@@ -153,3 +154,7 @@ position = Vector2(-502, 408)
 position = Vector2(1741.59, -20.9138)
 scale = Vector2(0.993949, 1.02688)
 move_speed = 200.0
+
+[node name="RisingWater" parent="RotatingSaw" instance=ExtResource("17_nnbvn")]
+position = Vector2(-264.189, 1137.34)
+rise_speed = 40.0
