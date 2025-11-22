@@ -1,0 +1,124 @@
+[gd_scene load_steps=21 format=3 uid="uid://c0di5uoah8utl"]
+
+[ext_resource type="Script" uid="uid://ckrf0af4y6d38" path="res://scenes/enemies/barrel3s/barrel_3s.gd" id="1_mgxpj"]
+[ext_resource type="Texture2D" uid="uid://vvyg4vcnh0tj" path="res://assets/sprites/enemy/barrel/barrel_01.png" id="2_sn1fo"]
+[ext_resource type="Texture2D" uid="uid://cgdhy5fmahrm8" path="res://assets/sprites/enemy/barrel/barrel_02.png" id="3_o1sm8"]
+[ext_resource type="Texture2D" uid="uid://btcijkatijwcu" path="res://assets/sprites/enemy/barrel/barrel_atk_01.png" id="4_udyg7"]
+[ext_resource type="Texture2D" uid="uid://igao4ytbdplv" path="res://assets/sprites/enemy/barrel/barrel_atk_02.png" id="5_d2m81"]
+[ext_resource type="Texture2D" uid="uid://8ak8mjc2uh1g" path="res://assets/sprites/enemy/barrel/barrel_atk_04.png" id="6_hsff3"]
+[ext_resource type="Texture2D" uid="uid://gexn7f67ybsm" path="res://assets/sprites/enemy/barrel/barrel_atk_03.png" id="7_sywgt"]
+[ext_resource type="Texture2D" uid="uid://bueplr32o1ur2" path="res://assets/sprites/enemy/barrel/barrel_atk_05.png" id="8_e7x2w"]
+[ext_resource type="Texture2D" uid="uid://d20meigs5ogna" path="res://assets/sprites/enemy/barrel/barrel_hit_01.png" id="9_anbrp"]
+[ext_resource type="Texture2D" uid="uid://lfl1qsl8wmcy" path="res://assets/sprites/enemy/barrel/barrel_hit_02.png" id="10_hrrka"]
+[ext_resource type="Script" uid="uid://dva73oliuh5wk" path="res://scripts/node2d_factory.gd" id="11_ktqac"]
+[ext_resource type="PackedScene" uid="uid://t5rlmtgvluui" path="res://scenes/enemies/barrel/BarrelBullet.tscn" id="12_7apri"]
+[ext_resource type="Script" uid="uid://csu2b21cwchqw" path="res://scripts/hurt_area_2d.gd" id="13_34pwu"]
+[ext_resource type="Script" uid="uid://bvfh40gmmipgo" path="res://scenes/enemies/barrel/idle.gd" id="14_hko3r"]
+[ext_resource type="Script" uid="uid://b6afq4amlylry" path="res://scenes/enemies/barrel3s/shoot.gd" id="15_asaf0"]
+[ext_resource type="Script" uid="uid://cy4b3dxv001dy" path="res://scenes/enemies/barrel3s/hurt.gd" id="16_5mppr"]
+[ext_resource type="Script" uid="uid://co8a08ha2mc64" path="res://scenes/enemies/crab/dead.gd" id="17_o8kkm"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_p40nr"]
+height = 28.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rf6vm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_sn1fo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_o1sm8")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_udyg7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_d2m81")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_hsff3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_sywgt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_e7x2w")
+}],
+"loop": true,
+"name": &"Shoot",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_anbrp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_hrrka")
+}],
+"loop": true,
+"name": &"dead",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_anbrp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_hrrka")
+}],
+"loop": true,
+"name": &"hurt",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lkjb8"]
+
+[node name="BarrelLeft" type="CharacterBody2D"]
+script = ExtResource("1_mgxpj")
+metadata/_custom_type_script = "uid://s4xx82espxdt"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 4)
+shape = SubResource("CapsuleShape2D_p40nr")
+
+[node name="Direction" type="Node2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Direction"]
+sprite_frames = SubResource("SpriteFrames_rf6vm")
+animation = &"dead"
+
+[node name="BulletFactory" type="Marker2D" parent="Direction"]
+script = ExtResource("11_ktqac")
+product_packed_scene = ExtResource("12_7apri")
+target_container_name = &"Bullets"
+
+[node name="HurtArea2D" type="Area2D" parent="Direction"]
+collision_layer = 16
+collision_mask = 8
+script = ExtResource("13_34pwu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Direction/HurtArea2D"]
+position = Vector2(0, 4)
+shape = SubResource("CapsuleShape2D_lkjb8")
+
+[node name="States" type="Node" parent="."]
+
+[node name="Idle" type="Node" parent="States"]
+script = ExtResource("14_hko3r")
+
+[node name="Shoot" type="Node" parent="States"]
+script = ExtResource("15_asaf0")
+
+[node name="Hurt" type="Node" parent="States"]
+script = ExtResource("16_5mppr")
+
+[node name="Dead" type="Node" parent="States"]
+script = ExtResource("17_o8kkm")
+
+[connection signal="hurt" from="Direction/HurtArea2D" to="." method="_on_hurt_area_2d_hurt"]

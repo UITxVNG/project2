@@ -109,4 +109,4 @@ func rocket_rain() -> void:
 	for factory in _rocket_factories:
 		var rocket = factory.create() as Bomb
 		rocket.set_damage(attack_damage)
-		rocket.position.y = 0
+		#rocket.position.y = 0

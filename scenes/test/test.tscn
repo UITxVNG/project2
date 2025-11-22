@@ -10,7 +10,9 @@
 [ext_resource type="PackedScene" uid="uid://dubb5b1vjmsxd" path="res://scenes/objects/door/door.tscn" id="5_oj4i3"]
 [ext_resource type="PackedScene" uid="uid://cbsa8w2lp8433" path="res://scenes/enemies/crab/crab.tscn" id="5_we7ej"]
 [ext_resource type="PackedScene" uid="uid://d2dcr3gj11aw1" path="res://scenes/enemies/pelicant/pelicant.tscn" id="7_2dgve"]
+[ext_resource type="PackedScene" uid="uid://dnj077mr8k0u3" path="res://scenes/enemies/mushroom/mushroom.tscn" id="8_bg4ew"]
 [ext_resource type="PackedScene" uid="uid://dm2c4i1jf7orw" path="res://scenes/enemies/spike/spike.tscn" id="8_x4ubh"]
+[ext_resource type="PackedScene" uid="uid://c0di5uoah8utl" path="res://scenes/enemies/barrel3s/barrel-left.tscn" id="9_vq3si"]
 [ext_resource type="PackedScene" uid="uid://cjgvg81b80ge4" path="res://scenes/enemies/starfish/starfish.tscn" id="9_xm0ii"]
 [ext_resource type="PackedScene" uid="uid://b1vdpb6cs2n6o" path="res://scenes/enemies/shieldspearman/shieldspearman.tscn" id="12_2dgve"]
 [ext_resource type="PackedScene" uid="uid://rygmcgeq7rdd" path="res://scenes/enemies/blueturtle/TurtleBlue.tscn" id="13_x4ubh"]
@@ -59,7 +61,7 @@ position = Vector2(-1.04308e-06, -2.27555)
 shape = SubResource("RectangleShape2D_51e2l")
 
 [node name="Player" parent="World" instance=ExtResource("2_st4qh")]
-position = Vector2(1848, 292)
+position = Vector2(-279, 419)
 
 [node name="Sprite2D2" type="Sprite2D" parent="World"]
 position = Vector2(973, 463)
@@ -85,7 +87,7 @@ position = Vector2(-1.46986, 3.57805)
 shape = SubResource("RectangleShape2D_51e2l")
 
 [node name="Barrel3s" parent="World" instance=ExtResource("4_saoeg")]
-position = Vector2(852, 423)
+position = Vector2(954, 365)
 
 [node name="Spike" parent="World" instance=ExtResource("8_x4ubh")]
 position = Vector2(1334, 424)
@@ -105,17 +107,11 @@ target_stage = "uid://qjojp3xo7ie3"
 [node name="Barrel" parent="World" instance=ExtResource("3_5unt0")]
 position = Vector2(142, 149)
 
-[node name="Sprite2D6" type="Sprite2D" parent="World"]
-position = Vector2(2013, 330)
-scale = Vector2(5.22656, 0.601563)
-texture = ExtResource("1_da6vm")
+[node name="Mushroom" parent="World" instance=ExtResource("8_bg4ew")]
+position = Vector2(1300, 372)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="World/Sprite2D6"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Sprite2D6/StaticBody2D"]
-visible = false
-position = Vector2(0.382662, -11.6364)
-shape = SubResource("RectangleShape2D_51e2l")
+[node name="BarrelLeft" parent="World" instance=ExtResource("9_vq3si")]
+position = Vector2(-195, 420)
 
 [node name="Bullets" type="Node2D" parent="."]
 visibility_layer = 2
