@@ -124,5 +124,3 @@ motion_mirroring = Vector2(1900, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer9"]
 texture = ExtResource("15_hgwr1")
-
-[connection signal="body_entered" from="TileMapLayer/Checkpoint" to="TileMapLayer/Checkpoint" method="_on_body_entered"]

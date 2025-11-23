@@ -244,4 +244,6 @@ texture = ExtResource("36_5i172")
 position = Vector2(2816, 190)
 curve = SubResource("Curve2D_1of5l")
 
-[connection signal="body_entered" from="TileMapLayer/Checkpoint" to="TileMapLayer/Checkpoint" method="_on_body_entered"]
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+
+[node name="HUD" parent="CanvasLayer2" instance=ExtResource("5_l2kue")]
