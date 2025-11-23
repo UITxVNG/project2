@@ -144,7 +144,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_evixd"]
-size = Vector2(62, 65)
+size = Vector2(66, 65)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8yvna"]
 size = Vector2(42, 62)
@@ -166,7 +166,7 @@ collision_mask = 4
 script = ExtResource("20_upy5t")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Direction/HitArea2D"]
-position = Vector2(-1, 0.5)
+position = Vector2(-3, 0.5)
 shape = SubResource("RectangleShape2D_evixd")
 
 [node name="LeftFactory" type="Marker2D" parent="Direction"]
