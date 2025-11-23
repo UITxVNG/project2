@@ -1,24 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://b8dad0e1f2g3h"]
+[gd_scene load_steps=4 format=3 uid="uid://b8dad0e1f2g3h"]
 
 [ext_resource type="Script" uid="uid://d4bpjq6c07gor" path="res://scenes/objects/rotating_saw/rotating_saw.gd" id="1_saw"]
-[ext_resource type="Texture2D" uid="uid://bhi0q6tit1say" path="res://assets/sprites/saw_blade/saw_blade.png" id="2_j4rjn"]
-
-[sub_resource type="Curve2D" id="Curve2D_path"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, -60.9573, 305.696, 0, 0, 0, 0, 611.11, 306.67, 0, 0, 0, 0, 615.134, 369.969, 0, 0, 0, 0, -64.9817, 377.759, 0, 0, 0, 0, -64.9817, 305.696)
-}
-point_count = 5
+[ext_resource type="Texture2D" uid="uid://unmmgyi4meoc" path="res://assets/sprites/saw_blade/saw_blade.png" id="2_j4rjn"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_saw"]
 radius = 32.0
 
 [node name="RotatingSaw" type="Path2D"]
-curve = SubResource("Curve2D_path")
 script = ExtResource("1_saw")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="."]
-position = Vector2(-68, 220)
-rotation = -0.313017
+rotation = 0.00144926
 
 [node name="SawBlade" type="Node2D" parent="PathFollow2D"]
 

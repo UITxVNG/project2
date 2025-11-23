@@ -56,6 +56,3 @@ position = Vector2(-535, -679)
 target_stage = "uid://boxp0pgyq4pfu"
 
 [node name="ParallaxBackground" parent="." instance=ExtResource("8_wuvcj")]
-
-[connection signal="body_entered" from="TileMapLayer/Checkpoint" to="TileMapLayer/Checkpoint" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMapLayer/@Area2D@27191" to="TileMapLayer/@Area2D@27191" method="_on_body_entered"]

@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=30 format=3 uid="uid://c8m8q0fe452q3"]
+[gd_resource type="TileSet" load_steps=32 format=3 uid="uid://c8m8q0fe452q3"]
 
 [ext_resource type="Texture2D" uid="uid://v2dtejovry7r" path="res://assets/sprites/island/terrain/terrain_32x32.png" id="1_1i68p"]
 [ext_resource type="PackedScene" uid="uid://db4svvvhax8kp" path="res://scenes/island/objects/palm_tree_1.tscn" id="2_hbhjq"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://cioy73jn1bmv" path="res://scenes/enemies/barrel/barrel.tscn" id="6_xmd2m"]
 [ext_resource type="PackedScene" uid="uid://bock2o462txmp" path="res://scenes/enemies/barrel3s/barrel3s.tscn" id="7_777mh"]
 [ext_resource type="PackedScene" uid="uid://cbsa8w2lp8433" path="res://scenes/enemies/crab/crab.tscn" id="8_i233u"]
+[ext_resource type="PackedScene" uid="uid://b8dad0e1f2g3h" path="res://scenes/objects/rotating_saw/rotating_saw.tscn" id="9_uingf"]
 [ext_resource type="PackedScene" uid="uid://dnj077mr8k0u3" path="res://scenes/enemies/mushroom/mushroom.tscn" id="9_yfbvw"]
 [ext_resource type="PackedScene" uid="uid://d2dcr3gj11aw1" path="res://scenes/enemies/pelicant/pelicant.tscn" id="10_rex1v"]
 [ext_resource type="PackedScene" uid="uid://dm2c4i1jf7orw" path="res://scenes/enemies/spike/spike.tscn" id="11_5sc6k"]
@@ -734,6 +735,7 @@ scenes/6/scene = ExtResource("11_5sc6k")
 scenes/7/scene = ExtResource("12_y3k0m")
 scenes/8/scene = ExtResource("15_xfkjr")
 scenes/9/scene = ExtResource("16_uingf")
+scenes/10/scene = ExtResource("9_uingf")
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_n8ds3"]
 resource_name = "Objects"
@@ -1059,6 +1061,9 @@ texture_region_size = Vector2i(32, 32)
 8:5/0 = 0
 8:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(0.955894, -16, 16, -16, 16, -1.59315, 1.91179, -1.91179)
 
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_64csb"]
+scenes/1/scene = ExtResource("9_uingf")
+
 [resource]
 tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 1
@@ -1075,3 +1080,4 @@ sources/2 = SubResource("TileSetScenesCollectionSource_gbqw0")
 sources/3 = SubResource("TileSetScenesCollectionSource_n8ds3")
 sources/19 = SubResource("TileSetAtlasSource_y3k0m")
 sources/4 = SubResource("TileSetAtlasSource_frh5l")
+sources/5 = SubResource("TileSetScenesCollectionSource_64csb")
