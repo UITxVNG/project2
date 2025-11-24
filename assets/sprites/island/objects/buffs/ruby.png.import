@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bnih2abgx18uk"
-path="res://.godot/imported/doublejump_1.png-eaa725820e73ff8d7a5b2df20b9da6e2.ctex"
+uid="uid://b42njkkioyyaw"
+path="res://.godot/imported/ruby.png-2b82d17242c0d2ec0d6b95e71ab88e66.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/island/objects/buffs/doublejump/doublejump_1.png"
-dest_files=["res://.godot/imported/doublejump_1.png-eaa725820e73ff8d7a5b2df20b9da6e2.ctex"]
+source_file="res://assets/sprites/island/objects/buffs/ruby.png"
+dest_files=["res://.godot/imported/ruby.png-2b82d17242c0d2ec0d6b95e71ab88e66.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cif3222dwq4bx"
-path="res://.godot/imported/shield.png-c5f24bcf925cdfddc1c0a6dcdd1edeb0.ctex"
+uid="uid://bmd77x85tmtfr"
+path="res://.godot/imported/magnet.png-fb14a405e159312dfcb85ff4c79b2240.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/island/objects/buffs/shield/shield.png"
-dest_files=["res://.godot/imported/shield.png-c5f24bcf925cdfddc1c0a6dcdd1edeb0.ctex"]
+source_file="res://assets/sprites/island/objects/buffs/magnet.png"
+dest_files=["res://.godot/imported/magnet.png-fb14a405e159312dfcb85ff4c79b2240.ctex"]
 
 [params]
 
