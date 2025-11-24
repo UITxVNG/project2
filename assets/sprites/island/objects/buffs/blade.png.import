@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dow5s0yba664y"
-path="res://.godot/imported/bubbleshield.png-dd55af112b1d1278599620901d2fdc3a.ctex"
+uid="uid://cvlk6y42qmydp"
+path="res://.godot/imported/blade.png-1a080fa08254106ec0f6e5cc5edfb2fb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/island/objects/buffs/shield/bubbleshield.png"
-dest_files=["res://.godot/imported/bubbleshield.png-dd55af112b1d1278599620901d2fdc3a.ctex"]
+source_file="res://assets/sprites/island/objects/buffs/blade.png"
+dest_files=["res://.godot/imported/blade.png-1a080fa08254106ec0f6e5cc5edfb2fb.ctex"]
 
 [params]
 
