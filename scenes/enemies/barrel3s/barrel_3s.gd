@@ -10,4 +10,4 @@ func _ready() -> void:
 func fire() -> void:
 	var bullet := bullet_factory.create() as RigidBody2D
 	var shooting_velocity := Vector2(bullet_speed * direction, 0.0)
-	bullet.apply_impulse(shooting_velocity)
+	bullet.apply_impulse(shooting_velocity, Vector2.ZERO)
