@@ -2,11 +2,11 @@
 
 [ext_resource type="Texture2D" uid="uid://ilolheqwlwk2" path="res://icon.svg" id="1_0bxed"]
 [ext_resource type="PackedScene" uid="uid://cr06n1w1va6i8" path="res://scenes/player/player.tscn" id="2_xbngi"]
-[ext_resource type="PackedScene" uid="uid://b6nsbobtl5ywr" path="res://scenes/objects/buffitems/doublejump/doublejump.tscn" id="3_xbngi"]
 [ext_resource type="PackedScene" uid="uid://cw41ooeg3pxq1" path="res://scenes/objects/checkpoint/checkpoint.tscn" id="4_65f7k"]
-[ext_resource type="PackedScene" uid="uid://dugxrrin8lgya" path="res://scenes/objects/buffitems/shield/shield.tscn" id="4_n1u7t"]
 [ext_resource type="PackedScene" uid="uid://dm2c4i1jf7orw" path="res://scenes/enemies/spike/spike.tscn" id="5_65f7k"]
 [ext_resource type="PackedScene" uid="uid://dubb5b1vjmsxd" path="res://scenes/objects/door/door.tscn" id="5_xbngi"]
+[ext_resource type="PackedScene" uid="uid://buerol0qhwr6" path="res://scenes/objects/buffitems/speed/speed_up.tscn" id="6_n1u7t"]
+[ext_resource type="PackedScene" uid="uid://b3ol3sy3kji1p" path="res://scenes/objects/buffitems/blade/blade.tscn" id="7_65f7k"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_51e2l"]
 size = Vector2(120, 122)
@@ -29,12 +29,6 @@ shape = SubResource("RectangleShape2D_51e2l")
 [node name="Player" parent="World" instance=ExtResource("2_xbngi")]
 position = Vector2(179, 144)
 
-[node name="Doublejump" parent="World" instance=ExtResource("3_xbngi")]
-position = Vector2(381, 134)
-
-[node name="Shield" parent="World" instance=ExtResource("4_n1u7t")]
-position = Vector2(516, 135)
-
 [node name="Spike" parent="World" instance=ExtResource("5_65f7k")]
 position = Vector2(135, 157)
 
@@ -46,3 +40,9 @@ position = Vector2(272, 156)
 [node name="Door" parent="." groups=["doors"] instance=ExtResource("5_xbngi")]
 position = Vector2(83, 172)
 target_stage = "uid://qjojp3xo7ie3"
+
+[node name="SpeedUp" parent="." instance=ExtResource("6_n1u7t")]
+position = Vector2(373, 144)
+
+[node name="Blade" parent="." instance=ExtResource("7_65f7k")]
+position = Vector2(487, 145)
