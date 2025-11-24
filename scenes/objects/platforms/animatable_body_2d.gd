@@ -3,27 +3,25 @@ extends AnimatableBody2D
 @export var path_follow: PathFollow2D
 @export var move_speed: float = 100.0
 
-var last_pos: Vector2
+var velocity: Vector2 = Vector2.ZERO
 
 func _ready():
-	last_pos = global_position
+	sync_to_physics = true
 
 func _physics_process(delta):
-	if path_follow == null:
+	if path_follow == null or move_speed == 0:
+		constant_linear_velocity = Vector2.ZERO
 		return
+	
+	# Store old position
+	var old_position = path_follow.global_position
 	
 	# Move path follow
 	path_follow.progress += move_speed * delta
 	
-	# Calculate velocity BEFORE moving
-	var target_pos = path_follow.global_position
-	var velocity = (target_pos - last_pos) / delta
+	# Calculate new position and velocity
+	var new_position = path_follow.global_position
+	velocity = (new_position - old_position) / delta
 	
-	# Move platform using sync_to_physics for proper collision
-	global_position = target_pos
-	
-	# Update constant velocity for proper platform movement
+	# Update platform velocity BEFORE moving
 	constant_linear_velocity = velocity
-	
-	# Store position for next frame
-	last_pos = global_position

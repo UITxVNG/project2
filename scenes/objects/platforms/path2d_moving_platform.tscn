@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://sws2l0sfegan" path="res://scenes/objects/platforms/animatable_body_2d.gd" id="1_0umqr"]
 [ext_resource type="Texture2D" uid="uid://bn23ps3jhu4ru" path="res://assets/sprites/island/objects/platforms/moving_platform.png" id="1_7ldoo"]
-[ext_resource type="Script" path="res://scenes/objects/platforms/path2d_moving_platform.gd" id="1_path2d"]
+[ext_resource type="Script" uid="uid://b42s3op73vfl8" path="res://scenes/objects/platforms/path2d_moving_platform.gd" id="1_path2d"]
 
 [sub_resource type="Curve2D" id="Curve2D_lg0vp"]
 _data = {
@@ -65,6 +65,7 @@ remote_path = NodePath("../AnimatableBody2D")
 
 [node name="AnimatableBody2D" type="AnimatableBody2D" parent="PathFollow2D"]
 script = ExtResource("1_0umqr")
+path_follow = NodePath("..")
 
 [node name="MovingPlatform" type="Sprite2D" parent="PathFollow2D/AnimatableBody2D"]
 texture = ExtResource("1_7ldoo")
