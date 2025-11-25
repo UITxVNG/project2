@@ -64,12 +64,12 @@ shape = SubResource("CapsuleShape2D_htxbm")
 [node name="Direction" type="Node2D" parent="."]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Direction"]
-position = Vector2(5, 8)
+position = Vector2(1, 9)
 sprite_frames = SubResource("SpriteFrames_geqcu")
 animation = &"Shoot"
 
 [node name="BulletFactory" type="Marker2D" parent="Direction"]
-position = Vector2(13, 16)
+position = Vector2(13, 14)
 script = ExtResource("9_1jev2")
 product_packed_scene = ExtResource("10_5tuwc")
 target_container_name = &"Bullets"
