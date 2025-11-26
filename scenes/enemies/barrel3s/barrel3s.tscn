@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://bock2o462txmp"]
+[gd_scene load_steps=17 format=3 uid="uid://bock2o462txmp"]
 
 [ext_resource type="Script" uid="uid://ckrf0af4y6d38" path="res://scenes/enemies/barrel3s/barrel_3s.gd" id="1_pdvom"]
 [ext_resource type="Texture2D" uid="uid://d20meigs5ogna" path="res://assets/sprites/enemy/barrel/barrel_hit_01.png" id="2_pdvom"]
@@ -10,19 +10,27 @@
 [ext_resource type="Texture2D" uid="uid://8ak8mjc2uh1g" path="res://assets/sprites/enemy/barrel/barrel_atk_04.png" id="8_oykwr"]
 [ext_resource type="Texture2D" uid="uid://gexn7f67ybsm" path="res://assets/sprites/enemy/barrel/barrel_atk_03.png" id="9_4t7xj"]
 [ext_resource type="Texture2D" uid="uid://bueplr32o1ur2" path="res://assets/sprites/enemy/barrel/barrel_atk_05.png" id="10_emg27"]
-[ext_resource type="Script" uid="uid://dva73oliuh5wk" path="res://scripts/node2d_factory.gd" id="11_fei17"]
+[ext_resource type="Script" path="res://scripts/node2d_factory.gd" id="11_fei17"]
 [ext_resource type="PackedScene" uid="uid://t5rlmtgvluui" path="res://scenes/enemies/barrel/BarrelBullet.tscn" id="12_nifko"]
 [ext_resource type="Script" uid="uid://bvfh40gmmipgo" path="res://scenes/enemies/barrel/idle.gd" id="13_0rewk"]
-[ext_resource type="Script" uid="uid://csu2b21cwchqw" path="res://scripts/hurt_area_2d.gd" id="13_lkjb8"]
 [ext_resource type="Script" uid="uid://b6afq4amlylry" path="res://scenes/enemies/barrel3s/shoot.gd" id="14_pdvom"]
-[ext_resource type="Script" uid="uid://cy4b3dxv001dy" path="res://scenes/enemies/barrel3s/hurt.gd" id="16_lkjb8"]
-[ext_resource type="Script" uid="uid://co8a08ha2mc64" path="res://scenes/enemies/crab/dead.gd" id="17_5y0e7"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_p40nr"]
 height = 28.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_rf6vm"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_pdvom")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_1bw6v")
+}],
+"loop": true,
+"name": &"Hurt",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("4_iypdi")
@@ -53,31 +61,7 @@ animations = [{
 "loop": true,
 "name": &"Shoot",
 "speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("2_pdvom")
-}, {
-"duration": 1.0,
-"texture": ExtResource("3_1bw6v")
-}],
-"loop": true,
-"name": &"dead",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("2_pdvom")
-}, {
-"duration": 1.0,
-"texture": ExtResource("3_1bw6v")
-}],
-"loop": true,
-"name": &"hurt",
-"speed": 5.0
 }]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lkjb8"]
 
 [node name="Barrel3s" type="CharacterBody2D"]
 script = ExtResource("1_pdvom")
@@ -91,21 +75,12 @@ shape = SubResource("CapsuleShape2D_p40nr")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Direction"]
 sprite_frames = SubResource("SpriteFrames_rf6vm")
-animation = &"dead"
+animation = &"Hurt"
 
 [node name="BulletFactory" type="Marker2D" parent="Direction"]
 script = ExtResource("11_fei17")
 product_packed_scene = ExtResource("12_nifko")
 target_container_name = &"Bullets"
-
-[node name="HurtArea2D" type="Area2D" parent="Direction"]
-collision_layer = 16
-collision_mask = 8
-script = ExtResource("13_lkjb8")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Direction/HurtArea2D"]
-position = Vector2(0, 4)
-shape = SubResource("CapsuleShape2D_lkjb8")
 
 [node name="States" type="Node" parent="."]
 
@@ -114,11 +89,3 @@ script = ExtResource("13_0rewk")
 
 [node name="Shoot" type="Node" parent="States"]
 script = ExtResource("14_pdvom")
-
-[node name="Hurt" type="Node" parent="States"]
-script = ExtResource("16_lkjb8")
-
-[node name="Dead" type="Node" parent="States"]
-script = ExtResource("17_5y0e7")
-
-[connection signal="hurt" from="Direction/HurtArea2D" to="." method="_on_hurt_area_2d_hurt"]

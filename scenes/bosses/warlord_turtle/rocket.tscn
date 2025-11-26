@@ -7,11 +7,12 @@
 [ext_resource type="Script" uid="uid://dva73oliuh5wk" path="res://scripts/node2d_factory.gd" id="4_gyq8u"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xxana"]
-radius = 9.0
-height = 32.0
+radius = 6.0
+height = 24.0
 
 [node name="Rocket" type="RigidBody2D"]
 collision_layer = 0
+collision_mask = 0
 script = ExtResource("1_nlqde")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -19,7 +20,6 @@ texture = ExtResource("2_8m0yp")
 flip_v = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -3)
 shape = SubResource("CapsuleShape2D_xxana")
 
 [node name="HitArea2D" type="Area2D" parent="."]
@@ -28,7 +28,6 @@ collision_mask = 4
 script = ExtResource("3_8ewrw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitArea2D"]
-position = Vector2(0, -3)
 shape = SubResource("CapsuleShape2D_xxana")
 
 [node name="ParticlesFactory" type="Marker2D" parent="."]
@@ -36,6 +35,5 @@ script = ExtResource("4_gyq8u")
 product_packed_scene = ExtResource("4_fjb2r")
 target_container_name = &"Bullets"
 
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_entered" from="HitArea2D" to="." method="_on_hit_area_2d_body_entered"]
 [connection signal="hitted" from="HitArea2D" to="." method="_on_hit_area_2d_hitted"]

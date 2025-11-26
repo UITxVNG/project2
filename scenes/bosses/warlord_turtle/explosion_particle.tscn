@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://ci66febm8eq4h"]
+[gd_scene load_steps=4 format=3 uid="uid://ci66febm8eq4h"]
 
 [ext_resource type="Texture2D" uid="uid://ia0y42ncy4i2" path="res://assets/sprites/war_lord_bullet/bullet_rocket_particle.png" id="1_scfj3"]
 
@@ -7,53 +7,14 @@ script/source = "extends RigidBody2D
 
 func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
 	queue_free()
-
-func _ready() -> void:
-	gravity_scale = 0.5
-	contact_monitor = true
-	max_contacts_reported = 4
-	
-	$CollisionShape2D.disabled = true
-	await get_tree().create_timer(0.1).timeout
-	$CollisionShape2D.disabled = false
-	
-func _on_hit_area_2d_hitted(_area: Variant) -> void:
-	queue_free()
-	
-func _on_body_entered(_body: Node) -> void:
-	queue_free()
 "
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_s8ofv"]
 radius = 5.09902
 
-[sub_resource type="GDScript" id="GDScript_scfj3"]
-script/source = "extends Area2D
-
-@export var damage = 1.0
-signal hitted(area)
-
-func _ready():
-	self.area_entered.connect(_on_area_entered)
-	self.body_entered.connect(_on_body_entered)
-
-func _on_area_entered(area: Area2D) -> void:
-	if area.has_method(\"take_damage\"):
-		var hit_dir: Vector2 = area.global_position - global_position
-		area.take_damage(hit_dir.normalized(), damage)
-	emit_signal(\"hitted\", area)
-func _on_body_entered(body: Node) -> void:
-	if body.has_method(\"take_damage\"):
-		var hit_dir: Vector2 = body.global_position - global_position
-		body.take_damage(hit_dir.normalized(), damage)  # Call take_damage on the body
-	emit_signal(\"hitted\", body)
-"
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_byiig"]
-radius = 4.0
-
 [node name="ExplosionParticle" type="RigidBody2D"]
-collision_layer = 8
+collision_layer = 0
+collision_mask = 0
 script = SubResource("GDScript_s8ofv")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -64,14 +25,4 @@ shape = SubResource("CircleShape2D_s8ofv")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 
-[node name="HitArea2D" type="Area2D" parent="."]
-collision_layer = 0
-collision_mask = 4
-script = SubResource("GDScript_scfj3")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HitArea2D"]
-position = Vector2(1, 1)
-shape = SubResource("CircleShape2D_byiig")
-
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

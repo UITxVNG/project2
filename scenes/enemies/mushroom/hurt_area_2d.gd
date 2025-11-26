@@ -1,1 +1,0 @@
-extends HurtArea2D

@@ -11,20 +11,6 @@ func set_damage(damage: float) -> void:
 
 @onready var _particles_factory := $ParticlesFactory
 
-func _ready():
-	contact_monitor = true
-	max_contacts_reported = 4
-
-func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
-	var bodies = state.get_contact_count()
-
-	for i in bodies:
-		var collider = state.get_contact_collider_object(i)
-		if collider:
-			explosion()
-		return
-
-
 func _on_hit_area_2d_body_entered(_body: Node2D) -> void:
 	explosion()
 
@@ -47,7 +33,4 @@ func _create_particles_safe() -> void:
 	bot_right.apply_impulse(Vector2(impulse.x, -impulse.y / 2))
 
 func _on_hit_area_2d_hitted(_area: Variant) -> void:
-	explosion()
-
-func _on_body_entered(body: Node) -> void:
 	explosion()
