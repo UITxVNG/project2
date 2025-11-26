@@ -1,10 +1,9 @@
-extends EnemyCharacter
-@export var bullet_speed: float = 300
-@onready var bullet_factory := $Direction/BulletFactory
+extends "res://scenes/enemies/barrel3s/barrel_3s.gd"
 
 func _ready() -> void:
 	fsm = FSM.new(self, $States, $States/Idle)
 	super._ready()
+	turn_around()
 
 
 func fire() -> void:
