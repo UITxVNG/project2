@@ -1,54 +1,65 @@
-[gd_scene load_steps=2 format=3 uid="uid://cgecvij6t4q38"]
+[gd_scene load_steps=12 format=3 uid="uid://cgecvij6t4q38"]
 
 [ext_resource type="Script" uid="uid://cqjc141t8dk2j" path="res://scenes/levels/chose_level/chose_level.gd" id="1_8r37s"]
+[ext_resource type="Texture2D" uid="uid://c3px27gbtiri2" path="res://assets/ui/level1.png" id="2_3o145"]
+[ext_resource type="Texture2D" uid="uid://0jdjcixejnes" path="res://assets/ui/level2.png" id="3_pdq8a"]
+[ext_resource type="Texture2D" uid="uid://dgrhsx8q5vggd" path="res://assets/ui/level3.png" id="4_uvh6p"]
+[ext_resource type="Texture2D" uid="uid://cta3cdqjw0sjm" path="res://assets/ui/level4.png" id="5_sxpue"]
+[ext_resource type="Texture2D" uid="uid://slcsjypk03l" path="res://assets/ui/level5.png" id="6_dywcc"]
+[ext_resource type="Texture2D" uid="uid://dr0ytejonisvu" path="res://assets/ui/level6.png" id="7_u4ed3"]
+[ext_resource type="Texture2D" uid="uid://bta7r6wplawog" path="res://assets/ui/level7.png" id="8_4mdi5"]
+[ext_resource type="Texture2D" uid="uid://bt6cjm7g1f6tg" path="res://assets/ui/level8.png" id="9_evglp"]
+[ext_resource type="Texture2D" uid="uid://binxiad1cllpn" path="res://assets/ui/level9.png" id="10_lovcd"]
+[ext_resource type="Texture2D" uid="uid://qsnhv18m14qn" path="res://assets/ui/level10.png" id="11_l7u2x"]
 
 [node name="ChoseLevel" type="Control"]
 layout_mode = 3
 anchors_preset = 0
+scale = Vector2(0.55, 0.63)
 script = ExtResource("1_8r37s")
 
 [node name="GridContainer" type="GridContainer" parent="."]
 layout_mode = 0
-offset_right = 335.0
-offset_bottom = 66.0
+offset_right = 2082.0
+offset_bottom = 1043.0
 columns = 5
 
 [node name="Level1" type="Button" parent="GridContainer"]
 layout_mode = 2
-text = "Level 1"
+icon = ExtResource("2_3o145")
 
 [node name="Level2" type="Button" parent="GridContainer"]
 layout_mode = 2
-text = "Level 2"
+icon = ExtResource("3_pdq8a")
 
 [node name="Level3" type="Button" parent="GridContainer"]
 layout_mode = 2
-text = "Level 3"
+icon = ExtResource("4_uvh6p")
 
 [node name="Level4" type="Button" parent="GridContainer"]
 layout_mode = 2
-text = "Level 4"
+icon = ExtResource("5_sxpue")
 
 [node name="Level5" type="Button" parent="GridContainer"]
 layout_mode = 2
-text = "Level 5"
+icon = ExtResource("6_dywcc")
 
 [node name="Level6" type="Button" parent="GridContainer"]
 layout_mode = 2
-text = "Level 6"
+icon = ExtResource("7_u4ed3")
 
 [node name="Level7" type="Button" parent="GridContainer"]
 layout_mode = 2
-text = "Level 7"
+icon = ExtResource("8_4mdi5")
 
 [node name="Level8" type="Button" parent="GridContainer"]
 layout_mode = 2
-text = "Level 8"
+icon = ExtResource("9_evglp")
 
 [node name="Level9" type="Button" parent="GridContainer"]
 layout_mode = 2
-text = "Level 9"
+icon = ExtResource("10_lovcd")
 
 [node name="Level10" type="Button" parent="GridContainer"]
 layout_mode = 2
-text = "Level 10"
+icon = ExtResource("11_l7u2x")
