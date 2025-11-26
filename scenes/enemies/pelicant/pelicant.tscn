@@ -11,7 +11,7 @@
 [ext_resource type="Script" uid="uid://dva73oliuh5wk" path="res://scripts/node2d_factory.gd" id="9_1jev2"]
 [ext_resource type="PackedScene" uid="uid://dsce4j04uulo7" path="res://scenes/enemies/pelicant/pelicanbullet.tscn" id="10_5tuwc"]
 [ext_resource type="Script" uid="uid://cscdlf2ka50l5" path="res://scenes/enemies/pelicant/idle.gd" id="11_5tuwc"]
-[ext_resource type="Script" uid="uid://cg0od6l3ox5eg" path="res://scenes/enemies/barrel/shoot.gd" id="12_25q3l"]
+[ext_resource type="Script" uid="uid://cyj3dpuyoqo2b" path="res://scenes/enemies/pelicant/shoot.gd" id="12_5tuwc"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_htxbm"]
 radius = 17.0
@@ -64,12 +64,12 @@ shape = SubResource("CapsuleShape2D_htxbm")
 [node name="Direction" type="Node2D" parent="."]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Direction"]
-position = Vector2(5, 8)
+position = Vector2(1, 9)
 sprite_frames = SubResource("SpriteFrames_geqcu")
 animation = &"Shoot"
 
 [node name="BulletFactory" type="Marker2D" parent="Direction"]
-position = Vector2(13, 16)
+position = Vector2(13, 14)
 script = ExtResource("9_1jev2")
 product_packed_scene = ExtResource("10_5tuwc")
 target_container_name = &"Bullets"
@@ -84,4 +84,4 @@ target_position = Vector2(27, 1)
 script = ExtResource("11_5tuwc")
 
 [node name="Shoot" type="Node" parent="States"]
-script = ExtResource("12_25q3l")
+script = ExtResource("12_5tuwc")

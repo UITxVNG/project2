@@ -1,7 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://dytm3c86oshmd"]
+[gd_scene load_steps=8 format=3 uid="uid://dytm3c86oshmd"]
 
 [ext_resource type="Script" uid="uid://btc4dbbpgyo8t" path="res://scenes/screens/game_screen/hud.gd" id="1_4v5o6"]
 [ext_resource type="Texture2D" uid="uid://barqn6uy1h6bs" path="res://assets/ui/settings_button.png" id="2_4v5o6"]
+[ext_resource type="Texture2D" uid="uid://dtwnvoh5jfgsn" path="res://assets/sprites/items/coin/01.png" id="3_sqm1q"]
+[ext_resource type="FontFile" uid="uid://bitum065glxbo" path="res://assets/fonts/big_font.fnt" id="4_whbn0"]
+[ext_resource type="Texture2D" uid="uid://chmp3i4qt3uct" path="res://assets/sprites/items/chest_key/key/key_1.png" id="5_5mhl6"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_5mhl6"]
+font = ExtResource("4_whbn0")
+font_size = 36
+
+[sub_resource type="LabelSettings" id="LabelSettings_kay6s"]
+font = ExtResource("4_whbn0")
+font_size = 36
 
 [node name="HUD" type="MarginContainer"]
 anchors_preset = 10
@@ -14,15 +25,45 @@ theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 script = ExtResource("1_4v5o6")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 2
 
-[node name="BoxContainer" type="BoxContainer" parent="HBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="BoxContainer" type="BoxContainer" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="SettingsTextureButton" type="TextureButton" parent="HBoxContainer"]
+[node name="SettingsTextureButton" type="TextureButton" parent="VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(60, 64)
 layout_mode = 2
 texture_normal = ExtResource("2_4v5o6")
 stretch_mode = 0
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("3_sqm1q")
+
+[node name="CoinLabel" type="Label" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = " X 0"
+label_settings = SubResource("LabelSettings_5mhl6")
+
+[node name="BoxContainer" type="BoxContainer" parent="VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+texture = ExtResource("5_5mhl6")
+
+[node name="KeyLabel" type="Label" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = " X 0"
+label_settings = SubResource("LabelSettings_kay6s")

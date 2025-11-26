@@ -148,3 +148,5 @@ script = ExtResource("16_xgyjk")
 
 [node name="Attack" type="Node" parent="States"]
 script = ExtResource("17_wmhok")
+
+[connection signal="hurt" from="Direction/HurtArea2D" to="." method="_on_hurt_area_2d_hurt"]

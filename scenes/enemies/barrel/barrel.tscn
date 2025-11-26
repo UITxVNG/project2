@@ -64,7 +64,7 @@ animations = [{
 }]
 
 [node name="Barrel" type="CharacterBody2D"]
-collision_layer = 8
+collision_layer = 9
 collision_mask = 7
 script = ExtResource("1_scbq0")
 metadata/_custom_type_script = "uid://s4xx82espxdt"
