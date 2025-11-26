@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=31 format=3 uid="uid://c8m8q0fe452q3"]
+[gd_resource type="TileSet" load_steps=30 format=3 uid="uid://c8m8q0fe452q3"]
 
 [ext_resource type="Texture2D" uid="uid://v2dtejovry7r" path="res://assets/sprites/island/terrain/terrain_32x32.png" id="1_1i68p"]
 [ext_resource type="PackedScene" uid="uid://db4svvvhax8kp" path="res://scenes/island/objects/palm_tree_1.tscn" id="2_hbhjq"]
@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://cioy73jn1bmv" path="res://scenes/enemies/barrel/barrel.tscn" id="6_xmd2m"]
 [ext_resource type="PackedScene" uid="uid://bock2o462txmp" path="res://scenes/enemies/barrel3s/barrel3s.tscn" id="7_777mh"]
 [ext_resource type="PackedScene" uid="uid://cbsa8w2lp8433" path="res://scenes/enemies/crab/crab.tscn" id="8_i233u"]
-[ext_resource type="PackedScene" uid="uid://c0di5uoah8utl" path="res://scenes/enemies/barrel3s/barrel-left.tscn" id="9_uingf"]
+[ext_resource type="PackedScene" uid="uid://dk3cjc74xm8k0" path="res://scenes/bosses/king_crab/king_crab.tscn" id="9_xfkjr"]
 [ext_resource type="PackedScene" uid="uid://dnj077mr8k0u3" path="res://scenes/enemies/mushroom/mushroom.tscn" id="9_yfbvw"]
 [ext_resource type="PackedScene" uid="uid://d2dcr3gj11aw1" path="res://scenes/enemies/pelicant/pelicant.tscn" id="10_rex1v"]
 [ext_resource type="PackedScene" uid="uid://dm2c4i1jf7orw" path="res://scenes/enemies/spike/spike.tscn" id="11_5sc6k"]
@@ -23,7 +23,6 @@
 [ext_resource type="PackedScene" uid="uid://bqo1b46hrr23f" path="res://scenes/objects/platforms/change_state_platform.tscn" id="16_rex1v"]
 [ext_resource type="PackedScene" uid="uid://b1vdpb6cs2n6o" path="res://scenes/enemies/shieldspearman/shieldspearman.tscn" id="16_uingf"]
 [ext_resource type="PackedScene" uid="uid://bymp1tld1l4n1" path="res://scenes/objects/coin/coin.tscn" id="17_5sc6k"]
-[ext_resource type="Texture2D" uid="uid://drr1njei6encg" path="res://assets/tilesets/Hiden Cave/rock_cave_tileset.png" id="21_u8iys"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hbhjq"]
 texture = ExtResource("1_1i68p")
@@ -735,7 +734,7 @@ scenes/6/scene = ExtResource("11_5sc6k")
 scenes/7/scene = ExtResource("12_y3k0m")
 scenes/8/scene = ExtResource("15_xfkjr")
 scenes/9/scene = ExtResource("16_uingf")
-scenes/10/scene = ExtResource("9_uingf")
+scenes/10/scene = ExtResource("9_xfkjr")
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_n8ds3"]
 resource_name = "Objects"
@@ -747,7 +746,6 @@ scenes/5/scene = ExtResource("16_rex1v")
 scenes/6/scene = ExtResource("17_5sc6k")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_frh5l"]
-texture = ExtResource("21_u8iys")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 0:0/0/terrain_set = 0

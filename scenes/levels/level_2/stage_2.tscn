@@ -22,6 +22,3 @@ target_stage = "uid://276dirptn36f"
 
 [node name="Door2" parent="." instance=ExtResource("7_wdfub")]
 position = Vector2(72, 211)
-
-[connection signal="body_entered" from="TileMapLayer/Checkpoint" to="TileMapLayer/Checkpoint" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMapLayer/@Area2D@25449" to="TileMapLayer/@Area2D@25449" method="_on_body_entered"]
