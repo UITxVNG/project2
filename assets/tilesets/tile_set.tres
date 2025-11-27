@@ -22,6 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://0ynutkwlhlce" path="res://scenes/objects/platforms/path2d_moving_platform.tscn" id="16_gbqw0"]
 [ext_resource type="PackedScene" uid="uid://bqo1b46hrr23f" path="res://scenes/objects/platforms/change_state_platform.tscn" id="16_rex1v"]
 [ext_resource type="PackedScene" uid="uid://b1vdpb6cs2n6o" path="res://scenes/enemies/shieldspearman/shieldspearman.tscn" id="16_uingf"]
+[ext_resource type="Texture2D" uid="uid://drr1njei6encg" path="res://assets/tilesets/Hiden Cave/rock_cave_tileset.png" id="21_u8iys"]
 [ext_resource type="PackedScene" uid="uid://bymp1tld1l4n1" path="res://scenes/objects/collectibles/coin/coin.tscn" id="22_xfkjr"]
 [ext_resource type="PackedScene" uid="uid://c1puov0qg8c8b" path="res://scenes/objects/collectibles/chest/chest.tscn" id="23_64csb"]
 [ext_resource type="PackedScene" uid="uid://dlhxchryt3i66" path="res://scenes/objects/collectibles/key/key.tscn" id="24_dwjga"]
@@ -750,6 +751,7 @@ scenes/7/scene = ExtResource("23_64csb")
 scenes/8/scene = ExtResource("24_dwjga")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_frh5l"]
+texture = ExtResource("21_u8iys")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 0:0/0/terrain_set = 0
