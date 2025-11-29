@@ -15,7 +15,7 @@
 [ext_resource type="Script" uid="uid://csu2b21cwchqw" path="res://scripts/hurt_area_2d.gd" id="13_34pwu"]
 [ext_resource type="Script" uid="uid://bvfh40gmmipgo" path="res://scenes/enemies/barrel/idle.gd" id="14_hko3r"]
 [ext_resource type="Script" uid="uid://b6afq4amlylry" path="res://scenes/enemies/barrel3s/shoot.gd" id="15_asaf0"]
-[ext_resource type="Script" uid="uid://cy4b3dxv001dy" path="res://scenes/enemies/barrel3s/hurt.gd" id="16_5mppr"]
+[ext_resource type="Script" uid="uid://cb4gqvq3v8nh8" path="res://scenes/enemies/barrel3s/hurt.gd" id="16_mgxpj"]
 [ext_resource type="Script" uid="uid://co8a08ha2mc64" path="res://scenes/enemies/crab/dead.gd" id="17_o8kkm"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_p40nr"]
@@ -116,7 +116,7 @@ script = ExtResource("14_hko3r")
 script = ExtResource("15_asaf0")
 
 [node name="Hurt" type="Node" parent="States"]
-script = ExtResource("16_5mppr")
+script = ExtResource("16_mgxpj")
 
 [node name="Dead" type="Node" parent="States"]
 script = ExtResource("17_o8kkm")
