@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=4 uid="uid://7sxdw87b6q0q"]
+[gd_scene load_steps=6 format=4 uid="uid://7sxdw87b6q0q"]
 
 [ext_resource type="PackedScene" uid="uid://bmf0ebquqnpf8" path="res://scenes/objects/platforms/manual_moving_platform.tscn" id="1_5r0re"]
 [ext_resource type="TileSet" uid="uid://c8m8q0fe452q3" path="res://assets/tilesets/tile_set.tres" id="1_wnbpc"]
 [ext_resource type="PackedScene" uid="uid://bqo1b46hrr23f" path="res://scenes/objects/platforms/change_state_platform.tscn" id="2_08xht"]
 [ext_resource type="PackedScene" uid="uid://dubb5b1vjmsxd" path="res://scenes/objects/door/door.tscn" id="3_pp1sl"]
+[ext_resource type="PackedScene" uid="uid://cr06n1w1va6i8" path="res://scenes/player/player.tscn" id="5_2b2qq"]
 
 [node name="Stage" type="Node2D"]
 
@@ -18,10 +19,14 @@ tile_set = ExtResource("1_wnbpc")
 [node name="ChangeStatePlatform" parent="." instance=ExtResource("2_08xht")]
 position = Vector2(655, 113)
 
-[node name="Door" parent="." instance=ExtResource("3_pp1sl")]
+[node name="DoorA" parent="." instance=ExtResource("3_pp1sl")]
 position = Vector2(330, 246)
 
-[node name="Door2" parent="." instance=ExtResource("3_pp1sl")]
+[node name="DoorB" parent="." instance=ExtResource("3_pp1sl")]
 position = Vector2(4783, 151)
+target_door = "DoorA"
 
 [node name="Bullets" type="Node2D" parent="."]
+
+[node name="Player" parent="." instance=ExtResource("5_2b2qq")]
+position = Vector2(347, 255)

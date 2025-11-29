@@ -256,5 +256,3 @@ position = Vector2(233, 215)
 position = Vector2(2775, 52)
 target_stage = "uid://dyccryoddg5e6"
 target_door = "DoorA"
-
-[connection signal="body_entered" from="TileMapLayer/Checkpoint" to="TileMapLayer/Checkpoint" method="_on_body_entered"]

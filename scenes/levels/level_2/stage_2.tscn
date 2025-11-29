@@ -25,6 +25,3 @@ target_door = "DoorA"
 position = Vector2(72, 211)
 
 [node name="Bullets" type="Node2D" parent="."]
-
-[connection signal="body_entered" from="TileMapLayer/Checkpoint" to="TileMapLayer/Checkpoint" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMapLayer/@Area2D@41806" to="TileMapLayer/@Area2D@41806" method="_on_body_entered"]
