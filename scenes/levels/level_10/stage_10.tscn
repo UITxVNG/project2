@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://dyccryoddg5e6"]
+[gd_scene load_steps=19 format=4 uid="uid://dyccryoddg5e6"]
 
 [ext_resource type="TileSet" uid="uid://c8m8q0fe452q3" path="res://assets/tilesets/tile_set.tres" id="1_1phdy"]
 [ext_resource type="PackedScene" uid="uid://dytm3c86oshmd" path="res://scenes/screens/game_screen/hud.tscn" id="2_wec3i"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://uxrdwns2xx5f" path="res://assets/tilesets/Hiden Cave/Parallax Cave/7.png" id="13_2kcbw"]
 [ext_resource type="Texture2D" uid="uid://c0fnkwl2bhjuj" path="res://assets/tilesets/Hiden Cave/Parallax Cave/8fx.png" id="14_snli7"]
 [ext_resource type="Texture2D" uid="uid://dvglehlv0rg1d" path="res://assets/tilesets/Hiden Cave/Parallax Cave/9.png" id="15_hgwr1"]
+[ext_resource type="PackedScene" uid="uid://dubb5b1vjmsxd" path="res://scenes/objects/door/door.tscn" id="16_2vfw7"]
 
 [sub_resource type="Curve2D" id="Curve2D_g2cvb"]
 _data = {
@@ -124,3 +125,8 @@ motion_mirroring = Vector2(1900, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer9"]
 texture = ExtResource("15_hgwr1")
+
+[node name="DoorA" parent="." instance=ExtResource("16_2vfw7")]
+position = Vector2(-728, 240)
+
+[connection signal="body_entered" from="TileMapLayer/Checkpoint" to="TileMapLayer/Checkpoint" method="_on_body_entered"]

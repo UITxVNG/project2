@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bqo1b46hrr23f" path="res://scenes/objects/platforms/change_state_platform.tscn" id="2_08xht"]
 [ext_resource type="PackedScene" uid="uid://dubb5b1vjmsxd" path="res://scenes/objects/door/door.tscn" id="3_pp1sl"]
 
-[node name="Stage6" type="Node2D"]
+[node name="Stage" type="Node2D"]
 
 [node name="ManualMovingPlatform" parent="." instance=ExtResource("1_5r0re")]
 position = Vector2(4578, 121)
@@ -23,3 +23,5 @@ position = Vector2(330, 246)
 
 [node name="Door2" parent="." instance=ExtResource("3_pp1sl")]
 position = Vector2(4783, 151)
+
+[node name="Bullets" type="Node2D" parent="."]

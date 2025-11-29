@@ -13,7 +13,6 @@ func _ready() -> void:
 
 func _on_level_pressed(level_num: int) -> void:
 	var level_path = LEVEL_PATH_FORMAT % [level_num, level_num]
-
 	if ResourceLoader.exists(level_path):
 		print("Loading:", level_path)
 		get_tree().change_scene_to_file(level_path)

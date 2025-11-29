@@ -12,13 +12,19 @@ tile_map_data = PackedByteArray("AAAGAAcAAAABAAQAAAAHAAcAAAABAAQAAAAFAAcAAAAAAAQ
 tile_set = ExtResource("1_33rtp")
 
 [node name="Player" parent="." instance=ExtResource("2_dwsf3")]
-position = Vector2(2224, 153)
+position = Vector2(92, 219)
 
-[node name="Door" parent="." instance=ExtResource("7_wdfub")]
+[node name="DoorB" parent="." instance=ExtResource("7_wdfub")]
 position = Vector2(2963, 21)
-target_stage = "uid://276dirptn36f"
+target_stage = "uid://7a0g787gepd0"
+target_door = "DoorA"
 
 [node name="ParallaxBackground" parent="." instance=ExtResource("4_vcha2")]
 
-[node name="Door2" parent="." instance=ExtResource("7_wdfub")]
+[node name="DoorA" parent="." instance=ExtResource("7_wdfub")]
 position = Vector2(72, 211)
+
+[node name="Bullets" type="Node2D" parent="."]
+
+[connection signal="body_entered" from="TileMapLayer/Checkpoint" to="TileMapLayer/Checkpoint" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMapLayer/@Area2D@41806" to="TileMapLayer/@Area2D@41806" method="_on_body_entered"]

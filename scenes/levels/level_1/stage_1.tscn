@@ -51,3 +51,7 @@ curve = SubResource("Curve2D_5usqu")
 [node name="Door" parent="." instance=ExtResource("6_bfafv")]
 position = Vector2(-535, -679)
 target_stage = "uid://boxp0pgyq4pfu"
+target_door = "DoorA"
+
+[connection signal="body_entered" from="TileMapLayer/Checkpoint" to="TileMapLayer/Checkpoint" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMapLayer/@Area2D@41565" to="TileMapLayer/@Area2D@41565" method="_on_body_entered"]
