@@ -10,17 +10,20 @@ var flicker_tween: Tween
 
 @export var has_blade: bool = false
 @onready var bullet_factory := $Direction/BulletFactory
+var wall_cling_lockout: float = 0.0
 
 var has_double_jump_buff: bool = false
 var jump_count: int = 0
 var max_jumps: int = 1
 var double_jump_buff_timer: float = 0.0
+var walk_smoke_timer: float = 0.0
 
 var has_shield_buff: bool = false
 var shield_buff_timer: float = 0.0
 var shield_hits: int = 0
 
 @export var jump_smoke_scene: PackedScene
+@export var walk_smoke_scene: PackedScene
 
 
 func _ready() -> void:
@@ -110,7 +113,7 @@ func play_jump_smoke():
 	if jump_smoke_scene == null:
 		return
 	var smoke = jump_smoke_scene.instantiate()
-	smoke.global_position = global_position + Vector2(0, 10)
+	smoke.global_position = global_position + Vector2(0, -7)
 	get_tree().current_scene.add_child(smoke)
 
 func jump() -> void:
@@ -129,10 +132,28 @@ func play_jump_sound() -> void:
 
 # ============================================================
 # INVULNERABILITY
+# SHIELD
 # ============================================================
 func take_damage(dmg: int) -> void:
+	# Already invulnerable? ignore
 	if is_invulnerable:
 		return
+
+	# Decorators first
+	if decorator_manager:
+		dmg = decorator_manager.get_effective_damage_taken(dmg)
+
+	# If shield absorbed full damage
+	if dmg <= 0:
+		return
+
+	# Do actual damage
+	super.take_damage(dmg)
+
+	# Trigger invulnerability + flicker + animation
+	start_invulnerability(1.0)  # duration tùy bạn
+
+
 
 func _start_flicker():
 	if flicker_tween:
@@ -174,6 +195,9 @@ func _physics_process(delta: float) -> void:
 		invulnerable_timer -= delta
 		if invulnerable_timer <= 0:
 			end_invulnerability()
+	# Decrease timer
+	if walk_smoke_timer > 0:
+		walk_smoke_timer -= delta
 
 	# RESET JUMP
 	if is_on_floor() and velocity.y == 0:
@@ -188,3 +212,11 @@ func _unhandled_input(event: InputEvent) -> void:
 		if jump_count < max_jumps:
 			jump()
 			fsm.change_state(fsm.states.jump)
+
+func play_walk_smoke():
+	if walk_smoke_scene == null:
+		return
+
+	var smoke = walk_smoke_scene.instantiate()
+	smoke.global_position = global_position + Vector2(0, -3)   # tùy hiệu ứng
+	get_tree().current_scene.add_child(smoke)

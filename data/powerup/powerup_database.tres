@@ -1,11 +1,14 @@
-[gd_resource type="Resource" script_class="PowerupDatabase" load_steps=5 format=3 uid="uid://cmphf2hr4nilr"]
+[gd_resource type="Resource" script_class="PowerupDatabase" load_steps=8 format=3 uid="uid://cmphf2hr4nilr"]
 
 [ext_resource type="Script" uid="uid://bi224x34bsap8" path="res://scripts/powerup/powerup_decorator_data.gd" id="1_a0jlh"]
 [ext_resource type="Script" uid="uid://o0rruy8og28w" path="res://scripts/powerup/powerup_database.gd" id="1_mt8vk"]
 [ext_resource type="Resource" uid="uid://c3lhpjr1oalhg" path="res://data/powerup/blade.tres" id="2_a0jlh"]
 [ext_resource type="Resource" uid="uid://s8hls7uo5njm" path="res://data/powerup/speed_up.tres" id="3_clvwx"]
+[ext_resource type="Resource" uid="uid://cdmgw80i07ro5" path="res://data/powerup/shield.tres" id="4_8pkle"]
+[ext_resource type="Resource" uid="uid://f6vhj5rg6uia" path="res://data/powerup/wall_cling.tres" id="5_plduk"]
+[ext_resource type="Resource" uid="uid://c6focs8g4a7lp" path="res://data/powerup/double_jump.tres" id="6_x1tti"]
 
 [resource]
 script = ExtResource("1_mt8vk")
-powerups = Array[ExtResource("1_a0jlh")]([ExtResource("2_a0jlh"), ExtResource("3_clvwx")])
+powerups = Array[ExtResource("1_a0jlh")]([ExtResource("2_a0jlh"), ExtResource("3_clvwx"), ExtResource("4_8pkle"), ExtResource("5_plduk"), ExtResource("6_x1tti")])
 metadata/_custom_type_script = "uid://o0rruy8og28w"

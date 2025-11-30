@@ -1,9 +1,10 @@
-[gd_scene load_steps=52 format=3 uid="uid://cr06n1w1va6i8"]
+[gd_scene load_steps=54 format=3 uid="uid://cr06n1w1va6i8"]
 
 [ext_resource type="Script" uid="uid://cxkd8yvl5fi5l" path="res://scenes/player/player.gd" id="1_wodsf"]
 [ext_resource type="Texture2D" uid="uid://dnt7n2db610ps" path="res://assets/sprites/foxy/foxy/fox_hat_blade/fox_atk_1.png" id="2_007i1"]
 [ext_resource type="PackedScene" uid="uid://dc3rpsv0785gi" path="res://scenes/player/jumpsmoke.tscn" id="2_iwuka"]
 [ext_resource type="Texture2D" uid="uid://bkabwrpxdc7cc" path="res://assets/sprites/foxy/foxy/fox_hat_blade/fox_atk_2.png" id="3_6cv16"]
+[ext_resource type="PackedScene" uid="uid://cj65ps71vq6xr" path="res://scenes/player/walksmoke.tscn" id="3_ds1xl"]
 [ext_resource type="Texture2D" uid="uid://m4di78taixns" path="res://assets/sprites/foxy/foxy/fox_hat/fox_defeat_1.png" id="4_c35mf"]
 [ext_resource type="Texture2D" uid="uid://byd3g4nnxwfcq" path="res://assets/sprites/foxy/foxy/fox_hat_blade/fox_atk_3.png" id="4_j4nxn"]
 [ext_resource type="Texture2D" uid="uid://b6jgthsrynctr" path="res://assets/sprites/foxy/foxy/fox_hat/fox_defeat_2.png" id="5_65viv"]
@@ -45,6 +46,7 @@
 [ext_resource type="Script" uid="uid://50iu07qmkj8p" path="res://scenes/player/throw.gd" id="41_genst"]
 [ext_resource type="Script" uid="uid://di3w8xw7t025o" path="res://scenes/player/states/jump.gd" id="41_gswnw"]
 [ext_resource type="Script" uid="uid://caxtbpdyga1ay" path="res://scenes/player/states/fall.gd" id="42_xcnuv"]
+[ext_resource type="Script" uid="uid://b1yiurhbwv084" path="res://scenes/player/wall_cling.gd" id="45_hyqqp"]
 [ext_resource type="AudioStream" uid="uid://c5tqyaghfm51p" path="res://assets/audio/jump.mp3" id="45_rw8a5"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_oul6g"]
@@ -242,6 +244,7 @@ collision_layer = 3
 collision_mask = 9
 script = ExtResource("1_wodsf")
 jump_smoke_scene = ExtResource("2_iwuka")
+walk_smoke_scene = ExtResource("3_ds1xl")
 direction = 8816
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -313,6 +316,9 @@ script = ExtResource("25_6cv16")
 
 [node name="Throw" type="Node" parent="States"]
 script = ExtResource("41_genst")
+
+[node name="WallCling" type="Node" parent="States"]
+script = ExtResource("45_hyqqp")
 
 [node name="HurtArea2D" type="Area2D" parent="."]
 collision_layer = 4

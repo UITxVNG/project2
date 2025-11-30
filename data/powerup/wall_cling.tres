@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="PowerupDecoratorData" load_steps=3 format=3 uid="uid://f6vhj5rg6uia"]
+
+[ext_resource type="Script" uid="uid://bi224x34bsap8" path="res://scripts/powerup/powerup_decorator_data.gd" id="1_g6tls"]
+[ext_resource type="Script" uid="uid://capayqs7eo7vn" path="res://scripts/powerup/wallcling_decorator.gd" id="1_gk0ua"]
+
+[resource]
+script = ExtResource("1_g6tls")
+id = "wall_cling"
+display_name = ""
+description = ""
+decorator_script = ExtResource("1_gk0ua")
+priority = 0
+duration = 15.0
+speed_multiplier = 1.0
+jump_multiplier = 1.0
+damage_multiplier = 1.0
+health_bonus = 0
+grants_blade_attack = false
+sprite_override = ""
+color_modulate = Color(1, 1, 1, 1)
+conflicts_with = Array[String]([])
+replaces = Array[String]([])
+can_stack = true
+metadata/_custom_type_script = "uid://bi224x34bsap8"

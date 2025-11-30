@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://cjl8r2jono0ia"]
+
+[ext_resource type="Script" uid="uid://bbnisdhy0hev2" path="res://scenes/objects/buffitems/wall_cling/wall_cling.gd" id="1_el3q1"]
+[ext_resource type="Texture2D" uid="uid://cbocdi2apmkll" path="res://assets/sprites/island/objects/buffs/wall_cling.png" id="2_g3yb5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g3yb5"]
+size = Vector2(10, 10)
+
+[node name="WallCling" type="Area2D"]
+script = ExtResource("1_el3q1")
+metadata/_custom_type_script = "uid://nvuabioddqmj"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_g3yb5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.03, 0.03)
+texture = ExtResource("2_g3yb5")

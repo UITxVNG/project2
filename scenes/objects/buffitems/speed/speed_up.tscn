@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://buerol0qhwr6"]
 
-[ext_resource type="Script" uid="uid://l6anvjcfmweb" path="res://scenes/collectibles/speed_up.gd" id="1_lquob"]
-[ext_resource type="Texture2D" uid="uid://dr4ph35m45enf" path="res://assets/items/speed_up.png" id="2_ankyr"]
+[ext_resource type="Script" uid="uid://l6anvjcfmweb" path="res://scenes/objects/buffitems/speed/speed_up.gd" id="1_lquob"]
+[ext_resource type="Texture2D" uid="uid://dr4ph35m45enf" path="res://assets/sprites/island/objects/buffs/speed_up.png" id="2_ankyr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ia6ek"]
 size = Vector2(15, 16)

@@ -139,3 +139,11 @@ func _remove_visual_changes():
 	# Revert color
 	if data.color_modulate != Color.WHITE:
 		player.modulate = Color.WHITE
+func modify_damage_taken(dmg: int) -> int:
+	if next_decorator:
+		return next_decorator.modify_damage_taken(dmg)
+	return dmg
+func modify_wall_cling(can_cling: bool) -> bool:
+	if next_decorator:
+		return next_decorator.modify_wall_cling(can_cling)
+	return can_cling
