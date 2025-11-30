@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://c0p1rw3em4axh"]
+[gd_scene load_steps=12 format=3 uid="uid://c0p1rw3em4axh"]
 
 [ext_resource type="Texture2D" uid="uid://ilolheqwlwk2" path="res://icon.svg" id="1_0bxed"]
 [ext_resource type="PackedScene" uid="uid://cr06n1w1va6i8" path="res://scenes/player/player.tscn" id="2_xbngi"]
@@ -7,6 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://dubb5b1vjmsxd" path="res://scenes/objects/door/door.tscn" id="5_xbngi"]
 [ext_resource type="PackedScene" uid="uid://buerol0qhwr6" path="res://scenes/objects/buffitems/speed/speed_up.tscn" id="6_n1u7t"]
 [ext_resource type="PackedScene" uid="uid://b3ol3sy3kji1p" path="res://scenes/objects/buffitems/blade/blade.tscn" id="7_65f7k"]
+[ext_resource type="PackedScene" uid="uid://bby7o0wwoygmh" path="res://scenes/objects/buffitems/shield/shield.tscn" id="8_x4rxx"]
+[ext_resource type="PackedScene" uid="uid://cjl8r2jono0ia" path="res://scenes/objects/buffitems/wall_cling/wall_cling.tscn" id="9_hha4a"]
+[ext_resource type="PackedScene" uid="uid://m6j5xi76wkmp" path="res://scenes/objects/buffitems/double_jump/double_jump.tscn" id="10_q4wwx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_51e2l"]
 size = Vector2(120, 122)
@@ -23,6 +26,17 @@ texture = ExtResource("1_0bxed")
 [node name="StaticBody2D" type="StaticBody2D" parent="World/Sprite2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/Sprite2D/StaticBody2D"]
+position = Vector2(-2, -1)
+shape = SubResource("RectangleShape2D_51e2l")
+
+[node name="Sprite2D" type="Sprite2D" parent="World/Sprite2D"]
+position = Vector2(-64.861, -174.545)
+scale = Vector2(0.0875499, 2.07195)
+texture = ExtResource("1_0bxed")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="World/Sprite2D/Sprite2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Sprite2D/Sprite2D/StaticBody2D"]
 position = Vector2(-2, -1)
 shape = SubResource("RectangleShape2D_51e2l")
 
@@ -46,3 +60,12 @@ position = Vector2(373, 144)
 
 [node name="Blade" parent="." instance=ExtResource("7_65f7k")]
 position = Vector2(487, 145)
+
+[node name="Shield" parent="." instance=ExtResource("8_x4rxx")]
+position = Vector2(547, 145)
+
+[node name="WallCling" parent="." instance=ExtResource("9_hha4a")]
+position = Vector2(229, 139)
+
+[node name="DoubleJump" parent="." instance=ExtResource("10_q4wwx")]
+position = Vector2(318, 153)

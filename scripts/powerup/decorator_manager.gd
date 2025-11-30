@@ -160,3 +160,11 @@ func can_blade_attack() -> bool:
 	if decorator_chain_head:
 		return decorator_chain_head.can_blade_attack()
 	return false
+func get_effective_damage_taken(dmg: int) -> int:
+	if decorator_chain_head:
+		return decorator_chain_head.modify_damage_taken(dmg)
+	return dmg
+func can_wall_cling() -> bool:
+	if decorator_chain_head:
+		return decorator_chain_head.modify_wall_cling(false)
+	return false
