@@ -1,0 +1,39 @@
+[gd_scene load_steps=4 format=3 uid="uid://cixw6ionnf1xk"]
+
+[ext_resource type="Script" path="res://scripts/rising_water.gd" id="1_rising"]
+[ext_resource type="Texture2D" uid="uid://bux25vpu1vmy6" path="res://assets/sprites/island/background/rising_water.png" id="2_gv6tl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_water"]
+size = Vector2(10000, 400)
+
+[node name="RisingWater" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_rising")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_water")
+
+[node name="WaterCover" type="ColorRect" parent="."]
+z_index = 10
+offset_left = -4628.0
+offset_top = 255.0
+offset_right = 5372.0
+offset_bottom = 5055.0
+color = Color(0.101961, 0.219608, 0.6, 0.94902)
+
+[node name="WaterSprite" type="TextureRect" parent="."]
+offset_left = -4657.0
+offset_top = -671.0
+offset_right = 5395.0
+offset_bottom = 353.0
+texture = ExtResource("2_gv6tl")
+stretch_mode = 1
+
+[node name="WaterSprite2" type="TextureRect" parent="."]
+offset_left = -4677.0
+offset_top = -469.0
+offset_right = 5375.0
+offset_bottom = 555.0
+texture = ExtResource("2_gv6tl")
+stretch_mode = 1

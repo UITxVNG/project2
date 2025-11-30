@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://b8dad0e1f2g3h"]
+
+[ext_resource type="Script" uid="uid://d4bpjq6c07gor" path="res://scenes/objects/rotating_saw/rotating_saw.gd" id="1_saw"]
+[ext_resource type="Texture2D" uid="uid://unmmgyi4meoc" path="res://assets/sprites/saw_blade/saw_blade.png" id="2_j4rjn"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_saw"]
+radius = 32.0
+
+[node name="RotatingSaw" type="Path2D"]
+script = ExtResource("1_saw")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="."]
+rotation = 0.00144926
+
+[node name="SawBlade" type="Node2D" parent="PathFollow2D"]
+
+[node name="Sprite" type="Sprite2D" parent="PathFollow2D/SawBlade"]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_j4rjn")
+
+[node name="HitArea2D" type="Area2D" parent="PathFollow2D/SawBlade"]
+collision_layer = 16
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PathFollow2D/SawBlade/HitArea2D"]
+shape = SubResource("CircleShape2D_saw")
