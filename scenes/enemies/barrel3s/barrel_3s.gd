@@ -5,7 +5,7 @@ extends EnemyCharacter
 func _ready() -> void:
 	fsm = FSM.new(self, $States, $States/Idle)
 	super._ready()
-	turn_around()
+
 
 func fire() -> void:
 	var bullet := bullet_factory.create() as RigidBody2D

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dnj077mr8k0u3"]
+[gd_scene load_steps=11 format=3 uid="uid://dnj077mr8k0u3"]
 
 [ext_resource type="Script" uid="uid://nfyg7543h5xq" path="res://scenes/enemies/mushroom/mushroom.gd" id="1_wvybr"]
 [ext_resource type="Texture2D" uid="uid://c5pag27kjpt7h" path="res://assets/sprites/enemy/mushroom/mushroom_hit_01.png" id="2_ysheg"]
@@ -8,26 +8,12 @@
 [ext_resource type="Script" uid="uid://dlqjhldug8nie" path="res://scenes/enemies/states/run.gd" id="5_n2fa0"]
 [ext_resource type="Texture2D" uid="uid://bgokwnch80xfi" path="res://assets/sprites/enemy/mushroom/mushroom_02.png" id="6_3dip8"]
 [ext_resource type="Texture2D" uid="uid://d0lo1x14rp7ia" path="res://assets/sprites/enemy/mushroom/mushroom_03.png" id="7_io5uk"]
-[ext_resource type="Script" uid="uid://dne5okfngvecg" path="res://scenes/enemies/mushroom/hurt_area_2d.gd" id="8_5qgwy"]
-[ext_resource type="Script" uid="uid://d344fp7pskpua" path="res://scenes/enemies/crab/hurt.gd" id="10_3dip8"]
-[ext_resource type="Script" uid="uid://co8a08ha2mc64" path="res://scenes/enemies/crab/dead.gd" id="11_io5uk"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ejere"]
 radius = 13.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_v8rrl"]
 animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("3_k0mc2")
-}, {
-"duration": 1.0,
-"texture": ExtResource("2_ysheg")
-}],
-"loop": true,
-"name": &"dead",
-"speed": 5.0
-}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("2_ysheg")
@@ -57,13 +43,10 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5qgwy"]
-radius = 14.0
-
 [node name="Mushroom" type="CharacterBody2D"]
 position = Vector2(2, -7)
-collision_layer = 9
-collision_mask = 11
+collision_layer = 8
+collision_mask = 3
 script = ExtResource("1_wvybr")
 metadata/_edit_vertical_guides_ = [-65.0]
 
@@ -76,35 +59,17 @@ shape = SubResource("CapsuleShape2D_ejere")
 [node name="FrontRayCast2D" type="RayCast2D" parent="Direction"]
 position = Vector2(8, 1)
 target_position = Vector2(24, 0)
-collision_mask = 3
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Direction"]
 scale = Vector2(0.96875, 1)
 sprite_frames = SubResource("SpriteFrames_v8rrl")
-animation = &"dead"
+animation = &"hurt"
 
 [node name="DownRayCast2D" type="RayCast2D" parent="Direction"]
 position = Vector2(31, 1)
 target_position = Vector2(0, 24)
 
-[node name="HurtArea2D" type="Area2D" parent="Direction"]
-collision_layer = 16
-collision_mask = 8
-script = ExtResource("8_5qgwy")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Direction/HurtArea2D"]
-position = Vector2(0, 2)
-shape = SubResource("CapsuleShape2D_5qgwy")
-
 [node name="States" type="Node" parent="."]
 
 [node name="Run" type="Node" parent="States"]
 script = ExtResource("5_n2fa0")
-
-[node name="Hurt" type="Node" parent="States"]
-script = ExtResource("10_3dip8")
-
-[node name="Dead" type="Node" parent="States"]
-script = ExtResource("11_io5uk")
-
-[connection signal="hurt" from="Direction/HurtArea2D" to="." method="_on_hurt_area_2d_hurt"]

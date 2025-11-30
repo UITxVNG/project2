@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Project2"
-run/main_scene="uid://fr0jpxxybedf"
+run/main_scene="uid://cgecvij6t4q38"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -29,7 +29,6 @@ layout/style_directory={}
 
 [display]
 
-window/size/viewport_height=1000
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 

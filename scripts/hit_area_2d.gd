@@ -5,7 +5,7 @@ class_name HitArea2D
 signal hitted(area)
 var _dealt_damage: float = 1
 
-func _ready():
+func _init():
 	self.area_entered.connect(_on_area_entered)
 	self.body_entered.connect(_on_body_entered)
 

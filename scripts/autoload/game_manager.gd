@@ -11,6 +11,8 @@ var should_respawn_at_checkpoint: bool = false
 var pending_teleport: bool = false
 var is_initial_load: bool = true  # Track if this is the first load
 
+var inventory_system: InvetorySystem = null
+
 func _ready() -> void:
 	load_checkpoint_data()
 	
@@ -19,6 +21,11 @@ func _ready() -> void:
 	
 	# Defer checkpoint loading to avoid scene tree conflicts
 	call_deferred("_check_initial_checkpoint")
+	
+	#Init inventory system
+	inventory_system = InvetorySystem.new()
+	add_child(inventory_system)
+	pass
 
 func _check_initial_checkpoint() -> void:
 	# Check if we have a checkpoint and this is initial project load

@@ -1,6 +1,6 @@
 [gd_scene load_steps=21 format=3 uid="uid://c0di5uoah8utl"]
 
-[ext_resource type="Script" uid="uid://ckrf0af4y6d38" path="res://scenes/enemies/barrel3s/barrel_3s.gd" id="1_mgxpj"]
+[ext_resource type="Script" uid="uid://cxiw3p734hgs4" path="res://scenes/enemies/barrel3s/barrel_left.gd" id="1_mgxpj"]
 [ext_resource type="Texture2D" uid="uid://vvyg4vcnh0tj" path="res://assets/sprites/enemy/barrel/barrel_01.png" id="2_sn1fo"]
 [ext_resource type="Texture2D" uid="uid://cgdhy5fmahrm8" path="res://assets/sprites/enemy/barrel/barrel_02.png" id="3_o1sm8"]
 [ext_resource type="Texture2D" uid="uid://btcijkatijwcu" path="res://assets/sprites/enemy/barrel/barrel_atk_01.png" id="4_udyg7"]
@@ -15,7 +15,7 @@
 [ext_resource type="Script" uid="uid://csu2b21cwchqw" path="res://scripts/hurt_area_2d.gd" id="13_34pwu"]
 [ext_resource type="Script" uid="uid://bvfh40gmmipgo" path="res://scenes/enemies/barrel/idle.gd" id="14_hko3r"]
 [ext_resource type="Script" uid="uid://b6afq4amlylry" path="res://scenes/enemies/barrel3s/shoot.gd" id="15_asaf0"]
-[ext_resource type="Script" uid="uid://cy4b3dxv001dy" path="res://scenes/enemies/barrel3s/hurt.gd" id="16_5mppr"]
+[ext_resource type="Script" uid="uid://cb4gqvq3v8nh8" path="res://scenes/enemies/barrel3s/hurt.gd" id="16_mgxpj"]
 [ext_resource type="Script" uid="uid://co8a08ha2mc64" path="res://scenes/enemies/crab/dead.gd" id="17_o8kkm"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_p40nr"]
@@ -116,7 +116,7 @@ script = ExtResource("14_hko3r")
 script = ExtResource("15_asaf0")
 
 [node name="Hurt" type="Node" parent="States"]
-script = ExtResource("16_5mppr")
+script = ExtResource("16_mgxpj")
 
 [node name="Dead" type="Node" parent="States"]
 script = ExtResource("17_o8kkm")
