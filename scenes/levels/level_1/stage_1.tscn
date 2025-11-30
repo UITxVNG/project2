@@ -56,4 +56,3 @@ position = Vector2(-535, -679)
 target_stage = "uid://boxp0pgyq4pfu"
 
 [node name="ParallaxBackground" parent="." instance=ExtResource("8_wuvcj")]
-target_door = "DoorA"

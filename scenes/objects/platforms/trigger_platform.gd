@@ -22,11 +22,6 @@ func _ready():
 	if animatable_body:
 		animatable_body.move_speed = 0
 
-	# Ensure the PathFollow does not loop so we can stop at the end
-	if path_follow:
-		# disable looping so progress_ratio will reach 1.0 and stay
-		path_follow.loop = false
-
 func _process(_delta):
 	# Check for F key input when player is nearby
 	# Use an input action named "interact" (map it to the F key in Project Settings -> Input Map)
@@ -40,26 +35,19 @@ func _process(_delta):
 	
 	# Stop at end if enabled
 	if is_moving and stop_at_end:
-		if path_follow and path_follow.progress_ratio >= 0.999:
-			# clamp to exact end and stop
+		if path_follow.progress_ratio >= 1.0:
 			is_moving = false
 			animatable_body.move_speed = 0
-		
+			print("Platform stopped at end")
 
 func toggle_movement():
-	# If the platform previously reached the end and stopped, reset it to start
-	if not is_moving and path_follow and stop_at_end and path_follow.progress_ratio >= 0.999:
-		# move back to start so interaction can reuse platform
-		if path_follow.curve:
-			path_follow.progress = 0
-		else:
-			path_follow.progress = 0
-
 	is_moving = !is_moving
 	var speed = move_speed if is_moving else 0.0
 	print("Platform moving: ", is_moving, " speed: ", speed)
-	if animatable_body:
-		animatable_body.move_speed = speed
+	if not is_moving:
+		animatable_body.move_speed = 0
+	else:
+		animatable_body.move_speed = move_speed
 
 func _on_player_entered(body):
 	if body.name == "Player":
