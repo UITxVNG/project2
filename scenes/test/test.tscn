@@ -21,7 +21,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_51e2l"]
 size = Vector2(124.689, 122)
 
-[node name="Stage" type="Node2D"]
+[node name="Stage2" type="Node2D"]
 
 [node name="World" type="Node2D" parent="."]
 
