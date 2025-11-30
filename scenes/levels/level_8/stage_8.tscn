@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=4 uid="uid://duot2cm3iiwgf"]
+[gd_scene load_steps=9 format=4 uid="uid://duot2cm3iiwgf"]
 
 [ext_resource type="TileSet" uid="uid://c8m8q0fe452q3" path="res://assets/tilesets/tile_set.tres" id="1_1ku5t"]
 [ext_resource type="PackedScene" uid="uid://cr06n1w1va6i8" path="res://scenes/player/player.tscn" id="3_6lbbw"]
 [ext_resource type="PackedScene" uid="uid://b8dad0e1f2g3h" path="res://scenes/objects/rotating_saw/rotating_saw.tscn" id="4_6lbbw"]
 [ext_resource type="PackedScene" uid="uid://cf2fha5xxkb6l" path="res://scenes/objects/platforms/trigger_platform.tscn" id="4_e33h4"]
+[ext_resource type="PackedScene" uid="uid://cixw6ionnf1xk" path="res://scenes/util/rising_water.tscn" id="5_e33h4"]
 
 [sub_resource type="Curve2D" id="Curve2D_6lbbw"]
 _data = {
@@ -44,3 +45,8 @@ curve = SubResource("Curve2D_i6sb0")
 [node name="TriggerPlatform" parent="." instance=ExtResource("4_e33h4")]
 position = Vector2(1112, -632)
 curve = SubResource("Curve2D_e33h4")
+
+[node name="RisingWater" parent="." instance=ExtResource("5_e33h4")]
+position = Vector2(312, 400)
+scale = Vector2(0.3, 0.3)
+rise_speed = 15.0

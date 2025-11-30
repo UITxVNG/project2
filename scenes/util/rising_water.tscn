@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://cixw6ionnf1xk"]
 
-[ext_resource type="Script" uid="uid://bfq4nsllt0ymq" path="res://scripts/rising_water.gd" id="1_rising"]
+[ext_resource type="Script" path="res://scripts/rising_water.gd" id="1_rising"]
 [ext_resource type="Texture2D" uid="uid://bux25vpu1vmy6" path="res://assets/sprites/island/background/rising_water.png" id="2_gv6tl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_water"]
