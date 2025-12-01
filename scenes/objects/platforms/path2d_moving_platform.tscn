@@ -65,7 +65,6 @@ remote_path = NodePath("../AnimatableBody2D")
 
 [node name="AnimatableBody2D" type="AnimatableBody2D" parent="PathFollow2D"]
 script = ExtResource("1_0umqr")
-path_follow = NodePath("..")
 
 [node name="MovingPlatform" type="Sprite2D" parent="PathFollow2D/AnimatableBody2D"]
 texture = ExtResource("1_7ldoo")
