@@ -1,20 +1,25 @@
-[gd_scene load_steps=6 format=4 uid="uid://b8xtnlnaesycu"]
+[gd_scene load_steps=10 format=4 uid="uid://b8xtnlnaesycu"]
 
 [ext_resource type="TileSet" uid="uid://c8m8q0fe452q3" path="res://assets/tilesets/tile_set.tres" id="1_swvec"]
 [ext_resource type="PackedScene" uid="uid://cr06n1w1va6i8" path="res://scenes/player/player.tscn" id="2_uce0e"]
 [ext_resource type="PackedScene" uid="uid://0ynutkwlhlce" path="res://scenes/objects/platforms/path2d_moving_platform.tscn" id="3_uce0e"]
+[ext_resource type="PackedScene" uid="uid://b3ol3sy3kji1p" path="res://scenes/objects/buffitems/blade/blade.tscn" id="4_bfh0m"]
+[ext_resource type="Script" uid="uid://biifwbdlftxa0" path="res://scripts/enemy_counter.gd" id="4_counter"]
+[ext_resource type="PackedScene" uid="uid://cjgvg81b80ge4" path="res://scenes/enemies/starfish/starfish.tscn" id="5_starfish"]
+[ext_resource type="PackedScene" uid="uid://cbsa8w2lp8433" path="res://scenes/enemies/crab/crab.tscn" id="6_crab"]
+
+[sub_resource type="Curve2D" id="Curve2D_2ljyo"]
+bake_interval = 153.33
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 20, 0, 0, 0, 0, 2, -353)
+}
+point_count = 2
 
 [sub_resource type="Curve2D" id="Curve2D_uce0e"]
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 0, 33, 0, 0, 0, 0, -4, -203)
 }
 point_count = 2
-
-[sub_resource type="Curve2D" id="Curve2D_bfh0m"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, -1, 19, 0, 0, 0, 0, -11, -379, 0, 0, 0, 0, -4, 16)
-}
-point_count = 3
 
 [node name="Stage" type="Node2D"]
 
@@ -24,14 +29,36 @@ tile_map_data = PackedByteArray("AAAQAA8ABQACAAUAAAARAA8ABQACAAUAAAASAA8ABQACAAU
 tile_set = ExtResource("1_swvec")
 
 [node name="Player" parent="." instance=ExtResource("2_uce0e")]
-position = Vector2(916, 472)
+position = Vector2(846, 411)
 
 [node name="Bullets" type="Node2D" parent="."]
+
+[node name="EnemyCounter" type="Node" parent="."]
+script = ExtResource("4_counter")
+unlock_node_path = NodePath("../UnlockPlatform")
+
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="Starfish1" parent="Enemies" instance=ExtResource("5_starfish")]
+position = Vector2(1210, 466)
+
+[node name="Starfish2" parent="Enemies" instance=ExtResource("5_starfish")]
+position = Vector2(980, 460)
+
+[node name="Crab1" parent="Enemies" instance=ExtResource("6_crab")]
+position = Vector2(1071, 462)
+
+[node name="UnlockPlatform" parent="." instance=ExtResource("3_uce0e")]
+position = Vector2(1369, 450)
+curve = SubResource("Curve2D_2ljyo")
 
 [node name="Path2D" parent="." instance=ExtResource("3_uce0e")]
 position = Vector2(620, 230)
 curve = SubResource("Curve2D_uce0e")
 
-[node name="Path2D2" parent="." instance=ExtResource("3_uce0e")]
-position = Vector2(1369, 450)
-curve = SubResource("Curve2D_bfh0m")
+[node name="Blade" parent="." instance=ExtResource("4_bfh0m")]
+position = Vector2(908, 340)
+
+[connection signal="enemy_defeated" from="Enemies/Starfish1" to="EnemyCounter" method="register_enemy_defeated"]
+[connection signal="enemy_defeated" from="Enemies/Starfish2" to="EnemyCounter" method="register_enemy_defeated"]
+[connection signal="enemy_defeated" from="Enemies/Crab1" to="EnemyCounter" method="register_enemy_defeated"]

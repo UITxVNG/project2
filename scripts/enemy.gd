@@ -1,6 +1,8 @@
 class_name EnemyCharacter
 extends BaseCharacter
 
+signal enemy_defeated  # Signal được emit khi enemy bị tiêu diệt
+
 @export var movement_range: float = 50 #pham vi di chuyen cua quai
 
 # Raycast check wall and fall
