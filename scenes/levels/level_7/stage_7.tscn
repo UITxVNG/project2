@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://cr06n1w1va6i8" path="res://scenes/player/player.tscn" id="2_uce0e"]
 [ext_resource type="PackedScene" uid="uid://0ynutkwlhlce" path="res://scenes/objects/platforms/path2d_moving_platform.tscn" id="3_uce0e"]
 [ext_resource type="PackedScene" uid="uid://b3ol3sy3kji1p" path="res://scenes/objects/buffitems/blade/blade.tscn" id="4_bfh0m"]
-[ext_resource type="Script" uid="uid://biifwbdlftxa0" path="res://scripts/enemy_counter.gd" id="4_counter"]
+[ext_resource type="Script" uid="uid://byviak10mkidr" path="res://scripts/enemy_counter.gd" id="4_counter"]
 [ext_resource type="PackedScene" uid="uid://cjgvg81b80ge4" path="res://scenes/enemies/starfish/starfish.tscn" id="5_starfish"]
 [ext_resource type="PackedScene" uid="uid://cbsa8w2lp8433" path="res://scenes/enemies/crab/crab.tscn" id="6_crab"]
 [ext_resource type="PackedScene" uid="uid://b8dad0e1f2g3h" path="res://scenes/objects/rotating_saw/rotating_saw.tscn" id="8_q8grv"]
@@ -78,37 +78,42 @@ curve = SubResource("Curve2D_r031e")
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground"]
+position = Vector2(1167, 448)
+scale = Vector2(12, 12)
+texture = ExtResource("9_r031e")
+
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_mirroring = Vector2(960, 0)
+motion_mirroring = Vector2(1200, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
 position = Vector2(742, 501)
-scale = Vector2(4, 4)
+scale = Vector2(5, 5)
 texture = ExtResource("9_r031e")
 
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_mirroring = Vector2(960, 0)
+motion_mirroring = Vector2(1200, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
 position = Vector2(743, 500)
-scale = Vector2(4, 4)
+scale = Vector2(5, 5)
 texture = ExtResource("10_8j4e5")
 
 [node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_scale = Vector2(0.5, 0.1)
-motion_mirroring = Vector2(960, 0)
+motion_mirroring = Vector2(1200, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
 position = Vector2(738, 499)
-scale = Vector2(4, 4)
+scale = Vector2(5, 5)
 texture = ExtResource("11_frv1d")
 
 [node name="ParallaxLayer4" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_mirroring = Vector2(960, 0)
+motion_mirroring = Vector2(1200, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer4"]
 position = Vector2(740, 501)
-scale = Vector2(4, 4)
+scale = Vector2(5, 5)
 texture = ExtResource("12_5xhko")
 
 [connection signal="enemy_defeated" from="Enemies/Starfish1" to="EnemyCounter" method="register_enemy_defeated"]
