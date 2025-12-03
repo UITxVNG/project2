@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://unmmgyi4meoc"
-path="res://.godot/imported/Saw_blade.png-5a79b0dafff42fa7eca86c3765355c94.ctex"
+uid="uid://b5yvxmbo3o6i7"
+path="res://.godot/imported/Tlayer1.png-73d1e3547538aec5bb296818cfda4f31.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/saw_blade/Saw_blade.png"
-dest_files=["res://.godot/imported/Saw_blade.png-5a79b0dafff42fa7eca86c3765355c94.ctex"]
+source_file="res://assets/tilesets/Forest Pass/PNG/Tlayer1.png"
+dest_files=["res://.godot/imported/Tlayer1.png-73d1e3547538aec5bb296818cfda4f31.ctex"]
 
 [params]
 
