@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://c0p1rw3em4axh"]
+[gd_scene load_steps=14 format=3 uid="uid://c0p1rw3em4axh"]
 
 [ext_resource type="Texture2D" uid="uid://ilolheqwlwk2" path="res://icon.svg" id="1_0bxed"]
 [ext_resource type="PackedScene" uid="uid://cr06n1w1va6i8" path="res://scenes/player/player.tscn" id="2_xbngi"]
@@ -10,6 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://bby7o0wwoygmh" path="res://scenes/objects/buffitems/shield/shield.tscn" id="8_x4rxx"]
 [ext_resource type="PackedScene" uid="uid://cjl8r2jono0ia" path="res://scenes/objects/buffitems/wall_cling/wall_cling.tscn" id="9_hha4a"]
 [ext_resource type="PackedScene" uid="uid://m6j5xi76wkmp" path="res://scenes/objects/buffitems/double_jump/double_jump.tscn" id="10_q4wwx"]
+[ext_resource type="PackedScene" uid="uid://mfskni7cmxah" path="res://scenes/objects/platforms/path2d_moving_platform_2.tscn" id="11_p2s3w"]
+[ext_resource type="PackedScene" uid="uid://0ynutkwlhlce" path="res://scenes/objects/platforms/path2d_moving_platform.tscn" id="12_pk3sm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_51e2l"]
 size = Vector2(120, 122)
@@ -69,3 +71,9 @@ position = Vector2(229, 139)
 
 [node name="DoubleJump" parent="." instance=ExtResource("10_q4wwx")]
 position = Vector2(318, 153)
+
+[node name="Path2D" parent="." instance=ExtResource("11_p2s3w")]
+position = Vector2(426, 95)
+
+[node name="Path2D2" parent="." instance=ExtResource("12_pk3sm")]
+position = Vector2(550, 88)
