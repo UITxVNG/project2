@@ -274,5 +274,6 @@ script = ExtResource("37_yg65w")
 [node name="ActionTimer" type="Timer" parent="."]
 one_shot = true
 
+[connection signal="hitted" from="Direction/HitArea2D" to="." method="_on_hit_area_2d_hitted"]
 [connection signal="body_entered" from="Direction/RecallArea2D" to="." method="_on_recall_area_2d_body_entered"]
 [connection signal="hurt" from="Direction/HurtArea2D" to="." method="_on_hurt_area_2d_hurt"]

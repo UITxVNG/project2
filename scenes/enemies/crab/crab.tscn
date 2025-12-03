@@ -115,3 +115,4 @@ position = Vector2(-2, -3)
 shape = SubResource("CapsuleShape2D_fxk31")
 
 [connection signal="hurt" from="Direction/HurtArea2D" to="." method="_on_hurt_area_2d_hurt"]
+[connection signal="hitted" from="HitArea2D" to="." method="_on_hit_area_2d_hitted"]
