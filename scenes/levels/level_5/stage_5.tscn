@@ -25,5 +25,3 @@ tile_set = ExtResource("4_scv5c")
 
 [node name="DoorA" parent="." instance=ExtResource("1_haiji")]
 position = Vector2(129, 207)
-
-[connection signal="body_entered" from="TileMapLayer/Checkpoint" to="TileMapLayer/Checkpoint" method="_on_body_entered"]

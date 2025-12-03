@@ -5,6 +5,8 @@ func _enter() -> void:
 	timer = 1.0
 	obj.velocity.x = 0
 	obj.set_physics_process(true)
+	# Emit signal khi enemy chết
+	obj.enemy_defeated.emit()
 
 func _update(delta: float) -> void:
 	timer -= delta
