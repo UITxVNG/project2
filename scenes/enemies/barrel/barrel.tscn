@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://gexn7f67ybsm" path="res://assets/sprites/enemy/barrel/barrel_atk_03.png" id="8_vpg65"]
 [ext_resource type="Texture2D" uid="uid://8ak8mjc2uh1g" path="res://assets/sprites/enemy/barrel/barrel_atk_04.png" id="9_nsoae"]
 [ext_resource type="Texture2D" uid="uid://bueplr32o1ur2" path="res://assets/sprites/enemy/barrel/barrel_atk_05.png" id="10_nq02r"]
-[ext_resource type="Script" path="res://scripts/node2d_factory.gd" id="11_hrhgi"]
+[ext_resource type="Script" uid="uid://dva73oliuh5wk" path="res://scripts/node2d_factory.gd" id="11_hrhgi"]
 [ext_resource type="PackedScene" uid="uid://t5rlmtgvluui" path="res://scenes/enemies/barrel/BarrelBullet.tscn" id="12_igiyw"]
 [ext_resource type="Script" uid="uid://bvfh40gmmipgo" path="res://scenes/enemies/barrel/idle.gd" id="13_cx43u"]
 [ext_resource type="Script" uid="uid://cg0od6l3ox5eg" path="res://scenes/enemies/barrel/shoot.gd" id="14_sq6do"]

@@ -7,6 +7,10 @@ extends PlayerState
 var throw_timer: float = 0.0
 
 func _enter() -> void:
+	if not obj.has_blade:
+		change_state(fsm.states.idle)
+		return
+	
 	obj.change_animation("attack")
 	throw_timer = throw_delay
 	timer = 0.6
