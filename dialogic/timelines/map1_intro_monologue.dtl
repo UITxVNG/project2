@@ -1,0 +1,14 @@
+join foxy (normal) center [animation="fade_in"]
+foxy (normal): Đầu mình... đau quá...
+[voice path="res://dialogic/sounds/foxy/hurt.wav" volume="-10.0"]
+foxy (confused): Nơi đây... là đâu?
+[wait time="1.0"]
+foxy (confused): Mình là ai... Mình không thể nhớ gì cả...
+[wait time="1.0"]
+[voice path="res://dialogic/sounds/dark_voice/slime.wav" volume="-10.0"]
+dark_voice (whisper): "Kho báu... Sức mạnh... Tìm kiếm..."
+foxy (confused): Giọng nói này... đến từ đâu?
+foxy (confused): Có gì đó đang gọi mình ... từ nơi sâu nhất của hòn đảo này.
+[signal]
+foxy (determined): Phía trước có 1 sinh vật nhìn vô hại, thử lại đó xem...
+leave
