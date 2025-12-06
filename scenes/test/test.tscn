@@ -21,7 +21,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_51e2l"]
 size = Vector2(124.689, 122)
 
-[node name="Stage2" type="Node2D"]
+[node name="Stage" type="Node2D"]
 
 [node name="World" type="Node2D" parent="."]
 
@@ -142,7 +142,7 @@ position = Vector2(1175, 368)
 position = Vector2(630, 422)
 
 [node name="KingCrab" parent="." instance=ExtResource("3_x4ubh")]
-position = Vector2(2144, 420)
+position = Vector2(766, 408)
 
 [node name="WarlordTurtle" parent="." instance=ExtResource("15_xm0ii")]
 position = Vector2(59, 404)
@@ -152,3 +152,6 @@ position = Vector2(287, 417)
 
 [node name="Barrel3s" parent="." instance=ExtResource("4_saoeg")]
 position = Vector2(335, 415)
+
+[node name="Crab2" parent="." instance=ExtResource("5_we7ej")]
+position = Vector2(-618, 417)
