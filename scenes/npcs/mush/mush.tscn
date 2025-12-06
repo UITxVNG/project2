@@ -1,0 +1,40 @@
+[gd_scene load_steps=7 format=3 uid="uid://delnx8nkpylcy"]
+
+[ext_resource type="Script" uid="uid://bwl7ifdive2e8" path="res://scenes/npcs/mush/mush.gd" id="1_0h7mn"]
+[ext_resource type="Texture2D" uid="uid://dghceeceb7yew" path="res://assets/sprites/enemy/mushroom/mushroom_01.png" id="1_tlknp"]
+[ext_resource type="Texture2D" uid="uid://bgokwnch80xfi" path="res://assets/sprites/enemy/mushroom/mushroom_02.png" id="2_0h7mn"]
+[ext_resource type="Texture2D" uid="uid://d0lo1x14rp7ia" path="res://assets/sprites/enemy/mushroom/mushroom_03.png" id="3_4vr3j"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_egbpr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_tlknp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_0h7mn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_4vr3j")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_onrkp"]
+radius = 14.0
+height = 34.0
+
+[node name="Mush" type="CharacterBody2D"]
+script = ExtResource("1_0h7mn")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_egbpr")
+autoplay = "default"
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 2)
+shape = SubResource("CapsuleShape2D_onrkp")

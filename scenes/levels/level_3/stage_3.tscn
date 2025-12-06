@@ -33,3 +33,7 @@ target_door = "DoorA"
 
 [node name="DoorA" parent="." instance=ExtResource("6_88qg8")]
 position = Vector2(97, 240)
+
+[node name="Direction" type="Node2D" parent="."]
+
+[node name="BulletFactory" type="Node2D" parent="Direction"]
