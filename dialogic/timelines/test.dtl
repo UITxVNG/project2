@@ -1,0 +1,47 @@
+mushroom: Chào Foxy! Chúng ta đang minh họa syntax Dialogic.[pause=1] [portrait=confused] Bạn sẵn sàng chưa?
+
+
+foxy: Vâng! Hãy bắt đầu với text multi-line. \
+Đây là dòng thứ hai, \
+và dòng thứ ba!
+
+
+mushroom: Tiếp theo chúng ta sẽ bắt đầu với 10 điểm cho người chơi
+# Set Variable event
+set {PlayerScore} = 10.0
+# Label event
+label MyLabel (Nhãn Minh Họa)
+# Choice event với condition và else
+- Chọn A: Tăng điểm | [if {PlayerScore} < 20]
+    set {PlayerScore} += 10
+    foxy: Điểm tăng rồi! Bây giờ là {PlayerScore}.
+- Chọn B: Giảm điểm | [if {PlayerScore} > 5] [else="disable"]
+    set {PlayerScore} -= 5
+    mushroom: Điểm giảm còn {PlayerScore}, cẩn thận!
+- Chọn C: Tiếp tục
+
+
+# Condition event (if, elif, else)
+if {PlayerScore} >= 10:
+    mushroom: Điểm cao! Bạn giỏi đấy.
+elif {PlayerScore} == 5:
+    foxy: Điểm trung bình thôi, thử lại nhé.
+    jump MyLabel
+else:
+    mushroom: Điểm thấp, thử lại nhé.
+    # Jump đến label trong cùng timeline
+    jump MyLabel
+
+
+mushroom: Vừa rồi chúng ta vừa thử thao tác với biến. \
+[pause=1] sau đó thử cho người chơi lựa chọn \
+[pause=1] tiếp đó là câu điều kiện và jump
+
+
+foxy: Tiếp theo chúng ta sẽ thử với gọi hàm GameManager.call_from_dialogic
+# Do/Call event
+do GameManager.call_from_dialogic("Hi!")
+mushroom: Các bạn sẽ thấy hàm được gọi và in ra log \
+Call from dialogic Hi!
+# End timeline (optional, nhưng tốt để kết thúc)
+[end_timeline]

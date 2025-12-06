@@ -1,0 +1,31 @@
+join mush center [animation="bounce_in"]
+[voice path="res://dialogic/sounds/mush/greeting_2_meghan.wav" volume="-10.0"]
+mush (friendly): Ồ! Lại một vị khách lạ! Chào mừng đến Aetheria, lữ khách!
+join foxy (normal) center
+foxy: Ngươi... ngươi có thể giúp ta không?
+mush: Ta là Mush, học giả của hòn đảo này. Ngươi trông có vẻ... lạc lõng.
+foxy: Ta không nhớ gì cả. Chỉ biết có thứ gì đó đang gọi ta ở đây.
+mush: Hmm... Nghe có vẻ kì lạ, có lẽ đó là tiếng gọi của Di Vật cổ đại.
+mush: Ở đây có 1 truyền thuyết kể rằng có 7 Di Vật ẩn chứa sức mạnh mà nhiều người thèm khát trên đảo...
+[voice path="res://dialogic/sounds/dark_voice/slime.wav" volume="-10.0"]
+dark_voice: "Tìm chúng... Thu thập tất cả..."
+foxy (determined): Nếu ta tìm được chúng... liệu ta có thể nhớ lại mọi thứ?
+mush: Có thể... Nhưng hãy cẩn thận, lữ khách.
+mush: Hòn đảo này không như vẻ ngoài của nó đâu, mọi thứ đều dần đắm mình vào màn đêm rồi...
+mush: Ngươi cứ tiến về phía trước đi, sẽ có những cánh cửa dẫn đến nới ngươi muốn
+
+- Ngươi là học giả, hẳn là có thể giúp ta điều gì chứ?
+	mush: À, ta có một thanh kiếm cũ ở đây, đừng coi thường vẻ ngoài nhỏ bé của nó.
+	mush: Nó có thể giúp ngươi trên hành trình.
+	- Cảm ơn ngươi!
+		do GameManager.collected_blade()
+		mush: Hãy dùng nó một cách khôn ngoan...
+		foxy: Ta sẽ cẩn thận!
+	- Ta không cần đâu.
+		mush: Được thôi... Nhưng hành trình này sẽ nguy hiểm đấy.
+
+- Ta sẽ thận trọng.
+	mush: Tốt lắm. Chúc ngươi may mắn!
+
+leave 
+leave
