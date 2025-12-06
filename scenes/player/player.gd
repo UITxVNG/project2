@@ -9,6 +9,8 @@ var invulnerable_timer: float = 0.0
 var flicker_tween: Tween
 
 @export var has_blade: bool = false
+@export var has_hammer: bool = false
+
 @onready var bullet_factory := $Direction/BulletFactory
 var wall_cling_lockout: float = 0.0
 
@@ -17,6 +19,7 @@ var jump_count: int = 0
 var max_jumps: int = 1
 var double_jump_buff_timer: float = 0.0
 var walk_smoke_timer: float = 0.0
+var unlock_hammer: bool = false   # có buff thì mới dùng được
 
 var has_shield_buff: bool = false
 var shield_buff_timer: float = 0.0
@@ -24,6 +27,7 @@ var shield_hits: int = 0
 
 @export var jump_smoke_scene: PackedScene
 @export var walk_smoke_scene: PackedScene
+@export var hammer_scene: PackedScene
 
 
 func _ready() -> void:
@@ -61,8 +65,18 @@ func load_state(data: Dictionary) -> void:
 # ============================================================
 func can_attack() -> bool:
 	if decorator_manager != null:
-		return decorator_manager.can_blade_attack()
-	return has_blade
+		if decorator_manager.can_blade_attack():
+			return true
+
+	# blade dùng cho ném
+	if has_blade:
+		return true	
+
+	# hammer dùng cho crush
+	if has_hammer:
+		return true
+
+	return false
 
 func get_movement_speed():
 	if decorator_manager != null:
@@ -90,6 +104,9 @@ func speed_up(multiplier: float, duration: float) -> void:
 func collected_blade() -> void:
 	has_blade = true
 	set_animated_sprite($Direction/BladeAnimatedSprite2D)
+func collected_hammer() -> void:
+	has_hammer = true
+	set_animated_sprite($Direction/HammerAnimatedSprite2D)
 
 func throw_blade(speed: float) -> void:
 	var blade = bullet_factory.create() as RigidBody2D
@@ -203,6 +220,18 @@ func _physics_process(delta: float) -> void:
 	if is_on_floor() and velocity.y == 0:
 		jump_count = 0
 
+func summon_hammer():
+	var hammer = hammer_scene.instantiate()
+
+	# Spawn TRƯỚC MẶT và CAO HƠN player
+	var x_offset = 60 * direction      # lệch sang hướng player nhìn
+	var y_offset = -100                # cao lên để tạo hiệu ứng rơi
+
+	hammer.global_position = global_position + Vector2(x_offset, y_offset)
+
+	hammer.direction = direction
+	get_tree().current_scene.add_child(hammer)
+
 
 # ============================================================
 # INPUT
@@ -212,6 +241,9 @@ func _unhandled_input(event: InputEvent) -> void:
 		if jump_count < max_jumps:
 			jump()
 			fsm.change_state(fsm.states.jump)
+	if event.is_action_pressed("special"):
+		if unlock_hammer:
+			fsm.change_state(fsm.states.crush)
 
 func play_walk_smoke():
 	if walk_smoke_scene == null:
@@ -220,3 +252,8 @@ func play_walk_smoke():
 	var smoke = walk_smoke_scene.instantiate()
 	smoke.global_position = global_position + Vector2(0, -3)   # tùy hiệu ứng
 	get_tree().current_scene.add_child(smoke)
+
+
+func _on_hit_area_2d_area_entered(area: Area2D) -> void:
+	if area.get_parent() is Rock:
+		area.get_parent().crush_break()

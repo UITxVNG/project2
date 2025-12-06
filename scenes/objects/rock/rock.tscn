@@ -1,0 +1,95 @@
+[gd_scene load_steps=14 format=3 uid="uid://c2d3bfjbu72xq"]
+
+[ext_resource type="Script" uid="uid://co44x4n8rnhlv" path="res://scenes/objects/rock/rock.gd" id="1_uecnp"]
+[ext_resource type="Texture2D" uid="uid://1h5hf8a3gsmb" path="res://assets/sprites/island/objects/rock/rock.png" id="2_6kv1k"]
+[ext_resource type="Script" uid="uid://dpylqnpc8inek" path="res://scenes/objects/rock/idle.gd" id="2_amaxh"]
+[ext_resource type="Script" uid="uid://cryb4rk70miiw" path="res://scenes/objects/rock/broken.gd" id="3_6kv1k"]
+[ext_resource type="Script" uid="uid://37vj4nw3iq50" path="res://scenes/objects/rock/hitbox_area.gd" id="5_lqiiy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6kv1k"]
+size = Vector2(66, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lqiiy"]
+atlas = ExtResource("2_6kv1k")
+region = Rect2(338, 408, 169, 204)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7sljv"]
+atlas = ExtResource("2_6kv1k")
+region = Rect2(507, 408, 169, 204)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v3gp0"]
+atlas = ExtResource("2_6kv1k")
+region = Rect2(845, 408, 169, 204)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l0mkr"]
+atlas = ExtResource("2_6kv1k")
+region = Rect2(0, 408, 169, 204)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yjsji"]
+atlas = ExtResource("2_6kv1k")
+region = Rect2(169, 408, 169, 204)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lqiiy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lqiiy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7sljv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v3gp0")
+}],
+"loop": false,
+"name": &"broken",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l0mkr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yjsji")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 2.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7sljv"]
+size = Vector2(54, 36)
+
+[node name="Rock" type="CharacterBody2D"]
+script = ExtResource("1_uecnp")
+metadata/_custom_type_script = "uid://s4xx82espxdt"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-3, 2.5)
+shape = SubResource("RectangleShape2D_6kv1k")
+
+[node name="States" type="Node" parent="."]
+
+[node name="Idle" type="Node" parent="States"]
+script = ExtResource("2_amaxh")
+
+[node name="Broken" type="Node" parent="States"]
+script = ExtResource("3_6kv1k")
+
+[node name="Direction" type="Node2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Direction"]
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_lqiiy")
+animation = &"broken"
+
+[node name="HitboxArea" type="Area2D" parent="Direction"]
+collision_layer = 16
+collision_mask = 8
+script = ExtResource("5_lqiiy")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Direction/HitboxArea"]
+position = Vector2(-3, 2)
+shape = SubResource("RectangleShape2D_7sljv")
+
+[connection signal="area_entered" from="Direction/HitboxArea" to="." method="_on_hitbox_area_area_entered"]
