@@ -85,16 +85,17 @@ jobs:
           path: public
 
       # Deploy to itch.io using Butler
+      - name: Setup Butler
+        if: steps.changes.outputs.skip == 'false' || github.event_name == 'workflow_dispatch'
+        uses: buildalon/setup-butler@v1.0.3
+        with:
+          api-key: ${{ secrets.ITCHIO_API_KEY }}
+
       - name: Deploy to itch.io
         if: steps.changes.outputs.skip == 'false' || github.event_name == 'workflow_dispatch'
-        uses: josephbmanley/butler-publish-itchio-action@v1.0.3
+        run: butler push public dphngnam/foxy-adventure:html5 --userversion ${{ steps.version.outputs.version }}
         env:
-          BUTLER_CREDENTIALS: ${{ secrets.ITCHIO_API_KEY }}
-          ITCH_USER: dphngnam
-          ITCH_GAME: foxy-adventure
-          CHANNEL: html5
-          PACKAGE: public
-          VERSION: ${{ steps.version.outputs.version }}
+          BUTLER_API_KEY: ${{ secrets.ITCHIO_API_KEY }}
 
       # Skip notice when no changes found (only on push)
       - name: Skip notice
