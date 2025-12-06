@@ -1,0 +1,50 @@
+{
+"@path": "res://addons/dialogic/Resources/character.gd",
+"@subpath": NodePath(""),
+&"_translation_id": "",
+&"color": Color(0.933594, 0.889832, 0.900772, 1),
+&"custom_info": {
+"prefix": "",
+"sound_mood_default": "",
+"sound_moods": {},
+"style": "dialogic_style",
+"suffix": ""
+},
+&"default_portrait": "aggressive",
+&"description": "",
+&"display_name": "Dark_Voice",
+&"mirror": true,
+&"nicknames": [""],
+&"offset": Vector2(0, 0),
+&"portraits": {
+"aggressive": {
+"export_overrides": {
+"image": "\"res://assets/sprites/foxy/foxy/fox_hat/fox_idle_1.png\""
+},
+"ignore_char_scale": false,
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": "res://addons/dialogic/Modules/Character/default_portrait.tscn"
+},
+"encouraging": {
+"export_overrides": {
+"image": "\"res://assets/sprites/foxy/foxy/fox_hat/fox_idle_1.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"whisper": {
+"export_overrides": {
+"image": "\"res://assets/sprites/foxy/foxy/fox_hat/fox_idle_1.png\""
+},
+"mirror": true,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+}
+},
+&"scale": 1.0
+}

@@ -1,0 +1,39 @@
+[gd_scene load_steps=7 format=3 uid="uid://daunr131crbwg"]
+
+[ext_resource type="Script" uid="uid://dsn5uvxo83aww" path="res://scenes/npcs/crabbo/crabbo.gd" id="1_m0wnj"]
+[ext_resource type="Texture2D" uid="uid://cbb66rfvuorgj" path="res://assets/sprites/enemy/crab/crab_01.png" id="2_4nt5b"]
+[ext_resource type="Texture2D" uid="uid://dmrvkxdykrbhy" path="res://assets/sprites/enemy/crab/crab_02.png" id="3_g6yh0"]
+[ext_resource type="Texture2D" uid="uid://cy2ogxeqcdbnj" path="res://assets/sprites/enemy/crab/crab_03.png" id="4_yiyuj"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_q58hg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_4nt5b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_g6yh0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_yiyuj")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_m0wnj"]
+radius = 20.0
+height = 48.0
+
+[node name="Crabbo" type="CharacterBody2D"]
+position = Vector2(12, 4)
+script = ExtResource("1_m0wnj")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_q58hg")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -8)
+shape = SubResource("CapsuleShape2D_m0wnj")
