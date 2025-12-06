@@ -131,3 +131,7 @@ func _on_recall_area_2d_body_entered(body: Node2D) -> void:
 		var claw := body as Claw
 		_is_attaching = true
 		claw.attach()
+
+
+func _on_hit_area_2d_hitted(area: Variant) -> void:
+	pass # Replace with function body.
