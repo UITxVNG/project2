@@ -23,6 +23,7 @@ func save_checkpoint_data(data: Dictionary) -> void:
 	if file:
 		var json_string = JSON.stringify(data)
 		file.store_string(json_string)
+		file.close()
 		print("Checkpoint data saved successfully")
 	else:
 		print("Error: Could not open save file for writing")
