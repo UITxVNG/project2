@@ -93,6 +93,3 @@ offset_bottom = -25.0
 [node name="Direction" type="Node2D" parent="."]
 
 [node name="BulletFactory" type="Node2D" parent="Direction"]
-
-[connection signal="body_entered" from="TileMapLayer/Checkpoint" to="TileMapLayer/Checkpoint" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMapLayer/@Area2D@33905" to="TileMapLayer/@Area2D@33905" method="_on_body_entered"]

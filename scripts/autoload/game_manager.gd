@@ -19,6 +19,8 @@ var inventory_system: InvetorySystem = null
 
 # === Trạng thái vật phẩm ===
 var has_blade: bool = false
+var has_hammer: bool = false
+
 var artifacts_collected: int = 0
 var total_artifacts: int = 7
 var souls_collected: int = 0
@@ -84,7 +86,9 @@ func _on_node_added(node: Node) -> void:
 		player = node
 		current_stage = get_tree().current_scene
 		print("Player detected in scene")
-		
+		# Restore vũ khí đúng lúc
+		call_deferred("_restore_player_equipment")
+
 		# Handle pending actions
 		if should_respawn_at_checkpoint:
 			call_deferred("respawn_at_checkpoint")
@@ -92,6 +96,15 @@ func _on_node_added(node: Node) -> void:
 		elif pending_teleport and not target_portal_name.is_empty():
 			call_deferred("respawn_at_portal")
 			pending_teleport = false
+func _restore_player_equipment():
+	if player == null:
+		return
+
+	if has_blade:
+		player.collected_blade()
+
+	if has_hammer:
+		player.collected_hammer()
 
 # =============================================================================
 # STAGE & PORTAL SYSTEM
@@ -261,6 +274,13 @@ func collected_blade() -> void:
 			player.collected_blade()
 		
 		blade_collected.emit()
+func collected_hammer() -> void:
+	if not has_hammer:
+		has_hammer = true
+		if player != null:
+			player.collected_hammer()
+		
+		print("Foxy đã nhận được cây búa!")
 
 func collect_artifact() -> void:
 	artifacts_collected += 1
@@ -376,6 +396,7 @@ func unfreeze_player() -> void:
 func save_game() -> void:
 	var save_data = {
 		"has_blade": has_blade,
+		"has_hammer": has_hammer,
 		"artifacts_collected": artifacts_collected,
 		"souls_collected": souls_collected,
 		"current_map": current_map,
@@ -414,6 +435,7 @@ func load_game() -> void:
 	file.close()
 	
 	has_blade = save_data.get("has_blade", false)
+	has_hammer = save_data.get("has_hammer", false)
 	artifacts_collected = save_data.get("artifacts_collected", 0)
 	souls_collected = save_data.get("souls_collected", 0)
 	current_map = save_data.get("current_map", 1)
@@ -430,7 +452,9 @@ func load_game() -> void:
 	# Update player blade status
 	if has_blade and player != null and player.has_method("collected_blade"):
 		player.collected_blade()
-	
+	if has_hammer and player != null and player.has_method("collected_hammer"):
+		player.collected_hammer()
+
 	print("Game đã được load!")
 
 # =============================================================================

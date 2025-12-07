@@ -7,6 +7,7 @@ var decorator_manager: DecoratorManager = null
 var is_invulnerable: bool = false
 var invulnerable_timer: float = 0.0
 var flicker_tween: Tween
+var is_dead: bool = false
 
 @export var has_blade: bool = false
 @export var has_hammer: bool = false
@@ -40,8 +41,6 @@ func _ready() -> void:
 	decorator_manager.initialize(self)
 	add_child(decorator_manager)
 
-	if has_blade:
-		collected_blade()
 
 	GameManager.player = self
 
@@ -103,16 +102,28 @@ func speed_up(multiplier: float, duration: float) -> void:
 # ============================================================
 func collected_blade() -> void:
 	has_blade = true
+	GameManager.has_blade = true
 	set_animated_sprite($Direction/BladeAnimatedSprite2D)
 func collected_hammer() -> void:
 	has_hammer = true
+	GameManager.has_hammer = true
+
 	set_animated_sprite($Direction/HammerAnimatedSprite2D)
 
 func throw_blade(speed: float) -> void:
 	var blade = bullet_factory.create() as RigidBody2D
+
 	blade.global_position = $Direction/FirePoint.global_position
-	var impulse = Vector2(direction * speed, 0)
-	blade.apply_impulse(impulse)
+
+	# Set hướng bay ngay từ đầu
+	blade.direction = direction
+	blade.player = self
+	blade.speed = speed
+
+	# Cho nó bay ra bằng linear_velocity (optimization)
+	blade.linear_velocity = Vector2(direction * speed, 0)
+
+
 
 
 # ============================================================
@@ -237,6 +248,8 @@ func summon_hammer():
 # INPUT
 # ============================================================
 func _unhandled_input(event: InputEvent) -> void:
+	if is_dead:
+		return  # CHẶN TOÀN BỘ INP
 	if event.is_action_pressed("jump"):
 		if jump_count < max_jumps:
 			jump()
