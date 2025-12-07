@@ -87,23 +87,48 @@ func get_animation_name() -> String:
 	return current_animation.name
 
 func set_animated_sprite(new_animated_sprite: AnimatedSprite2D) -> void:
+	# Tắt tất cả AnimatedSprite2D trong Direction
+	for child in $Direction.get_children():
+		if child is AnimatedSprite2D:
+			child.visible = false
+			child.stop()
+
+	# Lưu sprite mới
 	_next_animated_sprite = new_animated_sprite
 
-# Check if the animation or animated sprite has changed and play the new animation
+
 func _check_changed_animation() -> void:
-	var need_play: bool = false
+	var need_play := false
+
+	# === Nếu đổi AnimatedSprite2D ===
+	if _next_animated_sprite != animated_sprite:
+
+		# 1) Tắt tất cả AnimatedSprite2D trong Direction
+		for child in $Direction.get_children():
+			if child is AnimatedSprite2D:
+				child.visible = false
+				child.stop()
+
+		# 2) Set sprite mới
+		animated_sprite = _next_animated_sprite
+		
+		# 3) Bật sprite mới
+		if animated_sprite != null:
+			animated_sprite.visible = true
+
+		need_play = true
+
+
+	# === Nếu đổi animation ===
 	if _next_animation != current_animation:
 		current_animation = _next_animation
 		need_play = true
-	if _next_animated_sprite != animated_sprite:
-		if animated_sprite != null:
-			animated_sprite.hide()
-		animated_sprite = _next_animated_sprite
-		animated_sprite.show()
-		need_play = true
-	if need_play:
-		if animated_sprite != null and current_animation != null:
-			animated_sprite.play(current_animation)
+
+
+	# === Play animation nếu cần ===
+	if need_play and animated_sprite != null and current_animation != null:
+		animated_sprite.play(current_animation)
+
 
 # Check if the direction has changed and set the new direction
 func _check_changed_direction() -> void:

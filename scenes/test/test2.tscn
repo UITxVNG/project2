@@ -61,7 +61,7 @@ target_stage = "uid://qjojp3xo7ie3"
 position = Vector2(423, 31)
 
 [node name="Blade" parent="." instance=ExtResource("7_65f7k")]
-position = Vector2(274, 34)
+position = Vector2(354, 154)
 
 [node name="Shield" parent="." instance=ExtResource("8_x4rxx")]
 position = Vector2(329, 31)
@@ -73,7 +73,7 @@ position = Vector2(231, 32)
 position = Vector2(378, 31)
 
 [node name="Hammer" parent="." instance=ExtResource("13_20jhc")]
-position = Vector2(347, 147)
+position = Vector2(529, 28)
 
 [node name="Rock" parent="." instance=ExtResource("12_pk3sm")]
-position = Vector2(420, 152)
+position = Vector2(621, 5)

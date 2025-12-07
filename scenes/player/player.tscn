@@ -448,7 +448,7 @@ product_packed_scene = ExtResource("35_ttakn")
 target_container_name = &"Bullets"
 
 [node name="FirePoint" type="Node2D" parent="Direction"]
-position = Vector2(21, -25)
+position = Vector2(26, -25)
 
 [node name="ShieldFX" type="Sprite2D" parent="Direction"]
 visible = false

@@ -33,6 +33,10 @@ func apply_powerup(powerup_id: String) -> bool:
 	_add_to_chain(decorator)
 	# Apply effects
 	decorator.on_apply()
+	if powerup_data.id == "blade":
+		print("DecoratorManager: calling player.collected_blade()")
+		player.collected_blade()
+		print("DEBUG: player.has_blade =", player.has_blade)
 	active_decorators.append(decorator)
 	print("Applied powerup: ", powerup_data.id)
 	return true
