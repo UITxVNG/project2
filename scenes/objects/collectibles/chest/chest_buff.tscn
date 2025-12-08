@@ -1,0 +1,64 @@
+[gd_scene load_steps=12 format=3 uid="uid://clkv3euqlioag"]
+
+[ext_resource type="Script" uid="uid://dklm6xno6g22x" path="res://scenes/objects/collectibles/chest/chest_buff.gd" id="1_exr8m"]
+[ext_resource type="Texture2D" uid="uid://c776yg14q0eu3" path="res://assets/sprites/items/chest_key/chest/chest_close_01.png" id="2_p3hw1"]
+[ext_resource type="Texture2D" uid="uid://bxwak2twaqq0q" path="res://assets/sprites/items/chest_key/chest/chest_close_02.png" id="3_5i82t"]
+[ext_resource type="Texture2D" uid="uid://kvpkg6hi4l1m" path="res://assets/sprites/items/chest_key/chest/chest_close_03.png" id="4_iupra"]
+[ext_resource type="Texture2D" uid="uid://cwg4tvuvelo4m" path="res://assets/sprites/items/chest_key/chest/chest_open_01.png" id="5_ckbgm"]
+[ext_resource type="Texture2D" uid="uid://bceatktv3nr5s" path="res://assets/sprites/items/chest_key/chest/chest_open_02.png" id="6_wlrqr"]
+[ext_resource type="Texture2D" uid="uid://dbisra7a8p2l4" path="res://assets/sprites/items/chest_key/chest/chest_open_03.png" id="7_bywdy"]
+[ext_resource type="Texture2D" uid="uid://c6c3s2ylscmk5" path="res://assets/sprites/items/chest_key/chest/chest_open_04.png" id="8_mswiv"]
+[ext_resource type="Texture2D" uid="uid://dlrnsix7qagu5" path="res://assets/sprites/items/chest_key/chest/chest_open_05.png" id="9_jgjms"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ytvqx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_p3hw1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_5i82t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_iupra")
+}],
+"loop": true,
+"name": &"close",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_ckbgm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_wlrqr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_bywdy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_mswiv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_jgjms")
+}],
+"loop": false,
+"name": &"open",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1456x"]
+size = Vector2(32, 27)
+
+[node name="ChestBuff" type="Area2D"]
+collision_mask = 3
+script = ExtResource("1_exr8m")
+metadata/_custom_type_script = "uid://nvuabioddqmj"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ytvqx")
+animation = &"close"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 9.5)
+shape = SubResource("RectangleShape2D_1456x")

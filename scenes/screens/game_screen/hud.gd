@@ -6,7 +6,7 @@ extends MarginContainer
 
 func _ready() -> void:
 	$VBoxContainer/HBoxContainer/SettingsTextureButton.pressed.connect(_on_settings_texture_button_pressed)
-	health_bar.max_value = 3
+	health_bar.max_value = 3 
 	pass
 
 func _process(delta: float) -> void:

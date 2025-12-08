@@ -1,14 +1,14 @@
 [gd_scene load_steps=12 format=3 uid="uid://c1puov0qg8c8b"]
 
 [ext_resource type="Script" uid="uid://b73nmwvqgmghd" path="res://scenes/objects/collectibles/chest/chest.gd" id="1_l2eae"]
-[ext_resource type="Texture2D" uid="uid://c776yg14q0eu3" path="res://assets/sprites/items/chest_key/chest/chest_close_01.png" id="2_yju7i"]
-[ext_resource type="Texture2D" uid="uid://bxwak2twaqq0q" path="res://assets/sprites/items/chest_key/chest/chest_close_02.png" id="3_18ami"]
-[ext_resource type="Texture2D" uid="uid://kvpkg6hi4l1m" path="res://assets/sprites/items/chest_key/chest/chest_close_03.png" id="4_qrlfa"]
-[ext_resource type="Texture2D" uid="uid://cwg4tvuvelo4m" path="res://assets/sprites/items/chest_key/chest/chest_open_01.png" id="5_pcrcj"]
-[ext_resource type="Texture2D" uid="uid://bceatktv3nr5s" path="res://assets/sprites/items/chest_key/chest/chest_open_02.png" id="6_w7vlk"]
-[ext_resource type="Texture2D" uid="uid://dbisra7a8p2l4" path="res://assets/sprites/items/chest_key/chest/chest_open_03.png" id="7_u6qfn"]
-[ext_resource type="Texture2D" uid="uid://c6c3s2ylscmk5" path="res://assets/sprites/items/chest_key/chest/chest_open_04.png" id="8_0w0h8"]
-[ext_resource type="Texture2D" uid="uid://dlrnsix7qagu5" path="res://assets/sprites/items/chest_key/chest/chest_open_05.png" id="9_kbub0"]
+[ext_resource type="Texture2D" uid="uid://dbok0xwvujtcl" path="res://assets/sprites/items/chest_key/chest/chest_gold_close_02.png" id="2_l2eae"]
+[ext_resource type="Texture2D" uid="uid://csnmoqk2s0oc5" path="res://assets/sprites/items/chest_key/chest/chest_gold_close_03.png" id="3_yju7i"]
+[ext_resource type="Texture2D" uid="uid://cooi5yrhfgm7k" path="res://assets/sprites/items/chest_key/chest/chest_gold_close_04.png" id="4_18ami"]
+[ext_resource type="Texture2D" uid="uid://dai45clvtwp78" path="res://assets/sprites/items/chest_key/chest/chest_gold_open_01.png" id="5_qrlfa"]
+[ext_resource type="Texture2D" uid="uid://dorit3xvuhfa3" path="res://assets/sprites/items/chest_key/chest/chest_gold_open_02.png" id="6_pcrcj"]
+[ext_resource type="Texture2D" uid="uid://dff11m3vj5ya8" path="res://assets/sprites/items/chest_key/chest/chest_gold_open_03.png" id="7_w7vlk"]
+[ext_resource type="Texture2D" uid="uid://bklcdfo3kv57e" path="res://assets/sprites/items/chest_key/chest/chest_gold_open_04.png" id="8_u6qfn"]
+[ext_resource type="Texture2D" uid="uid://u3kle8ielmvo" path="res://assets/sprites/items/chest_key/chest/chest_gold_open_05.png" id="9_0w0h8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w7ls1"]
 size = Vector2(32, 27)
@@ -17,13 +17,13 @@ size = Vector2(32, 27)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_yju7i")
+"texture": ExtResource("2_l2eae")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_18ami")
+"texture": ExtResource("3_yju7i")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_qrlfa")
+"texture": ExtResource("4_18ami")
 }],
 "loop": true,
 "name": &"close",
@@ -31,23 +31,23 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("5_pcrcj")
+"texture": ExtResource("5_qrlfa")
 }, {
 "duration": 1.0,
-"texture": ExtResource("6_w7vlk")
+"texture": ExtResource("6_pcrcj")
 }, {
 "duration": 1.0,
-"texture": ExtResource("7_u6qfn")
+"texture": ExtResource("7_w7vlk")
 }, {
 "duration": 1.0,
-"texture": ExtResource("8_0w0h8")
+"texture": ExtResource("8_u6qfn")
 }, {
 "duration": 1.0,
-"texture": ExtResource("9_kbub0")
+"texture": ExtResource("9_0w0h8")
 }],
 "loop": false,
 "name": &"open",
-"speed": 10.0
+"speed": 5.0
 }]
 
 [node name="Chest" type="Area2D"]
@@ -62,4 +62,4 @@ shape = SubResource("RectangleShape2D_w7ls1")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -7)
 sprite_frames = SubResource("SpriteFrames_pfens")
-animation = &"open"
+animation = &"close"
