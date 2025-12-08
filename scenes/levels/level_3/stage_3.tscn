@@ -1,13 +1,34 @@
-[gd_scene load_steps=7 format=4 uid="uid://7a0g787gepd0"]
+[gd_scene load_steps=21 format=4 uid="uid://7a0g787gepd0"]
 
 [ext_resource type="TileSet" uid="uid://c8m8q0fe452q3" path="res://assets/tilesets/tile_set.tres" id="1_88qg8"]
+[ext_resource type="Script" uid="uid://qgvuc2mivqvm" path="res://scenes/levels/level_3/stage_3.gd" id="1_bthor"]
 [ext_resource type="PackedScene" uid="uid://qr7er0buuelk" path="res://scenes/island/background/music.tscn" id="2_lqdls"]
 [ext_resource type="PackedScene" uid="uid://bok3o4ruf7n8x" path="res://scenes/island/background/parallax_background.tscn" id="3_psn4k"]
 [ext_resource type="PackedScene" uid="uid://cr06n1w1va6i8" path="res://scenes/player/player.tscn" id="4_0cssf"]
 [ext_resource type="PackedScene" uid="uid://dubb5b1vjmsxd" path="res://scenes/objects/door/door.tscn" id="6_88qg8"]
 [ext_resource type="PackedScene" uid="uid://dytm3c86oshmd" path="res://scenes/screens/game_screen/hud.tscn" id="6_utmqk"]
+[ext_resource type="Script" uid="uid://v8jvkfi3vb4y" path="res://scenes/levels/level_3/rune_puzzle.gd" id="8_icusv"]
+[ext_resource type="Texture2D" uid="uid://ixj0d03uu4ed" path="res://assets/ui/popup.png" id="9_e7ucg"]
+[ext_resource type="Texture2D" uid="uid://dkfo5sur75h7j" path="res://assets/artifact/Icon31_34.png" id="10_8pbnw"]
+[ext_resource type="Texture2D" uid="uid://5tmvpjc0kp7x" path="res://assets/artifact/Icon31_22.png" id="11_jm84n"]
+[ext_resource type="Texture2D" uid="uid://xrsj5so8ymx7" path="res://assets/artifact/Icon31_17.png" id="12_bt6ug"]
+[ext_resource type="Texture2D" uid="uid://bdak4j17qnvhd" path="res://assets/artifact/Icon31_39.png" id="13_6yetb"]
+[ext_resource type="Script" uid="uid://sws2l0sfegan" path="res://scenes/objects/platforms/animatable_body_2d.gd" id="14_8pbnw"]
+[ext_resource type="Texture2D" uid="uid://dh6liccdc3qhx" path="res://assets/artifact/Icons_35.png" id="14_icusv"]
+[ext_resource type="PackedScene" uid="uid://djx0x13gilb6n" path="res://scenes/npcs/artifacts/artifact3.tscn" id="15_e7ucg"]
+[ext_resource type="PackedScene" uid="uid://ed53lpghyr7j" path="res://dialogic/timelines/interact.tscn" id="16_jm84n"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_66rft"]
+size = Vector2(17.25, 16.8125)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_l4ajn"]
+radius = 6.08276
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_e7ucg"]
+radius = 15.2643
 
 [node name="Stage" type="Node2D"]
+script = ExtResource("1_bthor")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 tile_map_data = PackedByteArray("AAACAAgAAAABAAQAAAADAAgAAAABAAQAAAAEAAgAAAABAAQAAAAFAAgAAAABAAQAAAAGAAgAAAABAAQAAAAHAAgAAAABAAQAAAAIAAgAAAABAAQAAAAJAAgAAAAMAAQAAAAKAAgAAAABAAQAAAALAAgAAAABAAQAAAAMAAgAAAABAAQAAAANAAgAAAABAAQAAAAOAAgAAAABAAQAAAABAAgAAAAKAAAAAAABAAcAAAACAAEAAAABAAYAAAACAAEAAAABAAUAAAACAAEAAAABAAQAAAACAAEAAAABAAMAAAACAAEAAAABAAIAAAACAAEAAAABAAEAAAACAAEAAAABAAAAAAAKAAAAAAABAP//AAACAAEAAAABAP7/AAACAAEAAAABAP3/AAACAAEAAAABAPz/AAACAAEAAAABAPv/AAACAAEAAAABAPr/AAACAAEAAAABAPn/AAACAAEAAAABAPj/AAAJAAMAAAAPAAgAAAABAAQAAAAQAAgAAAAKAAQAAAARAAgAAAABAAIAAAASAAgAAAABAAIAAAATAAgAAAABAAIAAAAUAAgAAAAJAAQAAAAVAAgAAAABAAQAAAAWAAgAAAABAAQAAAAXAAgAAAABAAQAAAAYAAgAAAABAAQAAAACAAYAAQAAAAAAAgAEAAcAAgAAAAAABAAFAAQAAAAAAAQAAAAGAAQAAAABAAQAAAAHAAQAAAABAAQAAAAKAAQAAAABAAQAAAAJAAQAAAABAAQAAAAIAAQAAAABAAQAAAALAAQAAAABAAQAAAAJAAYAAgAAAAAABgANAAQAAAACAAQAAAAMAAQAAAABAAQAAAAJAAcAAAAEAAAAAAAQAAcAAAAAAAAAAAARAAYAAAAAAAAAAAASAAUAAAAAAAAAAAATAAUAAAAJAAMAAAAUAAUAAAAQAAMAAAASAAYAAAAHAAEAAAASAAcAAAABAAEAAAARAAcAAAABAAEAAAATAAcAAAABAAEAAAAUAAcAAAACAAEAAAATAAYAAAAGAAEAAAAUAAYAAAAHAAQAAAACAAAAAAABAAQAAAADAAAAAAABAAQAAAAEAAAAAAABAAQAAAAFAAAAAAABAAQAAAAGAAAAAAABAAQAAAAHAAAAAAABAAQAAAAIAAAAAAABAAQAAAAJAAAAAAABAAQAAAAKAAAAAAABAAQAAAALAAAAAAABAAQA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AAAhAAAAAAACAAEAAAAiAP//AAACAAIAAAAiAP7/AAACAAEAAAAiAP3/AAACAAEAAAAiAPz/AAACAAEAAAAhAPz/AAABAAEAAAAhAP3/AAABAAEAAAAhAP7/AAABAAEAAAAhAP//AAAGAAAAAAAhAPv/AAABAAAAAAAiAPv/AAACAAAAAAAZAAQAAgAAAAAAAgAeAAEAAgAAAAAAAgADAPn/AgAAAAAABQALAPn/AgAAAAAABQASAPn/AAAEAAIAAAAJAAMAAgAAAAAAAwAJAP//AgAAAAAABwAiAAcAAgAAAAAAAwAgAAcAAQAAAAAAAgAGAPz/AwAAAAAABgAKAPz/AwAAAAAABgAOAPz/AwAAAAAABgAbAPz/AwAAAAAABgAbAP3/AwAAAAAABgAbAP7/AwAAAAAABgAIAAIAAwAAAAAABgAJAAIAAwAAAAAABgAKAAIAAwAAAAAABgAIAAUAAwAAAAAABgAJAAUAAwAAAAAABgAKAAUAAwAAAAAABgAbAAYAAwAAAAAABgAaAAYAAwAAAAAABgAaAAcAAwAAAAAABgAbAAcAAwAAAAAABgAjAPz/AwAAAAAABgAjAP3/AwAAAAAABgAjAP7/AwAAAAAABgAgAAQAAwAAAAAABgAhAAQAAwAAAAAABgAiAAQAAwAAAAAABgAIAPv/AwAAAAAABgAMAPv/AwAAAAAABgAGAAcAAgAAAAAABgAMAAcAAgAAAAAABgAnAAAAAwAAAAAACAAiAAAAAgAAAAAAAQA=")
@@ -17,8 +38,8 @@ tile_set = ExtResource("1_88qg8")
 
 [node name="ParallaxBackground" parent="." instance=ExtResource("3_psn4k")]
 
-[node name="Player" parent="." instance=ExtResource("4_0cssf")]
-position = Vector2(93, 244)
+[node name="Player" parent="." groups=["player"] instance=ExtResource("4_0cssf")]
+position = Vector2(108, 256)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -37,3 +58,140 @@ position = Vector2(97, 240)
 [node name="Direction" type="Node2D" parent="."]
 
 [node name="BulletFactory" type="Node2D" parent="Direction"]
+
+[node name="PuzzleArea" type="Node2D" parent="."]
+
+[node name="RunePuzzle" type="Node2D" parent="PuzzleArea" node_paths=PackedStringArray("puzzle_door", "artifact_spawn_point")]
+position = Vector2(65, 322)
+script = ExtResource("8_icusv")
+puzzle_door = NodePath("../PuzzleDoor")
+artifact_spawn_point = NodePath("../../Collectibles/Artifact3")
+
+[node name="RuneSlots" type="Node2D" parent="PuzzleArea/RunePuzzle"]
+position = Vector2(699, -252)
+
+[node name="Slot1" type="Area2D" parent="PuzzleArea/RunePuzzle/RuneSlots"]
+position = Vector2(-162, -145)
+
+[node name="Sprite2D" type="Sprite2D" parent="PuzzleArea/RunePuzzle/RuneSlots/Slot1"]
+position = Vector2(-1.00002, -5.36442e-07)
+scale = Vector2(0.171875, 0.161458)
+texture = ExtResource("9_e7ucg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PuzzleArea/RunePuzzle/RuneSlots/Slot1"]
+position = Vector2(-1, -1)
+shape = SubResource("RectangleShape2D_66rft")
+
+[node name="Slot2" type="Area2D" parent="PuzzleArea/RunePuzzle/RuneSlots"]
+position = Vector2(-100, -177)
+
+[node name="Sprite2D" type="Sprite2D" parent="PuzzleArea/RunePuzzle/RuneSlots/Slot2"]
+position = Vector2(-1.00001, -1)
+scale = Vector2(0.161458, 0.151042)
+texture = ExtResource("9_e7ucg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PuzzleArea/RunePuzzle/RuneSlots/Slot2"]
+position = Vector2(-1, -1)
+shape = SubResource("RectangleShape2D_66rft")
+
+[node name="Slot3" type="Area2D" parent="PuzzleArea/RunePuzzle/RuneSlots"]
+position = Vector2(-7, -209)
+
+[node name="Sprite2D" type="Sprite2D" parent="PuzzleArea/RunePuzzle/RuneSlots/Slot3"]
+position = Vector2(0.187481, -0.437487)
+scale = Vector2(0.170572, 0.154948)
+texture = ExtResource("9_e7ucg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PuzzleArea/RunePuzzle/RuneSlots/Slot3"]
+shape = SubResource("RectangleShape2D_66rft")
+
+[node name="Slot4" type="Area2D" parent="PuzzleArea/RunePuzzle/RuneSlots"]
+position = Vector2(-6, -145)
+
+[node name="Sprite2D" type="Sprite2D" parent="PuzzleArea/RunePuzzle/RuneSlots/Slot4"]
+position = Vector2(-0.375046, -0.375013)
+scale = Vector2(0.179688, 0.174479)
+texture = ExtResource("9_e7ucg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PuzzleArea/RunePuzzle/RuneSlots/Slot4"]
+shape = SubResource("RectangleShape2D_66rft")
+
+[node name="RuneSymbols" type="Node2D" parent="PuzzleArea/RunePuzzle"]
+position = Vector2(699, -252)
+
+[node name="FireSymbol" type="Area2D" parent="PuzzleArea/RunePuzzle/RuneSymbols"]
+position = Vector2(-71, -158)
+metadata/symbol_type = "fire"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PuzzleArea/RunePuzzle/RuneSymbols/FireSymbol"]
+position = Vector2(0, 1)
+shape = SubResource("CircleShape2D_l4ajn")
+
+[node name="Sprite2D" type="Sprite2D" parent="PuzzleArea/RunePuzzle/RuneSymbols/FireSymbol"]
+position = Vector2(-1.50001, 0.25)
+scale = Vector2(0.468749, 0.421875)
+texture = ExtResource("10_8pbnw")
+
+[node name="WaterSymbol" type="Area2D" parent="PuzzleArea/RunePuzzle/RuneSymbols"]
+position = Vector2(-40, -164)
+metadata/symbol_type = "water"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PuzzleArea/RunePuzzle/RuneSymbols/WaterSymbol"]
+position = Vector2(1, 0)
+shape = SubResource("CircleShape2D_l4ajn")
+
+[node name="Sprite2D" type="Sprite2D" parent="PuzzleArea/RunePuzzle/RuneSymbols/WaterSymbol"]
+position = Vector2(0.999977, -1.19209e-06)
+scale = Vector2(0.374999, 0.390625)
+texture = ExtResource("11_jm84n")
+
+[node name="EarthSymbol" type="Area2D" parent="PuzzleArea/RunePuzzle/RuneSymbols"]
+position = Vector2(-55, -174)
+metadata/symbol_type = "earth"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PuzzleArea/RunePuzzle/RuneSymbols/EarthSymbol"]
+shape = SubResource("CircleShape2D_l4ajn")
+
+[node name="Sprite2D" type="Sprite2D" parent="PuzzleArea/RunePuzzle/RuneSymbols/EarthSymbol"]
+position = Vector2(2.67029e-05, -1.19209e-06)
+scale = Vector2(0.406252, 0.390625)
+texture = ExtResource("12_bt6ug")
+
+[node name="TreeSymbol" type="Area2D" parent="PuzzleArea/RunePuzzle/RuneSymbols"]
+position = Vector2(-47, -145)
+metadata/symbol_type = "tree"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PuzzleArea/RunePuzzle/RuneSymbols/TreeSymbol"]
+shape = SubResource("CircleShape2D_l4ajn")
+
+[node name="Sprite2D" type="Sprite2D" parent="PuzzleArea/RunePuzzle/RuneSymbols/TreeSymbol"]
+position = Vector2(-3.33786e-06, 1.66893e-06)
+scale = Vector2(0.34375, 0.34375)
+texture = ExtResource("13_6yetb")
+
+[node name="PuzzleDoor" type="AnimatableBody2D" parent="PuzzleArea"]
+position = Vector2(593, -119)
+collision_layer = 9
+collision_mask = 3
+script = ExtResource("14_8pbnw")
+
+[node name="Sprite2D" type="Sprite2D" parent="PuzzleArea/PuzzleDoor"]
+position = Vector2(0, 3)
+texture = ExtResource("14_icusv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PuzzleArea/PuzzleDoor"]
+position = Vector2(1, 2)
+shape = SubResource("CircleShape2D_e7ucg")
+
+[node name="Interact" parent="PuzzleArea/PuzzleDoor" instance=ExtResource("16_jm84n")]
+position = Vector2(8, -34)
+hint_text = "Nhìn có vẻ kì lạ, thử sắp xếp các biểu tưởng lại xem..."
+
+[node name="Collectibles" type="Node2D" parent="."]
+
+[node name="Artifact3" parent="Collectibles" instance=ExtResource("15_e7ucg")]
+process_mode = 4
+visible = false
+position = Vector2(543, -116)
+artifact_id = 3
+artifact_name = "Ngọc Cá Mập"

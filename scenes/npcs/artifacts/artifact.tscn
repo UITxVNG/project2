@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://cu0cbkaor523u"]
+
+[ext_resource type="Script" uid="uid://ci21mpofm6vsk" path="res://scenes/npcs/artifacts/artifact.gd" id="1_w662g"]
+[ext_resource type="Texture2D" uid="uid://muqihr1w6dnm" path="res://assets/artifact/Icons_11.png" id="2_7qqga"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ju3nb"]
+
+[node name="Artifact1" type="Area2D"]
+script = ExtResource("1_w662g")
+artifact_name = "Ngọc Triều Cường"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_7qqga")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_ju3nb")

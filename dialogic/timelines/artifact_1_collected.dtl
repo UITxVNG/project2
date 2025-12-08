@@ -1,0 +1,8 @@
+join  center
+foxy: Đây là... Di Vật đầu tiên!
+[wait time="0.5"]
+dark_voice: "Xuất sắc... Ngươi đang trên con đường đúng..."
+dark_voice: "Còn 6 Di Vật nữa... Sức mạnh sẽ thuộc về ngươi!"
+foxy: Ta cảm nhận được năng lượng từ nó...
+foxy: Nó đang... thì thầm với ta...
+leave  [animation="fade_out"]
