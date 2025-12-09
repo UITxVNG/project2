@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://bh47gg4fyq5bq"]
+[gd_scene load_steps=8 format=3 uid="uid://bh47gg4fyq5bq"]
 
 [ext_resource type="Texture2D" uid="uid://ilolheqwlwk2" path="res://icon.svg" id="1_bmshj"]
 [ext_resource type="PackedScene" uid="uid://cr06n1w1va6i8" path="res://scenes/player/player.tscn" id="2_ie653"]
 [ext_resource type="PackedScene" uid="uid://bymp1tld1l4n1" path="res://scenes/objects/collectibles/coin/coin.tscn" id="3_2dt4b"]
-[ext_resource type="PackedScene" uid="uid://c1puov0qg8c8b" path="res://scenes/objects/collectibles/chest/chest.tscn" id="4_v7n0b"]
 [ext_resource type="PackedScene" uid="uid://dlhxchryt3i66" path="res://scenes/objects/collectibles/key/key.tscn" id="5_2dt4b"]
+[ext_resource type="PackedScene" uid="uid://buerol0qhwr6" path="res://scenes/objects/buffitems/speed/speed_up.tscn" id="6_683rj"]
+[ext_resource type="PackedScene" uid="uid://clkv3euqlioag" path="res://scenes/objects/collectibles/chest/chest_buff.tscn" id="6_v7n0b"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2dt4b"]
 size = Vector2(128, 128)
@@ -25,11 +26,8 @@ position = Vector2(218, -102)
 [node name="Coin3" parent="Collectibles" instance=ExtResource("3_2dt4b")]
 position = Vector2(264, -103)
 
-[node name="Chest" parent="Collectibles" instance=ExtResource("4_v7n0b")]
-position = Vector2(583, -78)
-
 [node name="Key" parent="Collectibles" instance=ExtResource("5_2dt4b")]
-position = Vector2(423, -89)
+position = Vector2(356, -88)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(309, -31)
@@ -41,3 +39,7 @@ metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/StaticBody2D"]
 shape = SubResource("RectangleShape2D_2dt4b")
+
+[node name="ChestBuff" parent="." instance=ExtResource("6_v7n0b")]
+position = Vector2(439, -79)
+buff_scene = ExtResource("6_683rj")
