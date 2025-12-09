@@ -4,14 +4,14 @@
 [ext_resource type="PackedScene" uid="uid://cr06n1w1va6i8" path="res://scenes/player/player.tscn" id="2_uce0e"]
 [ext_resource type="PackedScene" uid="uid://0ynutkwlhlce" path="res://scenes/objects/platforms/path2d_moving_platform.tscn" id="3_uce0e"]
 [ext_resource type="PackedScene" uid="uid://b3ol3sy3kji1p" path="res://scenes/objects/buffitems/blade/blade.tscn" id="4_bfh0m"]
-[ext_resource type="Script" uid="uid://byviak10mkidr" path="res://scripts/enemy_counter.gd" id="4_counter"]
+[ext_resource type="Script" uid="uid://bvcdcbe8jn75p" path="res://scripts/enemy_counter.gd" id="4_counter"]
 [ext_resource type="PackedScene" uid="uid://cjgvg81b80ge4" path="res://scenes/enemies/starfish/starfish.tscn" id="5_starfish"]
 [ext_resource type="PackedScene" uid="uid://cbsa8w2lp8433" path="res://scenes/enemies/crab/crab.tscn" id="6_crab"]
 [ext_resource type="PackedScene" uid="uid://b8dad0e1f2g3h" path="res://scenes/objects/rotating_saw/rotating_saw.tscn" id="8_q8grv"]
 [ext_resource type="Texture2D" uid="uid://cls86cin7xdad" path="res://assets/tilesets/Forest Pass/PNG/bgcolor.png" id="9_r031e"]
 [ext_resource type="Texture2D" uid="uid://b5yvxmbo3o6i7" path="res://assets/tilesets/Forest Pass/PNG/Tlayer1.png" id="10_8j4e5"]
 [ext_resource type="Texture2D" uid="uid://drj2pgmb3p21p" path="res://assets/tilesets/Forest Pass/PNG/Tlayer2.png" id="11_frv1d"]
-[ext_resource type="Texture2D" uid="uid://fe7aprsmyft1" path="res://assets/tilesets/Forest Pass/PNG/Tlayer3.png" id="12_5xhko"]
+[ext_resource type="Texture2D" uid="uid://unmmgyi4meoc" path="res://assets/tilesets/Forest Pass/PNG/Tlayer3.png" id="12_5xhko"]
 
 [sub_resource type="Curve2D" id="Curve2D_2ljyo"]
 bake_interval = 349.51
@@ -34,7 +34,7 @@ _data = {
 }
 point_count = 3
 
-[node name="Stage" type="Node2D"]
+[node name="Stage2" type="Node2D"]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 position = Vector2(-1, 0)

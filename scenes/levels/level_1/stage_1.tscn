@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://fr0jpxxybedf"]
+[gd_scene load_steps=14 format=4 uid="uid://fr0jpxxybedf"]
 
 [ext_resource type="TileSet" uid="uid://c8m8q0fe452q3" path="res://assets/tilesets/tile_set.tres" id="1_33rtp"]
 [ext_resource type="PackedScene" uid="uid://cr06n1w1va6i8" path="res://scenes/player/player.tscn" id="2_dwsf3"]
@@ -9,6 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://delnx8nkpylcy" path="res://scenes/npcs/mush/mush.tscn" id="8_j4ikx"]
 [ext_resource type="PackedScene" uid="uid://bok3o4ruf7n8x" path="res://scenes/island/background/parallax_background.tscn" id="8_wuvcj"]
 [ext_resource type="Script" uid="uid://dybrdnvtsiqri" path="res://dialogic/dialog_trigger.gd" id="9_t1ot5"]
+[ext_resource type="PackedScene" uid="uid://ed53lpghyr7j" path="res://dialogic/timelines/interact.tscn" id="10_t1ot5"]
+[ext_resource type="PackedScene" uid="uid://cu0cbkaor523u" path="res://scenes/npcs/artifacts/artifact.tscn" id="11_f47qk"]
 
 [sub_resource type="Curve2D" id="Curve2D_5usqu"]
 _data = {
@@ -19,7 +21,7 @@ point_count = 2
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f47qk"]
 size = Vector2(101, 67)
 
-[node name="Stage" type="Node2D"]
+[node name="Stage3" type="Node2D"]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 position = Vector2(54, 0)
@@ -27,7 +29,7 @@ tile_map_data = PackedByteArray("AAAAAAAAAAABAAAAAAABAAAAAAABAAAAAAACAAAAAAABAAA
 tile_set = ExtResource("1_33rtp")
 
 [node name="Player" parent="." groups=["player"] instance=ExtResource("2_dwsf3")]
-position = Vector2(-327, -23)
+position = Vector2(-323, -15)
 collision_layer = 2
 
 [node name="Movement" parent="." instance=ExtResource("3_dwsf3")]
@@ -93,3 +95,11 @@ offset_bottom = -25.0
 [node name="Direction" type="Node2D" parent="."]
 
 [node name="BulletFactory" type="Node2D" parent="Direction"]
+
+[node name="Interact" parent="." instance=ExtResource("10_t1ot5")]
+position = Vector2(-94, -57)
+
+[node name="Artifact1" parent="." instance=ExtResource("11_f47qk")]
+position = Vector2(-450, -667)
+collision_layer = 9
+collision_mask = 2

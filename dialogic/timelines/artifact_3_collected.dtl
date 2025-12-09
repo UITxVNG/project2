@@ -1,0 +1,14 @@
+audio -
+join  center
+Foxy: Điều gì đang xảy ra...?
+[wait time="1.0"]
+Unknown_Spirit: "Dừng lại... Xin đừng..."
+Foxy: Ai đó đang... gọi ta...?
+Dark_Voice: "Đừng nghe! Đó là kẻ địch cố ngăn cản ngươi!"
+Dark_Voice: "Tiếp tục! Còn 4 Di Vật nữa!"
+Foxy: Nhưng... bầu trời sao đột nhiên u ám vậy...
+Foxy: Và những cây cối... chúng trông... héo úa...
+Dark_Voice: "Đó chỉ là thử thách. Ngươi phải kiên trì."
+Foxy: ...Có lẽ vậy.
+[signal]
+leave  [animation="fade_out"]
