@@ -50,7 +50,7 @@
 [ext_resource type="Script" uid="uid://caxtbpdyga1ay" path="res://scenes/player/states/fall.gd" id="42_xcnuv"]
 [ext_resource type="Script" uid="uid://b1yiurhbwv084" path="res://scenes/player/wall_cling.gd" id="45_hyqqp"]
 [ext_resource type="AudioStream" uid="uid://c5tqyaghfm51p" path="res://assets/audio/jump.mp3" id="45_rw8a5"]
-[ext_resource type="Script" uid="uid://cfwylmt6o4nqy" path="res://scenes/player/crush.gd" id="49_jrbya"]
+[ext_resource type="Script" path="res://scenes/player/crush.gd" id="49_jrbya"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_oul6g"]
 height = 32.0
