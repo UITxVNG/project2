@@ -124,7 +124,7 @@ func _on_body_entered(body: Node) -> void:
 "
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kwof4"]
-size = Vector2(48, 33)
+size = Vector2(40, 21.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jfvnj"]
 size = Vector2(96, 41.5)
@@ -156,6 +156,7 @@ script = ExtResource("5_766md")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Direction"]
 sprite_frames = SubResource("SpriteFrames_jylan")
 animation = &"attack"
+frame_progress = 0.953139
 
 [node name="DownRayCast2D" type="RayCast2D" parent="Direction"]
 position = Vector2(37, 0)
@@ -182,7 +183,7 @@ collision_mask = 4
 script = SubResource("GDScript_551w8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Direction/HitArea2D"]
-position = Vector2(13, 2)
+position = Vector2(9, 7.75)
 shape = SubResource("RectangleShape2D_kwof4")
 
 [node name="DetectPlayerArea2D" type="Area2D" parent="Direction"]

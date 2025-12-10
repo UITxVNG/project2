@@ -21,7 +21,7 @@ point_count = 2
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f47qk"]
 size = Vector2(101, 67)
 
-[node name="Stage3" type="Node2D"]
+[node name="Stage" type="Node2D"]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 position = Vector2(54, 0)
