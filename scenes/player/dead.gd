@@ -10,4 +10,4 @@ func _enter():
 
 func _update(delta: float):
 	if update_timer(delta):
-		obj.get_tree().reload_current_scene()
+		GameManager.player_died()

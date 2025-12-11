@@ -112,13 +112,18 @@ func _ready() -> void:
 	print("GameManager initialized")
 
 func _check_initial_checkpoint() -> void:
+	print("[DEBUG] _check_initial_checkpoint: is_initial_load=", is_initial_load, " has_checkpoint=", has_checkpoint())
+	print("[DEBUG] _check_initial_checkpoint: current_checkpoint_id=", current_checkpoint_id)
+	
 	if is_initial_load and has_checkpoint():
-		print("Checkpoint found on project load, preparing to respawn")
+		print("[DEBUG] Checkpoint found on project load, preparing to respawn")
 		var checkpoint_info = checkpoint_data.get(current_checkpoint_id, {})
+		print("[DEBUG] checkpoint_info=", checkpoint_info)
 		if not checkpoint_info.is_empty():
 			var checkpoint_stage = checkpoint_info.get("stage_path", "")
 			if not checkpoint_stage.is_empty():
 				should_respawn_at_checkpoint = true
+				print("[DEBUG] Setting should_respawn_at_checkpoint=true, changing to stage: ", checkpoint_stage)
 				get_tree().change_scene_to_file(checkpoint_stage)
 		is_initial_load = false
 	else:
@@ -129,12 +134,15 @@ func _on_node_added(node: Node) -> void:
 		player = node
 		current_stage = get_tree().current_scene
 		print("Player detected in scene: ", node.name)
+		print("[DEBUG] should_respawn_at_checkpoint = ", should_respawn_at_checkpoint)
+		print("[DEBUG] current_checkpoint_id = ", current_checkpoint_id)
 		
 		# Restore equipment
 		call_deferred("_restore_player_equipment")
 		
 		# Handle pending actions
 		if should_respawn_at_checkpoint:
+			print("[DEBUG] Queueing respawn at checkpoint...")
 			call_deferred("respawn_at_checkpoint")
 			should_respawn_at_checkpoint = false
 		elif pending_teleport and not target_portal_name.is_empty():
