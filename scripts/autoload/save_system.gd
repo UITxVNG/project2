@@ -5,6 +5,14 @@ extends Node
 const SAVE_FILE = "user://checkpoint_save.dat"
 const EDITOR_SAVE_FILE = "user://checkpoint_save_editor.dat"
 
+
+# Clear save data when closing debug window in editor
+func _notification(what: int) -> void:
+	if what == NOTIFICATION_WM_CLOSE_REQUEST:
+		if OS.has_feature("editor"):
+			delete_save_file()
+			print("[DEBUG] Save file cleared on editor quit")
+
 func _get_save_path() -> String:
 	if OS.has_feature("editor"):
 		return EDITOR_SAVE_FILE
