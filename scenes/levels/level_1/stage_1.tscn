@@ -114,4 +114,4 @@ hint_text = "A/D : di chuyển"
 [node name="HUD" parent="CanvasLayer" instance=ExtResource("12_mvtk4")]
 
 [connection signal="body_entered" from="TileMapLayer/Checkpoint" to="TileMapLayer/Checkpoint" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMapLayer/@Area2D@23223" to="TileMapLayer/@Area2D@23223" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMapLayer/@Area2D@33781" to="TileMapLayer/@Area2D@33781" method="_on_body_entered"]

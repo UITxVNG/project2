@@ -122,12 +122,59 @@ func _check_initial_checkpoint() -> void:
 		if not checkpoint_info.is_empty():
 			var checkpoint_stage = checkpoint_info.get("stage_path", "")
 			if not checkpoint_stage.is_empty():
-				should_respawn_at_checkpoint = true
-				print("[DEBUG] Setting should_respawn_at_checkpoint=true, changing to stage: ", checkpoint_stage)
-				get_tree().change_scene_to_file(checkpoint_stage)
+				current_stage = get_tree().current_scene
+				var current_scene_path = current_stage.scene_file_path if current_stage else ""
+				
+				# Check if we're already on the correct stage
+				if current_scene_path == checkpoint_stage:
+					print("[DEBUG] Already on correct stage, respawning player directly")
+					should_respawn_at_checkpoint = true
+					# Find existing player in scene
+					_find_and_respawn_player()
+				else:
+					print("[DEBUG] Setting should_respawn_at_checkpoint=true, changing to stage: ", checkpoint_stage)
+					should_respawn_at_checkpoint = true
+					get_tree().change_scene_to_file(checkpoint_stage)
 		is_initial_load = false
 	else:
 		is_initial_load = false
+
+
+func _find_and_respawn_player() -> void:
+	"""Find player in current scene and trigger respawn"""
+	await get_tree().process_frame # Wait for scene to be fully ready
+	
+	if current_stage == null:
+		current_stage = get_tree().current_scene
+	
+	# Find player in scene tree
+	var players = get_tree().get_nodes_in_group("player")
+	if players.size() > 0:
+		player = players[0]
+	else:
+		# Try finding by class
+		player = _find_player_recursive(current_stage)
+	
+	if player != null:
+		print("Player found in scene: ", player.name)
+		print("[DEBUG] should_respawn_at_checkpoint = ", should_respawn_at_checkpoint)
+		call_deferred("_restore_player_equipment")
+		if should_respawn_at_checkpoint:
+			print("[DEBUG] Queueing respawn at checkpoint...")
+			call_deferred("respawn_at_checkpoint")
+			should_respawn_at_checkpoint = false
+	else:
+		print("[DEBUG] Player not found in scene!")
+
+
+func _find_player_recursive(node: Node) -> Player:
+	if node is Player:
+		return node
+	for child in node.get_children():
+		var found = _find_player_recursive(child)
+		if found != null:
+			return found
+	return null
 
 func _on_node_added(node: Node) -> void:
 	if node is Player:
