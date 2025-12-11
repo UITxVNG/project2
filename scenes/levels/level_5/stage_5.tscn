@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=4 uid="uid://0ia6xdfcwn7n"]
+[gd_scene load_steps=6 format=4 uid="uid://0ia6xdfcwn7n"]
 
 [ext_resource type="PackedScene" uid="uid://dubb5b1vjmsxd" path="res://scenes/objects/door/door.tscn" id="1_haiji"]
 [ext_resource type="PackedScene" uid="uid://bok3o4ruf7n8x" path="res://scenes/island/background/parallax_background.tscn" id="2_j2srt"]
 [ext_resource type="PackedScene" uid="uid://cr06n1w1va6i8" path="res://scenes/player/player.tscn" id="3_ovk2x"]
 [ext_resource type="TileSet" uid="uid://c8m8q0fe452q3" path="res://assets/tilesets/tile_set.tres" id="4_scv5c"]
+[ext_resource type="PackedScene" uid="uid://dytm3c86oshmd" path="res://scenes/screens/game_screen/hud.tscn" id="5_m65u5"]
 
 [node name="Stage" type="Node2D"]
 
@@ -25,3 +26,7 @@ tile_set = ExtResource("4_scv5c")
 
 [node name="DoorA" parent="." instance=ExtResource("1_haiji")]
 position = Vector2(129, 207)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HUD" parent="CanvasLayer" instance=ExtResource("5_m65u5")]
