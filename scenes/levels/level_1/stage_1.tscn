@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://fr0jpxxybedf"]
+[gd_scene load_steps=15 format=4 uid="uid://fr0jpxxybedf"]
 
 [ext_resource type="TileSet" uid="uid://c8m8q0fe452q3" path="res://assets/tilesets/tile_set.tres" id="1_33rtp"]
 [ext_resource type="PackedScene" uid="uid://cr06n1w1va6i8" path="res://scenes/player/player.tscn" id="2_dwsf3"]
@@ -11,6 +11,7 @@
 [ext_resource type="Script" uid="uid://dybrdnvtsiqri" path="res://dialogic/dialog_trigger.gd" id="9_t1ot5"]
 [ext_resource type="PackedScene" uid="uid://ed53lpghyr7j" path="res://dialogic/timelines/interact.tscn" id="10_t1ot5"]
 [ext_resource type="PackedScene" uid="uid://cu0cbkaor523u" path="res://scenes/npcs/artifacts/artifact.tscn" id="11_f47qk"]
+[ext_resource type="PackedScene" uid="uid://dytm3c86oshmd" path="res://scenes/screens/game_screen/hud.tscn" id="12_mvtk4"]
 
 [sub_resource type="Curve2D" id="Curve2D_5usqu"]
 _data = {
@@ -108,5 +109,6 @@ collision_mask = 2
 position = Vector2(-276, -16)
 hint_text = "A/D : di chuyển"
 
-[connection signal="body_entered" from="TileMapLayer/Checkpoint" to="TileMapLayer/Checkpoint" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMapLayer/@Area2D@24853" to="TileMapLayer/@Area2D@24853" method="_on_body_entered"]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HUD" parent="CanvasLayer" instance=ExtResource("12_mvtk4")]
