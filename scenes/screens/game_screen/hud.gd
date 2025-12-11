@@ -12,7 +12,8 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	coin_label.text = " X %s" % GameManager.inventory_system.get_gold()
 	key_label.text = " X %s" % GameManager.inventory_system.get_keys()
-	health_bar.value = GameManager.player.health
+	if GameManager.player is Player:
+		health_bar.value = GameManager.player.health
 
 func _on_settings_texture_button_pressed() -> void:
 	var popup_settings = load("res://scenes/screens/game_screen/settings_popup.tscn").instantiate()
