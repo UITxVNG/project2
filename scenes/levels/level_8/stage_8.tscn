@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://duot2cm3iiwgf"]
+[gd_scene load_steps=19 format=4 uid="uid://duot2cm3iiwgf"]
 
 [ext_resource type="TileSet" uid="uid://c8m8q0fe452q3" path="res://assets/tilesets/tile_set.tres" id="1_1ku5t"]
 [ext_resource type="PackedScene" uid="uid://cr06n1w1va6i8" path="res://scenes/player/player.tscn" id="3_6lbbw"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://uxrdwns2xx5f" path="res://assets/tilesets/Hiden Cave/Parallax Cave/7.png" id="12_ie2vx"]
 [ext_resource type="Texture2D" uid="uid://c0fnkwl2bhjuj" path="res://assets/tilesets/Hiden Cave/Parallax Cave/8fx.png" id="13_osdfp"]
 [ext_resource type="Texture2D" uid="uid://dvglehlv0rg1d" path="res://assets/tilesets/Hiden Cave/Parallax Cave/9.png" id="14_uxa15"]
+[ext_resource type="PackedScene" uid="uid://cjl8r2jono0ia" path="res://scenes/objects/buffitems/wall_cling/wall_cling.tscn" id="15_kq43o"]
 
 [sub_resource type="Curve2D" id="Curve2D_6lbbw"]
 _data = {
@@ -41,7 +42,7 @@ tile_map_data = PackedByteArray("AAACAAIAAAABAAAAAAADAAIAAAABAAAAAAAEAAIAAAABAAA
 tile_set = ExtResource("1_1ku5t")
 
 [node name="Player" parent="." instance=ExtResource("3_6lbbw")]
-position = Vector2(128, -810)
+position = Vector2(71, -27)
 
 [node name="RotatingSaw" parent="." instance=ExtResource("4_6lbbw")]
 position = Vector2(275, -65)
@@ -126,3 +127,6 @@ motion_mirroring = Vector2(1900, 1080)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer9"]
 texture = ExtResource("14_uxa15")
+
+[node name="WallCling" parent="." instance=ExtResource("15_kq43o")]
+position = Vector2(217, -380)

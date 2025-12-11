@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=4 uid="uid://vmb0utbvftf6"]
+[gd_scene load_steps=6 format=4 uid="uid://vmb0utbvftf6"]
 
 [ext_resource type="PackedScene" uid="uid://bok3o4ruf7n8x" path="res://scenes/island/background/parallax_background.tscn" id="1_iadch"]
 [ext_resource type="PackedScene" uid="uid://dubb5b1vjmsxd" path="res://scenes/objects/door/door.tscn" id="1_ic7pp"]
 [ext_resource type="PackedScene" uid="uid://cr06n1w1va6i8" path="res://scenes/player/player.tscn" id="2_oen7x"]
 [ext_resource type="TileSet" uid="uid://c8m8q0fe452q3" path="res://assets/tilesets/tile_set.tres" id="3_oen7x"]
+[ext_resource type="PackedScene" uid="uid://m6j5xi76wkmp" path="res://scenes/objects/buffitems/double_jump/double_jump.tscn" id="5_v3sqi"]
 
 [node name="Stage" type="Node2D"]
 
@@ -22,6 +23,10 @@ tile_set = ExtResource("3_oen7x")
 
 [node name="Player" parent="." instance=ExtResource("2_oen7x")]
 position = Vector2(141, 222)
+has_blade = true
 
 [node name="DoorA" parent="." instance=ExtResource("1_ic7pp")]
 position = Vector2(123, 209)
+
+[node name="DoubleJump" parent="." instance=ExtResource("5_v3sqi")]
+position = Vector2(209, 203)

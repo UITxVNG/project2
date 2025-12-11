@@ -45,5 +45,4 @@ hint_text = "F"
 
 [node name="Artifact1" parent="." instance=ExtResource("7_unbbh")]
 position = Vector2(548, -31)
-artifact_id = 2
 artifact_name = "Vỏ Sò Thần Bí"

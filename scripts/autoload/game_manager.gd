@@ -5,6 +5,7 @@ extends Node
 # PRELOADS & CONSTANTS
 # =============================================================================
 const InventorySystem = preload("res://scripts/inventory_system.gd")
+const SAVE_FILE = "user://checkpoint_save.dat"
 
 # =============================================================================
 # PORTAL & STAGE SYSTEM
@@ -505,7 +506,7 @@ func save_game() -> void:
 			"y": player.global_position.y
 		}
 	
-	var file = FileAccess.open("user://savegame.save", FileAccess.WRITE)
+	var file = FileAccess.open(SAVE_FILE, FileAccess.WRITE)
 	if file:
 		file.store_var(save_data)
 		file.close()
@@ -514,11 +515,11 @@ func save_game() -> void:
 		push_error("❌ Không thể tạo file save!")
 
 func load_game() -> void:
-	if not FileAccess.file_exists("user://savegame.save"):
+	if not FileAccess.file_exists(SAVE_FILE):
 		print("⚠️ Không tìm thấy file save!")
 		return
 	
-	var file = FileAccess.open("user://savegame.save", FileAccess.READ)
+	var file = FileAccess.open(SAVE_FILE, FileAccess.READ)
 	if not file:
 		push_error("❌ Không thể mở file save!")
 		return
