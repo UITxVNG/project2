@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=4 uid="uid://vmb0utbvftf6"]
+[gd_scene load_steps=8 format=4 uid="uid://vmb0utbvftf6"]
 
 [ext_resource type="PackedScene" uid="uid://bok3o4ruf7n8x" path="res://scenes/island/background/parallax_background.tscn" id="1_iadch"]
 [ext_resource type="PackedScene" uid="uid://dubb5b1vjmsxd" path="res://scenes/objects/door/door.tscn" id="1_ic7pp"]
@@ -6,6 +6,7 @@
 [ext_resource type="TileSet" uid="uid://c8m8q0fe452q3" path="res://assets/tilesets/tile_set.tres" id="3_oen7x"]
 [ext_resource type="PackedScene" uid="uid://m6j5xi76wkmp" path="res://scenes/objects/buffitems/double_jump/double_jump.tscn" id="5_v3sqi"]
 [ext_resource type="PackedScene" uid="uid://dytm3c86oshmd" path="res://scenes/screens/game_screen/hud.tscn" id="6_kgkf5"]
+[ext_resource type="PackedScene" uid="uid://dm03l7lbfeh6a" path="res://scenes/util/death_zone.tscn" id="7_x1otw"]
 
 [node name="Stage" type="Node2D"]
 
@@ -35,3 +36,8 @@ position = Vector2(209, 203)
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="HUD" parent="CanvasLayer" instance=ExtResource("6_kgkf5")]
+
+[node name="DeathZone" parent="." instance=ExtResource("7_x1otw")]
+position = Vector2(100, 411)
+
+[connection signal="body_entered" from="TileMapLayer/Checkpoint" to="TileMapLayer/Checkpoint" method="_on_body_entered"]
