@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://duot2cm3iiwgf"]
+[gd_scene load_steps=25 format=4 uid="uid://duot2cm3iiwgf"]
 
 [ext_resource type="TileSet" uid="uid://c8m8q0fe452q3" path="res://assets/tilesets/tile_set.tres" id="1_1ku5t"]
 [ext_resource type="PackedScene" uid="uid://cr06n1w1va6i8" path="res://scenes/player/player.tscn" id="3_6lbbw"]
@@ -16,6 +16,9 @@
 [ext_resource type="Texture2D" uid="uid://dvglehlv0rg1d" path="res://assets/tilesets/Hiden Cave/Parallax Cave/9.png" id="14_uxa15"]
 [ext_resource type="PackedScene" uid="uid://cjl8r2jono0ia" path="res://scenes/objects/buffitems/wall_cling/wall_cling.tscn" id="15_kq43o"]
 [ext_resource type="PackedScene" uid="uid://dytm3c86oshmd" path="res://scenes/screens/game_screen/hud.tscn" id="16_rk06a"]
+[ext_resource type="PackedScene" uid="uid://delnx8nkpylcy" path="res://scenes/npcs/mush/mush.tscn" id="17_mush"]
+[ext_resource type="Script" uid="uid://dybrdnvtsiqri" path="res://dialogic/dialog_trigger.gd" id="18_dialog"]
+[ext_resource type="Script" path="res://scripts/danger_zone_trigger.gd" id="19_danger"]
 
 [sub_resource type="Curve2D" id="Curve2D_6lbbw"]
 _data = {
@@ -35,6 +38,13 @@ _data = {
 }
 point_count = 3
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_onrkp"]
+radius = 30.0
+height = 60.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_danger"]
+size = Vector2(100, 200)
+
 [node name="Stage" type="Node2D"]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
@@ -43,7 +53,7 @@ tile_map_data = PackedByteArray("AAACAAIAAAABAAAAAAADAAIAAAABAAAAAAAEAAIAAAABAAA
 tile_set = ExtResource("1_1ku5t")
 
 [node name="Player" parent="." instance=ExtResource("3_6lbbw")]
-position = Vector2(-481, 63)
+position = Vector2(-381, 64)
 
 [node name="RotatingSaw" parent="." instance=ExtResource("4_6lbbw")]
 position = Vector2(275, -65)
@@ -61,6 +71,7 @@ curve = SubResource("Curve2D_e33h4")
 position = Vector2(328, 264)
 scale = Vector2(0.3, 0.3)
 rise_speed = 30.0
+auto_start = false
 
 [node name="Bullets" type="Node2D" parent="."]
 
@@ -135,3 +146,26 @@ position = Vector2(217, -380)
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="HUD" parent="CanvasLayer" instance=ExtResource("16_rk06a")]
+
+[node name="WarningMush" parent="." instance=ExtResource("17_mush")]
+position = Vector2(-294, 50)
+
+[node name="DialogTrigger" type="Area2D" parent="WarningMush"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("18_dialog")
+timeline_name = "level8_warning"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WarningMush/DialogTrigger"]
+shape = SubResource("CapsuleShape2D_onrkp")
+
+[node name="DangerZoneTrigger" type="Area2D" parent="."]
+position = Vector2(-150, 63)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("19_danger")
+rising_water_path = NodePath("../RisingWater")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DangerZoneTrigger"]
+shape = SubResource("RectangleShape2D_danger")
+
