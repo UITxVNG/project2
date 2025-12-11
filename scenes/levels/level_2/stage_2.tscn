@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=4 uid="uid://boxp0pgyq4pfu"]
+[gd_scene load_steps=9 format=4 uid="uid://boxp0pgyq4pfu"]
 
 [ext_resource type="TileSet" uid="uid://c8m8q0fe452q3" path="res://assets/tilesets/tile_set.tres" id="1_33rtp"]
 [ext_resource type="PackedScene" uid="uid://cr06n1w1va6i8" path="res://scenes/player/player.tscn" id="2_dwsf3"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://ed53lpghyr7j" path="res://dialogic/timelines/interact.tscn" id="6_eun52"]
 [ext_resource type="PackedScene" uid="uid://b7m1lmj8m3v1w" path="res://scenes/npcs/artifacts/artifact2.tscn" id="7_unbbh"]
 [ext_resource type="PackedScene" uid="uid://dubb5b1vjmsxd" path="res://scenes/objects/door/door.tscn" id="7_wdfub"]
+[ext_resource type="PackedScene" uid="uid://dytm3c86oshmd" path="res://scenes/screens/game_screen/hud.tscn" id="8_unbbh"]
 
 [node name="Stage" type="Node2D"]
 
@@ -46,3 +47,7 @@ hint_text = "F"
 [node name="Artifact1" parent="." instance=ExtResource("7_unbbh")]
 position = Vector2(548, -31)
 artifact_name = "Vỏ Sò Thần Bí"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HUD" parent="CanvasLayer" instance=ExtResource("8_unbbh")]

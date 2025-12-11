@@ -1,0 +1,6 @@
+join mush left [animation="slide_in_left"]
+mush: Này... ngươi đang định đi vào trong sao?
+mush: Cẩn thận đấy! Khu vực phía trước rất nguy hiểm!
+mush: Ta nghe nói nước ở trong đó sẽ dâng lên rất nhanh...
+mush: Nếu ngươi vẫn muốn tiến vào, hãy chuẩn bị tinh thần nhé!
+leave mush [animation="fade_out"]

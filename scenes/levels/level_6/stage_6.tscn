@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=4 uid="uid://7sxdw87b6q0q"]
+[gd_scene load_steps=7 format=4 uid="uid://7sxdw87b6q0q"]
 
 [ext_resource type="PackedScene" uid="uid://bmf0ebquqnpf8" path="res://scenes/objects/platforms/manual_moving_platform.tscn" id="1_5r0re"]
 [ext_resource type="TileSet" uid="uid://c8m8q0fe452q3" path="res://assets/tilesets/tile_set.tres" id="1_wnbpc"]
 [ext_resource type="PackedScene" uid="uid://bqo1b46hrr23f" path="res://scenes/objects/platforms/change_state_platform.tscn" id="2_08xht"]
 [ext_resource type="PackedScene" uid="uid://dubb5b1vjmsxd" path="res://scenes/objects/door/door.tscn" id="3_pp1sl"]
 [ext_resource type="PackedScene" uid="uid://cr06n1w1va6i8" path="res://scenes/player/player.tscn" id="5_2b2qq"]
+[ext_resource type="PackedScene" uid="uid://dytm3c86oshmd" path="res://scenes/screens/game_screen/hud.tscn" id="6_2q7dr"]
 
 [node name="Stage" type="Node2D"]
 
@@ -30,3 +31,7 @@ target_door = "DoorA"
 
 [node name="Player" parent="." instance=ExtResource("5_2b2qq")]
 position = Vector2(347, 255)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HUD" parent="CanvasLayer" instance=ExtResource("6_2q7dr")]
