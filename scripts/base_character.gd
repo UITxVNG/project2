@@ -8,9 +8,10 @@ extends CharacterBody2D
 @export var direction: int = 1
 @export var ignore_gravity: bool = false
 @export var attack_damage: int = 1
-@export var max_health: int = 3
+@export var max_health: int = 10
 var health: int = max_health
-
+@export var max_mana: float = 100
+var mana: float = max_mana
 
 var jump_speed: float = 320.0
 var fsm: FSM = null
@@ -27,6 +28,9 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	# Animation
 	_check_changed_animation()
+	if mana < max_mana:
+		mana += delta * 2  # tốc độ hồi
+		mana = min(mana, max_mana)
 
 	if fsm != null:
 		fsm._update(delta)
