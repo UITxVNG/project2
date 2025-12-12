@@ -1,4 +1,4 @@
-[gd_scene load_steps=74 format=3 uid="uid://cr06n1w1va6i8"]
+[gd_scene load_steps=79 format=3 uid="uid://cr06n1w1va6i8"]
 
 [ext_resource type="Script" uid="uid://cxkd8yvl5fi5l" path="res://scenes/player/player.gd" id="1_wodsf"]
 [ext_resource type="Texture2D" uid="uid://dnt7n2db610ps" path="res://assets/sprites/foxy/foxy/fox_hat_blade/fox_atk_1.png" id="2_007i1"]
@@ -51,6 +51,7 @@
 [ext_resource type="Script" uid="uid://b1yiurhbwv084" path="res://scenes/player/wall_cling.gd" id="45_hyqqp"]
 [ext_resource type="AudioStream" uid="uid://c5tqyaghfm51p" path="res://assets/audio/jump.mp3" id="45_rw8a5"]
 [ext_resource type="Script" uid="uid://cfwylmt6o4nqy" path="res://scenes/player/crush.gd" id="49_jrbya"]
+[ext_resource type="Texture2D" uid="uid://cnjqmmh8aeop8" path="res://assets/sprites/items/coin/teleport.png" id="52_ahqnk"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_oul6g"]
 height = 32.0
@@ -394,6 +395,35 @@ height = 46.0
 radius = 13.0
 height = 38.0
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_kssj8"]
+atlas = ExtResource("52_ahqnk")
+region = Rect2(7, 130, 339, 302)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8lfxt"]
+atlas = ExtResource("52_ahqnk")
+region = Rect2(346, 130, 339, 302)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lclul"]
+atlas = ExtResource("52_ahqnk")
+region = Rect2(685, 130, 339, 302)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ej2d6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kssj8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8lfxt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lclul")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 z_index = 1
 collision_layer = 3
@@ -499,5 +529,15 @@ shape = SubResource("CapsuleShape2D_8ydkj")
 [node name="Jump" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("45_rw8a5")
 bus = &"SFX"
+
+[node name="TeleportOrb" type="Node2D" parent="."]
+visible = false
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="TeleportOrb"]
+scale = Vector2(0.1, 0.1)
+sprite_frames = SubResource("SpriteFrames_ej2d6")
+autoplay = "default"
+frame = 2
+frame_progress = 0.493343
 
 [connection signal="area_entered" from="Direction/HitArea2D" to="." method="_on_hit_area_2d_area_entered"]

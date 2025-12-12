@@ -8,6 +8,10 @@ var is_invulnerable: bool = false
 var invulnerable_timer: float = 0.0
 var flicker_tween: Tween
 var is_dead: bool = false
+var orb_exists: bool = false
+var orb_angle: float = 0.0
+var orb_distance: float = 180.0
+var orb_rotate_speed: float = 3.0
 
 @export var has_blade: bool = false
 @export var has_hammer: bool = false
@@ -230,6 +234,15 @@ func _physics_process(delta: float) -> void:
 	# RESET JUMP
 	if is_on_floor() and velocity.y == 0:
 		jump_count = 0
+	if orb_exists:
+		orb_angle += orb_rotate_speed * delta
+
+		var offset = Vector2(
+			cos(orb_angle) * orb_distance,
+			sin(orb_angle) * orb_distance
+		)
+
+		$TeleportOrb.global_position = global_position + offset
 
 func summon_hammer():
 	var hammer = hammer_scene.instantiate()
@@ -270,3 +283,20 @@ func play_walk_smoke():
 func _on_hit_area_2d_area_entered(area: Area2D) -> void:
 	if area.get_parent() is Rock:
 		area.get_parent().crush_break()
+
+func spawn_orb():
+	orb_exists = true
+	$TeleportOrb.visible = true
+	orb_angle = 0.0
+
+func _input(event):
+	if event.is_action_pressed("teleport"):
+		if orb_exists:
+			teleport_to_orb()
+		else:
+			spawn_orb()
+
+func teleport_to_orb():
+	global_position = $TeleportOrb.global_position
+	$TeleportOrb.visible = false
+	orb_exists = false
