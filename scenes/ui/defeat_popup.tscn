@@ -1,0 +1,29 @@
+[gd_scene load_steps=2 format=3 uid="uid://dkff7j0q04om8"]
+
+[sub_resource type="GDScript" id="GDScript_m0bxq"]
+script/source = "extends MarginContainer
+
+func _ready() -> void:
+	await get_tree().create_timer(3).timeout
+	queue_free()
+	if GameManager.game_scene != null:
+		GameManager.game_scene.show_level_select_popup()
+"
+
+[node name="DefeatPopup" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = SubResource("GDScript_m0bxq")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 2
+color = Color(0.0352941, 0.54902, 0.870588, 0.694118)
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="CenterContainer"]
+layout_mode = 2

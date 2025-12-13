@@ -1,0 +1,2080 @@
+[gd_scene load_steps=32 format=3 uid="uid://d201ign78kudj"]
+
+[ext_resource type="Texture2D" uid="uid://q13wi3rfw24i" path="res://assets/ui/result/rainbow_5.png" id="1_mrqsa"]
+[ext_resource type="Texture2D" uid="uid://vwdtn4ob7urd" path="res://assets/ui/result/rainbow_4.png" id="2_qvnig"]
+[ext_resource type="Texture2D" uid="uid://cyfe64sdxip3w" path="res://assets/ui/result/rainbow_3.png" id="3_x352a"]
+[ext_resource type="Texture2D" uid="uid://dj03ydsw82vhj" path="res://assets/ui/result/rainbow_2.png" id="4_bjac4"]
+[ext_resource type="Texture2D" uid="uid://bra2sg24sdlms" path="res://assets/ui/result/rainbow_1.png" id="5_w2r0a"]
+[ext_resource type="Texture2D" uid="uid://cfyt85w4nbsuq" path="res://assets/ui/result/cloud_bg.png" id="6_eg3oa"]
+[ext_resource type="Texture2D" uid="uid://cx1do1pr5jq6x" path="res://assets/ui/result/wheel.png" id="7_cm0eq"]
+[ext_resource type="Texture2D" uid="uid://ctjsjkppoyhpi" path="res://assets/ui/result/gun.png" id="8_rowd5"]
+[ext_resource type="Texture2D" uid="uid://no2qdg1me4do" path="res://assets/ui/result/foxy.png" id="9_0wxcy"]
+[ext_resource type="Texture2D" uid="uid://cm6x6c03dj03" path="res://assets/ui/result/fx_spark.png" id="10_ssxor"]
+[ext_resource type="Texture2D" uid="uid://v6r4ybanfawx" path="res://assets/ui/result/banner.png" id="11_5hbg5"]
+[ext_resource type="Texture2D" uid="uid://dpkh6adnwgkcu" path="res://assets/ui/result/light_bg.png" id="12_nu28e"]
+[ext_resource type="Texture2D" uid="uid://bdkqpne8paxy5" path="res://assets/ui/result/star_trail_1.png" id="13_hr8mp"]
+[ext_resource type="Texture2D" uid="uid://bgnc68qb62pp6" path="res://assets/ui/result/star_1.png" id="14_fx1t2"]
+[ext_resource type="Texture2D" uid="uid://bfskynekv5rbd" path="res://assets/ui/result/star_2.png" id="15_urymk"]
+[ext_resource type="Texture2D" uid="uid://k00g5ydayqh7" path="res://assets/ui/result/star_trail_2.png" id="16_rxxlq"]
+
+[sub_resource type="GDScript" id="GDScript_hi1q3"]
+script/source = "extends Control
+
+func _ready() -> void:
+	$AnimationPlayer.play(\"victory_banner\")
+	
+
+
+func _on_animation_player_animation_finished(anim_name: StringName) -> void:
+	$AnimationPlayer.set
+	$AnimationPlayer.play_section_with_markers(\"victory_banner\", \"idle\", \"idle_end\")
+	pass # Replace with function body.
+"
+
+[sub_resource type="Animation" id="Animation_uf50f"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:position:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CenterContainer/Effect/Banner:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 37)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("CenterContainer/Effect/Wheel:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("CenterContainer/Effect/Wheel:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 20)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("CenterContainer/Effect/Banner:scale")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("CenterContainer/Effect/Wheel/GunL:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-33, -5)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("CenterContainer/Effect/Wheel/GunL:rotation")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("CenterContainer/Effect/Wheel/GunR:rotation")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("CenterContainer/Effect/Rainbow:scale")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("CenterContainer/Effect/Rainbow/Rainbow1:self_modulate")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("CenterContainer/Effect/Rainbow/Rainbow2:self_modulate")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("CenterContainer/Effect/Rainbow/Rainbow3:self_modulate")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("CenterContainer/Effect/Rainbow/Rainbow4:self_modulate")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("CenterContainer/Effect/Rainbow/Rainbow5:self_modulate")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("CenterContainer/Effect/Rainbow/CloudBg:position")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-76.8436, 50)]
+}
+tracks/18/type = "value"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("CenterContainer/Effect/Rainbow/CloudBg2:position")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(87, 50)]
+}
+tracks/19/type = "value"
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/path = NodePath("CenterContainer/Effect/Foxy:scale")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/20/type = "value"
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/path = NodePath("CenterContainer/Effect/Foxy:rotation")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/21/type = "value"
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/path = NodePath("CenterContainer/Effect/Foxy:position")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-8, 18)]
+}
+tracks/22/type = "value"
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/path = NodePath("CenterContainer/Effect/Foxy/fx_spark:frame")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [7]
+}
+tracks/23/type = "value"
+tracks/23/imported = false
+tracks/23/enabled = true
+tracks/23/path = NodePath("CenterContainer/Effect/Foxy/fx_spark:visible")
+tracks/23/interp = 1
+tracks/23/loop_wrap = true
+tracks/23/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/24/type = "value"
+tracks/24/imported = false
+tracks/24/enabled = true
+tracks/24/path = NodePath("CenterContainer/Effect/LightBg:self_modulate")
+tracks/24/interp = 1
+tracks/24/loop_wrap = true
+tracks/24/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/25/type = "value"
+tracks/25/imported = false
+tracks/25/enabled = true
+tracks/25/path = NodePath("CenterContainer/Effect/LightBg:rotation")
+tracks/25/interp = 1
+tracks/25/loop_wrap = true
+tracks/25/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/26/type = "value"
+tracks/26/imported = false
+tracks/26/enabled = true
+tracks/26/path = NodePath("CenterContainer/Effect/LightBg2:rotation")
+tracks/26/interp = 1
+tracks/26/loop_wrap = true
+tracks/26/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.174533]
+}
+tracks/27/type = "value"
+tracks/27/imported = false
+tracks/27/enabled = true
+tracks/27/path = NodePath("CenterContainer/Effect/LightBg3:self_modulate")
+tracks/27/interp = 1
+tracks/27/loop_wrap = true
+tracks/27/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.991176)]
+}
+tracks/28/type = "value"
+tracks/28/imported = false
+tracks/28/enabled = true
+tracks/28/path = NodePath("CenterContainer/Effect/LightBg3:rotation")
+tracks/28/interp = 1
+tracks/28/loop_wrap = true
+tracks/28/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/29/type = "value"
+tracks/29/imported = false
+tracks/29/enabled = true
+tracks/29/path = NodePath("CenterContainer/Effect/StarTrail1:position")
+tracks/29/interp = 1
+tracks/29/loop_wrap = true
+tracks/29/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-113, 13)]
+}
+tracks/30/type = "value"
+tracks/30/imported = false
+tracks/30/enabled = true
+tracks/30/path = NodePath("CenterContainer/Effect/StarTrail1:self_modulate")
+tracks/30/interp = 1
+tracks/30/loop_wrap = true
+tracks/30/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/31/type = "value"
+tracks/31/imported = false
+tracks/31/enabled = true
+tracks/31/path = NodePath("CenterContainer/Effect/StarTrail1/star1:visible")
+tracks/31/interp = 1
+tracks/31/loop_wrap = true
+tracks/31/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/32/type = "value"
+tracks/32/imported = false
+tracks/32/enabled = true
+tracks/32/path = NodePath("CenterContainer/Effect/StarTrail2:position")
+tracks/32/interp = 1
+tracks/32/loop_wrap = true
+tracks/32/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-71, -27)]
+}
+tracks/33/type = "value"
+tracks/33/imported = false
+tracks/33/enabled = true
+tracks/33/path = NodePath("CenterContainer/Effect/StarTrail2:self_modulate")
+tracks/33/interp = 1
+tracks/33/loop_wrap = true
+tracks/33/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/34/type = "value"
+tracks/34/imported = false
+tracks/34/enabled = true
+tracks/34/path = NodePath("CenterContainer/Effect/StarTrail3:position")
+tracks/34/interp = 1
+tracks/34/loop_wrap = true
+tracks/34/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-69, -92)]
+}
+tracks/35/type = "value"
+tracks/35/imported = false
+tracks/35/enabled = true
+tracks/35/path = NodePath("CenterContainer/Effect/StarTrail3:self_modulate")
+tracks/35/interp = 1
+tracks/35/loop_wrap = true
+tracks/35/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/36/type = "value"
+tracks/36/imported = false
+tracks/36/enabled = true
+tracks/36/path = NodePath("CenterContainer/Effect/StarTrail6:position")
+tracks/36/interp = 1
+tracks/36/loop_wrap = true
+tracks/36/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(37, -113)]
+}
+tracks/37/type = "value"
+tracks/37/imported = false
+tracks/37/enabled = true
+tracks/37/path = NodePath("CenterContainer/Effect/StarTrail6:self_modulate")
+tracks/37/interp = 1
+tracks/37/loop_wrap = true
+tracks/37/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/38/type = "value"
+tracks/38/imported = false
+tracks/38/enabled = true
+tracks/38/path = NodePath("CenterContainer/Effect/StarTrail5:position")
+tracks/38/interp = 1
+tracks/38/loop_wrap = true
+tracks/38/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(122, 7)]
+}
+tracks/39/type = "value"
+tracks/39/imported = false
+tracks/39/enabled = true
+tracks/39/path = NodePath("CenterContainer/Effect/StarTrail5:self_modulate")
+tracks/39/interp = 1
+tracks/39/loop_wrap = true
+tracks/39/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/40/type = "value"
+tracks/40/imported = false
+tracks/40/enabled = true
+tracks/40/path = NodePath("CenterContainer/Effect/StarTrail4:position")
+tracks/40/interp = 1
+tracks/40/loop_wrap = true
+tracks/40/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(100, -53)]
+}
+tracks/41/type = "value"
+tracks/41/imported = false
+tracks/41/enabled = true
+tracks/41/path = NodePath("CenterContainer/Effect/StarTrail4:self_modulate")
+tracks/41/interp = 1
+tracks/41/loop_wrap = true
+tracks/41/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/42/type = "value"
+tracks/42/imported = false
+tracks/42/enabled = true
+tracks/42/path = NodePath("CenterContainer/Effect/StarTrail2/star2:visible")
+tracks/42/interp = 1
+tracks/42/loop_wrap = true
+tracks/42/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/43/type = "value"
+tracks/43/imported = false
+tracks/43/enabled = true
+tracks/43/path = NodePath("CenterContainer/Effect/StarTrail3/star3:visible")
+tracks/43/interp = 1
+tracks/43/loop_wrap = true
+tracks/43/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/44/type = "value"
+tracks/44/imported = false
+tracks/44/enabled = true
+tracks/44/path = NodePath("CenterContainer/Effect/StarTrail4/star4:visible")
+tracks/44/interp = 1
+tracks/44/loop_wrap = true
+tracks/44/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/45/type = "value"
+tracks/45/imported = false
+tracks/45/enabled = true
+tracks/45/path = NodePath("CenterContainer/Effect/StarTrail5/star5:visible")
+tracks/45/interp = 1
+tracks/45/loop_wrap = true
+tracks/45/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/46/type = "value"
+tracks/46/imported = false
+tracks/46/enabled = true
+tracks/46/path = NodePath("CenterContainer/Effect/StarTrail6/star6:visible")
+tracks/46/interp = 1
+tracks/46/loop_wrap = true
+tracks/46/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_5p7gs"]
+resource_name = "idle"
+length = 2.0
+loop_mode = 1
+markers = [{
+"color": Color(0.615686, 0.156863, 0.729412, 1),
+"name": &"idle_end",
+"time": 2.00351
+}, {
+"color": Color(0.805494, 0.157402, 0.460574, 1),
+"name": &"idle",
+"time": 1.0
+}]
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.302352, 0.5),
+"transitions": PackedFloat32Array(1, 1, 5.27803, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(1.5, 1.5), Vector2(1.5, 1.5), Vector2(1, 1)]
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = false
+tracks/1/path = NodePath(".:position:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(),
+"points": PackedFloat32Array(),
+"times": PackedFloat32Array()
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = false
+tracks/2/path = NodePath(".:position:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(),
+"points": PackedFloat32Array(),
+"times": PackedFloat32Array()
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = false
+tracks/3/path = NodePath(".:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(),
+"points": PackedFloat32Array(),
+"times": PackedFloat32Array()
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CenterContainer/Effect/Banner:position")
+tracks/4/interp = 2
+tracks/4/loop_wrap = false
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(9.78356, 1),
+"update": 0,
+"values": [Vector2(0, 10), Vector2(0, 37)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("CenterContainer/Effect/Wheel:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = false
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.433333, 0.6, 0.7, 0.768604),
+"transitions": PackedFloat32Array(1, 1, 4.14105, 0.15932, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(1.00136e-05, 1.00136e-05), Vector2(0.9, 1.3), Vector2(0.98, 1.075), Vector2(1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("CenterContainer/Effect/Wheel:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = false
+tracks/6/keys = {
+"times": PackedFloat32Array(0.466667, 0.634839, 0.733238),
+"transitions": PackedFloat32Array(0.116629, 2.54912, 1),
+"update": 0,
+"values": [Vector2(0, 30), Vector2(0, 15), Vector2(0, 20)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("CenterContainer/Effect/Banner:scale")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0.49915, 0.533333, 0.566667, 0.601126, 0.8, 0.9, 1.00176),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 2.54912, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.3, 0.9), Vector2(1, 1.3), Vector2(1, 1), Vector2(1.105, 0.865), Vector2(1, 1.105), Vector2(1, 1)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("CenterContainer/Effect/Wheel/GunL:rotation")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0.6, 0.7, 0.8, 0.99651, 1.5, 1.99551),
+"transitions": PackedFloat32Array(1, 1, 1, 0.594603, 1.56917, 1),
+"update": 0,
+"values": [0.0, 0.174533, -0.174533, 0.0, -0.0349066, 0.0]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("CenterContainer/Effect/Wheel/GunL:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("CenterContainer/Effect/Wheel/GunR:rotation")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0.598811, 0.699905, 0.80366, 0.997868, 1.5, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 0.659754, 2.14355, 1),
+"update": 0,
+"values": [0.0, -0.0698132, 0.261799, 0.0, 0.0523599, 0.0]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("CenterContainer/Effect/Rainbow:scale")
+tracks/11/interp = 1
+tracks/11/loop_wrap = false
+tracks/11/keys = {
+"times": PackedFloat32Array(0, 0.566667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(1, 1)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("CenterContainer/Effect/Rainbow/Rainbow1:self_modulate")
+tracks/12/interp = 2
+tracks/12/loop_wrap = false
+tracks/12/keys = {
+"times": PackedFloat32Array(0, 0.7, 0.866667),
+"transitions": PackedFloat32Array(1, 1, 26.9087),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("CenterContainer/Effect/Rainbow/Rainbow2:self_modulate")
+tracks/13/interp = 2
+tracks/13/loop_wrap = false
+tracks/13/keys = {
+"times": PackedFloat32Array(0, 0.733333, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("CenterContainer/Effect/Rainbow/Rainbow3:self_modulate")
+tracks/14/interp = 2
+tracks/14/loop_wrap = false
+tracks/14/keys = {
+"times": PackedFloat32Array(0, 0.766667, 0.933333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("CenterContainer/Effect/Rainbow/Rainbow4:self_modulate")
+tracks/15/interp = 2
+tracks/15/loop_wrap = false
+tracks/15/keys = {
+"times": PackedFloat32Array(0, 0.8, 0.966667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("CenterContainer/Effect/Rainbow/Rainbow5:self_modulate")
+tracks/16/interp = 2
+tracks/16/loop_wrap = false
+tracks/16/keys = {
+"times": PackedFloat32Array(0, 0.833333, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("CenterContainer/Effect/Rainbow/CloudBg:position")
+tracks/17/interp = 1
+tracks/17/loop_wrap = false
+tracks/17/keys = {
+"times": PackedFloat32Array(0.5, 1, 1.5, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-50, 50), Vector2(-76.8436, 50), Vector2(-75, 50), Vector2(-76.8436, 50)]
+}
+tracks/18/type = "value"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("CenterContainer/Effect/Rainbow/CloudBg2:position")
+tracks/18/interp = 1
+tracks/18/loop_wrap = false
+tracks/18/keys = {
+"times": PackedFloat32Array(0.5, 1, 1.5, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(50, 50), Vector2(87, 50), Vector2(86, 50), Vector2(87, 50)]
+}
+tracks/19/type = "value"
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/path = NodePath("CenterContainer/Effect/Foxy:scale")
+tracks/19/interp = 1
+tracks/19/loop_wrap = false
+tracks/19/keys = {
+"times": PackedFloat32Array(0, 0.633333, 0.766667, 0.9, 1, 1.23333, 1.5, 1.73301, 2),
+"transitions": PackedFloat32Array(1, 1, 1.27456, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 0), Vector2(0.95, 1.2), Vector2(1, 1.1), Vector2(1, 1), Vector2(1, 1.1), Vector2(1, 1), Vector2(1, 1.1), Vector2(1, 1)]
+}
+tracks/20/type = "value"
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/path = NodePath("CenterContainer/Effect/Foxy:rotation")
+tracks/20/interp = 1
+tracks/20/loop_wrap = false
+tracks/20/keys = {
+"times": PackedFloat32Array(0.633333, 1, 1.50099, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [-0.216421, -0.0349066, 0.0349066, -0.0349066]
+}
+tracks/21/type = "value"
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/path = NodePath("CenterContainer/Effect/Foxy:position")
+tracks/21/interp = 1
+tracks/21/loop_wrap = false
+tracks/21/keys = {
+"times": PackedFloat32Array(0.633333, 0.866667, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-8, 30), Vector2(-8, 15), Vector2(-8, 18)]
+}
+tracks/22/type = "value"
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/path = NodePath("CenterContainer/Effect/Foxy/fx_spark:frame")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/keys = {
+"times": PackedFloat32Array(0.766667, 0.8, 0.833333, 0.866667, 0.9, 0.933333, 0.966667, 1.73333, 1.76667, 1.8, 1.83333, 1.86667, 1.9, 1.93333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [1, 2, 3, 3, 5, 6, 7, 1, 2, 3, 3, 5, 6, 7]
+}
+tracks/23/type = "value"
+tracks/23/imported = false
+tracks/23/enabled = true
+tracks/23/path = NodePath("CenterContainer/Effect/Foxy/fx_spark:visible")
+tracks/23/interp = 1
+tracks/23/loop_wrap = true
+tracks/23/keys = {
+"times": PackedFloat32Array(0.635603, 0.766667, 1, 1.73333, 1.96667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [false, true, false, true, false]
+}
+tracks/24/type = "value"
+tracks/24/imported = false
+tracks/24/enabled = true
+tracks/24/path = NodePath("CenterContainer/Effect/LightBg:self_modulate")
+tracks/24/interp = 1
+tracks/24/loop_wrap = false
+tracks/24/keys = {
+"times": PackedFloat32Array(0, 1, 1.5, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/25/type = "value"
+tracks/25/imported = false
+tracks/25/enabled = true
+tracks/25/path = NodePath("CenterContainer/Effect/LightBg:rotation")
+tracks/25/interp = 1
+tracks/25/loop_wrap = false
+tracks/25/keys = {
+"times": PackedFloat32Array(1, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-0.174533, 0.261799]
+}
+tracks/26/type = "value"
+tracks/26/imported = false
+tracks/26/enabled = true
+tracks/26/path = NodePath("CenterContainer/Effect/LightBg2:self_modulate")
+tracks/26/interp = 1
+tracks/26/loop_wrap = false
+tracks/26/keys = {
+"times": PackedFloat32Array(0.5, 1, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/27/type = "value"
+tracks/27/imported = false
+tracks/27/enabled = true
+tracks/27/path = NodePath("CenterContainer/Effect/LightBg2:rotation")
+tracks/27/interp = 1
+tracks/27/loop_wrap = false
+tracks/27/keys = {
+"times": PackedFloat32Array(0.5, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-0.174533, 0.261799]
+}
+tracks/28/type = "value"
+tracks/28/imported = false
+tracks/28/enabled = true
+tracks/28/path = NodePath("CenterContainer/Effect/LightBg3:self_modulate")
+tracks/28/interp = 1
+tracks/28/loop_wrap = false
+tracks/28/keys = {
+"times": PackedFloat32Array(0, 1.5, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/29/type = "value"
+tracks/29/imported = false
+tracks/29/enabled = true
+tracks/29/path = NodePath("CenterContainer/Effect/LightBg3:rotation")
+tracks/29/interp = 1
+tracks/29/loop_wrap = false
+tracks/29/keys = {
+"times": PackedFloat32Array(1.5, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-0.174533, 0.0436332]
+}
+tracks/30/type = "value"
+tracks/30/imported = false
+tracks/30/enabled = true
+tracks/30/path = NodePath("CenterContainer/Effect/StarTrail1:position")
+tracks/30/interp = 1
+tracks/30/loop_wrap = false
+tracks/30/keys = {
+"times": PackedFloat32Array(1.63831, 2),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [Vector2(-275.27, 12.82), Vector2(-140, 0)]
+}
+tracks/31/type = "value"
+tracks/31/imported = false
+tracks/31/enabled = true
+tracks/31/path = NodePath("CenterContainer/Effect/StarTrail1:self_modulate")
+tracks/31/interp = 1
+tracks/31/loop_wrap = false
+tracks/31/keys = {
+"times": PackedFloat32Array(1.63831, 1.7, 1.91643, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/32/type = "value"
+tracks/32/imported = false
+tracks/32/enabled = true
+tracks/32/path = NodePath("CenterContainer/Effect/StarTrail1/star1:visible")
+tracks/32/interp = 1
+tracks/32/loop_wrap = true
+tracks/32/keys = {
+"times": PackedFloat32Array(1.63598, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/33/type = "value"
+tracks/33/imported = false
+tracks/33/enabled = true
+tracks/33/path = NodePath("CenterContainer/Effect/StarTrail2:position")
+tracks/33/interp = 1
+tracks/33/loop_wrap = false
+tracks/33/keys = {
+"times": PackedFloat32Array(1.22836, 1.59503),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-248, -49), Vector2(-71, -27)]
+}
+tracks/34/type = "value"
+tracks/34/imported = false
+tracks/34/enabled = true
+tracks/34/path = NodePath("CenterContainer/Effect/StarTrail2:self_modulate")
+tracks/34/interp = 1
+tracks/34/loop_wrap = true
+tracks/34/keys = {
+"times": PackedFloat32Array(1.23333, 1.29503, 1.51145, 1.59503),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/35/type = "value"
+tracks/35/imported = false
+tracks/35/enabled = true
+tracks/35/path = NodePath("CenterContainer/Effect/StarTrail2/star2:visible")
+tracks/35/interp = 1
+tracks/35/loop_wrap = true
+tracks/35/keys = {
+"times": PackedFloat32Array(1.23333, 1.59565),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/36/type = "value"
+tracks/36/imported = false
+tracks/36/enabled = true
+tracks/36/path = NodePath("CenterContainer/Effect/StarTrail3:position")
+tracks/36/interp = 1
+tracks/36/loop_wrap = false
+tracks/36/keys = {
+"times": PackedFloat32Array(1, 1.36667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-144, -170), Vector2(-46.33, -70.65)]
+}
+tracks/37/type = "value"
+tracks/37/imported = false
+tracks/37/enabled = true
+tracks/37/path = NodePath("CenterContainer/Effect/StarTrail3:self_modulate")
+tracks/37/interp = 1
+tracks/37/loop_wrap = true
+tracks/37/keys = {
+"times": PackedFloat32Array(1, 1.06169, 1.27812, 1.36169),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/38/type = "value"
+tracks/38/imported = false
+tracks/38/enabled = true
+tracks/38/path = NodePath("CenterContainer/Effect/StarTrail3/star3:visible")
+tracks/38/interp = 1
+tracks/38/loop_wrap = true
+tracks/38/keys = {
+"times": PackedFloat32Array(1, 1.36232),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/39/type = "value"
+tracks/39/imported = false
+tracks/39/enabled = true
+tracks/39/path = NodePath("CenterContainer/Effect/StarTrail6:position")
+tracks/39/interp = 1
+tracks/39/loop_wrap = false
+tracks/39/keys = {
+"times": PackedFloat32Array(1.63333, 1.92188),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(48, -149), Vector2(25, -79)]
+}
+tracks/40/type = "value"
+tracks/40/imported = false
+tracks/40/enabled = true
+tracks/40/path = NodePath("CenterContainer/Effect/StarTrail6:self_modulate")
+tracks/40/interp = 1
+tracks/40/loop_wrap = true
+tracks/40/keys = {
+"times": PackedFloat32Array(1.63333, 1.69503, 1.83333, 1.91691),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/41/type = "value"
+tracks/41/imported = false
+tracks/41/enabled = true
+tracks/41/path = NodePath("CenterContainer/Effect/StarTrail6/star6:visible")
+tracks/41/interp = 1
+tracks/41/loop_wrap = true
+tracks/41/keys = {
+"times": PackedFloat32Array(1.63768, 1.93333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/42/type = "value"
+tracks/42/imported = false
+tracks/42/enabled = true
+tracks/42/path = NodePath("CenterContainer/Effect/StarTrail5:position")
+tracks/42/interp = 1
+tracks/42/loop_wrap = false
+tracks/42/keys = {
+"times": PackedFloat32Array(1.50584, 1.80994),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(255, 3), Vector2(92, 6)]
+}
+tracks/43/type = "value"
+tracks/43/imported = false
+tracks/43/enabled = true
+tracks/43/path = NodePath("CenterContainer/Effect/StarTrail5:self_modulate")
+tracks/43/interp = 1
+tracks/43/loop_wrap = true
+tracks/43/keys = {
+"times": PackedFloat32Array(1.50497, 1.56667, 1.7214, 1.80497),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/44/type = "value"
+tracks/44/imported = false
+tracks/44/enabled = true
+tracks/44/path = NodePath("CenterContainer/Effect/StarTrail5/star5:visible")
+tracks/44/interp = 1
+tracks/44/loop_wrap = true
+tracks/44/keys = {
+"times": PackedFloat32Array(1.50932, 1.80994),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/45/type = "value"
+tracks/45/imported = false
+tracks/45/enabled = true
+tracks/45/path = NodePath("CenterContainer/Effect/StarTrail4:position")
+tracks/45/interp = 1
+tracks/45/loop_wrap = false
+tracks/45/keys = {
+"times": PackedFloat32Array(1.33333, 1.63333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(252, -120), Vector2(79, -51)]
+}
+tracks/46/type = "value"
+tracks/46/imported = false
+tracks/46/enabled = true
+tracks/46/path = NodePath("CenterContainer/Effect/StarTrail4:self_modulate")
+tracks/46/interp = 1
+tracks/46/loop_wrap = true
+tracks/46/keys = {
+"times": PackedFloat32Array(1.32836, 1.39006, 1.53981, 1.62339),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/47/type = "value"
+tracks/47/imported = false
+tracks/47/enabled = true
+tracks/47/path = NodePath("CenterContainer/Effect/StarTrail4/star4:visible")
+tracks/47/interp = 1
+tracks/47/loop_wrap = true
+tracks/47/keys = {
+"times": PackedFloat32Array(1.32774, 1.62339),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_vi8y8"]
+resource_name = "victory_banner"
+length = 2.0
+loop_mode = 1
+markers = [{
+"color": Color(0.615686, 0.156863, 0.729412, 1),
+"name": &"idle_end",
+"time": 2.00351
+}, {
+"color": Color(0.805494, 0.157402, 0.460574, 1),
+"name": &"idle",
+"time": 1.00233
+}, {
+"color": Color(1, 1, 1, 1),
+"name": &"init",
+"time": 0.00232565
+}]
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.302352, 0.5),
+"transitions": PackedFloat32Array(1, 1, 5.27803, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(1.5, 1.5), Vector2(1.5, 1.5), Vector2(1, 1)]
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = false
+tracks/1/path = NodePath(".:position:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(),
+"points": PackedFloat32Array(),
+"times": PackedFloat32Array()
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = false
+tracks/2/path = NodePath(".:position:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(),
+"points": PackedFloat32Array(),
+"times": PackedFloat32Array()
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = false
+tracks/3/path = NodePath(".:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(),
+"points": PackedFloat32Array(),
+"times": PackedFloat32Array()
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CenterContainer/Effect/Banner:position")
+tracks/4/interp = 2
+tracks/4/loop_wrap = false
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(9.78356, 1),
+"update": 0,
+"values": [Vector2(0, 10), Vector2(0, 37)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("CenterContainer/Effect/Wheel:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = false
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.433333, 0.6, 0.7, 0.768604),
+"transitions": PackedFloat32Array(1, 1, 4.14105, 0.15932, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(1.00136e-05, 1.00136e-05), Vector2(0.9, 1.3), Vector2(0.98, 1.075), Vector2(1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("CenterContainer/Effect/Wheel:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = false
+tracks/6/keys = {
+"times": PackedFloat32Array(0.466667, 0.634839, 0.733238),
+"transitions": PackedFloat32Array(0.116629, 2.54912, 1),
+"update": 0,
+"values": [Vector2(0, 30), Vector2(0, 15), Vector2(0, 20)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("CenterContainer/Effect/Banner:scale")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0.49915, 0.533333, 0.566667, 0.601126, 0.8, 0.9, 1.00176),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 2.54912, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.3, 0.9), Vector2(1, 1.3), Vector2(1, 1), Vector2(1.105, 0.865), Vector2(1, 1.105), Vector2(1, 1)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("CenterContainer/Effect/Wheel/GunL:rotation")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0.6, 0.7, 0.8, 0.99651, 1.5, 1.99551),
+"transitions": PackedFloat32Array(1, 1, 1, 0.594603, 1.56917, 1),
+"update": 0,
+"values": [0.0, 0.174533, -0.174533, 0.0, -0.0349066, 0.0]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("CenterContainer/Effect/Wheel/GunL:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("CenterContainer/Effect/Wheel/GunR:rotation")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0.598811, 0.699905, 0.80366, 0.997868, 1.5, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 0.659754, 2.14355, 1),
+"update": 0,
+"values": [0.0, -0.0698132, 0.261799, 0.0, 0.0523599, 0.0]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("CenterContainer/Effect/Rainbow:scale")
+tracks/11/interp = 1
+tracks/11/loop_wrap = false
+tracks/11/keys = {
+"times": PackedFloat32Array(0, 0.566667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(1, 1)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("CenterContainer/Effect/Rainbow/Rainbow1:self_modulate")
+tracks/12/interp = 2
+tracks/12/loop_wrap = false
+tracks/12/keys = {
+"times": PackedFloat32Array(0, 0.7, 0.866667),
+"transitions": PackedFloat32Array(1, 1, 26.9087),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("CenterContainer/Effect/Rainbow/Rainbow2:self_modulate")
+tracks/13/interp = 2
+tracks/13/loop_wrap = false
+tracks/13/keys = {
+"times": PackedFloat32Array(0, 0.733333, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("CenterContainer/Effect/Rainbow/Rainbow3:self_modulate")
+tracks/14/interp = 2
+tracks/14/loop_wrap = false
+tracks/14/keys = {
+"times": PackedFloat32Array(0, 0.766667, 0.933333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("CenterContainer/Effect/Rainbow/Rainbow4:self_modulate")
+tracks/15/interp = 2
+tracks/15/loop_wrap = false
+tracks/15/keys = {
+"times": PackedFloat32Array(0, 0.8, 0.966667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("CenterContainer/Effect/Rainbow/Rainbow5:self_modulate")
+tracks/16/interp = 2
+tracks/16/loop_wrap = false
+tracks/16/keys = {
+"times": PackedFloat32Array(0, 0.833333, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("CenterContainer/Effect/Rainbow/CloudBg:position")
+tracks/17/interp = 1
+tracks/17/loop_wrap = false
+tracks/17/keys = {
+"times": PackedFloat32Array(0.5, 1, 1.5, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-50, 50), Vector2(-76.8436, 50), Vector2(-75, 50), Vector2(-76.8436, 50)]
+}
+tracks/18/type = "value"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("CenterContainer/Effect/Rainbow/CloudBg2:position")
+tracks/18/interp = 1
+tracks/18/loop_wrap = false
+tracks/18/keys = {
+"times": PackedFloat32Array(0.5, 1, 1.5, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(50, 50), Vector2(87, 50), Vector2(86, 50), Vector2(87, 50)]
+}
+tracks/19/type = "value"
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/path = NodePath("CenterContainer/Effect/Foxy:scale")
+tracks/19/interp = 1
+tracks/19/loop_wrap = false
+tracks/19/keys = {
+"times": PackedFloat32Array(0, 0.633333, 0.766667, 0.9, 1, 1.23333, 1.5, 1.73301, 2),
+"transitions": PackedFloat32Array(1, 1, 1.27456, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 0), Vector2(0.95, 1.2), Vector2(1, 1.1), Vector2(1, 1), Vector2(1, 1.1), Vector2(1, 1), Vector2(1, 1.1), Vector2(1, 1)]
+}
+tracks/20/type = "value"
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/path = NodePath("CenterContainer/Effect/Foxy:rotation")
+tracks/20/interp = 1
+tracks/20/loop_wrap = false
+tracks/20/keys = {
+"times": PackedFloat32Array(0.633333, 1, 1.50099, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [-0.216421, -0.0349066, 0.0349066, -0.0349066]
+}
+tracks/21/type = "value"
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/path = NodePath("CenterContainer/Effect/Foxy:position")
+tracks/21/interp = 1
+tracks/21/loop_wrap = false
+tracks/21/keys = {
+"times": PackedFloat32Array(0.633333, 0.866667, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-8, 30), Vector2(-8, 15), Vector2(-8, 18)]
+}
+tracks/22/type = "value"
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/path = NodePath("CenterContainer/Effect/Foxy/fx_spark:frame")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/keys = {
+"times": PackedFloat32Array(0.766667, 0.8, 0.833333, 0.866667, 0.9, 0.933333, 0.966667, 1.73333, 1.76667, 1.8, 1.83333, 1.86667, 1.9, 1.93333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [1, 2, 3, 3, 5, 6, 7, 1, 2, 3, 3, 5, 6, 7]
+}
+tracks/23/type = "value"
+tracks/23/imported = false
+tracks/23/enabled = true
+tracks/23/path = NodePath("CenterContainer/Effect/Foxy/fx_spark:visible")
+tracks/23/interp = 1
+tracks/23/loop_wrap = true
+tracks/23/keys = {
+"times": PackedFloat32Array(0.635603, 0.766667, 1, 1.73333, 1.96667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [false, true, false, true, false]
+}
+tracks/24/type = "value"
+tracks/24/imported = false
+tracks/24/enabled = true
+tracks/24/path = NodePath("CenterContainer/Effect/LightBg:self_modulate")
+tracks/24/interp = 1
+tracks/24/loop_wrap = false
+tracks/24/keys = {
+"times": PackedFloat32Array(0, 1, 1.5, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/25/type = "value"
+tracks/25/imported = false
+tracks/25/enabled = true
+tracks/25/path = NodePath("CenterContainer/Effect/LightBg:rotation")
+tracks/25/interp = 1
+tracks/25/loop_wrap = false
+tracks/25/keys = {
+"times": PackedFloat32Array(1, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-0.174533, 0.261799]
+}
+tracks/26/type = "value"
+tracks/26/imported = false
+tracks/26/enabled = true
+tracks/26/path = NodePath("CenterContainer/Effect/LightBg2:self_modulate")
+tracks/26/interp = 1
+tracks/26/loop_wrap = false
+tracks/26/keys = {
+"times": PackedFloat32Array(0.5, 1, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/27/type = "value"
+tracks/27/imported = false
+tracks/27/enabled = true
+tracks/27/path = NodePath("CenterContainer/Effect/LightBg2:rotation")
+tracks/27/interp = 1
+tracks/27/loop_wrap = false
+tracks/27/keys = {
+"times": PackedFloat32Array(0.5, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-0.174533, 0.261799]
+}
+tracks/28/type = "value"
+tracks/28/imported = false
+tracks/28/enabled = true
+tracks/28/path = NodePath("CenterContainer/Effect/LightBg3:self_modulate")
+tracks/28/interp = 1
+tracks/28/loop_wrap = false
+tracks/28/keys = {
+"times": PackedFloat32Array(0, 1.5, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/29/type = "value"
+tracks/29/imported = false
+tracks/29/enabled = true
+tracks/29/path = NodePath("CenterContainer/Effect/LightBg3:rotation")
+tracks/29/interp = 1
+tracks/29/loop_wrap = false
+tracks/29/keys = {
+"times": PackedFloat32Array(1.5, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-0.174533, 0.0436332]
+}
+tracks/30/type = "value"
+tracks/30/imported = false
+tracks/30/enabled = true
+tracks/30/path = NodePath("CenterContainer/Effect/StarTrail1:position")
+tracks/30/interp = 1
+tracks/30/loop_wrap = false
+tracks/30/keys = {
+"times": PackedFloat32Array(1.63831, 2),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [Vector2(-275.27, 12.82), Vector2(-140, 0)]
+}
+tracks/31/type = "value"
+tracks/31/imported = false
+tracks/31/enabled = true
+tracks/31/path = NodePath("CenterContainer/Effect/StarTrail1:self_modulate")
+tracks/31/interp = 1
+tracks/31/loop_wrap = false
+tracks/31/keys = {
+"times": PackedFloat32Array(1.63831, 1.7, 1.91643, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/32/type = "value"
+tracks/32/imported = false
+tracks/32/enabled = true
+tracks/32/path = NodePath("CenterContainer/Effect/StarTrail1/star1:visible")
+tracks/32/interp = 1
+tracks/32/loop_wrap = true
+tracks/32/keys = {
+"times": PackedFloat32Array(1.63598, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/33/type = "value"
+tracks/33/imported = false
+tracks/33/enabled = true
+tracks/33/path = NodePath("CenterContainer/Effect/StarTrail2:position")
+tracks/33/interp = 1
+tracks/33/loop_wrap = false
+tracks/33/keys = {
+"times": PackedFloat32Array(1.22836, 1.59503),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-248, -49), Vector2(-71, -27)]
+}
+tracks/34/type = "value"
+tracks/34/imported = false
+tracks/34/enabled = true
+tracks/34/path = NodePath("CenterContainer/Effect/StarTrail2:self_modulate")
+tracks/34/interp = 1
+tracks/34/loop_wrap = true
+tracks/34/keys = {
+"times": PackedFloat32Array(1.23333, 1.29503, 1.51145, 1.59503),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/35/type = "value"
+tracks/35/imported = false
+tracks/35/enabled = true
+tracks/35/path = NodePath("CenterContainer/Effect/StarTrail2/star2:visible")
+tracks/35/interp = 1
+tracks/35/loop_wrap = true
+tracks/35/keys = {
+"times": PackedFloat32Array(1.23333, 1.59565),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/36/type = "value"
+tracks/36/imported = false
+tracks/36/enabled = true
+tracks/36/path = NodePath("CenterContainer/Effect/StarTrail3:position")
+tracks/36/interp = 1
+tracks/36/loop_wrap = false
+tracks/36/keys = {
+"times": PackedFloat32Array(1, 1.36667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-144, -170), Vector2(-46.33, -70.65)]
+}
+tracks/37/type = "value"
+tracks/37/imported = false
+tracks/37/enabled = true
+tracks/37/path = NodePath("CenterContainer/Effect/StarTrail3:self_modulate")
+tracks/37/interp = 1
+tracks/37/loop_wrap = true
+tracks/37/keys = {
+"times": PackedFloat32Array(1, 1.06169, 1.27812, 1.36169),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/38/type = "value"
+tracks/38/imported = false
+tracks/38/enabled = true
+tracks/38/path = NodePath("CenterContainer/Effect/StarTrail3/star3:visible")
+tracks/38/interp = 1
+tracks/38/loop_wrap = true
+tracks/38/keys = {
+"times": PackedFloat32Array(1, 1.36232),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/39/type = "value"
+tracks/39/imported = false
+tracks/39/enabled = true
+tracks/39/path = NodePath("CenterContainer/Effect/StarTrail6:position")
+tracks/39/interp = 1
+tracks/39/loop_wrap = false
+tracks/39/keys = {
+"times": PackedFloat32Array(1.63333, 1.92188),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(48, -149), Vector2(25, -79)]
+}
+tracks/40/type = "value"
+tracks/40/imported = false
+tracks/40/enabled = true
+tracks/40/path = NodePath("CenterContainer/Effect/StarTrail6:self_modulate")
+tracks/40/interp = 1
+tracks/40/loop_wrap = true
+tracks/40/keys = {
+"times": PackedFloat32Array(1.63333, 1.69503, 1.83333, 1.91691),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/41/type = "value"
+tracks/41/imported = false
+tracks/41/enabled = true
+tracks/41/path = NodePath("CenterContainer/Effect/StarTrail6/star6:visible")
+tracks/41/interp = 1
+tracks/41/loop_wrap = true
+tracks/41/keys = {
+"times": PackedFloat32Array(1.63768, 1.93333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/42/type = "value"
+tracks/42/imported = false
+tracks/42/enabled = true
+tracks/42/path = NodePath("CenterContainer/Effect/StarTrail5:position")
+tracks/42/interp = 1
+tracks/42/loop_wrap = false
+tracks/42/keys = {
+"times": PackedFloat32Array(1.50584, 1.80994),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(255, 3), Vector2(92, 6)]
+}
+tracks/43/type = "value"
+tracks/43/imported = false
+tracks/43/enabled = true
+tracks/43/path = NodePath("CenterContainer/Effect/StarTrail5:self_modulate")
+tracks/43/interp = 1
+tracks/43/loop_wrap = true
+tracks/43/keys = {
+"times": PackedFloat32Array(1.50497, 1.56667, 1.7214, 1.80497),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/44/type = "value"
+tracks/44/imported = false
+tracks/44/enabled = true
+tracks/44/path = NodePath("CenterContainer/Effect/StarTrail5/star5:visible")
+tracks/44/interp = 1
+tracks/44/loop_wrap = true
+tracks/44/keys = {
+"times": PackedFloat32Array(1.50932, 1.80994),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/45/type = "value"
+tracks/45/imported = false
+tracks/45/enabled = true
+tracks/45/path = NodePath("CenterContainer/Effect/StarTrail4:position")
+tracks/45/interp = 1
+tracks/45/loop_wrap = false
+tracks/45/keys = {
+"times": PackedFloat32Array(1.33333, 1.63333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(252, -120), Vector2(79, -51)]
+}
+tracks/46/type = "value"
+tracks/46/imported = false
+tracks/46/enabled = true
+tracks/46/path = NodePath("CenterContainer/Effect/StarTrail4:self_modulate")
+tracks/46/interp = 1
+tracks/46/loop_wrap = true
+tracks/46/keys = {
+"times": PackedFloat32Array(1.32836, 1.39006, 1.53981, 1.62339),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/47/type = "value"
+tracks/47/imported = false
+tracks/47/enabled = true
+tracks/47/path = NodePath("CenterContainer/Effect/StarTrail4/star4:visible")
+tracks/47/interp = 1
+tracks/47/loop_wrap = true
+tracks/47/keys = {
+"times": PackedFloat32Array(1.32774, 1.62339),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_f7cmv"]
+_data = {
+&"RESET": SubResource("Animation_uf50f"),
+&"idle_victory": SubResource("Animation_5p7gs"),
+&"init_victory": SubResource("Animation_vi8y8")
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uf50f"]
+atlas = ExtResource("10_ssxor")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5evc2"]
+atlas = ExtResource("10_ssxor")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iqeq5"]
+atlas = ExtResource("10_ssxor")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f166j"]
+atlas = ExtResource("10_ssxor")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hltx7"]
+atlas = ExtResource("10_ssxor")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_shsg8"]
+atlas = ExtResource("10_ssxor")
+region = Rect2(64, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ikdaa"]
+atlas = ExtResource("10_ssxor")
+region = Rect2(128, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v7144"]
+atlas = ExtResource("10_ssxor")
+region = Rect2(192, 64, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_75u5r"]
+resource_local_to_scene = true
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uf50f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5evc2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iqeq5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f166j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hltx7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_shsg8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ikdaa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v7144")
+}],
+"loop": false,
+"name": &"fx_sparks",
+"speed": 12.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ikdaa"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_fx1t2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_urymk")
+}],
+"loop": true,
+"name": &"star",
+"speed": 5.0
+}]
+
+[node name="banner_victory" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 2
+color = Color(0.0352941, 0.54902, 0.870588, 0.694118)
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 2
+
+[node name="Effect" type="Control" parent="CenterContainer"]
+layout_mode = 2
+script = SubResource("GDScript_hi1q3")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CenterContainer/Effect"]
+root_node = NodePath("../../..")
+libraries = {
+&"": SubResource("AnimationLibrary_f7cmv")
+}
+
+[node name="Rainbow" type="Sprite2D" parent="CenterContainer/Effect"]
+modulate = Color(1, 1, 1, 46.9503)
+self_modulate = Color(1, 1, 1, 1.72257e-05)
+show_behind_parent = true
+z_index = 1
+position = Vector2(-1, -27)
+scale = Vector2(1e-05, 1e-05)
+
+[node name="Rainbow5" type="Sprite2D" parent="CenterContainer/Effect/Rainbow"]
+self_modulate = Color(1, 1, 1, 0)
+z_index = 1
+position = Vector2(0, 1)
+texture = ExtResource("1_mrqsa")
+
+[node name="Rainbow4" type="Sprite2D" parent="CenterContainer/Effect/Rainbow"]
+self_modulate = Color(1, 1, 1, 0)
+z_index = 1
+position = Vector2(0, 2)
+texture = ExtResource("2_qvnig")
+
+[node name="Rainbow3" type="Sprite2D" parent="CenterContainer/Effect/Rainbow"]
+self_modulate = Color(1, 1, 1, 0)
+z_index = 1
+position = Vector2(0, 3)
+texture = ExtResource("3_x352a")
+
+[node name="Rainbow2" type="Sprite2D" parent="CenterContainer/Effect/Rainbow"]
+self_modulate = Color(1, 1, 1, 0)
+z_index = 1
+position = Vector2(0, 4)
+texture = ExtResource("4_bjac4")
+
+[node name="Rainbow1" type="Sprite2D" parent="CenterContainer/Effect/Rainbow"]
+z_index = 1
+position = Vector2(0, 6)
+texture = ExtResource("5_w2r0a")
+
+[node name="CloudBg" type="Sprite2D" parent="CenterContainer/Effect/Rainbow"]
+z_index = 1
+position = Vector2(-76.8436, 50)
+texture = ExtResource("6_eg3oa")
+
+[node name="CloudBg2" type="Sprite2D" parent="CenterContainer/Effect/Rainbow"]
+z_index = 1
+position = Vector2(87, 50)
+texture = ExtResource("6_eg3oa")
+
+[node name="Wheel" type="Sprite2D" parent="CenterContainer/Effect"]
+z_index = 2
+position = Vector2(0, 20)
+texture = ExtResource("7_cm0eq")
+offset = Vector2(0, -40)
+
+[node name="GunL" type="Sprite2D" parent="CenterContainer/Effect/Wheel"]
+position = Vector2(-33, -5)
+texture = ExtResource("8_rowd5")
+offset = Vector2(-16, -10)
+
+[node name="GunR" type="Sprite2D" parent="CenterContainer/Effect/Wheel"]
+position = Vector2(33, -5)
+texture = ExtResource("8_rowd5")
+offset = Vector2(16, -10)
+flip_h = true
+
+[node name="Foxy" type="Sprite2D" parent="CenterContainer/Effect"]
+z_index = 2
+position = Vector2(-8, 18)
+texture = ExtResource("9_0wxcy")
+offset = Vector2(0, -46)
+
+[node name="fx_spark" type="AnimatedSprite2D" parent="CenterContainer/Effect/Foxy"]
+visible = false
+z_index = 4
+position = Vector2(49.1663, -76.4494)
+rotation = 0.112892
+scale = Vector2(1.04406, 0.844112)
+skew = 0.0618908
+sprite_frames = SubResource("SpriteFrames_75u5r")
+animation = &"fx_sparks"
+autoplay = "fx_sparks"
+frame = 7
+
+[node name="Banner" type="Sprite2D" parent="CenterContainer/Effect"]
+z_index = 2
+position = Vector2(0, 37)
+texture = ExtResource("11_5hbg5")
+
+[node name="LightBg" type="Sprite2D" parent="CenterContainer/Effect"]
+self_modulate = Color(1, 1, 1, 0)
+z_index = 1
+position = Vector2(0, -13)
+texture = ExtResource("12_nu28e")
+offset = Vector2(0, -40)
+
+[node name="LightBg2" type="Sprite2D" parent="CenterContainer/Effect"]
+self_modulate = Color(1, 1, 1, 0.996245)
+show_behind_parent = true
+z_index = 1
+position = Vector2(0, -13)
+rotation = 0.174533
+texture = ExtResource("12_nu28e")
+offset = Vector2(0, -40)
+
+[node name="LightBg3" type="Sprite2D" parent="CenterContainer/Effect"]
+self_modulate = Color(1, 1, 1, 0.991176)
+show_behind_parent = true
+z_index = 1
+position = Vector2(0, -13)
+texture = ExtResource("12_nu28e")
+offset = Vector2(0, -40)
+
+[node name="StarTrail1" type="Sprite2D" parent="CenterContainer/Effect"]
+z_index = 2
+position = Vector2(-113, 13)
+texture = ExtResource("13_hr8mp")
+offset = Vector2(-60, 8)
+
+[node name="star1" type="AnimatedSprite2D" parent="CenterContainer/Effect/StarTrail1"]
+visible = false
+position = Vector2(31.6218, 2.2449)
+sprite_frames = SubResource("SpriteFrames_ikdaa")
+animation = &"star"
+frame_progress = 0.219097
+
+[node name="StarTrail2" type="Sprite2D" parent="CenterContainer/Effect"]
+z_index = 2
+position = Vector2(-71, -27)
+rotation = 0.253073
+texture = ExtResource("13_hr8mp")
+offset = Vector2(-89, 7)
+
+[node name="star2" type="AnimatedSprite2D" parent="CenterContainer/Effect/StarTrail2"]
+position = Vector2(0.250345, 0.968155)
+rotation = -0.226893
+sprite_frames = SubResource("SpriteFrames_ikdaa")
+animation = &"star"
+frame_progress = 0.476396
+
+[node name="StarTrail4" type="Sprite2D" parent="CenterContainer/Effect"]
+z_index = 2
+position = Vector2(100, -53)
+rotation = 2.7873
+texture = ExtResource("13_hr8mp")
+offset = Vector2(-89, 7)
+
+[node name="star4" type="AnimatedSprite2D" parent="CenterContainer/Effect/StarTrail4"]
+position = Vector2(0.250345, 0.968155)
+rotation = 0.366519
+sprite_frames = SubResource("SpriteFrames_ikdaa")
+animation = &"star"
+frame_progress = 0.192655
+
+[node name="StarTrail5" type="Sprite2D" parent="CenterContainer/Effect"]
+z_index = 2
+position = Vector2(122, 7)
+rotation = -3.11716
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("13_hr8mp")
+offset = Vector2(-89, 7)
+
+[node name="star5" type="AnimatedSprite2D" parent="CenterContainer/Effect/StarTrail5"]
+position = Vector2(0.250345, 0.968155)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_ikdaa")
+animation = &"star"
+frame_progress = 0.111711
+
+[node name="StarTrail3" type="Sprite2D" parent="CenterContainer/Effect"]
+z_index = 2
+position = Vector2(-69, -92)
+texture = ExtResource("16_rxxlq")
+offset = Vector2(-50, -48)
+
+[node name="star3" type="AnimatedSprite2D" parent="CenterContainer/Effect/StarTrail3"]
+position = Vector2(2, 4)
+sprite_frames = SubResource("SpriteFrames_ikdaa")
+animation = &"star"
+frame_progress = 0.137269
+
+[node name="StarTrail6" type="Sprite2D" parent="CenterContainer/Effect"]
+z_index = 2
+position = Vector2(37, -113)
+rotation = 1.04022
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("16_rxxlq")
+offset = Vector2(-50, -48)
+
+[node name="star6" type="AnimatedSprite2D" parent="CenterContainer/Effect/StarTrail6"]
+position = Vector2(2, 4)
+rotation = -1.01229
+sprite_frames = SubResource("SpriteFrames_ikdaa")
+animation = &"star"
+frame_progress = 0.271163
+
+[connection signal="animation_finished" from="CenterContainer/Effect/AnimationPlayer" to="CenterContainer/Effect" method="_on_animation_player_animation_finished"]

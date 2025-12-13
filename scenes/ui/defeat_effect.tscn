@@ -1,0 +1,614 @@
+[gd_scene load_steps=12 format=3 uid="uid://b0xmo05iaye4i"]
+
+[ext_resource type="Texture2D" uid="uid://dn2gj4ombwspe" path="res://assets/ui/result/fox_cry_1.png" id="1_kn8vn"]
+[ext_resource type="Texture2D" uid="uid://s8giej6c6v68" path="res://assets/ui/result/gun_l1.png" id="1_pwcn3"]
+[ext_resource type="Texture2D" uid="uid://k3ykj6aqi2j7" path="res://assets/ui/result/gun_l2.png" id="2_efk1i"]
+[ext_resource type="Texture2D" uid="uid://dxr2mh56qa6wb" path="res://assets/ui/result/fox_cry_2.png" id="2_mmpru"]
+[ext_resource type="Texture2D" uid="uid://duomksnipflnc" path="res://assets/ui/result/banner_l.png" id="3_pwcn3"]
+
+[sub_resource type="GDScript" id="GDScript_3ooyt"]
+script/source = "extends Node2D
+
+func _ready() -> void:
+	$AnimationPlayer.play(\"init_defeat\")
+
+func _on_animation_player_animation_finished(anim_name: StringName) -> void:
+	$AnimationPlayer.play_section_with_markers(\"init_defeat\", \"idle\", \"idle_end\")
+	pass # Replace with function body.
+"
+
+[sub_resource type="Animation" id="Animation_uf50f"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:position:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Banner:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 37)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Wheel:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Wheel:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 20)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Banner:scale")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Wheel/GunL:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-33, -5)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Wheel/GunL:rotation")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Wheel/GunR:rotation")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Foxy:scale")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("Foxy:rotation")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("Foxy:position")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-8, 18)]
+}
+
+[sub_resource type="Animation" id="Animation_eefko"]
+resource_name = "idle_defeat"
+length = 2.0
+loop_mode = 1
+markers = [{
+"color": Color(0.615686, 0.156863, 0.729412, 1),
+"name": &"idle_end",
+"time": 2.0
+}, {
+"color": Color(0.805494, 0.157402, 0.460574, 1),
+"name": &"idle",
+"time": 1.0
+}, {
+"color": Color(1, 1, 1, 1),
+"name": &"init",
+"time": 0.00232565
+}]
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.302352, 0.5),
+"transitions": PackedFloat32Array(1, 1, 5.27803, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(1.5, 1.5), Vector2(1.5, 1.5), Vector2(1, 1)]
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = false
+tracks/1/path = NodePath(".:position:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(),
+"points": PackedFloat32Array(),
+"times": PackedFloat32Array()
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = false
+tracks/2/path = NodePath(".:position:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(),
+"points": PackedFloat32Array(),
+"times": PackedFloat32Array()
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = false
+tracks/3/path = NodePath(".:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(),
+"points": PackedFloat32Array(),
+"times": PackedFloat32Array()
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Banner:position")
+tracks/4/interp = 2
+tracks/4/loop_wrap = false
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(9.78356, 1),
+"update": 0,
+"values": [Vector2(0, 10), Vector2(0, 37)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Wheel:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = false
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.433333, 0.6, 0.7, 0.768604),
+"transitions": PackedFloat32Array(1, 1, 4.14105, 0.15932, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(1.00136e-05, 1.00136e-05), Vector2(0.9, 1.3), Vector2(0.98, 1.075), Vector2(1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Wheel:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = false
+tracks/6/keys = {
+"times": PackedFloat32Array(0.466667, 0.634839, 0.733238),
+"transitions": PackedFloat32Array(0.116629, 2.54912, 1),
+"update": 0,
+"values": [Vector2(0, 30), Vector2(0, 15), Vector2(0, 20)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Banner:scale")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0.49915, 0.533333, 0.566667, 0.601126, 0.8, 0.9, 1.00176),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 2.54912, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.3, 0.9), Vector2(1, 1.3), Vector2(1, 1), Vector2(1.105, 0.865), Vector2(1, 1.105), Vector2(1, 1)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Wheel/GunL:rotation")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0.6, 0.7, 0.8, 0.99651, 1.5, 1.99551),
+"transitions": PackedFloat32Array(1, 1, 1, 0.594603, 1.56917, 1),
+"update": 0,
+"values": [0.0, 0.174533, -0.174533, 0.0, -0.0349066, 0.0]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Wheel/GunL:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Wheel/GunR:rotation")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0.598811, 0.699905, 0.80366, 0.997868, 1.5, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 0.659754, 2.14355, 1),
+"update": 0,
+"values": [0.0, -0.0698132, 0.261799, 0.0, 0.0523599, 0.0]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Foxy:scale")
+tracks/11/interp = 1
+tracks/11/loop_wrap = false
+tracks/11/keys = {
+"times": PackedFloat32Array(0, 0.633333, 0.766667, 0.9, 1, 1.23333, 1.5, 1.73301, 2),
+"transitions": PackedFloat32Array(1, 1, 1.27456, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 0), Vector2(0.95, 1.2), Vector2(1, 1.1), Vector2(1, 1), Vector2(1, 1.1), Vector2(1, 1), Vector2(1, 1.1), Vector2(1, 1)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("Foxy:rotation")
+tracks/12/interp = 1
+tracks/12/loop_wrap = false
+tracks/12/keys = {
+"times": PackedFloat32Array(0.633333, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [-0.216421, -0.0349066, -0.0349066]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("Foxy:position")
+tracks/13/interp = 1
+tracks/13/loop_wrap = false
+tracks/13/keys = {
+"times": PackedFloat32Array(0.633333, 0.866667, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-8, 30), Vector2(-8, 15), Vector2(-8, 18)]
+}
+
+[sub_resource type="Animation" id="Animation_vi8y8"]
+resource_name = "victory_banner"
+length = 2.0
+markers = [{
+"color": Color(0.615686, 0.156863, 0.729412, 1),
+"name": &"idle_end",
+"time": 2.0
+}, {
+"color": Color(0.805494, 0.157402, 0.460574, 1),
+"name": &"idle",
+"time": 1.0
+}, {
+"color": Color(1, 1, 1, 1),
+"name": &"init",
+"time": 0.00232565
+}]
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.302352, 0.5),
+"transitions": PackedFloat32Array(1, 1, 5.27803, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(1.5, 1.5), Vector2(1.5, 1.5), Vector2(1, 1)]
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = false
+tracks/1/path = NodePath(".:position:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(),
+"points": PackedFloat32Array(),
+"times": PackedFloat32Array()
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = false
+tracks/2/path = NodePath(".:position:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(),
+"points": PackedFloat32Array(),
+"times": PackedFloat32Array()
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = false
+tracks/3/path = NodePath(".:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(),
+"points": PackedFloat32Array(),
+"times": PackedFloat32Array()
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Banner:position")
+tracks/4/interp = 2
+tracks/4/loop_wrap = false
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(9.78356, 1),
+"update": 0,
+"values": [Vector2(0, 10), Vector2(0, 37)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Wheel:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = false
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.433333, 0.6, 0.7, 0.768604),
+"transitions": PackedFloat32Array(1, 1, 4.14105, 0.15932, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(1.00136e-05, 1.00136e-05), Vector2(0.9, 1.3), Vector2(0.98, 1.075), Vector2(1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Wheel:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = false
+tracks/6/keys = {
+"times": PackedFloat32Array(0.466667, 0.634839, 0.733238),
+"transitions": PackedFloat32Array(0.116629, 2.54912, 1),
+"update": 0,
+"values": [Vector2(0, 30), Vector2(0, 15), Vector2(0, 20)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Banner:scale")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0.49915, 0.533333, 0.566667, 0.601126, 0.8, 0.9, 1.00176),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 2.54912, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.3, 0.9), Vector2(1, 1.3), Vector2(1, 1), Vector2(1.105, 0.865), Vector2(1, 1.105), Vector2(1, 1)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Wheel/GunL:rotation")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0.6, 0.7, 0.8, 0.99651, 1.5, 1.99551),
+"transitions": PackedFloat32Array(1, 1, 1, 0.594603, 1.56917, 1),
+"update": 0,
+"values": [0.0, 0.174533, -0.174533, 0.0, -0.0349066, 0.0]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Wheel/GunL:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Wheel/GunR:rotation")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0.598811, 0.699905, 0.80366, 0.997868, 1.5, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 0.659754, 2.14355, 1),
+"update": 0,
+"values": [0.0, -0.0698132, 0.261799, 0.0, 0.0523599, 0.0]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Foxy:scale")
+tracks/11/interp = 1
+tracks/11/loop_wrap = false
+tracks/11/keys = {
+"times": PackedFloat32Array(0, 0.633333, 0.766667, 0.9, 1, 1.23333, 1.5, 1.73301, 2),
+"transitions": PackedFloat32Array(1, 1, 1.27456, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 0), Vector2(0.95, 1.2), Vector2(1, 1.1), Vector2(1, 1), Vector2(1, 1.1), Vector2(1, 1), Vector2(1, 1.1), Vector2(1, 1)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("Foxy:rotation")
+tracks/12/interp = 1
+tracks/12/loop_wrap = false
+tracks/12/keys = {
+"times": PackedFloat32Array(0.633333, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [-0.216421, -0.0349066, -0.0349066]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("Foxy:position")
+tracks/13/interp = 1
+tracks/13/loop_wrap = false
+tracks/13/keys = {
+"times": PackedFloat32Array(0.633333, 0.866667, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-8, 30), Vector2(-8, 15), Vector2(-8, 18)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_f7cmv"]
+_data = {
+&"RESET": SubResource("Animation_uf50f"),
+&"idle_defeat": SubResource("Animation_eefko"),
+&"init_defeat": SubResource("Animation_vi8y8")
+}
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_57s1i"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_kn8vn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_mmpru")
+}],
+"loop": true,
+"name": &"cry",
+"speed": 5.0
+}]
+
+[node name="DefeatEffect" type="Node2D"]
+script = SubResource("GDScript_3ooyt")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_f7cmv")
+}
+
+[node name="Wheel" type="Sprite2D" parent="."]
+z_index = 2
+position = Vector2(0, 20)
+offset = Vector2(0, -40)
+
+[node name="GunL" type="Sprite2D" parent="Wheel"]
+position = Vector2(-33, -5)
+texture = ExtResource("1_pwcn3")
+offset = Vector2(-16, -10)
+
+[node name="GunR" type="Sprite2D" parent="Wheel"]
+position = Vector2(33, -5)
+texture = ExtResource("2_efk1i")
+offset = Vector2(16, -10)
+flip_h = true
+
+[node name="Foxy" type="Sprite2D" parent="."]
+z_index = 2
+position = Vector2(-8, 18)
+offset = Vector2(0, -46)
+
+[node name="fox_cry" type="AnimatedSprite2D" parent="Foxy"]
+position = Vector2(4.97021, 1.95123)
+sprite_frames = SubResource("SpriteFrames_57s1i")
+animation = &"cry"
+autoplay = "cry"
+frame_progress = 0.410266
+offset = Vector2(10, -33.635)
+
+[node name="Banner" type="Sprite2D" parent="."]
+z_index = 2
+position = Vector2(0, 37)
+texture = ExtResource("3_pwcn3")
