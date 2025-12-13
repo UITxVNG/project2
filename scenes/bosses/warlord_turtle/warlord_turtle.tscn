@@ -152,12 +152,13 @@ size = Vector2(42, 62)
 [node name="WarlordTurtle" type="CharacterBody2D"]
 collision_layer = 0
 script = ExtResource("1_h88eo")
+max_health = 3
 
 [node name="Direction" type="Node2D" parent="."]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Direction"]
 sprite_frames = SubResource("SpriteFrames_b7cjc")
-animation = &"dead"
+animation = &"normal"
 flip_h = true
 
 [node name="HitArea2D" type="Area2D" parent="Direction"]
@@ -243,5 +244,5 @@ script = ExtResource("22_5qai5")
 product_packed_scene = ExtResource("32_evixd")
 target_container_name = &"Bullets"
 
-[connection signal="hitted" from="Direction/HitArea2D" to="Direction/HitArea2D" method="_on_hitted"]
-[connection signal="hurt" from="Direction/HurtArea2D" to="Direction/HurtArea2D" method="_on_hurt"]
+[connection signal="hitted" from="Direction/HitArea2D" to="." method="_on_hit_area_2d_hitted"]
+[connection signal="hurt" from="Direction/HurtArea2D" to="." method="_on_hurt_area_2d_hurt"]

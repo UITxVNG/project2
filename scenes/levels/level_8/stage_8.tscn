@@ -18,7 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://dytm3c86oshmd" path="res://scenes/screens/game_screen/hud.tscn" id="16_rk06a"]
 [ext_resource type="PackedScene" uid="uid://delnx8nkpylcy" path="res://scenes/npcs/mush/mush.tscn" id="17_mush"]
 [ext_resource type="Script" uid="uid://dybrdnvtsiqri" path="res://dialogic/dialog_trigger.gd" id="18_dialog"]
-[ext_resource type="Script" path="res://scripts/danger_zone_trigger.gd" id="19_danger"]
+[ext_resource type="Script" uid="uid://d4joxiojgp0c5" path="res://scripts/danger_zone_trigger.gd" id="19_danger"]
 
 [sub_resource type="Curve2D" id="Curve2D_6lbbw"]
 _data = {
@@ -168,4 +168,3 @@ rising_water_path = NodePath("../RisingWater")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DangerZoneTrigger"]
 shape = SubResource("RectangleShape2D_danger")
-

@@ -135,6 +135,7 @@ height = 42.0
 
 [node name="Shieldspearman" type="CharacterBody2D"]
 script = ExtResource("1_eo6yd")
+max_health = 3
 metadata/_custom_type_script = "uid://s4xx82espxdt"
 
 [node name="States" type="Node" parent="."]

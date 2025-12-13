@@ -63,6 +63,7 @@ height = 38.0
 collision_layer = 8
 script = ExtResource("1_7gbll")
 movement_speed = 100.0
+max_health = 3
 metadata/_custom_type_script = "uid://s4xx82espxdt"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

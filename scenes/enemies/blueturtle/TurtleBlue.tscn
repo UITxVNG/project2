@@ -90,6 +90,7 @@ height = 26.0
 [node name="TurtleBlue" type="CharacterBody2D"]
 collision_layer = 8
 script = ExtResource("1_fw2m5")
+max_health = 3
 metadata/_custom_type_script = "uid://s4xx82espxdt"
 
 [node name="Direction" type="Node2D" parent="."]

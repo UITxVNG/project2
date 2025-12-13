@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://8ak8mjc2uh1g" path="res://assets/sprites/enemy/barrel/barrel_atk_04.png" id="8_oykwr"]
 [ext_resource type="Texture2D" uid="uid://gexn7f67ybsm" path="res://assets/sprites/enemy/barrel/barrel_atk_03.png" id="9_4t7xj"]
 [ext_resource type="Texture2D" uid="uid://bueplr32o1ur2" path="res://assets/sprites/enemy/barrel/barrel_atk_05.png" id="10_emg27"]
-[ext_resource type="Script" path="res://scripts/node2d_factory.gd" id="11_fei17"]
+[ext_resource type="Script" uid="uid://dva73oliuh5wk" path="res://scripts/node2d_factory.gd" id="11_fei17"]
 [ext_resource type="PackedScene" uid="uid://t5rlmtgvluui" path="res://scenes/enemies/barrel/BarrelBullet.tscn" id="12_nifko"]
 [ext_resource type="Script" uid="uid://bvfh40gmmipgo" path="res://scenes/enemies/barrel/idle.gd" id="13_0rewk"]
 [ext_resource type="Script" uid="uid://b6afq4amlylry" path="res://scenes/enemies/barrel3s/shoot.gd" id="14_pdvom"]
@@ -65,6 +65,7 @@ animations = [{
 
 [node name="Barrel3s" type="CharacterBody2D"]
 script = ExtResource("1_pdvom")
+max_health = 3
 metadata/_custom_type_script = "uid://s4xx82espxdt"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

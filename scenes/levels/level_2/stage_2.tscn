@@ -55,6 +55,3 @@ artifact_name = "Vỏ Sò Thần Bí"
 
 [node name="DeathZone" parent="." instance=ExtResource("9_wof8j")]
 position = Vector2(40, 424)
-
-[connection signal="body_entered" from="TileMapLayer/Checkpoint" to="TileMapLayer/Checkpoint" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMapLayer/@Area2D@28730" to="TileMapLayer/@Area2D@28730" method="_on_body_entered"]

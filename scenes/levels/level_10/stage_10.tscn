@@ -48,10 +48,11 @@ parameters/looping = true
 [node name="Bullets" type="Node2D" parent="."]
 
 [node name="Player" parent="." instance=ExtResource("4_5eobn")]
-position = Vector2(1152, 80)
+position = Vector2(-720, 254)
+has_blade = true
 
 [node name="WarlordTurtle" parent="." instance=ExtResource("6_g2cvb")]
-position = Vector2(1370, -221)
+position = Vector2(1373, -161)
 
 [node name="Path2D" parent="." instance=ExtResource("7_un7i3")]
 position = Vector2(348, 338)

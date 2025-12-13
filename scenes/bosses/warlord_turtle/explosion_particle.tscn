@@ -1,28 +1,53 @@
-[gd_scene load_steps=4 format=3 uid="uid://ci66febm8eq4h"]
+[gd_scene load_steps=6 format=3 uid="uid://ci66febm8eq4h"]
 
 [ext_resource type="Texture2D" uid="uid://ia0y42ncy4i2" path="res://assets/sprites/war_lord_bullet/bullet_rocket_particle.png" id="1_scfj3"]
+[ext_resource type="Script" uid="uid://8dts8kr8c5wk" path="res://scenes/bosses/king_crab/hit_area_2d.gd" id="2_byiig"]
 
 [sub_resource type="GDScript" id="GDScript_s8ofv"]
 script/source = "extends RigidBody2D
 
-func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
+@export var lifetime := 0.9
+
+func _ready():
+	await get_tree().create_timer(lifetime).timeout
 	queue_free()
 "
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_caues"]
+radius = 5.0
+height = 10.0
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_s8ofv"]
-radius = 5.09902
+radius = 6.0
 
 [node name="ExplosionParticle" type="RigidBody2D"]
-collision_layer = 0
-collision_mask = 0
+max_contacts_reported = 4
 script = SubResource("GDScript_s8ofv")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_scfj3")
 
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(0.25, 0.5)
+scale = Vector2(0.675, 0.65)
+
+[node name="HitArea2D" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 4
+script = ExtResource("2_byiig")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitArea2D"]
+shape = SubResource("CapsuleShape2D_caues")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_s8ofv")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_s8ofv")
 
-[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
-
+[connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
