@@ -8,9 +8,15 @@ var is_invulnerable: bool = false
 var invulnerable_timer: float = 0.0
 var flicker_tween: Tween
 var is_dead: bool = false
+var orb_exists: bool = false
+var orb_angle: float = 0.0
+var orb_distance: float = 180.0
+var orb_rotate_speed: float = 3.0
+var saved_sprite_before_ultra: AnimatedSprite2D = null
 
 @export var has_blade: bool = false
 @export var has_hammer: bool = false
+var is_ultra: bool = false
 
 @onready var bullet_factory := $Direction/BulletFactory
 var wall_cling_lockout: float = 0.0
@@ -21,18 +27,25 @@ var max_jumps: int = 1
 var double_jump_buff_timer: float = 0.0
 var walk_smoke_timer: float = 0.0
 var unlock_hammer: bool = false   # có buff thì mới dùng được
+var ultra_mana_drain_rate := 10.0 # mana mỗi giây
+var ultra_timer := 0.0
 
 var has_shield_buff: bool = false
 var shield_buff_timer: float = 0.0
 var shield_hits: int = 0
+var base_speed := 0.0
+var base_damage := 0
+var base_jump := 0
 
 @export var jump_smoke_scene: PackedScene
 @export var walk_smoke_scene: PackedScene
 @export var hammer_scene: PackedScene
 
-
 func _ready() -> void:
 	super._ready()
+	base_speed = movement_speed
+	base_damage = attack_damage
+	base_jump = max_jumps
 	fsm = FSM.new(self, $States, $States/Idle)
 	$HurtArea2D.hurt.connect(_on_hurt_area_2d_hurt)
 
@@ -68,7 +81,8 @@ func can_attack() -> bool:
 	if decorator_manager != null:
 		if decorator_manager.can_blade_attack():
 			return true
-
+	if is_ultra:
+		return true
 	# blade dùng cho ném
 	if has_blade:
 		return true	
@@ -113,6 +127,8 @@ func collected_hammer() -> void:
 	set_animated_sprite($Direction/HammerAnimatedSprite2D)
 
 func throw_blade(speed: float) -> void:
+	if not spend_mana(10):
+		return  # không đủ mana thì không ném
 	var blade = bullet_factory.create() as RigidBody2D
 
 	blade.global_position = $Direction/FirePoint.global_position
@@ -232,7 +248,25 @@ func _physics_process(delta: float) -> void:
 	# RESET JUMP
 	if is_on_floor() and velocity.y == 0:
 		jump_count = 0
+	if orb_exists:
+		orb_angle += orb_rotate_speed * delta
 
+		var offset = Vector2(
+			cos(orb_angle) * orb_distance,
+			sin(orb_angle) * orb_distance
+		)
+
+		$TeleportOrb.global_position = global_position + offset
+	if is_ultra:
+		ultra_timer += delta
+		if ultra_timer >= 1.0:
+			ultra_timer = 0.0
+			mana -= ultra_mana_drain_rate
+			
+			if mana <= 0:
+				mana = 0
+				print("Not enough mana! Ultra form cancelled.")
+				_end_ultra_form()
 func summon_hammer():
 	var hammer = hammer_scene.instantiate()
 
@@ -257,8 +291,9 @@ func _unhandled_input(event: InputEvent) -> void:
 			jump()
 			fsm.change_state(fsm.states.jump)
 	if event.is_action_pressed("special"):
-		if unlock_hammer:
+		if unlock_hammer and spend_mana(20):
 			fsm.change_state(fsm.states.crush)
+
 
 func play_walk_smoke():
 	if walk_smoke_scene == null:
@@ -270,5 +305,105 @@ func play_walk_smoke():
 
 
 func _on_hit_area_2d_area_entered(area: Area2D) -> void:
-	if area.get_parent() is Rock:
-		area.get_parent().crush_break()
+	var parent = area.get_parent()
+
+	if parent is Rock:
+		if is_ultra:
+			parent.crush_break()
+			return
+
+		if fsm.current_state == fsm.states.crush:
+			parent.crush_break()
+
+
+
+func spawn_orb():
+	orb_exists = true
+	$TeleportOrb.visible = true
+	orb_angle = 0.0
+
+func heal():
+	if GameManager.inventory_system.health_potions > 0 and health < max_health:
+		GameManager.inventory_system.health_potions -= 1
+		health = min(health + 3, max_health)
+		print("Used potion. HP:", health)
+		
+func use_mana_potion():
+	if GameManager.inventory_system.mana_potions > 0 and mana < max_mana:
+		GameManager.inventory_system.mana_potions -= 1
+		mana = min(mana + 30, max_mana)  # tăng bao nhiêu tùy bạn (5,10,20...)
+		print("Used mana potion. Mana:", mana)
+	else:
+		print("Cannot use mana potion!") 
+
+
+func _input(event):
+	if event.is_action_pressed("teleport"):
+		if orb_exists:
+			if spend_mana(20):
+				teleport_to_orb()
+		else:
+			if spend_mana(20):
+				spawn_orb()
+
+	if event.is_action_pressed("heal"):
+		heal()
+	if event.is_action_pressed("mana"):
+		use_mana_potion()
+	if event.is_action_pressed("transform"):
+		transform_ultra()
+func transform_ultra():
+	if not is_ultra:
+		_start_ultra_form()
+	else:
+		_end_ultra_form()
+
+func _start_ultra_form():
+	if mana < 80:
+		print("Not enough mana to transform!")
+		return
+
+	is_ultra = true
+	saved_sprite_before_ultra = animated_sprite
+	print("The sprite saved", saved_sprite_before_ultra)
+	movement_speed = base_speed * 1.5
+	attack_damage = base_damage + 3
+
+	has_double_jump_buff = true
+	max_jumps = base_jump + 2   # từ 1 → 3
+	# Animation biến hình
+	change_animation("transform")
+	await animated_sprite.animation_finished
+
+	# Đổi sang sprite Ultra
+	set_animated_sprite($Direction/UltraFoxAnimatedSprite2D)
+	change_animation("idle")
+
+	print("ULTRA MODE ON")
+func _end_ultra_form():
+	is_ultra = false
+	movement_speed = base_speed
+	attack_damage = base_damage
+
+	has_double_jump_buff = false
+	max_jumps = base_jump
+	if saved_sprite_before_ultra != null:
+		set_animated_sprite(saved_sprite_before_ultra)
+	else:
+		set_animated_sprite($Direction/AnimatedSprite2D)
+	change_animation("idle")
+
+	print("ULTRA MODE OFF")
+
+func teleport_to_orb():
+	global_position = $TeleportOrb.global_position
+	$TeleportOrb.visible = false
+	orb_exists = false
+	
+func spend_mana(amount: int) -> bool:
+	if mana >= amount:
+		mana -= amount
+		return true
+	else:
+		print("Not enough mana!")
+		return false
