@@ -8,7 +8,8 @@ size = Vector2(28, 25)
 
 [node name="Artifact1" type="Area2D"]
 script = ExtResource("1_dqcpb")
-artifact_name = "Ngọc Triều Cường"
+artifact_id = 3
+artifact_name = "Ngọc Cá Mập"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_dqcpb")

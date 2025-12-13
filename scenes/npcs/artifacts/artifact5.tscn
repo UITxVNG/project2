@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://cx5ahdmu71xmp"]
+
+[ext_resource type="Script" uid="uid://ci21mpofm6vsk" path="res://scenes/npcs/artifacts/artifact.gd" id="1_moojt"]
+[ext_resource type="Texture2D" uid="uid://r8erm1uoqm6y" path="res://assets/artifact/Icons_06.png" id="2_moojt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qwwu5"]
+size = Vector2(28, 25)
+
+[node name="Artifact1" type="Area2D"]
+script = ExtResource("1_moojt")
+artifact_id = 5
+artifact_name = "Trái Tim Rùa Biển"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_moojt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1.5)
+shape = SubResource("RectangleShape2D_qwwu5")

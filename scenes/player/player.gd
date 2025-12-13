@@ -54,6 +54,8 @@ func _ready() -> void:
 	decorator_manager.initialize(self)
 	add_child(decorator_manager)
 
+	# Add to player group for Area2D detection
+	add_to_group("player")
 
 	GameManager.player = self
 

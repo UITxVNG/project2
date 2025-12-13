@@ -19,6 +19,9 @@ func _process(delta: float) -> void:
 	mana_potion.text = " X %s" % GameManager.inventory_system.get_mana_potion()
 	health_bar.value = GameManager.player.health
 	mana_bar.value = GameManager.player.mana
+	if GameManager.player is Player:
+		health_bar.value = GameManager.player.health
+
 func _on_settings_texture_button_pressed() -> void:
 	var popup_settings = load("res://scenes/screens/game_screen/settings_popup.tscn").instantiate()
 	get_parent().add_child(popup_settings)

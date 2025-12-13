@@ -1,10 +1,10 @@
 [gd_scene load_steps=4 format=3 uid="uid://b8dad0e1f2g3h"]
 
 [ext_resource type="Script" uid="uid://d4bpjq6c07gor" path="res://scenes/objects/rotating_saw/rotating_saw.gd" id="1_saw"]
-[ext_resource type="Texture2D" uid="uid://unmmgyi4meoc" path="res://assets/sprites/saw_blade/saw_blade.png" id="2_j4rjn"]
+[ext_resource type="Texture2D" uid="uid://devemehqs2i37" path="res://assets/sprites/saw_blade/Saw_blade.png" id="2_j4rjn"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_saw"]
-radius = 32.0
+radius = 19.0
 
 [node name="RotatingSaw" type="Path2D"]
 script = ExtResource("1_saw")
