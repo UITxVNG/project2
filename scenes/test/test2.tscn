@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://c0p1rw3em4axh"]
+[gd_scene load_steps=15 format=3 uid="uid://c0p1rw3em4axh"]
 
 [ext_resource type="Texture2D" uid="uid://ilolheqwlwk2" path="res://icon.svg" id="1_0bxed"]
 [ext_resource type="PackedScene" uid="uid://cr06n1w1va6i8" path="res://scenes/player/player.tscn" id="2_xbngi"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://m6j5xi76wkmp" path="res://scenes/objects/buffitems/double_jump/double_jump.tscn" id="10_q4wwx"]
 [ext_resource type="PackedScene" uid="uid://c2d3bfjbu72xq" path="res://scenes/objects/rock/rock.tscn" id="12_pk3sm"]
 [ext_resource type="PackedScene" uid="uid://b0g6vil2q16q5" path="res://scenes/objects/buffitems/hammer/hammer_buff.tscn" id="13_20jhc"]
+[ext_resource type="PackedScene" uid="uid://dytm3c86oshmd" path="res://scenes/screens/game_screen/hud.tscn" id="13_ibgce"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_51e2l"]
 size = Vector2(120, 122)
@@ -77,3 +78,7 @@ position = Vector2(529, 28)
 
 [node name="Rock" parent="." instance=ExtResource("12_pk3sm")]
 position = Vector2(621, 5)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HUD" parent="CanvasLayer" instance=ExtResource("13_ibgce")]

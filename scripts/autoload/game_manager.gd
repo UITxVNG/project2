@@ -5,6 +5,7 @@ extends Node
 # PRELOADS & CONSTANTS
 # =============================================================================
 const InventorySystem = preload("res://scripts/inventory_system.gd")
+const SAVE_FILE = "user://checkpoint_save.dat"
 
 # =============================================================================
 # PORTAL & STAGE SYSTEM
@@ -111,29 +112,84 @@ func _ready() -> void:
 	print("GameManager initialized")
 
 func _check_initial_checkpoint() -> void:
+	print("[DEBUG] _check_initial_checkpoint: is_initial_load=", is_initial_load, " has_checkpoint=", has_checkpoint())
+	print("[DEBUG] _check_initial_checkpoint: current_checkpoint_id=", current_checkpoint_id)
+	
 	if is_initial_load and has_checkpoint():
-		print("Checkpoint found on project load, preparing to respawn")
+		print("[DEBUG] Checkpoint found on project load, preparing to respawn")
 		var checkpoint_info = checkpoint_data.get(current_checkpoint_id, {})
+		print("[DEBUG] checkpoint_info=", checkpoint_info)
 		if not checkpoint_info.is_empty():
 			var checkpoint_stage = checkpoint_info.get("stage_path", "")
 			if not checkpoint_stage.is_empty():
-				should_respawn_at_checkpoint = true
-				get_tree().change_scene_to_file(checkpoint_stage)
+				current_stage = get_tree().current_scene
+				var current_scene_path = current_stage.scene_file_path if current_stage else ""
+				
+				# Check if we're already on the correct stage
+				if current_scene_path == checkpoint_stage:
+					print("[DEBUG] Already on correct stage, respawning player directly")
+					should_respawn_at_checkpoint = true
+					# Find existing player in scene
+					_find_and_respawn_player()
+				else:
+					print("[DEBUG] Setting should_respawn_at_checkpoint=true, changing to stage: ", checkpoint_stage)
+					should_respawn_at_checkpoint = true
+					get_tree().change_scene_to_file(checkpoint_stage)
 		is_initial_load = false
 	else:
 		is_initial_load = false
+
+
+func _find_and_respawn_player() -> void:
+	"""Find player in current scene and trigger respawn"""
+	await get_tree().process_frame # Wait for scene to be fully ready
+	
+	if current_stage == null:
+		current_stage = get_tree().current_scene
+	
+	# Find player in scene tree
+	var players = get_tree().get_nodes_in_group("player")
+	if players.size() > 0:
+		player = players[0]
+	else:
+		# Try finding by class
+		player = _find_player_recursive(current_stage)
+	
+	if player != null:
+		print("Player found in scene: ", player.name)
+		print("[DEBUG] should_respawn_at_checkpoint = ", should_respawn_at_checkpoint)
+		call_deferred("_restore_player_equipment")
+		if should_respawn_at_checkpoint:
+			print("[DEBUG] Queueing respawn at checkpoint...")
+			call_deferred("respawn_at_checkpoint")
+			should_respawn_at_checkpoint = false
+	else:
+		print("[DEBUG] Player not found in scene!")
+
+
+func _find_player_recursive(node: Node) -> Player:
+	if node is Player:
+		return node
+	for child in node.get_children():
+		var found = _find_player_recursive(child)
+		if found != null:
+			return found
+	return null
 
 func _on_node_added(node: Node) -> void:
 	if node is Player:
 		player = node
 		current_stage = get_tree().current_scene
 		print("Player detected in scene: ", node.name)
+		print("[DEBUG] should_respawn_at_checkpoint = ", should_respawn_at_checkpoint)
+		print("[DEBUG] current_checkpoint_id = ", current_checkpoint_id)
 		
 		# Restore equipment
 		call_deferred("_restore_player_equipment")
 		
 		# Handle pending actions
 		if should_respawn_at_checkpoint:
+			print("[DEBUG] Queueing respawn at checkpoint...")
 			call_deferred("respawn_at_checkpoint")
 			should_respawn_at_checkpoint = false
 		elif pending_teleport and not target_portal_name.is_empty():
@@ -505,7 +561,7 @@ func save_game() -> void:
 			"y": player.global_position.y
 		}
 	
-	var file = FileAccess.open("user://savegame.save", FileAccess.WRITE)
+	var file = FileAccess.open(SAVE_FILE, FileAccess.WRITE)
 	if file:
 		file.store_var(save_data)
 		file.close()
@@ -514,11 +570,11 @@ func save_game() -> void:
 		push_error("❌ Không thể tạo file save!")
 
 func load_game() -> void:
-	if not FileAccess.file_exists("user://savegame.save"):
+	if not FileAccess.file_exists(SAVE_FILE):
 		print("⚠️ Không tìm thấy file save!")
 		return
 	
-	var file = FileAccess.open("user://savegame.save", FileAccess.READ)
+	var file = FileAccess.open(SAVE_FILE, FileAccess.READ)
 	if not file:
 		push_error("❌ Không thể mở file save!")
 		return

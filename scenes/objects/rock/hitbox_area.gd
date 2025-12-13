@@ -34,8 +34,13 @@ func _on_area_entered(area: Area2D) -> void:
 	print("FOUND ROCK:", rnode)
 
 	# ===== CHECK STATE =====
+	if player.is_ultra:
+		print("ULTRA BREAK!")
+		rnode.crush_break()
+		return
+
 	if player.fsm.current_state == player.fsm.states.crush:
-		print("CALLING CRUSH BREAK")
+		print("CRUSH BREAK!")
 		rnode.crush_break()
 	else:
 		print("NOT CRUSH STATE")
