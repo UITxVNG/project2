@@ -39,5 +39,3 @@ position = Vector2(209, 203)
 
 [node name="DeathZone" parent="." instance=ExtResource("7_x1otw")]
 position = Vector2(100, 411)
-
-[connection signal="body_entered" from="TileMapLayer/Checkpoint" to="TileMapLayer/Checkpoint" method="_on_body_entered"]

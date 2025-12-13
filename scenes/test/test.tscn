@@ -59,7 +59,9 @@ position = Vector2(-1.04308e-06, -2.27555)
 shape = SubResource("RectangleShape2D_51e2l")
 
 [node name="Player" parent="World" instance=ExtResource("2_st4qh")]
-position = Vector2(-434, 421)
+position = Vector2(-521, 422)
+has_blade = true
+has_hammer = true
 
 [node name="Sprite2D2" type="Sprite2D" parent="World"]
 position = Vector2(973, 463)
@@ -112,7 +114,7 @@ position = Vector2(1300, 372)
 position = Vector2(434, 415)
 
 [node name="Pelicant" parent="World" instance=ExtResource("7_2dgve")]
-position = Vector2(-414, 297)
+position = Vector2(-415, 101)
 
 [node name="Bullets" type="Node2D" parent="."]
 visibility_layer = 2
@@ -142,10 +144,10 @@ position = Vector2(1175, 368)
 position = Vector2(630, 422)
 
 [node name="KingCrab" parent="." instance=ExtResource("3_x4ubh")]
-position = Vector2(766, 408)
+position = Vector2(2088, 405)
 
 [node name="WarlordTurtle" parent="." instance=ExtResource("15_xm0ii")]
-position = Vector2(59, 404)
+position = Vector2(-311, 407)
 
 [node name="Barrel" parent="." instance=ExtResource("3_5unt0")]
 position = Vector2(287, 417)

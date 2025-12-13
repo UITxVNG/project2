@@ -34,3 +34,7 @@ func _create_particles_safe() -> void:
 
 func _on_hit_area_2d_hitted(_area: Variant) -> void:
 	explosion()
+
+
+func _on_body_entered(body: Node) -> void:
+	explosion()
